@@ -7,7 +7,7 @@ import Section from "./Section";
 
 var boxes = ["╱", "╲"];
 var rows = [];
-var max = 239;
+var max = 249;
 function writeNext() {
   document.getElementById("marbles").innerHTML +=
     boxes[Math.round(Math.random())];
@@ -63,14 +63,29 @@ export default class Main extends Component {
                 sound design, and human-computer interaction.
                 <br />
                 <br />
-                Previously a music therapist and at the music distributor Forced
-                Exposure. A fullstack audio/visual application developer.
+                Previously a music therapist and a record nerd at music
+                distributor Forced Exposure. now a fullstack audio/visual
+                application developer
+                <br />
+                <br />
+                <div style={{ display: "flex", flexDirection: "column" }}>
+                  now listening:
+                  <img
+                    alt="record"
+                    src="https://img.discogs.com/RgWjSJxC1PpWqyV7NebG6e-Wj7Q=/fit-in/600x597/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-184251-1455309048-1365.jpeg.jpg"
+                    style={{
+                      maxHeight: "250px",
+                      maxWidth: "250px",
+                      marginTop: "15px"
+                    }}
+                  />
+                </div>
               </div>
               <Space />{" "}
               <Section subtitle={dummyText} dark={false} id="section2" />{" "}
               <Space />
               <div id="section3" style={{ marginTop: "75px" }}>
-              <Projects/>
+                <Projects />
               </div>
               <Space />
               <Section
@@ -92,6 +107,18 @@ export default class Main extends Component {
               style={{ marginBottom: "25px" }}
             >
               About
+            </Link>
+            <Link
+              activeClass="active"
+              className="monument"
+              to="section1"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              style={{ marginBottom: "25px" }}
+            >
+              Skillset
             </Link>
             <Link
               activeClass="active"
