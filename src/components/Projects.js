@@ -31,17 +31,23 @@ export default class Projects extends Component {
 
 const ProjectsContainer = styled.div`
   height: 78vh;
-  width: 70vw;
+  width: 85vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
 `;
 
-const ProjectCard = styled.div(props =>({
+const ProjectCard = styled.div(props => ({
   display: "flex",
   justifyContent: "center",
   fontSize: "2rem",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   transform: props.started ? "perspective(600px) translate3d(10px, 50px, 250px)" : "perspective(600px) translate3d(10px, 0px , 100px)",
-  transition: "transform 1s ease"}) );
+  // transform: "perspective(600px) translate3d(10px, 0px , 100px)",
 
+
+  // hover: {
+  //   transform: "perspective(600px) translate3d(10px, 50px, 250px)"
+  // }
+  transition: "transform 1s ease"
+}));

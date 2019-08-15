@@ -189,64 +189,98 @@ export default class Main extends Component {
     const { startAnimation } = this.state;
     return (
       <MainContainer>
-        <HeaderContainer>
-          <Title style={{ marginLeft: "25px" }}>MIKE CASSIDY </Title>
-        </HeaderContainer>
-        <BodyContainer>
-          <ScrollContainer>
-            <BioContainer>
-              <div id="about" style={{ marginTop: "75px" }}>
-                A software engineer with an affinity for functional structures,
-                sound design, and human-computer interaction.
-                <br />
-                <br />
-                Previously a music therapist and a record nerd at music
-                distributor Forced Exposure. now a fullstack audio/visual
-                application developer
-                <br />
-                <br />
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  now listening:
-                  <div style={{ display: "flex", flexDirection: "row" }}>
-                    <img
-                      alt="record"
-                      src={nimbus}
-                      style={{
-                        maxHeight: "250px",
-                        maxWidth: "250px",
-                        marginTop: "15px",
-                        marginRight: "15px"
-                      }}
-                    />
-                    <img
-                      alt="record"
-                      src={psychic}
-                      style={{
-                        maxHeight: "250px",
-                        maxWidth: "250px",
-                        marginTop: "15px",
-                        marginRight: "15px"
-                      }}
-                    />{" "}
-                    <img
-                      alt="record"
-                      src="https://img.discogs.com/RgWjSJxC1PpWqyV7NebG6e-Wj7Q=/fit-in/600x597/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-184251-1455309048-1365.jpeg.jpg"
-                      style={{
-                        maxHeight: "250px",
-                        maxWidth: "250px",
-                        marginTop: "15px",
-                        marginRight: "15px"
-                      }}
-                    />
+        <LeftLinks>
+          <AboutLink>
+            <Link
+              activeClass="active"
+              className="monument"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              style={{ marginBottom: "25px" }}
+            >
+              About
+            </Link>
+          </AboutLink>
+          <ResumeLink>
+            {" "}
+            <Link
+              activeClass="active"
+              className="monument"
+              to="section4"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              Resume
+            </Link>
+          </ResumeLink>
+        </LeftLinks>
+        <Middle>
+          <HeaderContainer>
+            <Title style={{ marginLeft: "25px" }}>MIKE CASSIDY </Title>
+          </HeaderContainer>
+          <BodyContainer>
+            <ScrollContainer>
+              <BioContainer>
+                <div id="about" style={{ marginTop: "75px" }}>
+                  A software engineer with an affinity for functional
+                  structures, sound design, and human-computer interaction.
+                  <br />
+                  <br />
+                  Previously a music therapist and a record nerd at music
+                  distributor Forced Exposure. now a fullstack audio/visual
+                  application developer
+                  <br />
+                  <br />
+                  <div style={{ display: "flex", flexDirection: "column" }}>
+                    now listening:
+                    <div style={{ display: "flex", flexDirection: "row" }}>
+                      <img
+                        alt="record"
+                        src={nimbus}
+                        style={{
+                          maxHeight: "250px",
+                          maxWidth: "250px",
+                          marginTop: "15px",
+                          marginRight: "15px"
+                        }}
+                      />
+                      <img
+                        alt="record"
+                        src={psychic}
+                        style={{
+                          maxHeight: "250px",
+                          maxWidth: "250px",
+                          marginTop: "15px",
+                          marginRight: "15px"
+                        }}
+                      />{" "}
+                      <img
+                        alt="record"
+                        src="https://img.discogs.com/RgWjSJxC1PpWqyV7NebG6e-Wj7Q=/fit-in/600x597/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-184251-1455309048-1365.jpeg.jpg"
+                        style={{
+                          maxHeight: "250px",
+                          maxWidth: "250px",
+                          marginTop: "15px",
+                          marginRight: "15px"
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-              </div>
+                </div>{" "}
+              </BioContainer>
               <Space />
               <div id="section2">
                 <Skillset id="section2" />
               </div>
               <Fade>
-                <Space />{" "}
+                <Space>
+                  <canvas id="canvas" width="1800" height="403" />
+                </Space>{" "}
                 <div
                   id="section3"
                   style={{ marginTop: "75px" }}
@@ -265,80 +299,19 @@ export default class Main extends Component {
                 dark={true}
                 id="section5"
               />
-            </BioContainer>
-          </ScrollContainer>{" "}
-          <Fade>
-            <NavLinkContainer>
-              <Link
-                activeClass="active"
-                className="monument"
-                to="about"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                style={{ marginBottom: "25px" }}
-              >
-                About
-              </Link>
-              <Link
-                activeClass="active"
-                className="monument"
-                to="section2"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                style={{ marginBottom: "25px" }}
-              >
-                Skillset
-              </Link>{" "}
-              <Link
-                activeClass="active"
-                className="monument"
-                to="section3"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                style={{ marginBottom: "25px" }}
-              >
-                Projects
-              </Link>
-              <Link
-                activeClass="active"
-                className="monument link"
-                to="section4"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                style={{ marginBottom: "25px" }}
-              >
-                Resume
-              </Link>
-              <Link
-                activeClass="active"
-                className="monument"
-                to="section5"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-                style={{ marginBottom: "25px" }}
-              >
-                Contact
-              </Link>
-              <div
-              // style={{
-              //   width: "22.8571428571vw",
-              //   height: "22.142857vw",
-              //   margin: "-11.4285714286vw 0 0 -11.4285714286vw"
-              // }}
-              />
-              <canvas id="canvas" width="400" height="223" />
-              {/* <TenPlus id="marbles">{rows}</TenPlus> */}
-              {/* var boxes = ["╱", "╲"];
+            </ScrollContainer>{" "}
+            <Fade>
+              <NavLinkContainer>
+                <div
+                // style={{
+                //   width: "22.8571428571vw",
+                //   height: "22.142857vw",
+                //   margin: "-11.4285714286vw 0 0 -11.4285714286vw"
+                // }}
+                />
+
+                {/* <TenPlus id="marbles">{rows}</TenPlus> */}
+                {/* var boxes = ["╱", "╲"];
 		var max = 4000;
 		function writeNext()
         {
@@ -353,9 +326,40 @@ export default class Main extends Component {
 			}
 		}
 		run();	 */}
-            </NavLinkContainer>
-          </Fade>
-        </BodyContainer>
+              </NavLinkContainer>
+            </Fade>
+          </BodyContainer>
+        </Middle>
+        <RightLinks>
+          <ProjectsLink>
+            {" "}
+            <Link
+              activeClass="active"
+              className="monument"
+              to="section3"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+            >
+              Projects
+            </Link>
+          </ProjectsLink>
+          <ContactLink>
+            <Link
+              activeClass="active"
+              className="monument"
+              to="section5"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              style={{ marginBottom: "25px" }}
+            >
+              Contact
+            </Link>
+          </ContactLink>
+        </RightLinks>
       </MainContainer>
     );
   }
@@ -370,7 +374,9 @@ const TenPlus = styled.div`
 `;
 
 const MainContainer = styled.div`
-  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr 10fr 1fr;
+  grid-template-areas: "about middle project" "resume middle contact";
   background-color: rgb(217, 234, 211);
   // background-color:#d3cccb
   height: 100%;
@@ -379,18 +385,12 @@ const MainContainer = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  position: fixed;
-  padding: 20px;
   height: 20vh;
   justify-content: space-between;
   display: flex;
 `;
 
 const BioContainer = styled.div`
-  padding: 50px;
-
-  font-size: 1.5rem;
-  font-family: MonumentRegular;
   max-width: 75%;
 `;
 
@@ -405,11 +405,60 @@ const BodyContainer = styled.div`
 `;
 
 const ScrollContainer = styled.div`
-  width: 75vw;
+  width: 96vw;
+  padding: 50px;
+
+  font-size: 1.5rem;
+  font-family: MonumentRegular;
+`;
+
+const Middle = styled.div`
+  // position: fixed;
+  // left: 4vw;
+  width: 96vw;
+  margin: 0 3vw;
+`;
+
+const LeftLinks = styled.div`
+  position: fixed;
+  left: 0;
+`;
+
+const RightLinks = styled.div`
+  position: fixed;
+  right: 0;
+  background-color: green;
+`;
+
+const SideLink = styled.div`
+  width: 3vw;
+  height: 50vh;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+`;
+
+const AboutLink = styled(SideLink)`
+  background-color: blue;
+  grid-area: about;
+`;
+
+const ProjectsLink = styled(SideLink)`
+  background-color: green;
+  grid-area: projects;
+`;
+
+const ResumeLink = styled(SideLink)`
+  background-color: purple;
+  grid-area: resume;
+`;
+
+const ContactLink = styled(SideLink)`
+  background-color: orange;
+  grid-area: contact;
 `;
 
 const NavLinkContainer = styled.div`
-  width: 20vw;
+  // width: 20vw;
   display: flex;
   align-items: flex-end;
   flex-direction: column;
@@ -428,10 +477,12 @@ const Title = styled.div`
   -webkit-text-stroke: 1.1px black;
   text-stroke: 1.1px black;
   text-shadow: none;
+  transform: "perspective(600px) translate3d(10px, 0px , 50px)";
   transition: color 0.25s ease-in-out;
   :hover {
     color: black;
-    transition: color 0.25s ease-in-out;
+    transition: color 0.25s ease-in-out, transform 0.5s ease;
+    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
   }
 `;
 
