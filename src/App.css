@@ -33,7 +33,7 @@
     transition: color 0.25s ease-in-out;
   }
 
-  .monument:hover{
+  .monument:hover {
     color: black;
     transition: color 0.25s ease-in-out;
   }

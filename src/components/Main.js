@@ -1,27 +1,80 @@
 import React, { Component } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 import styled from "@emotion/styled";
+import TrackVisibility from "react-on-screen";
+import Projects from "./Projects";
 import Section from "./Section";
 
+var boxes = ["╱", "╲"];
+var rows = [];
+var max = 239;
+function writeNext() {
+  document.getElementById("marbles").innerHTML +=
+    boxes[Math.round(Math.random())];
+
+  // for (var i = 0; i < max; i++) {
+  //   // note: we add a key prop here to allow react to uniquely identify each
+  //   // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
+  //   rows.push(
+  //     <span key={i} box={boxes[Math.round(Math.random())]}>
+  //       {boxes[Math.round(Math.random())]}{" "}
+  //     </span>
+  //   );
+  //   // rows.push(<span key={i} box={boxes[Math.round(Math.random())]}>  {boxes[Math.round(Math.random())]} </span>);
+  // }
+}
+var count = 0;
+function run() {
+  writeNext();
+  if (count++ < max) {
+    setTimeout(run, 5);
+  }
+}
+
+// var rows = [];
+// for (var i = 0; i < max; i++) {
+//   // note: we add a key prop here to allow react to uniquely identify each
+//   // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
+//   rows.push(
+//     <span key={i} box={boxes[Math.round(Math.random())]}>
+//       {" "}
+//       {boxes[Math.round(Math.random())]}{" "}
+//     </span>
+//   );
+//   // rows.push(<span key={i} box={boxes[Math.round(Math.random())]}>  {boxes[Math.round(Math.random())]} </span>);
+// }
 
 export default class Main extends Component {
+  componentDidMount() {
+    run();
+  }
+
   render() {
     return (
       <MainContainer>
         <HeaderContainer>
-          <div className="monument">MIKE CASSIDY </div>
-          <div className="monument">About</div>
+          <Title>MIKE CASSIDY </Title>
         </HeaderContainer>
         <BodyContainer>
           <ScrollContainer>
             <BioContainer>
-
-              <Section subtitle={dummyText} dark={true} id="about" />
-              <Section subtitle={dummyText} dark={false} id="section2" />
-              <Section subtitle={dummyText} dark={true} id="section3" />
-              <Section subtitle={dummyText} dark={false} id="section4" />
+              <div id="about" style={{ marginTop: "75px" }}>
+                A software engineer with an affinity for functional structures,
+                sound design, and human-computer interaction.
+                <br />
+                <br />
+                Previously a music therapist and at the music distributor Forced
+                Exposure. A fullstack audio/visual application developer.
+              </div>
+              <Space />{" "}
+              <Section subtitle={dummyText} dark={false} id="section2" />{" "}
+              <Space />
+              <div id="section3" style={{ marginTop: "75px" }}>
+              <Projects/>
+              </div>
+              <Space />
               <Section
-                subtitle={dummyText}
+                subtitle={" Listening, learning, and building in: Boston."}
                 dark={true}
                 id="section5"
               />
@@ -30,60 +83,83 @@ export default class Main extends Component {
           <NavLinkContainer>
             <Link
               activeClass="active"
+              className="monument"
               to="about"
               spy={true}
               smooth={true}
               offset={-70}
               duration={500}
+              style={{ marginBottom: "25px" }}
             >
               About
             </Link>
             <Link
               activeClass="active"
+              className="monument link"
               to="section2"
               spy={true}
               smooth={true}
               offset={-70}
               duration={500}
+              style={{ marginBottom: "25px" }}
             >
-              About2
+              Resume
             </Link>
             <Link
               activeClass="active"
+              className="monument"
               to="section3"
               spy={true}
               smooth={true}
               offset={-70}
               duration={500}
+              style={{ marginBottom: "25px" }}
             >
-              About3
+              Projects
             </Link>
+
             <Link
               activeClass="active"
-              to="section4"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-            >
-              About4
-            </Link>
-            <Link
-              activeClass="active"
+              className="monument"
               to="section5"
               spy={true}
               smooth={true}
               offset={-70}
               duration={500}
+              style={{ marginBottom: "25px" }}
             >
-              About5
+              Contact
             </Link>
+            <TenPlus id="marbles">{rows}</TenPlus>
+            {/* var boxes = ["╱", "╲"];
+		var max = 4000;
+		function writeNext()
+        {
+			document.getElementById('content').innerHTML +=
+			boxes[Math.round(Math.random())];
+        }
+		var count = 0;
+		function run() {
+			writeNext();
+			if(count++ < max) {
+				setTimeout(run,5);
+			}
+		}
+		run();	 */}
           </NavLinkContainer>
         </BodyContainer>
       </MainContainer>
     );
   }
 }
+
+const TenPlus = styled.div`
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  width: 250px;
+  overflow-wrap: break-word;
+`;
 
 const MainContainer = styled.div`
   padding: 15px;
@@ -101,9 +177,14 @@ const HeaderContainer = styled.div`
 const BioContainer = styled.div`
   padding: 50px;
 
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-family: MonumentRegular;
   max-width: 75%;
+`;
+
+const Space = styled.div`
+  height: 100vh;
+  width: 100vw;
 `;
 
 const BodyContainer = styled.div`
@@ -118,6 +199,7 @@ const ScrollContainer = styled.div`
 const NavLinkContainer = styled.div`
   width: 20vw;
   display: flex;
+  align-items: flex-end;
   flex-direction: column;
   position: fixed;
   right: 0;
@@ -126,7 +208,20 @@ const NavLinkContainer = styled.div`
   padding: 15px;
 `;
 
+const Title = styled.div`
+  position: fixed;
+  font-family: "MonumentRegular";
+  font-size: 2.5rem;
+  color: transparent;
+  -webkit-text-stroke: 1.1px black;
+  text-stroke: 1.1px black;
+  text-shadow: none;
+  transition: color 0.25s ease-in-out;
+  :hover {
+    color: black;
+    transition: color 0.25s ease-in-out;
+  }
+`;
 
-
-
-const dummyText = "A software engineer with an affinity for functional structures, sound design, and human-computer interaction. \n\n Previously, I've worked as a music therapist with autistic children and as inventory manager the music distributor Forced Exposure. I now specialize in fullstack application development and audio/visual programming. \n\n I spend my time listening, learning, building electronics, and writing code, currently in based in Boston.";
+const dummyText =
+  "A software engineer with an affinity for functional structures, sound design, and human-computer interaction. \n\n Previously, I've worked as a music therapist with autistic children and as inventory manager the music distributor Forced Exposure. I now specialize in fullstack application development and audio/visual programming. \n\n I spend my time listening, learning, building electronics, and writing code, currently in based in Boston.";
