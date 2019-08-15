@@ -5,18 +5,25 @@ import orphan from "../imgs/orphan2.png";
 
 export default class Projects extends Component {
   render() {
+    const { started } = this.props;
     return (
       <ProjectsContainer>
-        <ProjectCard style={{ backgroundImage: `url(${prophec})` }}>
+        <ProjectCard
+          started={started}
+          style={{ backgroundImage: `url(${prophec})` }}
+        >
           ProphetC++
         </ProjectCard>
-        <ProjectCard style={{ backgroundImage: `url(${orphan})` }}>
+        <ProjectCard
+          started={started}
+          style={{ backgroundImage: `url(${orphan})` }}
+        >
           Orphan Records
         </ProjectCard>
-        <ProjectCard>Audio Plugins</ProjectCard>
-        <ProjectCard>SynthFolio</ProjectCard>
-        <ProjectCard>La Rama</ProjectCard>
-        <ProjectCard>Max/MSP</ProjectCard>
+        <ProjectCard started={started}>Audio Plugins</ProjectCard>
+        <ProjectCard started={started}>SynthFolio</ProjectCard>
+        <ProjectCard started={started}>La Rama</ProjectCard>
+        <ProjectCard started={started}>Max/MSP</ProjectCard>
       </ProjectsContainer>
     );
   }
@@ -29,10 +36,12 @@ const ProjectsContainer = styled.div`
   grid-template-columns: 1fr 1fr;
 `;
 
-const ProjectCard = styled.div`
-  display: flex;
-  justify-content: center;
-  font-size: 2rem;
-  background-size: cover;
-  background-repeat: no-repeat;
-`;
+const ProjectCard = styled.div(props =>({
+  display: "flex",
+  justifyContent: "center",
+  fontSize: "2rem",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+  transform: props.started ? "perspective(600px) translate3d(10px, 50px, 250px)" : "perspective(600px) translate3d(10px, 0px , 100px)",
+  transition: "transform 1s ease"}) );
+
