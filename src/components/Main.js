@@ -4,6 +4,9 @@ import styled from "@emotion/styled";
 import TrackVisibility from "react-on-screen";
 import Projects from "./Projects";
 import Section from "./Section";
+import psychic from "../imgs/psychic.png";
+import nimbus from "../imgs/Nimbus.png";
+import Skillset from "./Skillset";
 
 var boxes = ["╱", "╲"];
 var rows = [];
@@ -31,6 +34,8 @@ function run() {
   }
 }
 
+// TOOODOOOO  Map Letters to svg
+
 // var rows = [];
 // for (var i = 0; i < max; i++) {
 //   // note: we add a key prop here to allow react to uniquely identify each
@@ -53,12 +58,12 @@ export default class Main extends Component {
     return (
       <MainContainer>
         <HeaderContainer>
-          <Title>MIKE CASSIDY </Title>
+          <Title style={{ marginLeft: "25px" }}>MIKE CASSIDY </Title>
         </HeaderContainer>
         <BodyContainer>
           <ScrollContainer>
             <BioContainer>
-              <div id="about" style={{ marginTop: "75px" }}>
+              <div id="about" style={{ marginTop: "50px" }}>
                 A software engineer with an affinity for functional structures,
                 sound design, and human-computer interaction.
                 <br />
@@ -70,23 +75,50 @@ export default class Main extends Component {
                 <br />
                 <div style={{ display: "flex", flexDirection: "column" }}>
                   now listening:
-                  <img
-                    alt="record"
-                    src="https://img.discogs.com/RgWjSJxC1PpWqyV7NebG6e-Wj7Q=/fit-in/600x597/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-184251-1455309048-1365.jpeg.jpg"
-                    style={{
-                      maxHeight: "250px",
-                      maxWidth: "250px",
-                      marginTop: "15px"
-                    }}
-                  />
+                  <div style={{ display: "flex", flexDirection: "row" }}>
+                    <img
+                      alt="record"
+                      src={nimbus}
+                      style={{
+                        maxHeight: "250px",
+                        maxWidth: "250px",
+                        marginTop: "15px",
+                        marginRight: "15px"
+                      }}
+                    />
+                    <img
+                      alt="record"
+                      src={psychic}
+                      style={{
+                        maxHeight: "250px",
+                        maxWidth: "250px",
+                        marginTop: "15px",
+                        marginRight: "15px"
+                      }}
+                    />{" "}
+                    <img
+                      alt="record"
+                      src="https://img.discogs.com/RgWjSJxC1PpWqyV7NebG6e-Wj7Q=/fit-in/600x597/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-184251-1455309048-1365.jpeg.jpg"
+                      style={{
+                        maxHeight: "250px",
+                        maxWidth: "250px",
+                        marginTop: "15px",
+                        marginRight: "15px"
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
-              <Space />{" "}
-              <Section subtitle={dummyText} dark={false} id="section2" />{" "}
               <Space />
+              <div id="section2">
+                <Skillset id="section2" />
+              </div>
+              <Space />{" "}
               <div id="section3" style={{ marginTop: "75px" }}>
                 <Projects />
               </div>
+              <Space />
+              <Section subtitle={dummyText} dark={false} id="section4" />{" "}
               <Space />
               <Section
                 subtitle={" Listening, learning, and building in: Boston."}
@@ -111,18 +143,6 @@ export default class Main extends Component {
             <Link
               activeClass="active"
               className="monument"
-              to="section1"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={500}
-              style={{ marginBottom: "25px" }}
-            >
-              Skillset
-            </Link>
-            <Link
-              activeClass="active"
-              className="monument link"
               to="section2"
               spy={true}
               smooth={true}
@@ -130,8 +150,8 @@ export default class Main extends Component {
               duration={500}
               style={{ marginBottom: "25px" }}
             >
-              Resume
-            </Link>
+              Skillset
+            </Link>{" "}
             <Link
               activeClass="active"
               className="monument"
@@ -144,7 +164,18 @@ export default class Main extends Component {
             >
               Projects
             </Link>
-
+            <Link
+              activeClass="active"
+              className="monument link"
+              to="section4"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={500}
+              style={{ marginBottom: "25px" }}
+            >
+              Resume
+            </Link>
             <Link
               activeClass="active"
               className="monument"
