@@ -5,6 +5,11 @@
   "dependencies": {
     "@emotion/core": "^10.0.15",
     "@emotion/styled": "^10.0.15",
+    "antd": "^3.21.4",
+    "rc-banner-anim": "^2.3.0",
+    "rc-scroll-anim": "^2.5.9",
+    "rc-texty": "^0.2.0",
+    "rc-tween-one": "^2.5.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-on-screen": "^2.1.1",

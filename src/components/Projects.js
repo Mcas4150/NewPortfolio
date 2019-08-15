@@ -31,23 +31,35 @@ export default class Projects extends Component {
 
 const ProjectsContainer = styled.div`
   height: 78vh;
-  width: 85vw;
+  // width: 85vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
 `;
 
-const ProjectCard = styled.div(props => ({
+const HoverDiv = styled.div`
+  opacity: 0;
+  :hover {
+    opacity: 1;
+    transition: opacity 1s ease;
+  }
+`;
+
+const ProjectCard = styled(HoverDiv)(props => ({
   display: "flex",
   justifyContent: "center",
+  // opacity: "0",
   fontSize: "2rem",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
-  transform: props.started ? "perspective(600px) translate3d(10px, 50px, 250px)" : "perspective(600px) translate3d(10px, 0px , 100px)",
+  // opacity: props.hovered ? "1"
+  transform: props.started
+    ? "perspective(600px) translate3d(10px, 50px, 250px)"
+    : "perspective(600px) translate3d(10px, 0px , 100px)",
   // transform: "perspective(600px) translate3d(10px, 0px , 100px)",
 
-
   // hover: {
-  //   transform: "perspective(600px) translate3d(10px, 50px, 250px)"
-  // }
+  //   opacity: "1"
+  //   // transform: "perspective(600px) translate3d(10px, 50px, 250px)"
+  // },
   transition: "transform 1s ease"
 }));

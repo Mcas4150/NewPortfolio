@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
 import styled from "@emotion/styled";
+import circle from "./Circle.svg";
 import TrackVisibility from "react-on-screen";
 import Projects from "./Projects";
 import Resume from "./Resume";
@@ -9,6 +10,8 @@ import psychic from "../imgs/psychic.png";
 import nimbus from "../imgs/Nimbus.png";
 import Fade from "react-reveal/Fade";
 import Skillset from "./Skillset";
+import Blocks from "./Blocks";
+import Demo from "./Demo";
 import { throwStatement } from "@babel/types";
 
 var boxes = ["╱", "╲"];
@@ -201,7 +204,7 @@ export default class Main extends Component {
               duration={500}
               style={{ marginBottom: "25px" }}
             >
-              About
+              ABOUT
             </Link>
           </AboutLink>
           <ResumeLink>
@@ -215,7 +218,7 @@ export default class Main extends Component {
               offset={-70}
               duration={500}
             >
-              Resume
+              RESUME
             </Link>
           </ResumeLink>
         </LeftLinks>
@@ -231,7 +234,7 @@ export default class Main extends Component {
                   structures, sound design, and human-computer interaction.
                   <br />
                   <br />
-                  Previously a music therapist and a record nerd at music
+                  Previously a music therapist and record nerd at music
                   distributor Forced Exposure. now a fullstack audio/visual
                   application developer
                   <br />
@@ -273,14 +276,15 @@ export default class Main extends Component {
                   </div>
                 </div>{" "}
               </BioContainer>
-              <Space />
+              <Space>
+                <Demo />
+              </Space>
               <div id="section2">
                 <Skillset id="section2" />
               </div>
               <Fade>
-                <Space>
-                  <canvas id="canvas" width="1800" height="403" />
-                </Space>{" "}
+                <canvas id="canvas" width="1800" height="4030" />
+
                 <div
                   id="section3"
                   style={{ marginTop: "75px" }}
@@ -289,7 +293,9 @@ export default class Main extends Component {
                   <Projects started={startAnimation} />
                 </div>
               </Fade>
-              <Space />
+
+              <Blocks />
+
               <div id="section4" style={{ marginTop: "75px" }}>
                 <Resume />
               </div>
@@ -380,8 +386,9 @@ const MainContainer = styled.div`
   background-color: rgb(217, 234, 211);
   // background-color:#d3cccb
   height: 100%;
-  cursor: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='45px' height='45px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E %3Cpath d='M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4 L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1 c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1 c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z'/%3E %3C/svg%3E"),
-    pointer;
+  // cursor: url(${circle});
+ cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" height="100"><circle cx="30" cy="30" r="25" stroke-width="2" style="stroke: black; fill: red;"/></svg>'),
+ pointer;
 `;
 
 const HeaderContainer = styled.div`
@@ -396,7 +403,7 @@ const BioContainer = styled.div`
 
 const Space = styled.div`
   height: 100vh;
-  width: 100vw;
+  // width: 100vw;
 `;
 
 const BodyContainer = styled.div`
@@ -405,7 +412,7 @@ const BodyContainer = styled.div`
 `;
 
 const ScrollContainer = styled.div`
-  width: 96vw;
+  // width: 96vw;
   padding: 50px;
 
   font-size: 1.5rem;
@@ -415,7 +422,7 @@ const ScrollContainer = styled.div`
 const Middle = styled.div`
   // position: fixed;
   // left: 4vw;
-  width: 96vw;
+  // width: 96vw;
   margin: 0 3vw;
 `;
 

@@ -1,0 +1,13 @@
+<svg viewBox="0 0 1000 600"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <path id="MyPath" d="M 20 40 Q 240 240 350 400" />
+  </defs>
+  <use xlink:href="#MyPath" fill="none" stroke="#59fa81" />
+  <text font-family="Courier New" font-size="26">
+    <textPath xlink:href="#MyPath">
+   Education: American University
+    </textPath>
+  </text>
+</svg>
