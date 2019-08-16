@@ -12,21 +12,6 @@ import Blocks from "./Blocks";
 import Contact from "./Contact";
 import Demo from "./Demo";
 
-// TOOODOOOO  Map Letters to svg
-
-// var rows = [];
-// for (var i = 0; i < max; i++) {
-//   // note: we add a key prop here to allow react to uniquely identify each
-//   // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
-//   rows.push(
-//     <span key={i} box={boxes[Math.round(Math.random())]}>
-//       {" "}
-//       {boxes[Math.round(Math.random())]}{" "}
-//     </span>
-//   );
-//   // rows.push(<span key={i} box={boxes[Math.round(Math.random())]}>  {boxes[Math.round(Math.random())]} </span>);
-// }
-
 export default class Main extends Component {
   constructor(props) {
     super(props);
@@ -99,10 +84,10 @@ export default class Main extends Component {
       <MainContainer>
         <LeftLinks>
           <AboutLink>
-            <ScrollLink to="about">ABOUT</ScrollLink>
+            <ScrollLink to="about"/>
           </AboutLink>
           <ResumeLink>
-            <ScrollLink to="resume">RESUME</ScrollLink>
+            <ScrollLink to="resume"/>
           </ResumeLink>
         </LeftLinks>
         <Middle>
@@ -127,10 +112,10 @@ export default class Main extends Component {
         </Middle>
         <RightLinks>
           <ProjectsLink>
-            <ScrollLink to="projects">Projects</ScrollLink>
+            <ScrollLink to="projects"/>
           </ProjectsLink>
           <ContactLink>
-            <ScrollLink to="contact">Contact</ScrollLink>
+            <ScrollLink to="contact"/>
           </ContactLink>
         </RightLinks>
       </MainContainer>
@@ -146,7 +131,7 @@ const MainContainer = styled.div`
   // background-color:#d3cccb
   height: 100%;
   // cursor: url(${circle});
- cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="100" height="100"><circle cx="30" cy="30" r="25" stroke-width="2" style="stroke: black; fill: red;"/></svg>'),
+ cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="75" height="75"><circle cx="30" cy="30" r="25" stroke-width="2" style="stroke: black; fill: navy;"/></svg>'),
  pointer;
 `;
 
@@ -186,7 +171,7 @@ const ScrollLink = ({ to }) => (
     offset={-70}
     duration={500}
   >
-    Projects
+    {to.toUpperCase()}
   </Link>
 );
 
@@ -256,3 +241,18 @@ const Title = styled.div`
     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
   }
 `;
+
+// TOOODOOOO  Map Letters to svg
+
+// var rows = [];
+// for (var i = 0; i < max; i++) {
+//   // note: we add a key prop here to allow react to uniquely identify each
+//   // element in this array. see: https://reactjs.org/docs/lists-and-keys.html
+//   rows.push(
+//     <span key={i} box={boxes[Math.round(Math.random())]}>
+//       {" "}
+//       {boxes[Math.round(Math.random())]}{" "}
+//     </span>
+//   );
+//   // rows.push(<span key={i} box={boxes[Math.round(Math.random())]}>  {boxes[Math.round(Math.random())]} </span>);
+// }
