@@ -21,24 +21,33 @@ export default class ScrollLink extends Component {
   render() {
     const { to } = this.props;
     return (
-      <Link
-        activeClass="active"
-        className="monument"
-        to={to}
-        spy={true}
-        smooth={true}
-        offset={-70}
-        duration={500}
-        onMouseEnter={this.handleHover}
-        style={{ display: "flex" }}
+      <div
+        onMouseOver={this.handleHover}
+        style={{
+          height: "120px",
+          width: "200px",
+          display: "flex",
+          justifyContent: "flex-end"
+        }}
       >
-        <Texty type="left" mode="reverse">
-          {this.state.show && to.toUpperCase()}
-        </Texty>{" "}
-        <svg style={{ width: "80px", height: "80px" }}>
-          <circle cx="40" cy="25" r="15" fill="black" />
-        </svg>
-      </Link>
+        <Link
+          activeClass="active"
+          className="navlink"
+          to={to}
+          spy={true}
+          smooth={true}
+          offset={-70}
+          duration={500}
+          style={{ display: "flex" }}
+        >
+          <Texty type="left" mode="reverse">
+            {this.state.show && to.toUpperCase()}
+          </Texty>{" "}
+          <svg style={{ width: "60px", height: "120px" }}>
+            <circle cx="20" cy="8" r="5" fill="black" />
+          </svg>
+        </Link>
+      </div>
     );
   }
 }
