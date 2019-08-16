@@ -20,9 +20,9 @@ export default class Blocks extends Component {
 
 
     return <div>
-
+{/*
     <Block viewbox="0 0 100 100"></Block>
-    <Block viewbox="100 100 100 100"></Block>
+    <Block viewbox="100 100 100 100"></Block> */}
     {/* <Block viewbox="0 100 100 0"></Block> */}
     </div>;
   }

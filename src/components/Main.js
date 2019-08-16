@@ -39,9 +39,9 @@ export default class Main extends Component {
         <BodyContainer>
           <ScrollContainer>
             <About />
-            <Demo />
+            {/* <Demo /> */}
             <Skillset />
-            <Ball />
+            {/* <Ball /> */}
             <Projects started={startAnimation} onClick={this.handleClick} />
             <Blocks />
             <Resume />
@@ -73,7 +73,7 @@ const HeaderContainer = styled.div`
   height: 20vh;
   justify-content: space-between;
   display: flex;
-  padding-left: 25px;
+  padding: 25px;
 `;
 
 const BodyContainer = styled.div`

@@ -7,19 +7,26 @@ export default class Resume extends Component {
   render() {
     return (
       <ResumeContainer id="resume">
-        <CurveText
-          text="Education: American University"
-          position="M 20 40 Q 240 240 350 400"
-        />
-        <CurveText
-          text="Education: American University"
-          position="M 80 40 Q 440 480 350 400"
-        />
+        <CurveText text="Education" position="M 80 80 Q 440 480 200 250" />
+        <div>Le Wagon</div>
+        <div>CareerFoundry</div>
+        <div>American University</div>
+        <br />
+        <div>Experience</div>
+        <div>Censinet</div>
+        <div>Beehive Jazz Club</div>
+        <div>Forced Exposure</div>
+        <div>Behavioral Health Works</div>
+        <br />
+        <div>Volunteer</div>
+        <div>Girls Rock DC</div>
+        <div>Sibley Hospital - Talked with octogenerians about Elvis</div>
+        <br />
       </ResumeContainer>
     );
   }
 }
 
 const ResumeContainer = styled.div`
-  margintop: "75px";
+  margin: "75px 0";
 `;
