@@ -77,8 +77,10 @@ const HeaderContainer = styled.div`
 `;
 
 const BodyContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  // display: flex;
+  // justify-content: space-between;
+  display: grid;
+  grid-template-columns: "8fr 1fr;
 `;
 
 const ScrollContainer = styled.div`

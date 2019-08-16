@@ -35,7 +35,7 @@ export default class ScrollLink extends Component {
         <Texty type="left" mode="reverse">
           {this.state.show && to.toUpperCase()}
         </Texty>{" "}
-        <svg>
+        <svg style={{ width: "80px", height: "80px" }}>
           <circle cx="40" cy="25" r="15" fill="black" />
         </svg>
       </Link>
