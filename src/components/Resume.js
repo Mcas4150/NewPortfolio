@@ -6,7 +6,7 @@ import CurveText from "./CurveText";
 export default class Resume extends Component {
   render() {
     return (
-      <ResumeContainer id="section4">
+      <ResumeContainer id="resume">
         <CurveText
           text="Education: American University"
           position="M 20 40 Q 240 240 350 400"
