@@ -7,6 +7,7 @@ import Projects from "./Projects";
 import Ball from "./Ball";
 import Resume from "./Resume";
 import About from "./About";
+import ScrollLink from "./ScrollLink";
 // import Fade from "react-reveal/Fade";
 import Skillset from "./Skillset";
 import Blocks from "./Blocks";
@@ -49,6 +50,7 @@ export default class Main extends Component {
 
           <NavLinkContainer>
             <ScrollLink to="about" />
+            <ScrollLink to="skillset" />
             <ScrollLink to="projects" />
             <ScrollLink to="resume" />
             <ScrollLink to="contact" />
@@ -84,20 +86,6 @@ const ScrollContainer = styled.div`
   font-size: 1.5rem;
   font-family: MonumentRegular;
 `;
-
-const ScrollLink = ({ to }) => (
-  <Link
-    activeClass="active"
-    className="monument"
-    to={to}
-    spy={true}
-    smooth={true}
-    offset={-70}
-    duration={500}
-  >
-    {to.toUpperCase()}
-  </Link>
-);
 
 const NavLinkContainer = styled.div`
   display: flex;

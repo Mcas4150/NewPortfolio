@@ -5,7 +5,12 @@ import orphan from "../imgs/orphan2.png";
 
 export default class Projects extends Component {
   render() {
+
+
+
     const { started } = this.props;
+
+
     return (
       <ProjectsContainer id="projects">
         <ProjectCard

@@ -1,44 +1,43 @@
 import React, { Component } from "react";
-import Texty from "rc-texty";
-import Button from "antd/lib/button";
-import Select from "antd/lib/select";
+// import Texty from "rc-texty";
+// import Button from "antd/lib/button";
+// import Select from "antd/lib/select";
 import "rc-texty/assets/index.css";
 import { Parallax } from "rc-scroll-anim";
-import animType from "rc-texty/lib/animTypes";
+// import animType from "rc-texty/lib/animTypes";
 
 import styled from "@emotion/styled";
 
-const { Option } = Select;
+// const { Option } = Select;
 
 export default class Demo extends Component {
-  state = {
-    show: true,
-    mode: "smooth",
-    type: "left"
-  };
-  onClick = () => {
-    this.setState({
-      show: !this.state.show
-    });
-  };
-  onChange = type => {
-    this.setState({
-      type
-    });
-  };
+  // state = {
+  //   show: true,
+  //   mode: "smooth",
+  //   type: "left"
+  // };
+  // onClick = () => {
+  //   this.setState({
+  //     show: !this.state.show
+  //   });
+  // };
+  // onChange = type => {
+  //   this.setState({
+  //     type
+  //   });
+  // };
 
-  onModeChange = mode => {
-    this.setState({
-      mode
-    });
-  };
+  // onModeChange = mode => {
+  //   this.setState({
+  //     mode
+  //   });
+  // };
 
   render() {
     let formula = Math.floor(Math.random() * 50) + 100;
     return (
       <div className="texty-demo" style={{ marginTop: 16 }}>
-        <p className="buttons" style={{ marginBottom: 16 }} />
-        <div style={{ fontSize: 14, marginBottom: 16 }}>
+        {/* <div style={{ fontSize: 14, marginBottom: 16 }}>
           type:
           <Select
             onChange={this.onChange}
@@ -63,8 +62,8 @@ export default class Demo extends Component {
               </Option>
             ))}
           </Select>
-        </div>{" "}
-        <div style={{ display: "flex" }}>
+        </div>{" "} */}
+        {/* <div style={{ display: "flex" }}>
           <svg onMouseEnter={this.onClick}>
             <circle cx="50" cy="50" r="50" fill="#529fca" />
           </svg>
@@ -74,7 +73,7 @@ export default class Demo extends Component {
         </div>
         <Button type="primary" onMouseOver={this.onClick}>
           Switch
-        </Button>
+        </Button> */}
         <Box
           animation={{ x: 0 }}
           style={{ transform: "translateX(-100px)", margin: "10px auto" }}
