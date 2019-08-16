@@ -7,7 +7,7 @@ export default class Projects extends Component {
   render() {
     const { started } = this.props;
     return (
-      <ProjectsContainer>
+      <ProjectsContainer id="projects">
         <ProjectCard
           started={started}
           style={{ backgroundImage: `url(${prophec})` }}
@@ -34,6 +34,7 @@ const ProjectsContainer = styled.div`
   // width: 85vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margintop: "75px";
 `;
 
 const HoverDiv = styled.div`

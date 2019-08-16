@@ -5,7 +5,7 @@ import Canvas from "./Canvas";
 export default class Skillset extends Component {
   render() {
     return (
-      <CanvasContainer>
+      <CanvasContainer id="skillset">
         <Canvas />
       </CanvasContainer>
     );
