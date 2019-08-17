@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import { Link, animateScroll as scroll } from "react-scroll";
 import styled from "@emotion/styled";
 import circle from "./Circle.svg";
-import TrackVisibility from "react-on-screen";
+// import TrackVisibility from "react-on-screen";
 import Projects from "./Projects";
-import Ball from "./Ball";
+// import Ball from "./Ball";
 import Resume from "./Resume";
 import About from "./About";
 import ScrollLink from "./ScrollLink";
@@ -12,7 +11,7 @@ import ScrollLink from "./ScrollLink";
 import Skillset from "./Skillset";
 import Blocks from "./Blocks";
 import Contact from "./Contact";
-import Demo from "./Demo";
+// import Demo from "./Demo";
 
 export default class Main extends Component {
   constructor(props) {
@@ -37,6 +36,8 @@ export default class Main extends Component {
           <Title>MIKE CASSIDY </Title>
         </HeaderContainer>
         <BodyContainer>
+
+          {/* give position to scroll container */}
           <ScrollContainer>
             <About />
             {/* <Demo /> */}
@@ -70,7 +71,7 @@ const MainContainer = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  height: 20vh;
+  height: 10vh;
   justify-content: space-between;
   display: flex;
   padding: 25px;
@@ -84,7 +85,6 @@ const BodyContainer = styled.div`
 `;
 
 const ScrollContainer = styled.div`
-  padding: 50px;
   font-size: 1.5rem;
   font-family: MonumentRegular;
 `;
@@ -103,7 +103,7 @@ const NavLinkContainer = styled.div`
 const Title = styled.div`
   position: fixed;
   font-family: "MonumentRegular";
-  font-size: 2.5rem;
+  font-size: 5rem;
   color: transparent;
   -webkit-text-stroke: 1.1px black;
   text-stroke: 1.1px black;

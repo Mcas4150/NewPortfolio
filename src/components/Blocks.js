@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Block from "./Block";
+// import Block from "./Block";
 
 export default class Blocks extends Component {
   constructor(props) {

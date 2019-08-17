@@ -31,6 +31,19 @@
   font-size: 1rem;
 }
 
+
+/*
+color: rgba(65,8,7,.1);
+font: 6.9rem/.85 Monument Extended;
+margin-left: -1rem;
+margin-bottom: 3.5rem;
+margin-top: 3.5rem;
+-webkit-transform: scaleX(1.15);
+transform: scaleX(1.15);
+-webkit-text-fill-color: transparent;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #410807; */
+
 @supports ((text-stroke: 1.1px black) or (-webkit-text-stroke: 1.1px black)) {
   .monument {
     color: transparent;

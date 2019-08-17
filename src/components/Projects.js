@@ -1,19 +1,33 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
+import { Section, BigText } from "./Shared";
 import prophec from "../imgs/prophetcplusplus.png";
 import orphan from "../imgs/orphan2.png";
 
 export default class Projects extends Component {
   render() {
-
-
-
     const { started } = this.props;
-
 
     return (
       <ProjectsContainer id="projects">
-        <ProjectCard
+        <ProjectBox>
+          <div>
+            <BorderLine />
+            <ProjectText>Orphan Radio</ProjectText>
+            <BorderLine />
+            <ProjectText>PropheC++</ProjectText>
+            <BorderLine />
+            <ProjectText>SynthFolio</ProjectText>
+            <BorderLine />
+            <ProjectText>La Rama</ProjectText>
+            <BorderLine />
+            <ProjectText>Max/Msp</ProjectText>
+            <BorderLine />
+            <ProjectText>Audio Plugins</ProjectText>
+            <BorderLine />
+          </div>
+        </ProjectBox>
+        {/* <ProjectCard
           started={started}
           style={{ backgroundImage: `url(${prophec})` }}
         >
@@ -28,18 +42,18 @@ export default class Projects extends Component {
         <ProjectCard started={started}>Audio Plugins</ProjectCard>
         <ProjectCard started={started}>SynthFolio</ProjectCard>
         <ProjectCard started={started}>La Rama</ProjectCard>
-        <ProjectCard started={started}>Max/MSP</ProjectCard>
+        <ProjectCard started={started}>Max/MSP</ProjectCard> */}
       </ProjectsContainer>
     );
   }
 }
 
-const ProjectsContainer = styled.div`
-  height: 78vh;
+const ProjectsContainer = styled(Section)`
+  // height: 78vh;
   // width: 85vw;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margintop: "75px";
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // margintop: "75px";
 `;
 
 const HoverDiv = styled.div`
@@ -50,6 +64,34 @@ const HoverDiv = styled.div`
   }
 `;
 
+const BorderLine = styled.span`
+  border-bottom: 1px solid rgba(65, 8, 7, 0.2);
+  position: absolute;
+  width: 100%;
+`;
+
+const ProjectText = styled(BigText)`
+  color: transparent;
+  opacity: 1;
+  pointer-events: none;
+  -webkit-transition: opacity 0.4s ease;
+  transition: opacity 0.4s ease;
+  width: 100%;
+  -webkit-text-fill-color: transparent;
+-webkit-text-stroke-width: 1px;
+-webkit-text-stroke-color: #410807;
+:hover {
+  color: #410807;
+  transition: color 0.25s ease-in-out,  -webkit-text-fill-color: 0.25s ease-in-out;
+  -webkit-text-fill-color: #410807;
+}
+`;
+
+const ProjectBox = styled.div`
+  margin: 24rem auto 0;
+  position: relative;
+  width: 100%;
+`;
 const ProjectCard = styled(HoverDiv)(props => ({
   display: "flex",
   justifyContent: "center",

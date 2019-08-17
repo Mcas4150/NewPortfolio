@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
-import psychic from "../imgs/psychic.png";
-import nimbus from "../imgs/Nimbus.png";
-import joyexpo from "../imgs/Joyexpo.jpg";
+import { Section } from "./Shared";
 
 export default class About extends Component {
   render() {
@@ -16,43 +14,11 @@ export default class About extends Component {
         Exposure. Now a fullstack audio/visual application developer
         <br />
         <br />
-        <Column>
-          Now listening:
-          <Row>
-            <RecordImage src={nimbus} />
-            <RecordImage src={psychic} />
-            <RecordImage src={joyexpo} />
-          </Row>
-        </Column>
       </AboutContainer>
     );
   }
 }
 
-const AboutContainer = styled.div`
-  margin-top: 75px;
+const AboutContainer = styled(Section)`
   max-width: 75%;
 `;
-
-const Column = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-const RecordImage = ({ src }) => (
-  <img
-    alt="record"
-    src={src}
-    style={{
-      maxHeight: "250px",
-      maxWidth: "250px",
-      marginTop: "15px",
-      marginRight: "15px"
-    }}
-  />
-);
