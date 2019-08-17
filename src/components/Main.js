@@ -36,7 +36,6 @@ export default class Main extends Component {
           <Title>MIKE CASSIDY </Title>
         </HeaderContainer>
         <BodyContainer>
-
           {/* give position to scroll container */}
           <ScrollContainer>
             <About />
@@ -64,6 +63,10 @@ export default class Main extends Component {
 
 const MainContainer = styled.div`
   background-color: rgb(217, 234, 211);
+  overflow: hidden;
+  outline: none;
+  visibility: inherit;
+  opacity: 1;
   height: 100%;
   // cursor: url(${circle});
  cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="75" height="75"><circle cx="30" cy="30" r="25" stroke-width="2" style="stroke: black; fill: navy;"/></svg>'),
@@ -98,6 +101,7 @@ const NavLinkContainer = styled.div`
   justify-conter: center;
   text-align: right;
   padding: 15px;
+  z-index: 5;
 `;
 
 const Title = styled.div`

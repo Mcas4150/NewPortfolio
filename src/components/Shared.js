@@ -48,3 +48,8 @@ export const Row = styled.div`
   display: flex;
   flex-direction: row;
 `;
+
+export const ContentContainer = styled.div`
+  max-width: 144rem;
+  width: 100%;
+`;

@@ -84,4 +84,13 @@ const SkillText = styled.span`
   // transform: matrix(1, 0, 0, 1, -24112, 0);
   display: inline-block;
   white-space: nowrap;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #410807;
+  transition: color 0.5s ease-in-out,  -webkit-text-fill-color: 0.5s ease-in-out;
+  :hover {
+    color: #410807;
+    transition: color 0.5s ease-in-out,  -webkit-text-fill-color: 0.5s ease-in-out;
+    -webkit-text-fill-color: #410807;
+  }
 `;
