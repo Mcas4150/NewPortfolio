@@ -17,7 +17,10 @@ export default class Main extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      startAnimation: false
+      startAnimation: false,
+      scrollX: 0,
+      scrollY: 0,
+      scrollPos: 0
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -29,7 +32,6 @@ export default class Main extends Component {
   }
 
   render() {
-    const { startAnimation } = this.state;
     return (
       <MainContainer>
         <HeaderContainer>
@@ -39,10 +41,11 @@ export default class Main extends Component {
           {/* give position to scroll container */}
           <ScrollContainer>
             <About />
+
             {/* <Demo /> */}
             <Skillset />
             {/* <Ball /> */}
-            <Projects started={startAnimation} onClick={this.handleClick} />
+            <Projects />
             <Blocks />
             <Resume />
             <Contact />

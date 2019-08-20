@@ -36,7 +36,7 @@ export const BigText = styled.span`
   padding-top: 1rem;
   text-align: center;
   white-space: nowrap;
-  z-index: 1;
+  z-index: 2;
 `;
 
 export const Column = styled.div`

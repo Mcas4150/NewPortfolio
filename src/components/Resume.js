@@ -26,9 +26,9 @@ export default class Resume extends Component {
           </Header>
           <Content>
             <P>
-              <div>Le Wagon</div>
-              <div>CareerFoundry</div>
-              <div>American University</div>
+              <Entry>Le Wagon</Entry>
+              <Entry>CareerFoundry</Entry>
+              <Entry>American University</Entry>
               <br />
             </P>
           </Content>
@@ -51,11 +51,11 @@ export default class Resume extends Component {
           </Header>
           <Content>
             <P>
-              <div>Censinet</div>
-              <div>Freelance</div>
-              <div>Beehive Jazz Club</div>
-              <div>Forced Exposure</div>
-              <div>Behavioral Health WOrks</div>
+              <Entry>Censinet</Entry>
+              <Entry>Freelance</Entry>
+              <Entry>Beehive Jazz Club</Entry>
+              <Entry>Forced Exposure</Entry>
+              <Entry>Behavioral Health WOrks</Entry>
               <br />
             </P>
           </Content>
@@ -77,9 +77,9 @@ export default class Resume extends Component {
           </Header>
           <Content>
             <P>
-              <div>Mutek</div>
-              <div>Girls Rock DC</div>
-              <div>Sibley Hospital </div>
+              <Entry>Mutek</Entry>
+              <Entry>Girls Rock DC</Entry>
+              <Entry>Sibley Hospital </Entry>
 
               <br />
             </P>
@@ -133,4 +133,8 @@ const P = styled.p`
 
   font: 1.8rem/1.9 Helvetica;
   // font: 1.8rem/1.9 Space Grotesk Regular;
+`;
+
+const Entry = styled.span`
+  clear: both;
 `;

@@ -40,9 +40,12 @@ export default class ScrollLink extends Component {
           duration={500}
           style={{ display: "flex" }}
         >
-          <Texty type="left" mode="reverse">
+          {/* <Texty type="left" mode="reverse">
             {this.state.show && to.toUpperCase()}
-          </Texty>{" "}
+          </Texty>{" "} */}
+          <div style={{ fontSize: "1.5rem" }}>
+            {this.state.show && to.toUpperCase()}
+          </div>
           <svg style={{ width: "60px", height: "120px" }}>
             <circle cx="20" cy="8" r="5" fill="black" />
           </svg>

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
-// import Texty from "rc-texty";
-// import Button from "antd/lib/button";
-// import Select from "antd/lib/select";
+
 import "rc-texty/assets/index.css";
 import { Parallax } from "rc-scroll-anim";
-// import animType from "rc-texty/lib/animTypes";
+
 
 import styled from "@emotion/styled";
 
@@ -63,17 +61,8 @@ export default class Demo extends Component {
             ))}
           </Select>
         </div>{" "} */}
-        {/* <div style={{ display: "flex" }}>
-          <svg onMouseEnter={this.onClick}>
-            <circle cx="50" cy="50" r="50" fill="#529fca" />
-          </svg>
-          <Texty type={this.state.type} mode={this.state.mode}>
-            {this.state.show && "Ant Motion"}
-          </Texty>{" "}
-        </div>
-        <Button type="primary" onMouseOver={this.onClick}>
-          Switch
-        </Button> */}
+
+     
         <Box
           animation={{ x: 0 }}
           style={{ transform: "translateX(-100px)", margin: "10px auto" }}

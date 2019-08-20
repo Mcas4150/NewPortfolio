@@ -4,12 +4,33 @@ import { Section } from "./Shared";
 import Canvas from "./Canvas";
 
 export default class Skillset extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      moveX: 0
+    };
+    this.handleHover = this.handleHover.bind(this);
+  }
+
+  handleHover() {
+    this.setState(prevState => ({
+      moveX: 800
+    }));
+    // if (this.state.moveX < 1000) {
+    //   this.setState(prevState => ({
+    //     moveX: prevState.moveX + 1
+    //   }));
+    //   this.handleHover();
+    // }
+  }
+
   render() {
+    const { moveX } = this.state;
     return (
       <Section id="skillset">
         <ScrollBox>
           <P>
-            <ScrollRow>
+            <ScrollRow onMouseOver={this.handleHover} moveX={moveX}>
               <SkillText>ReactJs. </SkillText>
               <SkillText>Redux. </SkillText>
               <SkillText>Javascript. </SkillText>
@@ -65,15 +86,14 @@ const ScrollBox = styled.div`
   width: 100vw;
 `;
 
-const P = styled.p`
-  // transform: matrix(1, 0, 0, 1, 23280, 0);
+const P = styled.p(props => ({
+  transform: `matrix(1, 0, 0, 1, -${props.moveX}, 0)`,
 
-  // ._2xA35W84Tx4nEdj3FKxpj6:first-child {
-  top: 0;
+  top: "0",
 
   // position: absolute;
-  white-space: nowrap;
-`;
+  whiteSpace: "nowrap"
+}));
 
 const ScrollRow = styled.span`
   display: block;

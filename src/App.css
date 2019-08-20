@@ -31,7 +31,6 @@
   font-size: 1rem;
 }
 
-
 /*
 color: rgba(65,8,7,.1);
 font: 6.9rem/.85 Monument Extended;
@@ -66,6 +65,26 @@ transform: scaleX(1.15);
 
 .App-link {
   color: #61dafb;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:rgb(217, 234, 211);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 @keyframes App-logo-spin {
