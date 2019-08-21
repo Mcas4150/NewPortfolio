@@ -50,6 +50,6 @@ export const Row = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-  max-width: 144rem;
+  max-width: 166rem;
   width: 100%;
 `;

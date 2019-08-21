@@ -3,15 +3,14 @@ import styled from "@emotion/styled";
 import circle from "./Circle.svg";
 // import TrackVisibility from "react-on-screen";
 import Projects from "./Projects";
-// import Ball from "./Ball";
+import Three from "./Three";
 import Resume from "./Resume";
 import About from "./About";
 import ScrollLink from "./ScrollLink";
-// import Fade from "react-reveal/Fade";
+
 import Skillset from "./Skillset";
 import Blocks from "./Blocks";
 import Contact from "./Contact";
-// import Demo from "./Demo";
 
 export default class Main extends Component {
   constructor(props) {
@@ -42,9 +41,8 @@ export default class Main extends Component {
           <ScrollContainer>
             <About />
 
-            {/* <Demo /> */}
             <Skillset />
-            {/* <Ball /> */}
+            <Three />
             <Projects />
             <Blocks />
             <Resume />

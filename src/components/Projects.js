@@ -4,6 +4,7 @@ import { Section } from "./Shared";
 import prophec from "../imgs/prophetcplusplus.png";
 import orphan from "../imgs/orphan2.png";
 import { ScrollPercentage } from "react-scroll-percentage";
+import Three from "./Three";
 
 export default class Projects extends Component {
   render() {
@@ -39,13 +40,13 @@ const ProjectsContainer = styled(Section)`
   // margintop: "75px";
 `;
 
-const HoverDiv = styled.div`
-  opacity: 0;
-  :hover {
-    opacity: 1;
-    transition: opacity 1s ease;
-  }
-`;
+// const HoverDiv = styled.div`
+//   opacity: 0;
+//   :hover {
+//     opacity: 1;
+//     transition: opacity 1s ease;
+//   }
+// `;
 
 const BorderLine = styled.span`
   border-bottom: 1px solid rgba(65, 8, 7, 0.2);
@@ -53,7 +54,7 @@ const BorderLine = styled.span`
   width: 100%;
 `;
 
-export const BigText = styled.span`
+const BigText = styled.span`
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-text-fill-color: transparent;
@@ -81,14 +82,19 @@ export const BigText = styled.span`
 
 const ProjectText = styled(BigText)(props => ({
   color: "transparent",
-  opacity: props.percent > 0.2 ? 1 : 0,
+  opacity: props.percent > 0.1 ? 1 : 0,
+  position: "relative",
+  // transform:
+  // props.percent > 0.1
+  //   ? "matrix(1.00,0.00,0.00,1.00,0,0)"
+  //   : "matrix(0.95,0.10,-0.10,0.95,0, 50)",
   transform:
-    props.percent > 0.2
+    props.percent > 0.05
       ? "matrix(1.00,0.00,0.00,1.00,0,0)"
-      : "matrix(0.95,0.33,-0.33,0.95,0, 100)",
+      : "matrix(1.00,0.00,0.00,1.00,0, 75)",
   webkitTransition: "opacity 1s ease",
   transition:
-    "opacity 1s ease , transform 0.5s ease 0s, color 0.25s ease-in-out",
+    "opacity 1s ease , transform 0.5s ease-in-out 0s, color 0.25s ease-in-out",
   width: "100%"
 }));
 
@@ -98,47 +104,41 @@ const ProjectBox = styled.div`
   width: 100%;
 `;
 
-// const ProjectCard = styled(HoverDiv)(props => ({
-//   display: "flex",
-//   justifyContent: "center",
-//   // opacity: "0",
-//   fontSize: "2rem",
-//   backgroundSize: "cover",
-//   backgroundRepeat: "no-repeat",
-//   // opacity: props.hovered ? "1"
-//   transform: props.started
-//     ? "perspective(600px) translate3d(10px, 50px, 250px)"
-//     : "perspective(600px) translate3d(10px, 0px , 100px)",
-//   // transform: "perspective(600px) translate3d(10px, 0px , 100px)",
+const sleep = milliseconds => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds));
+};
 
-//   // hover: {
-//   //   opacity: "1"
-//   //   // transform: "perspective(600px) translate3d(10px, 50px, 250px)"
-//   // },
-//   transition: "transform 1s ease"
-// }));
+// const SpanLetter = props => {
+//   const { word } = props;
 
-// const ScrollText = props => (
-//   <ScrollPercentage>
-//     {({ percentage, ref, entry }) => (
-//       <ProjectText
-//         ref={ref}
-//         style={{
-//           opacity: percentage.toPrecision(2) > 0 ? 1 : 0
-//         }}
-//       >
-//         {/* BANANA */}
-//         {props.children}
-//       </ProjectText>
-//     )}
-//   </ScrollPercentage>
-// );
+//   return word.split("").map((letter, index) => {
+//     sleep(150).then(() => {
+//       return <span key={index}>{letter}</span>;
+//     });
+//     // return <span key={index}>{letter}</span>;
+//   });
+// };
+
+const ProjectImage = styled(Three)`
+  visibility: hidden;
+  :hover {
+    visibility: visible;
+  }
+`;
+
+const SpanLetter = props => {
+  const { word } = props;
+
+  return word.split("").map((letter, index) => {
+    return <span key={index}>{letter}</span>;
+  });
+};
 
 const ScrollText = props => (
   <ScrollPercentage>
     {({ percentage, ref, entry }) => (
       <ProjectText ref={ref} percent={percentage.toPrecision(2)}>
-        {props.title}
+        <SpanLetter word={props.title} />
       </ProjectText>
     )}
   </ScrollPercentage>

@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import curvy from "./Curvy.svg";
 import { Section } from "./Shared";
 import styled from "@emotion/styled";
-import CurveText from "./CurveText";
+import { ScrollPercentage } from "react-scroll-percentage";
 
 export default class Resume extends Component {
   render() {
@@ -11,7 +10,8 @@ export default class Resume extends Component {
         <ResumeContainer>
           <Header>
             <H1>
-              <Word>
+              <ScrollText title="Education" />
+              {/* <Word>
                 <Letter>E</Letter>
                 <Letter>d</Letter>
                 <Letter>u</Letter>
@@ -21,7 +21,7 @@ export default class Resume extends Component {
                 <Letter>i</Letter>
                 <Letter>o</Letter>
                 <Letter>n</Letter>
-              </Word>
+              </Word> */}
             </H1>
           </Header>
           <Content>
@@ -35,7 +35,8 @@ export default class Resume extends Component {
 
           <Header>
             <H1>
-              <Word>
+              <ScrollText title="Experience" />
+              {/* <Word>
                 <Letter>E</Letter>
                 <Letter>x</Letter>
                 <Letter>p</Letter>
@@ -46,7 +47,7 @@ export default class Resume extends Component {
                 <Letter>n</Letter>
                 <Letter>c</Letter>
                 <Letter>e</Letter>
-              </Word>
+              </Word> */}
             </H1>
           </Header>
           <Content>
@@ -62,7 +63,8 @@ export default class Resume extends Component {
 
           <Header>
             <H1>
-              <Word>
+              <ScrollText title="Volunteer" />
+              {/* <Word>
                 <Letter>V</Letter>
                 <Letter>o</Letter>
                 <Letter>l</Letter>
@@ -72,7 +74,7 @@ export default class Resume extends Component {
                 <Letter>e</Letter>
                 <Letter>e</Letter>
                 <Letter>r</Letter>
-              </Word>
+              </Word> */}
             </H1>
           </Header>
           <Content>
@@ -92,7 +94,7 @@ export default class Resume extends Component {
 }
 
 const ResumeContainer = styled.div`
-  max-width: 144rem;
+  max-width: 166rem;
   width: 100%;
 `;
 
@@ -138,3 +140,34 @@ const P = styled.p`
 const Entry = styled.span`
   clear: both;
 `;
+
+const ResumeTitle = styled(Word)(props => ({
+  opacity: props.percent > 0.1 ? 1 : 0,
+  position: "relative",
+  transform:
+    props.percent > 0.05
+      ? "matrix(1.00,0.00,0.00,1.00,0,0)"
+      : "matrix(1.00,0.00,0.00,1.00, -125, 25)",
+  webkitTransition: "opacity 1s ease",
+  transition:
+    "opacity 1s ease , transform 0.5s ease-in-out 0s, color 0.25s ease-in-out",
+  width: "100%"
+}));
+
+const SpanLetter = props => {
+  const { word } = props;
+
+  return word.split("").map((letter, index) => {
+    return <span key={index}>{letter}</span>;
+  });
+};
+
+const ScrollText = props => (
+  <ScrollPercentage>
+    {({ percentage, ref, entry }) => (
+      <ResumeTitle ref={ref} percent={percentage.toPrecision(2)}>
+        <SpanLetter word={props.title} />
+      </ResumeTitle>
+    )}
+  </ScrollPercentage>
+);
