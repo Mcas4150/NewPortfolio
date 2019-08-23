@@ -9,7 +9,6 @@ export default class Contact extends Component {
   render() {
     return (
       <Section id="contact">
-      Listening, learning, and building in: Boston.
         <Column>
           Now listening:
           <Row>

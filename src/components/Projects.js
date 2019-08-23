@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, memo } from "react";
+import { useDelayNextChildren } from './Hooks';
 import styled from "@emotion/styled";
 import { Section } from "./Shared";
 import prophec from "../imgs/prophetcplusplus.png";
@@ -108,16 +109,18 @@ const sleep = milliseconds => {
   return new Promise(resolve => setTimeout(resolve, milliseconds));
 };
 
-// const SpanLetter = props => {
-//   const { word } = props;
+const SpanLetter = props => {
+  const { word, delay } = props;
 
-//   return word.split("").map((letter, index) => {
-//     sleep(150).then(() => {
-//       return <span key={index}>{letter}</span>;
-//     });
-//     // return <span key={index}>{letter}</span>;
-//   });
-// };
+  return word.split("").map((letter, index) => {
+    // setTimeout(() => {
+    //   return <span key={index}>{letter}</span>;
+    // }, 150);
+    return <span key={index}>{letter}</span>;
+  //  const render = <span key={index}>{letter}</span>;
+  //  return useDelayNextChildren(render, delay);
+  });
+};
 
 const ProjectImage = styled(Three)`
   visibility: hidden;
@@ -126,13 +129,13 @@ const ProjectImage = styled(Three)`
   }
 `;
 
-const SpanLetter = props => {
-  const { word } = props;
+// const SpanLetter = props => {
+//   const { word } = props;
 
-  return word.split("").map((letter, index) => {
-    return <span key={index}>{letter}</span>;
-  });
-};
+//   return word.split("").map((letter, index) => {
+//     return <span key={index}>{letter}</span>;
+//   });
+// };
 
 const ScrollText = props => (
   <ScrollPercentage>
@@ -143,3 +146,6 @@ const ScrollText = props => (
     )}
   </ScrollPercentage>
 );
+
+
+

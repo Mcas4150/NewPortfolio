@@ -45,6 +45,7 @@ export default class Skillset extends Component {
             <ScrollRow>
               <SkillText>Ruby on Rails. </SkillText>
               <SkillText>GraphQL. </SkillText>
+              <SkillText>GSAP. </SkillText>
               <SkillText>Max/Msp. </SkillText>
               <SkillText>JUCE. </SkillText>
             </ScrollRow>

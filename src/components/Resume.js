@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Section } from "./Shared";
 import styled from "@emotion/styled";
 import { ScrollPercentage } from "react-scroll-percentage";
+import { TimelineLite } from "gsap";
 
 export default class Resume extends Component {
   render() {
@@ -36,7 +37,7 @@ export default class Resume extends Component {
           <Header>
             <H1>
               <ScrollText title="Experience" />
-              {/* <Word>
+              {/* <NewWord>
                 <Letter>E</Letter>
                 <Letter>x</Letter>
                 <Letter>p</Letter>
@@ -47,16 +48,15 @@ export default class Resume extends Component {
                 <Letter>n</Letter>
                 <Letter>c</Letter>
                 <Letter>e</Letter>
-              </Word> */}
+              </NewWord> */}
             </H1>
           </Header>
           <Content>
             <P>
               <Entry>Censinet</Entry>
-              <Entry>Freelance</Entry>
               <Entry>Beehive Jazz Club</Entry>
               <Entry>Forced Exposure</Entry>
-              <Entry>Behavioral Health WOrks</Entry>
+              <Entry>Behavioral Health Works</Entry>
               <br />
             </P>
           </Content>
@@ -103,12 +103,9 @@ const Header = styled.header`
   // transform: matrix(1, 0, 0, 1, 0, x);
 `;
 
-const H1 = styled.h1`
+const H1 = styled.div`
   font: 7rem Helvetica;
-  // font: 7.2rem/9rem Space Grotesk Regular;
   max-width: 55rem;
-  margin-block-start: 0.83em;
-  margin-block-end: 0.83em;
 `;
 
 const Word = styled.span`
@@ -117,9 +114,44 @@ const Word = styled.span`
   vertical-align: top;
 `;
 
+const NewWord = styled.div`
+  width: 200px;
+  height: 75px;
+`;
+
 const Letter = styled.span`
-  transform: matrix(1, 0, 0, 1, 0, 0);
-  // transform: matrix(1, 0, 0, 1, 0, x);
+  font-size: 5rem;
+  line-height: 80px;
+
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  /* we apply a 3d transform just to improve rendering */
+  -webkit-transform: translateZ(0.1px);
+  -moz-transform: translateZ(0.1px);
+  -o-transform: translateZ(0.1px);
+  -ms-transform: translateZ(0.1px);
+  transform: translateZ(0.1px);
+`;
+
+const Letter2 = styled.span`
+  // transform: matrix(1, 0, 0, 1, 0, 0);
+  // // transform: matrix(1, 0, 0, 1, 0, x);
+  width: 80px;
+  height: 80px;
+  background-color: purple;
+  margin: 10px;
+  display: inline-block;
+  font-size: 60px;
+  line-height: 80px;
+  color: white;
+  text-align: center;
+  -webkit-font-smoothing: antialiased;
+  /* we apply a 3d transform just to improve rendering */
+  -webkit-transform: translateZ(0.1px);
+  -moz-transform: translateZ(0.1px);
+  -o-transform: translateZ(0.1px);
+  -ms-transform: translateZ(0.1px);
+  transform: translateZ(0.1px);
 `;
 
 const Content = styled.div`
@@ -128,16 +160,16 @@ const Content = styled.div`
   text-align: left;
 `;
 
-const P = styled.p`
+const P = styled.div`
   margin-bottom: 4.5rem;
 
-  max-width: 51.5rem;
+  // max-width: 51.5rem;
 
-  font: 1.8rem/1.9 Helvetica;
+  font: 5rem/1.9 Helvetica;
   // font: 1.8rem/1.9 Space Grotesk Regular;
 `;
 
-const Entry = styled.span`
+const Entry = styled.div`
   clear: both;
 `;
 
@@ -154,13 +186,62 @@ const ResumeTitle = styled(Word)(props => ({
   width: "100%"
 }));
 
+const ResumeTitle2 = styled(NewWord)(props => ({
+  visibility: props.percent > 0.2 ? "visible" : "hidden",
+  position: "relative",
+  transform:
+    props.percent > 0.05
+      ? "matrix(1.00,0.00,0.00,1.00,0,0)"
+      : "matrix(1.00,0.00,0.00,1.00, -125, 25)",
+  webkitTransition: "opacity 1s ease",
+  transition:
+    "opacity 1s ease , transform 0.5s ease-in-out 0s, color 0.25s ease-in-out",
+  width: "200px",
+  height: "75px"
+}));
+
 const SpanLetter = props => {
   const { word } = props;
 
   return word.split("").map((letter, index) => {
-    return <span key={index}>{letter}</span>;
+    return <Letter key={index}>{letter}</Letter>;
   });
 };
+
+const SpanLetter2 = props => {
+  const { word } = props;
+  var tl = new TimelineLite();
+  tl.staggerFrom(
+    ".letter",
+    0.5,
+    { opacity: 1, scale: 0, rotation: -180 },
+    0.3
+  ).staggerTo(".letter", 0.3, { scale: 0.8 }, 0.3, 0.7);
+  return word.split("").map((letter, index) => {
+    return (
+      <Letter2 key={index} className="letter">
+        {letter}
+      </Letter2>
+    );
+  });
+};
+
+// triggerTimeline(letters){
+// var tl = new TimelineLite();
+
+// tl.staggerFrom(letters, 0.5, {opacity:0, scale:0, rotation:-180}, 0.3)
+//   .staggerTo(letters, 0.3, {scale:0.8}, 0.3, 0.7);
+// };
+
+const ScrollText2 = props => (
+  <ScrollPercentage>
+    {({ percentage, ref, entry }) => (
+      <ResumeTitle2 ref={ref} percent={percentage.toPrecision(2)}>
+        <SpanLetter2 word={props.title} />
+      </ResumeTitle2>
+    )}
+  </ScrollPercentage>
+);
 
 const ScrollText = props => (
   <ScrollPercentage>
