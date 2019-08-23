@@ -4,6 +4,7 @@ import { Section, BigText, Row, Column } from "./Shared";
 import psychic from "../imgs/psychic.png";
 import nimbus from "../imgs/Nimbus.png";
 import joyexpo from "../imgs/Joyexpo.jpg";
+import { Animate } from "./Animate";
 
 export default class Contact extends Component {
   render() {
@@ -12,9 +13,10 @@ export default class Contact extends Component {
         <Column>
           Now listening:
           <Row>
-            <RecordImage src={nimbus} />
+            {/* <RecordImage src={nimbus} />
             <RecordImage src={psychic} />
-            <RecordImage src={joyexpo} />
+            <RecordImage src={joyexpo} /> */}
+            <Animate timing="0.3">Education happens everywhere</Animate>
           </Row>
         </Column>
         <br />

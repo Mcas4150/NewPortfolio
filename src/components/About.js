@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { Section, ContentContainer } from "./Shared";
+import { Animate } from "./Animate";
 
 export default class About extends Component {
   constructor(props) {
@@ -21,28 +22,28 @@ export default class About extends Component {
     return (
       <Section id="about">
         <ContentContainer>
-          <H1 mounted={startAnimation}>
-            Hello! I'm Mike. A software engineer with an affinity for functional
-            structures, sound design, and human-computer interaction.
+          <H2 mounted={startAnimation}>
+            <Animate duration="1.75" stagger="0.15">
+              Hello! I'm Mike. A software engineer with an affinity for
+              functional structures, sound design, and human-computer
+              interaction.
+            </Animate>
             <br />
             <br />
-            Previously a music therapist and record nerd at music distributor
-            Forced Exposure. Now a fullstack audio/visual application developer
-          </H1>
+            <Animate duration="1.75" stagger="0.15">
+              Previously a music therapist and record nerd at music distributor
+              Forced Exposure. Now a fullstack audio/visual application
+              developer
+            </Animate>
+          </H2>
         </ContentContainer>
       </Section>
     );
   }
 }
 
-const H1 = styled.h1(props => ({
+const H2 = styled.h1(props => ({
   font: "7rem Helvetica",
-  opacity: props.mounted ? "1" : "0",
-  position: "relative",
-  transform: props.mounted
-    ? "matrix(1.00,0.00,0.00,1.00,0,0)"
-    : "matrix(1.00,0.00,0.00,1.00,0, 75)",
-  webkitTransition: "opacity 1s ease",
-  transition:
-    "opacity 1s ease , transform 0.5s ease-in-out 0s, color 0.25s ease-in-out"
+
+  position: "relative"
 }));

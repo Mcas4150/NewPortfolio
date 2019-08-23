@@ -3,6 +3,7 @@ import { Section } from "./Shared";
 import styled from "@emotion/styled";
 import { ScrollPercentage } from "react-scroll-percentage";
 import { TimelineLite } from "gsap";
+import { Animate, AnimateGroup } from "react-simple-animate";
 
 export default class Resume extends Component {
   render() {
@@ -114,10 +115,7 @@ const Word = styled.span`
   vertical-align: top;
 `;
 
-const NewWord = styled.div`
-  width: 200px;
-  height: 75px;
-`;
+const NewWord = styled.div``;
 
 const Letter = styled.span`
   font-size: 5rem;
@@ -200,11 +198,40 @@ const ResumeTitle2 = styled(NewWord)(props => ({
   height: "75px"
 }));
 
+const ResumeTitle3 = styled(NewWord)(props => ({
+  // visibility: props.percent > 0.2 ? "visible" : "hidden",
+  position: "relative"
+  // transform:
+  //   props.percent > 0.05
+  //     ? "matrix(1.00,0.00,0.00,1.00,0,0)"
+  //     : "matrix(1.00,0.00,0.00,1.00, -125, 25)",
+  // webkitTransition: "opacity 1s ease",
+  // transition:
+  //   "opacity 1s ease , transform 0.5s ease-in-out 0s, color 0.25s ease-in-out"
+}));
+
 const SpanLetter = props => {
   const { word } = props;
 
   return word.split("").map((letter, index) => {
     return <Letter key={index}>{letter}</Letter>;
+  });
+};
+
+const SpanLetter3 = props => {
+  const { word } = props;
+
+  return word.split("").map((letter, index) => {
+    return (
+      <Animate
+        key={letter}
+        sequenceIndex={index}
+        end={{ opacity: 1, transform: "translateX(10px)" }}
+        start={{ opacity: 0, transform: "translateX(0)" }}
+      >
+        <Letter key={index}>{letter}</Letter>
+      </Animate>
+    );
   });
 };
 
@@ -232,6 +259,18 @@ const SpanLetter2 = props => {
 // tl.staggerFrom(letters, 0.5, {opacity:0, scale:0, rotation:-180}, 0.3)
 //   .staggerTo(letters, 0.3, {scale:0.8}, 0.3, 0.7);
 // };
+
+const ScrollText3 = props => (
+  <ScrollPercentage>
+    {({ percentage, ref, entry }) => (
+      <ResumeTitle3 ref={ref} percent={percentage.toPrecision(2)}>
+        <AnimateGroup play={percentage.toPrecision(2) > 0.1 ? "true" : "false"}>
+          <SpanLetter3 word={props.title} />
+        </AnimateGroup>
+      </ResumeTitle3>
+    )}
+  </ScrollPercentage>
+);
 
 const ScrollText2 = props => (
   <ScrollPercentage>

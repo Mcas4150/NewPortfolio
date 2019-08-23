@@ -2,8 +2,8 @@ import React, { Component, memo } from "react";
 import { useDelayNextChildren } from './Hooks';
 import styled from "@emotion/styled";
 import { Section } from "./Shared";
-import prophec from "../imgs/prophetcplusplus.png";
-import orphan from "../imgs/orphan2.png";
+// import prophec from "../imgs/prophetcplusplus.png";
+// import orphan from "../imgs/orphan2.png";
 import { ScrollPercentage } from "react-scroll-percentage";
 import Three from "./Three";
 
@@ -85,10 +85,7 @@ const ProjectText = styled(BigText)(props => ({
   color: "transparent",
   opacity: props.percent > 0.1 ? 1 : 0,
   position: "relative",
-  // transform:
-  // props.percent > 0.1
-  //   ? "matrix(1.00,0.00,0.00,1.00,0,0)"
-  //   : "matrix(0.95,0.10,-0.10,0.95,0, 50)",
+
   transform:
     props.percent > 0.05
       ? "matrix(1.00,0.00,0.00,1.00,0,0)"
@@ -105,9 +102,9 @@ const ProjectBox = styled.div`
   width: 100%;
 `;
 
-const sleep = milliseconds => {
-  return new Promise(resolve => setTimeout(resolve, milliseconds));
-};
+// const sleep = milliseconds => {
+//   return new Promise(resolve => setTimeout(resolve, milliseconds));
+// };
 
 const SpanLetter = props => {
   const { word, delay } = props;

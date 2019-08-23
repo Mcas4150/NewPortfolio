@@ -70,8 +70,8 @@ const MainContainer = styled.div`
   opacity: 1;
   height: 100%;
   // cursor: url(${circle});
- cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="75" height="75"><circle cx="30" cy="30" r="25" stroke-width="2" style="stroke: black; fill: navy;"/></svg>'),
- pointer;
+//  cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="75" height="75"><circle cx="30" cy="30" r="25" stroke-width="2" style="stroke: black; fill: navy;"/></svg>'),
+//  pointer;
 `;
 
 const HeaderContainer = styled.div`
