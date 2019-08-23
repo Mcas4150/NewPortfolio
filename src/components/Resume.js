@@ -3,7 +3,6 @@ import { Section } from "./Shared";
 import styled from "@emotion/styled";
 import { ScrollPercentage } from "react-scroll-percentage";
 import { TimelineLite } from "gsap";
-import { Animate, AnimateGroup } from "react-simple-animate";
 
 export default class Resume extends Component {
   render() {
@@ -13,7 +12,7 @@ export default class Resume extends Component {
           <Header>
             <H1>
               <ScrollText title="Education" />
-0--            </H1>
+            </H1>
           </Header>
           <Content>
             <P>

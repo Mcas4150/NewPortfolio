@@ -5,6 +5,7 @@ import psychic from "../imgs/psychic.png";
 import nimbus from "../imgs/Nimbus.png";
 import joyexpo from "../imgs/Joyexpo.jpg";
 import { Animate } from "./Animate";
+import Album from "./Album";
 
 export default class Contact extends Component {
   render() {
@@ -15,8 +16,8 @@ export default class Contact extends Component {
           <Row>
             {/* <RecordImage src={nimbus} />
             <RecordImage src={psychic} />
-            <RecordImage src={joyexpo} /> */}
-            <Animate timing="0.3">Education happens everywhere</Animate>
+            <RecordImage src={joyexpo} />
+           <Animate timing="0.3">Education happens everywhere</Animate> */}
           </Row>
         </Column>
         <br />

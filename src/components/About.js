@@ -23,7 +23,7 @@ export default class About extends Component {
       <Section id="about">
         <ContentContainer>
           <H2 mounted={startAnimation}>
-            <Animate duration="1.75" stagger="0.15">
+            <Animate duration=".25" stagger="0.05">
               Hello! I'm Mike. A software engineer with an affinity for
               functional structures, sound design, and human-computer
               interaction.

@@ -23,7 +23,7 @@ export default class Album extends Component {
     });
 
     var tl = new TimelineMax({
-      paused: true,
+      paused: false,
       repeat: -1 //,
       //yoyo: true
     });
@@ -33,7 +33,7 @@ export default class Album extends Component {
       Front,
       5,
       {
-        immediateRender: false,
+        immediateRender: true,
         rotationX: "0deg",
         rotationY: "90deg",
         rotationZ: "0deg"
@@ -52,7 +52,7 @@ export default class Album extends Component {
       Back,
       5,
       {
-        immediateRender: false,
+        immediateRender: true,
         rotationX: "0deg",
         rotationY: "270deg",
         rotationZ: "0deg"
@@ -71,7 +71,7 @@ export default class Album extends Component {
       Right,
       5,
       {
-        immediateRender: false,
+        immediateRender: true,
         rotationX: "90deg",
         rotationY: "0deg",
         rotationZ: "0deg"
@@ -90,7 +90,7 @@ export default class Album extends Component {
       Left,
       5,
       {
-        immediateRender: false,
+        immediateRender: true,
         rotationX: "-90deg",
         rotationY: "0deg",
         rotationZ: "0deg"
@@ -109,7 +109,7 @@ export default class Album extends Component {
       Top,
       5,
       {
-        immediateRender: false,
+        immediateRender: true,
         rotationX: "0deg",
         rotationY: "0deg",
         rotationZ: "0deg"
@@ -128,7 +128,7 @@ export default class Album extends Component {
       Bottom,
       5,
       {
-        immediateRender: false,
+        immediateRender: true,
         rotationX: "0deg",
         rotationY: "180deg",
         rotationZ: "0deg"
@@ -142,7 +142,7 @@ export default class Album extends Component {
       "cube"
     );
 
-    tl.progress(1).progress(0);
+    // tl.progress(1).progress(0);
     tl.play(0);
   }
 
