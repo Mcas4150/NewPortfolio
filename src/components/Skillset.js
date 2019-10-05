@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { Section } from "./Shared";
-import Canvas from "./Canvas";
+
 
 export default class Skillset extends Component {
   constructor(props) {

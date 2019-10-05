@@ -7,6 +7,8 @@ import Three from "./Three";
 import Resume from "./Resume";
 import About from "./About";
 import ScrollLink from "./ScrollLink";
+import { Controller, Scene } from "react-scrollmagic";
+import { Tween, Timeline } from "react-gsap";
 
 import Skillset from "./Skillset";
 import Blocks from "./Blocks";
@@ -40,7 +42,18 @@ export default class Main extends Component {
           {/* give position to scroll container */}
           <ScrollContainer>
             <About />
-
+            {/* <Controller>
+              <Scene duration={600} pin>
+                <div>Sticky Example</div>
+              </Scene>
+            </Controller> */}
+            {/* <SectionWipes2Styled>
+              <Controller>
+                <Scene triggerHook="onLeave" duration="300%" pin>
+                  <Resume />
+                </Scene>
+              </Controller>
+            </SectionWipes2Styled> */}
             <Skillset />
             <Three />
             <Projects />
@@ -63,7 +76,7 @@ export default class Main extends Component {
 }
 
 const MainContainer = styled.div`
-  background-color: rgb(217, 234, 211);
+  background-color: #DBD5C9;
   overflow: hidden;
   outline: none;
   visibility: inherit;
@@ -82,8 +95,7 @@ const HeaderContainer = styled.div`
 `;
 
 const BodyContainer = styled.div`
-  // display: flex;
-  // justify-content: space-between;
+
   display: grid;
   grid-template-columns: "8fr 1fr;
 `;
@@ -109,6 +121,7 @@ const Title = styled.div`
   position: fixed;
   font-family: "MonumentRegular";
   font-size: 5rem;
+  z-index: 8;
   color: transparent;
   -webkit-text-stroke: 1.1px black;
   text-stroke: 1.1px black;
@@ -119,6 +132,43 @@ const Title = styled.div`
     color: black;
     transition: color 0.25s ease-in-out, transform 0.5s ease;
     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
+  }
+`;
+
+const SectionWipes2Styled = styled.div`
+  overflow: hidden;
+  #pinContainer {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  #pinContainer .panel {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    text-align: center;
+  }
+  // .panel span {
+  //   position: relative;
+  //   display: block;
+  //   top: 50%;
+  //   font-size: 80px;
+  // }
+
+  .panel.blue {
+    background-color: #3883d8;
+  }
+
+  .panel.turqoise {
+    background-color: #38ced7;
+  }
+
+  .panel.green {
+    background-color: #22d659;
+  }
+
+  .panel.bordeaux {
+    background-color: #953543;
   }
 `;
 

@@ -3,12 +3,45 @@ import { Section } from "./Shared";
 import styled from "@emotion/styled";
 import { ScrollPercentage } from "react-scroll-percentage";
 import { TimelineLite } from "gsap";
+import { Controller, Scene } from "react-scrollmagic";
+import { Tween, Timeline } from "react-gsap";
+import { Animate } from "./Animate";
 
 export default class Resume extends Component {
   render() {
     return (
       <Section id="resume">
         <ResumeContainer>
+          <Sticky2Styled>
+            <Controller>
+              <Scene triggerHook="onLeave" duration={500} pin indicators>
+                {progress => (
+                  <div className="sticky">
+                    <Timeline totalProgress={progress} paused>
+                      <Tween
+                        from={{ x: "5%", top: "20%", opacity: 0 }}
+                        to={{ x: "15%", top: "10%", opacity: 1 }}
+                      >
+                        <div className="animation">
+                          <div className="title">Education</div>
+                        </div>
+                      </Tween>
+                      <Timeline
+                        target={
+                          <div className="heading">
+                            <h2>This is a cool heading</h2>
+                          </div>
+                        }
+                      >
+                        <Tween from={{ opacity: 0 }} to={{ opacity: 1 }} />
+                        <Tween to={{ x: "110%" }} />
+                      </Timeline>
+                    </Timeline>
+                  </div>
+                )}
+              </Scene>
+            </Controller>
+          </Sticky2Styled>
           <Header>
             <H1>
               <ScrollText title="Education" />
@@ -16,9 +49,15 @@ export default class Resume extends Component {
           </Header>
           <Content>
             <P>
-              <Entry>Le Wagon</Entry>
-              <Entry>CareerFoundry</Entry>
-              <Entry>American University</Entry>
+              <Entry duration=".25" stagger="0.025">
+                Le Wagon
+              </Entry>
+              <Entry duration=".25" stagger="0.025">
+                CareerFoundry
+              </Entry>
+              <Entry duration=".25" stagger="0.025">
+                American University
+              </Entry>
               <br />
             </P>
           </Content>
@@ -129,7 +168,7 @@ const P = styled.div`
   // font: 1.8rem/1.9 Space Grotesk Regular;
 `;
 
-const Entry = styled.div`
+const Entry = styled(Animate)`
   clear: both;
 `;
 
@@ -253,3 +292,38 @@ const ScrollText = props => (
     )}
   </ScrollPercentage>
 );
+
+const Sticky2Styled = styled.div`
+  overflow: hidden;
+
+  .sticky,
+  .sticky2 {
+    height: 100vh;
+
+    width: 50vw;
+    & .animation,
+    .animation2 {
+      width: 100vw;
+      height: 100%;
+      position: absolute;
+      & .title {
+        opacity: 1;
+        position: absolute;
+        width: 300px;
+        height: 300px;
+      }
+    }
+    .heading {
+      position: absolute;
+      height: 100%;
+      width: 100vw;
+      h2 {
+        font-size: 40px;
+        position: absolute;
+        bottom: 10%;
+        left: 0;
+        margin: 0;
+      }
+    }
+  }
+`;
