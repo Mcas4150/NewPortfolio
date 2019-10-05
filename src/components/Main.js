@@ -9,7 +9,7 @@ import About from "./About";
 import ScrollLink from "./ScrollLink";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
-
+import Services from "./Services";
 import Skillset from "./Skillset";
 import Blocks from "./Blocks";
 import Contact from "./Contact";
@@ -36,7 +36,11 @@ export default class Main extends Component {
     return (
       <MainContainer>
         <HeaderContainer>
-          <Title>MIKE CASSIDY </Title>
+          <Title>ME.</Title>
+          <Title>WORK</Title>
+          <Spacer />
+          <Title>CV</Title>
+          <Title>CONTACT</Title>
         </HeaderContainer>
         <BodyContainer>
           {/* give position to scroll container */}
@@ -54,21 +58,23 @@ export default class Main extends Component {
                 </Scene>
               </Controller>
             </SectionWipes2Styled> */}
-            <Skillset />
+
+            {/* <Skillset />
             <Three />
             <Projects />
-            <Blocks />
+            <Blocks /> */}
+            <Services />
             <Resume />
             <Contact />
           </ScrollContainer>
 
-          <NavLinkContainer>
+          {/* <NavLinkContainer>
             <ScrollLink to="about" />
             <ScrollLink to="skillset" />
             <ScrollLink to="projects" />
             <ScrollLink to="resume" />
             <ScrollLink to="contact" />
-          </NavLinkContainer>
+          </NavLinkContainer> */}
         </BodyContainer>
       </MainContainer>
     );
@@ -88,10 +94,10 @@ const MainContainer = styled.div`
 `;
 
 const HeaderContainer = styled.div`
-  height: 10vh;
-  justify-content: space-between;
   display: flex;
-  padding: 25px;
+  position: fixed;
+  padding: 5vh 0 5vh 4vw;
+  width: 100%;
 `;
 
 const BodyContainer = styled.div`
@@ -118,21 +124,18 @@ const NavLinkContainer = styled.div`
 `;
 
 const Title = styled.div`
-  position: fixed;
+  // position: fixed;
+  // display: block;
   font-family: "MonumentRegular";
-  font-size: 5rem;
+  font-size: 4rem;
+  padding-right: 8vh;
   z-index: 8;
-  color: transparent;
-  -webkit-text-stroke: 1.1px black;
-  text-stroke: 1.1px black;
-  text-shadow: none;
+
   transform: "perspective(600px) translate3d(10px, 0px , 50px)";
-  transition: color 0.25s ease-in-out;
-  :hover {
-    color: black;
-    transition: color 0.25s ease-in-out, transform 0.5s ease;
-    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
-  }
+`;
+
+const Spacer = styled.div`
+  width: 100%;
 `;
 
 const SectionWipes2Styled = styled.div`
