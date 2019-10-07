@@ -46,18 +46,6 @@ export default class Main extends Component {
           {/* give position to scroll container */}
           <ScrollContainer>
             <About />
-            {/* <Controller>
-              <Scene duration={600} pin>
-                <div>Sticky Example</div>
-              </Scene>
-            </Controller> */}
-            {/* <SectionWipes2Styled>
-              <Controller>
-                <Scene triggerHook="onLeave" duration="300%" pin>
-                  <Resume />
-                </Scene>
-              </Controller>
-            </SectionWipes2Styled> */}
 
             {/* <Skillset />
             <Three />
