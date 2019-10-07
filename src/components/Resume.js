@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Section } from "./Shared";
 import styled from "@emotion/styled";
 import { ScrollPercentage } from "react-scroll-percentage";
 import { TimelineLite } from "gsap";
@@ -10,11 +9,11 @@ import { Animate } from "./Animate";
 export default class Resume extends Component {
   render() {
     return (
-      <Section id="resume">
+
         <ResumeContainer>
           <Sticky2Styled>
             <Controller>
-              <Scene triggerHook="onLeave" duration={500} pin indicators>
+              <Scene triggerHook="onLeave" duration={800} pin indicators>
                 {progress => (
                   <div className="sticky">
                     <Timeline totalProgress={progress} paused>
@@ -92,13 +91,13 @@ export default class Resume extends Component {
             </P>
           </Content>
         </ResumeContainer>
-      </Section>
+
     );
   }
 }
 
 const ResumeContainer = styled.div`
-  max-width: 166rem;
+
   width: 100%;
 `;
 

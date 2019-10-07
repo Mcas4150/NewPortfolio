@@ -64,7 +64,9 @@ export default class Main extends Component {
             <Projects />
             <Blocks /> */}
             <Services />
-            <Resume />
+
+            {/* <Resume /> */}
+
             <Contact />
           </ScrollContainer>
 
@@ -127,7 +129,7 @@ const Title = styled.div`
   // position: fixed;
   // display: block;
   font-family: "MonumentRegular";
-  font-size: 4rem;
+  font-size: 2vw;
   padding-right: 8vh;
   z-index: 8;
 

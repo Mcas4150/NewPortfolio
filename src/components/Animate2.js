@@ -14,15 +14,13 @@ const SpanWord = props => {
   });
 };
 
-export const Animate = props => {
+export const Animate2 = props => {
   const timeline = new TimelineMax({ paused: true, smoothChildTiming: true });
   const ref1 = useRef();
 
   useEffect(() => {
     timeline
 
-      // .add(TweenLite.to(ref1.current, 1, { left: 100 }))
-      // .add(TweenLite.to(ref2.current, 1, { bottom: 200 }))
 
       .staggerFrom(".class", props.duration, {
         autoAlpha: 0,
@@ -43,7 +41,8 @@ export const Animate = props => {
 
   return (
     <div ref={ref1}>
-      <SpanWord>{props.children}</SpanWord>
+      {/* <SpanWord>{props.children}</SpanWord> */}
+      <div className="class"></div>
     </div>
   );
 };
