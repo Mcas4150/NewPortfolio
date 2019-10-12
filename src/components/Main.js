@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import circle from "./Circle.svg";
+import Routes from "./Routes";
+import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
+// components
+import { Home, Services, Contact } from "./Components";
+
 // import TrackVisibility from "react-on-screen";
 import Projects from "./Projects";
 import Three from "./Three";
@@ -9,10 +14,12 @@ import About from "./About";
 import ScrollLink from "./ScrollLink";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
-import Services from "./Services";
+// import Services from "./Services";
 import Skillset from "./Skillset";
 import Blocks from "./Blocks";
-import Contact from "./Contact";
+import Motion from "./Motion";
+import Timer from "./Timer";
+// import Contact from "./Contact";
 
 export default class Main extends Component {
   constructor(props) {
@@ -35,37 +42,52 @@ export default class Main extends Component {
   render() {
     return (
       <MainContainer>
-        <HeaderContainer>
-          <Title>ME.</Title>
-          <Title>WORK</Title>
-          <Spacer />
-          <Title>CV</Title>
-          <Title>CONTACT</Title>
-        </HeaderContainer>
-        <BodyContainer>
-          {/* give position to scroll container */}
-          <ScrollContainer>
-            <About />
+        <BrowserRouter>
+          <HeaderContainer>
+            <Title to="/">ME.</Title>
+            <Title to="/work">WORK</Title>
+            <Spacer />
+            <Title to="/cv">CV</Title>
+            <Title to="/contact">CONTACT</Title>
+          </HeaderContainer>
+          <BodyContainer>
+            {/* give position to scroll container */}
+            <ScrollContainer>
+              <Route path="/" exact>
+                {({ match }) => <Home show={match !== null} />}
+              </Route>
 
-            {/* <Skillset />
+              <Route path="/services">
+                {({ match }) => <Services show={match !== null} />}
+              </Route>
+              <Route path="/contact">
+                {({ match }) => <Contact show={match !== null} />}
+              </Route>
+
+              {/* <About /> */}
+
+              {/* <Skillset />
             <Three />
             <Projects />
             <Blocks /> */}
-            <Services />
+              {/* <Services /> */}
+              {/* <Motion /> */}
+              {/* <Timer /> */}
+              {/* <Resume /> */}
 
-            {/* <Resume /> */}
+              {/* <Routes /> */}
+              {/* <Contact /> */}
+            </ScrollContainer>
 
-            <Contact />
-          </ScrollContainer>
-
-          {/* <NavLinkContainer>
+            {/* <NavLinkContainer>
             <ScrollLink to="about" />
             <ScrollLink to="skillset" />
             <ScrollLink to="projects" />
             <ScrollLink to="resume" />
             <ScrollLink to="contact" />
           </NavLinkContainer> */}
-        </BodyContainer>
+          </BodyContainer>
+        </BrowserRouter>
       </MainContainer>
     );
   }
@@ -113,7 +135,7 @@ const NavLinkContainer = styled.div`
   z-index: 5;
 `;
 
-const Title = styled.div`
+const Title = styled(NavLink)`
   // position: fixed;
   // display: block;
   font-family: "MonumentRegular";

@@ -7,31 +7,30 @@ export default class Services extends Component {
   render() {
     return (
       <Container>
-        <TextContainer>
-          <Skill>Web Development</Skill>
-          <Skill>Audio Engineer</Skill>
-          <Sticky2Styled>
-            <Controller>
-              <Scene triggerHook={0.85} duration={300} pin indicators>
-                {progress => (
-                  <Sticky>
-                    <Timeline totalProgress={progress} paused>
-                      <Tween
-                        from={{ x: "5%", top: "20%", opacity: 0 }}
-                        to={{ x: "15%", top: "10%", opacity: 1 }}
-                      >
-                        <Animation>
-                          <Title>Education</Title>
-                        </Animation>
-                      </Tween>
+        <Sticky2Styled>
+          <Controller>
+            <Scene triggerHook={0.85} duration={400 }  indicators>
+              {progress => (
+                <TextContainer>
+                  <Timeline totalProgress={progress} paused>
+                    <Tween
+                      from={{ y: 400, opacity: 0 }}
+                      to={{ y: 50, opacity: 1 }}
+                    >
 
-                    </Timeline>
-                  </Sticky>
-                )}
-              </Scene>
-            </Controller>
-          </Sticky2Styled>
-        </TextContainer>
+                      
+                      <Animation>
+                        <Skill>Web Development</Skill>
+                        {/* <Skill>Audio Engineer</Skill>
+                          <Title>Education</Title> */}
+                      </Animation>
+                    </Tween>
+                  </Timeline>
+                </TextContainer>
+              )}
+            </Scene>
+          </Controller>
+        </Sticky2Styled>
       </Container>
     );
   }
@@ -44,7 +43,7 @@ const Container = styled.div`
 `;
 
 const TextContainer = styled.div`
-  padding: 15vh 50px;
+  padding: 5vh 50px;
 
   display: flex;
   justify-content: space-between;
@@ -54,6 +53,7 @@ const TextContainer = styled.div`
 const Skill = styled.div`
   font-size: 3vw;
   color: black;
+  position: absolute;
 `;
 
 const Title = styled.div`
