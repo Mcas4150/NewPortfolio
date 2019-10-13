@@ -6,6 +6,7 @@ import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
 import Timer from "./Timer";
 import OrphanLogo from "./OrphanLogo";
+import Three from "./Three";
 
 const startState = { autoAlpha: 0, y: 0 };
 
@@ -24,15 +25,8 @@ export const Work = props => (
     }}
   >
     <Section id="contact">
-      <Column>
-        {/* <RecordImage src={nimbus} />
-            <RecordImage src={psychic} />
-            <RecordImage src={joyexpo} />
-           <Animate timing="0.3">Education happens everywhere</Animate> */}
-      </Column>
-      <br />
-
       <Timer />
+      <Three />
     </Section>
   </Transition>
 );

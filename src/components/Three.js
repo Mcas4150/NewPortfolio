@@ -137,7 +137,7 @@ class SceneManager {
 
   buildScene = () => {
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color("rgb(217, 234, 211)");
+    scene.background = new THREE.Color("#DBD5C9");
 
     return scene;
   };
@@ -231,8 +231,8 @@ export default class Three extends Component {
     const sceneManager = new SceneManager(canvas);
 
     const resizeCanvas = () => {
-      canvas.style.width = "100%";
-      canvas.style.height = "100%";
+      canvas.style.width = "50%";
+      canvas.style.height = "50%";
 
       canvas.width = canvas.offsetWidth;
       canvas.height = canvas.offsetHeight;
@@ -264,6 +264,16 @@ export default class Three extends Component {
   }
 
   render() {
-    return <canvas id="canvas" />;
+    return (
+      <canvas
+        id="canvas"
+        style={{
+          position: "fixed",
+          zIndex: "-1",
+          height: "50vh",
+          width: "50vw"
+        }}
+      />
+    );
   }
 }
