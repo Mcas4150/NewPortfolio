@@ -15,13 +15,8 @@ h2 {
   font-weight: normal;
   color: #cfcfcf;
 } */
-.demoWrapper {
-  width: 600px;
-  height: 350px;
-  -webkit-font-smoothing: antialiased;
-  color: black;
-  overflow: hidden;
-}
+
+
 .bg {
   position: absolute;
   background-image: url(https://www.greensock.com/_img/codepen/black_textured_background.png);
