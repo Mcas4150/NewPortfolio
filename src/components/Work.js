@@ -1,13 +1,13 @@
 import React from "react";
-// import styled from "@emotion/styled";
+import styled from "@emotion/styled";
 import { Section, Column } from "./Shared";
 
 import { Transition } from "react-transition-group";
-import { TweenMax} from "gsap/all";
+import { TweenMax } from "gsap/all";
 import Timer from "./Timer";
+import OrphanLogo from "./OrphanLogo";
 
-
-const startState = { autoAlpha: 0, y: -50 };
+const startState = { autoAlpha: 0, y: 0 };
 
 export const Work = props => (
   <Transition
@@ -18,7 +18,7 @@ export const Work = props => (
     addEndListener={(node, done) => {
       TweenMax.to(node, 0.5, {
         autoAlpha: props.show ? 1 : 0,
-        y: props.show ? 0 : 50,
+        y: props.show ? 50 : 0,
         onComplete: done
       });
     }}
@@ -37,4 +37,7 @@ export const Work = props => (
   </Transition>
 );
 
-
+const WorkContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;

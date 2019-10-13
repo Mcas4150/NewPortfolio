@@ -160,7 +160,7 @@ export default class OrphanLogo extends Component {
       <div
         className="logo-canvas"
         style={{
-          height: "10vh",
+          height: "8vh",
           color: "black",
           backgroundColor: "#DBD5C9"
           // height: "calc(40vh -30px)"

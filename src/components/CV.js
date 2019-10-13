@@ -5,7 +5,7 @@ import { Section,  Column } from "./Shared";
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
 
-const startState = { autoAlpha: 0, y: -50 };
+const startState = { autoAlpha: 0, y: 0 };
 
 export const CV = props => (
   <Transition
@@ -16,7 +16,7 @@ export const CV = props => (
     addEndListener={(node, done) => {
       TweenMax.to(node, 0.5, {
         autoAlpha: props.show ? 1 : 0,
-        y: props.show ? 0 : 50,
+        y: props.show ? 50 : 0,
         onComplete: done
       });
     }}

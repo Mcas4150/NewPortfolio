@@ -1,8 +1,12 @@
 import Tone from "tone";
 import noteToFrequency from "note-to-frequency";
+import AudioAnalyzer from "../synth/Analyzer";
 
 class SynthEngine {
   constructor(initialState) {
+    this.state = {
+      audio: null
+    };
     this.noteFrequency = "440";
 
     this.limiter = new Tone.Limiter(-10);
@@ -84,6 +88,7 @@ class SynthEngine {
 
   componentDidMount() {
     new Tone.start();
+    this.setState({ audio: true });
   }
 
   triggerAttackRelease(value, freq) {

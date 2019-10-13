@@ -3,18 +3,12 @@ import styled from "@emotion/styled";
 import { Section, Column } from "./Shared";
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
-import {
-
-  Line,
-  Util,
-  Rectangle,
-
-} from "pts/dist/es5";
+import { Line, Util, Rectangle } from "pts/dist/es5";
 // import Viz from "./viz";
 
 import { QuickStartCanvas } from "react-pts-canvas";
 
-const startState = { autoAlpha: 0, y: -50 };
+const startState = { autoAlpha: 0, y: 0 };
 
 export const Contact = props => (
   <Transition
@@ -25,7 +19,7 @@ export const Contact = props => (
     addEndListener={(node, done) => {
       TweenMax.to(node, 0.5, {
         autoAlpha: props.show ? 1 : 0,
-        y: props.show ? 0 : 50,
+        y: props.show ? 50 : 0,
         onComplete: done
       });
     }}
@@ -38,8 +32,7 @@ export const Contact = props => (
            <Animate timing="0.3">Education happens everywhere</Animate> */}
       </Column>
       <br />
-      <Text>Here to listen</Text>
-      <Email>me@mikecassidy.info</Email>
+      <Text>I'm all Ears!!</Text>
       <QuickStartCanvas
         height="500px"
         onAnimate={(space, form, time) => {
@@ -52,6 +45,7 @@ export const Contact = props => (
           form.strokeOnly("#FDC", 2).polygons(rects);
         }}
       />
+      <Email>me@mikecassidy.info</Email>
     </Section>
   </Transition>
 );
@@ -65,7 +59,7 @@ const Email = styled.a`
   // font-size: 7rem;
   text-decoration: none;
   cursor: pointer;
-  font-size: 4vw;
+  font-size: 3vw;
   font-family: "MonumentRegular";
   color: transparent;
   -webkit-text-stroke: 1.1px black;
@@ -78,5 +72,3 @@ const Email = styled.a`
     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
   }
 `;
-
-
