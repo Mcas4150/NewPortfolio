@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { Section, BigText, Row, Column } from "./Shared";
+
 import { Transition } from "react-transition-group";
 import { TweenMax, TweenLite } from "gsap/all";
 
 const startState = { autoAlpha: 0, y: -50 };
 
-export const Contact = props => (
+export const CV = props => (
   <Transition
     unmountOnExit
     in={props.show}
@@ -20,7 +21,7 @@ export const Contact = props => (
       });
     }}
   >
-    <Section id="contact">
+    <Section id="cv">
       <Column>
         {/* <RecordImage src={nimbus} />
             <RecordImage src={psychic} />
@@ -28,21 +29,13 @@ export const Contact = props => (
            <Animate timing="0.3">Education happens everywhere</Animate> */}
       </Column>
       <br />
-      <Text>Here to listen</Text>
-      <Email>me@mikecassidy.info</Email>
+      <Email>CV</Email>
     </Section>
   </Transition>
 );
 
-const Text = styled.div`
-  font-size: 4vw;
-  font-family: "MonumentRegular";
-`;
-
-const Email = styled.a`
+const Email = styled.div`
   // font-size: 7rem;
-  text-decoration: none;
-  cursor: pointer;
   font-size: 4vw;
   font-family: "MonumentRegular";
   color: transparent;

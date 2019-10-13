@@ -4,22 +4,24 @@ import circle from "./Circle.svg";
 import Routes from "./Routes";
 import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
 // components
-import { Home, Services, Contact } from "./Components";
+import { Home, Services } from "./Components";
 
 // import TrackVisibility from "react-on-screen";
 import Projects from "./Projects";
 import Three from "./Three";
 import Resume from "./Resume";
-import About from "./About";
+import { About } from "./About";
 import ScrollLink from "./ScrollLink";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 // import Services from "./Services";
 import Skillset from "./Skillset";
+import { Work } from "./Work";
 import Blocks from "./Blocks";
 import Motion from "./Motion";
 import Timer from "./Timer";
-// import Contact from "./Contact";
+import { Contact } from "./Contact";
+import { CV } from "./CV";
 
 export default class Main extends Component {
   constructor(props) {
@@ -54,11 +56,13 @@ export default class Main extends Component {
             {/* give position to scroll container */}
             <ScrollContainer>
               <Route path="/" exact>
-                {({ match }) => <Home show={match !== null} />}
+                {({ match }) => <About show={match !== null} />}
               </Route>
-
-              <Route path="/services">
-                {({ match }) => <Services show={match !== null} />}
+              <Route path="/work" exact>
+                {({ match }) => <Work show={match !== null} />}
+              </Route>
+              <Route path="/cv">
+                {({ match }) => <CV show={match !== null} />}
               </Route>
               <Route path="/contact">
                 {({ match }) => <Contact show={match !== null} />}
@@ -110,12 +114,11 @@ const HeaderContainer = styled.div`
   position: fixed;
   padding: 5vh 0 5vh 4vw;
   width: 100%;
+  height: 10vh;
 `;
 
 const BodyContainer = styled.div`
-
-  display: grid;
-  grid-template-columns: "8fr 1fr;
+  margin: 100px 5vh;
 `;
 
 const ScrollContainer = styled.div`
@@ -142,7 +145,11 @@ const Title = styled(NavLink)`
   font-size: 2vw;
   padding-right: 8vh;
   z-index: 8;
-
+  text-decoration: none;
+  color: black;
+  :hover {
+    color: #f93700;
+  }
   transform: "perspective(600px) translate3d(10px, 0px , 50px)";
 `;
 
