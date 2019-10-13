@@ -16,7 +16,6 @@ h2 {
   color: #cfcfcf;
 } */
 
-
 .bg {
   position: absolute;
   background-image: url(https://www.greensock.com/_img/codepen/black_textured_background.png);
@@ -25,10 +24,12 @@ h2 {
 }
 .content {
   padding-left: 15px;
- 
+  display: flex;
+  flex-direction: column;
 }
 .info {
   margin-top: 20px;
+  visibility: hidden;
 }
 .feature {
   position: relative;
@@ -43,6 +44,11 @@ h2 {
   line-height: 24px;
   color: #fff;
 }
+
+.year {
+  visibility: hidden;
+}
+
 .nav {
   position: relative;
   clear: both;

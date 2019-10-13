@@ -89,7 +89,7 @@ class Timer extends Component {
               >
                 {element.name}
               </Header>
-              <h2 ref={h2 => (this.subhead = h2)}>1991</h2>
+              <h2 className="year" ref={h2 => (this.subhead = h2)}></h2>
               <div className="info">
                 <img
                   src="https://www.greensock.com/_img/codepen/feature_robust.png"
@@ -120,15 +120,19 @@ const DemoWrapper = styled.div`
   // width: 100%;
   // max-width: 100vw;
   width: 35vw;
-  height: 50vh;
+  height: 20vh;
   -webkit-font-smoothing: antialiased;
   color: black;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 `;
 
 const Header = styled.div`
   font-size: 3vw;
   width: 35vw;
+  justify-content: center;
+  display: flex;
 `;
 
 const WorkContainer = styled.div`
