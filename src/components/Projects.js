@@ -1,11 +1,11 @@
-import React, { Component, memo } from "react";
-import { useDelayNextChildren } from './Hooks';
+import React, { Component } from "react";
+// import { useDelayNextChildren } from './Hooks';
 import styled from "@emotion/styled";
 import { Section } from "./Shared";
 // import prophec from "../imgs/prophetcplusplus.png";
 // import orphan from "../imgs/orphan2.png";
 import { ScrollPercentage } from "react-scroll-percentage";
-import Three from "./Three";
+// import Three from "./Three";
 
 export default class Projects extends Component {
   render() {
@@ -107,7 +107,7 @@ const ProjectBox = styled.div`
 // };
 
 const SpanLetter = props => {
-  const { word, delay } = props;
+  const { word} = props;
 
   return word.split("").map((letter, index) => {
     // setTimeout(() => {
@@ -119,12 +119,12 @@ const SpanLetter = props => {
   });
 };
 
-const ProjectImage = styled(Three)`
-  visibility: hidden;
-  :hover {
-    visibility: visible;
-  }
-`;
+// const ProjectImage = styled(Three)`
+//   visibility: hidden;
+//   :hover {
+//     visibility: visible;
+//   }
+// `;
 
 // const SpanLetter = props => {
 //   const { word } = props;

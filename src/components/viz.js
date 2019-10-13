@@ -1,21 +1,5 @@
 import React, { Component } from "react";
-import {
-  Pt,
-  Group,
-  Line,
-  Util,
-  Rectangle,
-  Num,
-  Create,
-  Sound,
-  Triangle,
-  Const,
-  Geom,
-  Pts,
-  space,
-  form
-} from "pts/dist/es5";
-import Tone from "tone";
+import { Line, Util, Rectangle, Pts, space, form } from "pts/dist/es5";
 
 export default class Viz extends Component {
   componentWillMount() {

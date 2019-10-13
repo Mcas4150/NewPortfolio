@@ -48,6 +48,19 @@ class SettingSlider extends Component {
   }
 }
 
+// const Slider2 = (props) => {
+//   let slider23 = new Nexus.Slider(props.id, {
+
+//     'size': [120,20],
+//     'min': props.min,
+//     'max': props.max,
+//     'step': props.step,
+//     'value': props.value
+//   })
+//   slider23.on('change', function(props.onChange))
+
+// }
+
 const Dial = styled.div`
   display: flex;
   flex-direction: column;

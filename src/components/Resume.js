@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { ScrollPercentage } from "react-scroll-percentage";
-import { TimelineLite } from "gsap";
+// import { TimelineLite } from "gsap";
 import { Controller, Scene } from "react-scrollmagic";
 import { Tween, Timeline } from "react-gsap";
 import { Animate } from "./Animate";
@@ -131,26 +131,26 @@ const Letter = styled.span`
   transform: translateZ(0.1px);
 `;
 
-const Letter2 = styled.span`
-  // transform: matrix(1, 0, 0, 1, 0, 0);
-  // // transform: matrix(1, 0, 0, 1, 0, x);
-  width: 80px;
-  height: 80px;
-  background-color: purple;
-  margin: 10px;
-  display: inline-block;
-  font-size: 60px;
-  line-height: 80px;
-  color: white;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-  /* we apply a 3d transform just to improve rendering */
-  -webkit-transform: translateZ(0.1px);
-  -moz-transform: translateZ(0.1px);
-  -o-transform: translateZ(0.1px);
-  -ms-transform: translateZ(0.1px);
-  transform: translateZ(0.1px);
-`;
+// const Letter2 = styled.span`
+//   // transform: matrix(1, 0, 0, 1, 0, 0);
+//   // // transform: matrix(1, 0, 0, 1, 0, x);
+//   width: 80px;
+//   height: 80px;
+//   background-color: purple;
+//   margin: 10px;
+//   display: inline-block;
+//   font-size: 60px;
+//   line-height: 80px;
+//   color: white;
+//   text-align: center;
+//   -webkit-font-smoothing: antialiased;
+//   /* we apply a 3d transform just to improve rendering */
+//   -webkit-transform: translateZ(0.1px);
+//   -moz-transform: translateZ(0.1px);
+//   -o-transform: translateZ(0.1px);
+//   -ms-transform: translateZ(0.1px);
+//   transform: translateZ(0.1px);
+// `;
 
 const Content = styled.div`
   padding-left: 75.5rem;
@@ -235,23 +235,23 @@ const SpanLetter = props => {
 //   });
 // };
 
-const SpanLetter2 = props => {
-  const { word } = props;
-  var tl = new TimelineLite();
-  tl.staggerFrom(
-    ".letter",
-    0.5,
-    { opacity: 1, scale: 0, rotation: -180 },
-    0.3
-  ).staggerTo(".letter", 0.3, { scale: 0.8 }, 0.3, 0.7);
-  return word.split("").map((letter, index) => {
-    return (
-      <Letter2 key={index} className="letter">
-        {letter}
-      </Letter2>
-    );
-  });
-};
+// const SpanLetter2 = props => {
+//   const { word } = props;
+//   var tl = new TimelineLite();
+//   tl.staggerFrom(
+//     ".letter",
+//     0.5,
+//     { opacity: 1, scale: 0, rotation: -180 },
+//     0.3
+//   ).staggerTo(".letter", 0.3, { scale: 0.8 }, 0.3, 0.7);
+//   return word.split("").map((letter, index) => {
+//     return (
+//       <Letter2 key={index} className="letter">
+//         {letter}
+//       </Letter2>
+//     );
+//   });
+// };
 
 // triggerTimeline(letters){
 // var tl = new TimelineLite();

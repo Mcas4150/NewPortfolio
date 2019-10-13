@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import circle from "./Circle.svg";
-import Routes from "./Routes";
-import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
+// import Routes from "./Routes";
+import { BrowserRouter, Route, NavLink } from "react-router-dom";
 // components
-import { Home, Services } from "./Components";
+// import { Home, Services } from "./Components";
 
 // import TrackVisibility from "react-on-screen";
-import Projects from "./Projects";
-import Three from "./Three";
-import Resume from "./Resume";
+// import Projects from "./Projects";
+// import Three from "./Three";
+// import Resume from "./Resume";
 import { About } from "./About";
-import ScrollLink from "./ScrollLink";
-import { Controller, Scene } from "react-scrollmagic";
-import { Tween, Timeline } from "react-gsap";
+// import ScrollLink from "./ScrollLink";
+// import { Controller, Scene } from "react-scrollmagic";
+// import { Tween, Timeline } from "react-gsap";
 // import Services from "./Services";
-import Skillset from "./Skillset";
+// import Skillset from "./Skillset";
 import { Work } from "./Work";
-import Blocks from "./Blocks";
-import Motion from "./Motion";
-import Timer from "./Timer";
+// import Blocks from "./Blocks";
+// import Motion from "./Motion";
+// import Timer from "./Timer";
 import { Contact } from "./Contact";
 import { CV } from "./CV";
 
@@ -126,17 +126,17 @@ const ScrollContainer = styled.div`
   font-family: MonumentRegular;
 `;
 
-const NavLinkContainer = styled.div`
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-  position: fixed;
-  right: 0;
-  justify-conter: center;
-  text-align: right;
-  padding: 15px;
-  z-index: 5;
-`;
+// const NavLinkContainer = styled.div`
+//   display: flex;
+//   align-items: flex-end;
+//   flex-direction: column;
+//   position: fixed;
+//   right: 0;
+//   justify-conter: center;
+//   text-align: right;
+//   padding: 15px;
+//   z-index: 5;
+// `;
 
 const Title = styled(NavLink)`
   // position: fixed;
@@ -157,42 +157,42 @@ const Spacer = styled.div`
   width: 100%;
 `;
 
-const SectionWipes2Styled = styled.div`
-  overflow: hidden;
-  #pinContainer {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-  }
-  #pinContainer .panel {
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-    text-align: center;
-  }
-  // .panel span {
-  //   position: relative;
-  //   display: block;
-  //   top: 50%;
-  //   font-size: 80px;
-  // }
+// const SectionWipes2Styled = styled.div`
+//   overflow: hidden;
+//   #pinContainer {
+//     height: 100vh;
+//     width: 100vw;
+//     overflow: hidden;
+//   }
+//   #pinContainer .panel {
+//     height: 100vh;
+//     width: 100vw;
+//     position: absolute;
+//     text-align: center;
+//   }
+//   // .panel span {
+//   //   position: relative;
+//   //   display: block;
+//   //   top: 50%;
+//   //   font-size: 80px;
+//   // }
 
-  .panel.blue {
-    background-color: #3883d8;
-  }
+//   .panel.blue {
+//     background-color: #3883d8;
+//   }
 
-  .panel.turqoise {
-    background-color: #38ced7;
-  }
+//   .panel.turqoise {
+//     background-color: #38ced7;
+//   }
 
-  .panel.green {
-    background-color: #22d659;
-  }
+//   .panel.green {
+//     background-color: #22d659;
+//   }
 
-  .panel.bordeaux {
-    background-color: #953543;
-  }
-`;
+//   .panel.bordeaux {
+//     background-color: #953543;
+//   }
+// `;
 
 // TOOODOOOO  Map Letters to svg
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TimelineLite, CSSPlugin } from "gsap/all";
+import { TimelineLite } from "gsap/all";
 import styled from "@emotion/styled";
 import OrphanLogo from "./OrphanLogo";
 import "./Timer.css";

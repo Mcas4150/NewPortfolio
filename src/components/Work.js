@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import styled from "@emotion/styled";
-import { Section, BigText, Row, Column } from "./Shared";
+import React from "react";
+// import styled from "@emotion/styled";
+import { Section, Column } from "./Shared";
 
 import { Transition } from "react-transition-group";
-import { TweenMax, TweenLite } from "gsap/all";
+import { TweenMax} from "gsap/all";
 import Timer from "./Timer";
 
 
@@ -31,37 +31,10 @@ export const Work = props => (
            <Animate timing="0.3">Education happens everywhere</Animate> */}
       </Column>
       <br />
-      <Email>Work</Email>
+
       <Timer />
     </Section>
   </Transition>
 );
 
-const Email = styled.div`
-  // font-size: 7rem;
-  font-size: 4vw;
-  font-family: "MonumentRegular";
-  color: transparent;
-  -webkit-text-stroke: 1.1px black;
-  text-stroke: 1.1px black;
-  text-shadow: none;
-  transition: color 0.25s ease-in-out;
-  :hover {
-    color: black;
-    transition: color 0.25s ease-in-out, transform 0.5s ease;
-    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
-  }
-`;
 
-const RecordImage = ({ src }) => (
-  <img
-    alt="record"
-    src={src}
-    style={{
-      maxHeight: "250px",
-      maxWidth: "250px",
-      marginTop: "15px",
-      marginRight: "15px"
-    }}
-  />
-);

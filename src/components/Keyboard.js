@@ -4,7 +4,7 @@ import "./Keyboard.css";
 import { connect } from "react-redux";
 import { get } from "dot-prop-immutable";
 import {
-  triggerMaster,
+ 
   triggerAttack,
   triggerRelease
 } from "../actions/actions";

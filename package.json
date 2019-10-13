@@ -19,6 +19,7 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-gsap": "^1.2.0",
+    "react-nexusui": "^0.1.7",
     "react-on-screen": "^2.1.1",
     "react-pts-canvas": "^0.2.3",
     "react-redux": "^7.1.1",

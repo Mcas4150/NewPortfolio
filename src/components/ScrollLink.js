@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link, animateScroll as scroll } from "react-scroll";
-import Texty from "rc-texty";
+
 import "rc-texty/assets/index.css";
 
 export default class ScrollLink extends Component {

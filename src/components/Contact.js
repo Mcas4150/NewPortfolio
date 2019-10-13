@@ -1,25 +1,16 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { Section, BigText, Row, Column } from "./Shared";
+import { Section, Column } from "./Shared";
 import { Transition } from "react-transition-group";
-import { TweenMax, TweenLite } from "gsap/all";
+import { TweenMax } from "gsap/all";
 import {
-  Pt,
-  Group,
+
   Line,
   Util,
   Rectangle,
-  Num,
-  Create,
-  Sound,
-  Triangle,
-  Const,
-  Geom,
-  Pts,
-  space,
-  form
+
 } from "pts/dist/es5";
-import Viz from "./viz";
+// import Viz from "./viz";
 
 import { QuickStartCanvas } from "react-pts-canvas";
 
@@ -88,15 +79,4 @@ const Email = styled.a`
   }
 `;
 
-const RecordImage = ({ src }) => (
-  <img
-    alt="record"
-    src={src}
-    style={{
-      maxHeight: "250px",
-      maxWidth: "250px",
-      marginTop: "15px",
-      marginRight: "15px"
-    }}
-  />
-);
+

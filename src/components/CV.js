@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { Section, BigText, Row, Column } from "./Shared";
+import { Section,  Column } from "./Shared";
 
 import { Transition } from "react-transition-group";
-import { TweenMax, TweenLite } from "gsap/all";
+import { TweenMax } from "gsap/all";
 
 const startState = { autoAlpha: 0, y: -50 };
 
@@ -50,15 +50,4 @@ const Email = styled.div`
   }
 `;
 
-const RecordImage = ({ src }) => (
-  <img
-    alt="record"
-    src={src}
-    style={{
-      maxHeight: "250px",
-      maxWidth: "250px",
-      marginTop: "15px",
-      marginRight: "15px"
-    }}
-  />
-);
+
