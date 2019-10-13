@@ -6,6 +6,7 @@ import { Transition } from "react-transition-group";
 import { TweenMax, TweenLite } from "gsap/all";
 import Timer from "./Timer";
 
+
 const startState = { autoAlpha: 0, y: -50 };
 
 export const Work = props => (

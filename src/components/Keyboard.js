@@ -63,6 +63,7 @@ class Keyboard extends React.Component {
   // }
 
   handleMouseDown(e) {
+    new Tone.start();
     this.props.triggerAttack(e.target.dataset.value);
   }
 

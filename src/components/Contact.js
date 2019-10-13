@@ -3,6 +3,25 @@ import styled from "@emotion/styled";
 import { Section, BigText, Row, Column } from "./Shared";
 import { Transition } from "react-transition-group";
 import { TweenMax, TweenLite } from "gsap/all";
+import {
+  Pt,
+  Group,
+  Line,
+  Util,
+  Rectangle,
+  Num,
+  Create,
+  Sound,
+  Triangle,
+  Const,
+  Geom,
+  Pts,
+  space,
+  form
+} from "pts/dist/es5";
+import Viz from "./viz";
+
+import { QuickStartCanvas } from "react-pts-canvas";
 
 const startState = { autoAlpha: 0, y: -50 };
 
@@ -30,6 +49,18 @@ export const Contact = props => (
       <br />
       <Text>Here to listen</Text>
       <Email>me@mikecassidy.info</Email>
+      <QuickStartCanvas
+        height="500px"
+        onAnimate={(space, form, time) => {
+          let subs = space.innerBound.map(p =>
+            Line.subpoints([p, space.pointer], 30)
+          );
+          let rects = Util.zip(subs).map((r, i) =>
+            Rectangle.corners(r).rotate2D((i * Math.PI) / 60, space.pointer)
+          );
+          form.strokeOnly("#FDC", 2).polygons(rects);
+        }}
+      />
     </Section>
   </Transition>
 );
