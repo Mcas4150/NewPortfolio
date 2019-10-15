@@ -100,13 +100,15 @@ const MainContainer = styled.div`
 const HeaderContainer = styled.div`
   display: flex;
   position: fixed;
-  padding: 5vh 0 5vh 4vw;
-  width: 100%;
+  padding: 5vh 4vw;
+  width: 92vw;
   height: 10vh;
 `;
 
 const BodyContainer = styled.div`
-  margin: 100px 5vh;
+  // margin: 100px 5vh;
+  padding: 15vh 4vw 5vh;
+  width: 92vw;
 `;
 
 const ScrollContainer = styled.div`
@@ -131,7 +133,7 @@ const Title = styled(NavLink)`
   // display: block;
   font-family: "MonumentRegular";
   font-size: 2vw;
-  padding-right: 8vh;
+  padding: 0 4vh;
   z-index: 8;
   text-decoration: none;
   color: black;

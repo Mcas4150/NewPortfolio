@@ -119,7 +119,7 @@ class Timer extends Component {
 const DemoWrapper = styled.div`
   // width: 100%;
   // max-width: 100vw;
-  width: 35vw;
+
   height: 20vh;
   -webkit-font-smoothing: antialiased;
   color: black;
@@ -130,7 +130,7 @@ const DemoWrapper = styled.div`
 
 const Header = styled.div`
   font-size: 3vw;
-  width: 35vw;
+
   justify-content: center;
   display: flex;
 `;
@@ -138,7 +138,7 @@ const Header = styled.div`
 const WorkContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 85vw;
+  width: 100%;
 `;
 
 export default Timer;

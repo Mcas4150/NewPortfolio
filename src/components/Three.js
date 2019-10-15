@@ -70,7 +70,6 @@ class PlaneSubject {
         texture: {
           type: "t",
           value: textureLoader.load(`${picture}`)
-
         },
         imageAspectRatio: {
           type: "f",
@@ -227,18 +226,12 @@ class SceneManager {
 export default class Three extends Component {
   constructor(props) {
     super(props);
-
   }
-
-
-
-
 
   componentDidMount() {
     const canvas = document.getElementById("canvas");
     let picture = this.props.picture;
     const sceneManager = new SceneManager(canvas, picture);
-
     const resizeCanvas = () => {
       canvas.style.width = "50%";
       canvas.style.height = "50%";
@@ -270,6 +263,20 @@ export default class Three extends Component {
 
     bindEvents();
     render();
+  }
+
+  componentDidUpdate(prevProps) {
+    // Typical usage (don't forget to compare props):
+    if (this.props.picture !== prevProps.picture) {
+      // const canvas = document.getElementById("canvas");
+      // let picture = this.props.picture;
+      // const sceneManager = new SceneManager(canvas, picture);
+      // const render = () => {
+      //   window.requestAnimationFrame(render);
+      //   sceneManager.update();
+      // }; // this.fetchData(this.props.picture);
+      // render();
+    }
   }
 
   render() {
