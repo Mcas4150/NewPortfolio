@@ -26,7 +26,7 @@ export const About = props => (
   >
     <SynthContainer>
       <Synth />
-      <NotePress />
+      {/* <NotePress /> */}
     </SynthContainer>
   </Transition>
 );

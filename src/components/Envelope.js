@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import styled from "@emotion/styled";
 import SettingSlider from "./Slider";
 
@@ -10,14 +9,6 @@ export default class Envelope extends Component {
         <SettingSlider
           name={"envelopeAttack"}
           displayName={"A"}
-          parentName={this.props.name}
-          min={0.1}
-          max={1}
-          step={0.1}
-        />
-        <SettingSlider
-          name={"envelopeDecay"}
-          displayName={"D"}
           parentName={this.props.name}
           min={0.1}
           max={1}

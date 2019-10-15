@@ -8,8 +8,11 @@ const textureLoader = new THREE.TextureLoader();
 class PlaneSubject {
   raycaster = new THREE.Raycaster();
   scene = null;
-
+  // currentPicture = this.props.picture;
+  // currentPicture = prophec;
   constructor(scene, picture) {
+    this.picture = picture;
+
     const geometry = new THREE.PlaneBufferGeometry(5, 7);
     const material = new THREE.ShaderMaterial({
       vertexShader: `
@@ -89,11 +92,12 @@ class PlaneSubject {
         }
       }
     });
+
     material.transparent = true;
     const mesh = new THREE.Mesh(geometry, material);
 
     scene.add(mesh);
-    this.picture = picture;
+
     this.scene = scene;
     this.mesh = mesh;
   }
@@ -131,6 +135,20 @@ class PlaneSubject {
 class SceneManager {
   clock = new THREE.Clock();
   mouse = new THREE.Vector2();
+
+  constructor(canvas, picture) {
+    this.canvas = canvas;
+    this.picture = picture;
+    this.screenDimentions = {
+      width: 500,
+      height:100
+    };
+
+    this.scene = this.buildScene();
+    this.renderer = this.buildRender(this.screenDimentions);
+    this.camera = this.buildCamera(this.screenDimentions);
+    this.sceneSubjects = this.createSceneSubjects(this.scene, this.picture);
+  }
 
   buildScene = () => {
     const scene = new THREE.Scene();
@@ -173,26 +191,12 @@ class SceneManager {
     return camera;
   };
 
-  createSceneSubjects = scene => {
-    const { picture } = this;
+  createSceneSubjects = (scene, picture) => {
+    // const { picture } = this;
     const sceneSubjects = [new PlaneSubject(scene, picture)];
 
     return sceneSubjects;
   };
-
-  constructor(canvas, picture) {
-    this.canvas = canvas;
-    this.picture = picture;
-    this.screenDimentions = {
-      width: this.canvas.width,
-      height: this.canvas.height
-    };
-
-    this.scene = this.buildScene();
-    this.renderer = this.buildRender(this.screenDimentions);
-    this.camera = this.buildCamera(this.screenDimentions);
-    this.sceneSubjects = this.createSceneSubjects(this.scene, picture);
-  }
 
   update() {
     const delta = this.clock.getDelta();
@@ -226,12 +230,15 @@ class SceneManager {
 export default class Three extends Component {
   constructor(props) {
     super(props);
+    // let canvas = this.document.getElementById("canvas");
   }
 
   componentDidMount() {
     const canvas = document.getElementById("canvas");
     let picture = this.props.picture;
-    const sceneManager = new SceneManager(canvas, picture);
+    // let picture = this.props.picture;
+
+    const sceneManager = new SceneManager(canvas, this.props.picture);
     const resizeCanvas = () => {
       canvas.style.width = "50%";
       canvas.style.height = "50%";
@@ -267,7 +274,8 @@ export default class Three extends Component {
 
   componentDidUpdate(prevProps) {
     // Typical usage (don't forget to compare props):
-    if (this.props.picture !== prevProps.picture) {
+    if (this.props.picture !== this.picture) {
+      const sceneManager = new SceneManager(this.canvas, this.props.picture);
       // const canvas = document.getElementById("canvas");
       // let picture = this.props.picture;
       // const sceneManager = new SceneManager(canvas, picture);

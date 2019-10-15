@@ -7,7 +7,8 @@ import {
   TRIGGER_ATTACK,
   TRIGGER_RELEASE,
   NOTE_PRESS,
-  NOTE_RELEASE
+  NOTE_RELEASE,
+  SET_FREQUENCY
 } from "./types";
 
 export const changeDial = dial => {
@@ -64,6 +65,13 @@ export const notePress = note => {
   return {
     type: NOTE_PRESS,
     payload: note
+  };
+};
+
+export const setFrequency = frequency => {
+  return {
+    type: SET_FREQUENCY,
+    payload: frequency
   };
 };
 

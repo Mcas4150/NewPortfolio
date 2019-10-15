@@ -34,10 +34,10 @@ class Timer extends Component {
   componentDidMount() {
     this.logoTl
       .set(this.content, { autoAlpha: 1 }) // show content div
-      .from(this.head, 0.5, { left: 100, autoAlpha: 0 })
-      // .from(this.subhead, 0.5, { left: -100, autoAlpha: 0 }, "-=0.25");
+      .from(this.head, 0.5, { left: 100, autoAlpha: 0 });
+    // .from(this.subhead, 0.5, { left: -100, autoAlpha: 0 }, "-=0.25");
 
-      // added -0.25 seconds prior to end this.of timeline
+    // added -0.25 seconds prior to end this.of timeline
     // .from(this.feature, 0.5, { scale: 0.5, autoAlpha: 0 }, "feature") // added 0.5 seconds after end of timeline
     // .from(this.description, 0.5, { left: 100, autoAlpha: 0 }, "feature+=0.25")
     // .staggerFrom(this.icons, 0.2, { scale: 0, autoAlpha: 0 }, 0.1); //animate all icons with 0.1 second stagger
@@ -87,11 +87,20 @@ class Timer extends Component {
                 onMouseOver={() => {
                   this.onHover(element.image);
                 }}
+                href={element.link}
               >
                 {element.name}
               </Header>
               {/* <h2 className="year" ref={h2 => (this.subhead = h2)}></h2> */}
               <div className="info">
+                {/* <OrphanLogo ref={img => (this.feature = img)} /> */}
+                <Description
+                  style={{ color: "black" }}
+                  className="description"
+                  ref={p => (this.description = p)}
+                >
+                  {element.description}
+                </Description>{" "}
                 <img
                   src="https://www.greensock.com/_img/codepen/feature_robust.png"
                   width="240"
@@ -100,14 +109,6 @@ class Timer extends Component {
                   className="feature"
                   // ref={img => (this.feature = img)}
                 />
-                {/* <OrphanLogo ref={img => (this.feature = img)} /> */}
-                <p
-                  style={{ color: "black" }}
-                  className="description"
-                  ref={p => (this.description = p)}
-                >
-                  {element.description}
-                </p>
               </div>
             </div>
           </DemoWrapper>
@@ -130,9 +131,9 @@ const DemoWrapper = styled.div`
   justify-content: center;
 `;
 
-const Header = styled.div`
+const Header = styled.a`
   font-size: 3vw;
-
+  text-decoration: none;
   justify-content: center;
   display: flex;
   :hover {
@@ -144,6 +145,17 @@ const WorkContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100%;
+`;
+
+const Description = styled.div`
+  position: relative;
+  float: left;
+  margin-left: 20px;
+  width: 290px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  font-family: "Noto Sans", sans-serif;
 `;
 
 export default Timer;

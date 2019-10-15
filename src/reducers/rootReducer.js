@@ -7,7 +7,8 @@ import {
   TRIGGER_ATTACK,
   TRIGGER_RELEASE,
   NOTE_PRESS,
-  NOTE_RELEASE
+  NOTE_RELEASE,
+  SET_FREQUENCY
 } from "../actions/types";
 
 import * as dotProp from "dot-prop-immutable";
@@ -68,12 +69,11 @@ const rootReducer = (state = initialState, action) => {
 
       return dotProp.set(state, `filter.filterType`, action.payload);
 
+    case NOTE_PRESS:
+      voice.triggerSawStart(action.payload);
+      return dotProp.set(state, "sawStart.frequency", action.payload);
 
-      case NOTE_PRESS:
-        voice.triggerSawStart(action.payload);
-        return dotProp.set(state, "sawStart.frequency", action.payload);
-
-        case NOTE_RELEASE:
+    case NOTE_RELEASE:
       voice.triggerSawStart(action.payload);
       return dotProp.set(state, "sawStart.frequency", action.payload);
 
@@ -92,6 +92,14 @@ const rootReducer = (state = initialState, action) => {
     case TRIGGER_RELEASE:
       synth.triggerRelease();
       return dotProp.set(state, "triggerRelease.note", action.payload);
+
+    case SET_FREQUENCY:
+      //   synth.updateSetting("frequency", action.payload);
+
+      // return dotProp.set(state, `frequency.frequency`, action.payload);
+
+      synth.setFrequency(action.payload);
+       return dotProp.set(state, "setFrequency.frequency", action.payload);
 
     default:
       return state;

@@ -4,7 +4,8 @@ import noteToFrequency from "note-to-frequency";
 class SynthEngine {
   constructor(initialState) {
     this.state = {
-      audio: null
+      audio: null,
+      frequency: 440
     };
     this.noteFrequency = "880";
 
@@ -20,18 +21,12 @@ class SynthEngine {
     this.vcf = new Tone.Filter(10000, "lowpass", -24);
     this.env = new Tone.AmplitudeEnvelope(0.1, 0.2, 0.4, 0.2);
     this.vca = new Tone.Gain(1);
-    this.sawOsc = new Tone.Oscillator(220, "sawtooth").start();
+    this.sawOsc = new Tone.Oscillator(this.state.frequency, "sawtooth").start();
     this.pulseOsc = new Tone.PulseOscillator(880, 0.4).start();
     this.subOsc = new Tone.Oscillator(110, "sawtooth").start();
     this.noiseOsc = new Tone.NoiseSynth();
 
-    this.sawOsc.chain(
-      this.hpf,
-      this.vcf,
-      this.vca,
-      this.env,
-      this.masterBus
-    );
+    this.sawOsc.chain(this.hpf, this.vcf, this.vca, this.env, this.masterBus);
 
     // this.oscArray = [this.sawOsc, this.pulseOsc, this.subOsc, this.noiseOsc];
 
@@ -89,11 +84,6 @@ class SynthEngine {
   //   return 440 * Math.pow(2, (keyNumber - 49) / 12);
   // }
 
-  componentDidMount() {
-    new Tone.start();
-    this.setState({ audio: true });
-  }
-
   // draw() {
   //   let drawVisual = requestAnimationFrame(draw);
 
@@ -127,10 +117,6 @@ class SynthEngine {
   //   canvasCtx.stroke();
   // }
 
-  triggerAttackRelease(value, freq) {
-    this.testSynth.triggerAttackRelease(value, freq);
-  }
-
   triggerAttack(note) {
     // this.noteFrequency = noteToFrequency(note);
     this.env.triggerAttack();
@@ -145,6 +131,17 @@ class SynthEngine {
     this.env.triggerRelease();
   }
 
+  setFrequency(val) {
+    this.sawOsc.frequency.value = val;
+
+    // this[name](val);
+    // this.setState({ frequency: val });
+    // this.noteFrequency.setFrequency();
+    // this.setState({
+    //   frequency: frequency
+    // })
+  }
+
   // triggerAttack(freq) {
   //   this.sawOsc.frequency = freq;
   //   this.env.triggerAttack();
@@ -155,6 +152,7 @@ class SynthEngine {
       "chorus",
       "volume",
       "filterCutoff",
+      "frequency",
       "pitch",
       "filterQ",
       "filterType"

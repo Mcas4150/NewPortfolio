@@ -7,3 +7,4 @@ export const TRIGGER_ATTACK = "TRIGGER_ATTACK";
 export const TRIGGER_RELEASE = "TRIGGER_RELEASE";
 export const NOTE_PRESS = "NOTE_PRESS";
 export const NOTE_RELEASE = "NOTE_RELEASE";
+export const SET_FREQUENCY = "SET_FREQUENCY";

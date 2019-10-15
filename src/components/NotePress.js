@@ -4,7 +4,11 @@ import "./Keyboard.css";
 import styled from "@emotion/styled";
 import { connect } from "react-redux";
 import { get } from "dot-prop-immutable";
-import { triggerAttack, triggerRelease } from "../actions/actions";
+import {
+  triggerAttack,
+  triggerRelease,
+  setFrequency
+} from "../actions/actions";
 import { EPERM } from "constants";
 
 class NotePress extends React.Component {
@@ -15,52 +19,28 @@ class NotePress extends React.Component {
       yPos: 0
     };
 
-    this.notes = [
-      "C1",
-      "C#1",
-      "D1",
-      "D#1",
-      "E1",
-      "F1",
-      "F#1",
-      "G1",
-      "G#1",
-      "A1",
-      "A#1",
-      "B1",
-      "C2",
-      "C#2",
-      "D2",
-      "D#2",
-      "E2",
-      "F2",
-      "F#2",
-      "G2",
-      "G#2",
-      "A2",
-      "A#2",
-      "B2"
-    ];
-
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
-    this.onKeyDown = this.onKeyDown.bind(this);
+
     this.handleRelease = this.handleRelease.bind(this);
   }
 
-  onKeyDown(e) {
-    // let note = Tone.Frequency(e.keyCode, "midi").toNote();
-    // for (let i = this.notes.length - 1; i >= 0; i--) {
-    //   if (this.notes[i] === note) {
-    //     this.props.onKeyDown(note);
-    //   }
-    // }
+  get frequencyValue() {
+    return this.props.dialValue;
   }
 
-  // getFrequency(note){
-  //   this.notes,
-  // }
+  get idName() {
+    return `${this.props.parentName}-${this.props.name}`;
+  }
+
+  handleChange(newValue) {
+    this.props.changeDial({
+      name: this.props.name,
+      dialValue: newValue,
+      parentName: this.props.parentName
+    });
+  }
 
   handleMouseDown(e) {
     new Tone.start();
@@ -84,6 +64,8 @@ class NotePress extends React.Component {
     if (e.pageX || e.pageY) {
       m_posx = e.pageX;
       m_posy = e.pageY;
+      // this.props.setFrequency(this.state.xPos);
+      this.props.setFrequency(e.pageX);
       this.setState({
         xPos: e.pageX,
         yPos: e.pageY
@@ -97,17 +79,35 @@ class NotePress extends React.Component {
         e.clientY +
         document.body.scrollTop +
         document.documentElement.scrollTop;
-
+      // this.props.setFrequency(this.state.xPos);
+      this.props.setFrequency(
+        e.clientX +
+          document.body.scrollLeft +
+          document.documentElement.scrollLeft
+      );
       this.setState({
         xPos:
           e.clientX +
           document.body.scrollLeft +
           document.documentElement.scrollLeft,
+
         yPos:
           e.clientY +
           document.body.scrollTop +
           document.documentElement.scrollTop
       });
+      // this.props.changeDial({
+      //   name: this.props.name,
+      //   dialValue: newValue,
+      //   parentName: this.props.parentName
+      // });
+      // this.handleChange(this.props.) {
+      //   this.props.changeDial({
+      //     name: this.props.name,
+      //     dialValue: newValue,
+      //     parentName: this.props.parentName
+      //   });
+      // }
     }
     //get parent element position in document
     if (obj.offsetParent) {
@@ -129,34 +129,6 @@ class NotePress extends React.Component {
   }
 
   render() {
-    let keys = this.notes.map((key, index) => {
-      if (key.indexOf("#") === -1) {
-        return (
-          <div
-            className="keyboard__key keyboard__key--major"
-            data-value={key}
-            key={index}
-            onKeyDown={this.onKeyDown}
-            onKeyUp={this.handleRelease}
-            onMouseDown={this.handleMouseDown}
-            onMouseUp={this.handleMouseUp}
-          />
-        );
-      } else {
-        return (
-          <div
-            className="keyboard__key keyboard__key--minor"
-            data-value={key}
-            key={index}
-            onKeyDown={this.onKeyDown}
-            onKeyUp={this.handleRelease}
-            onMouseDown={this.handleMouseDown}
-            onMouseUp={this.handleMouseUp}
-          />
-        );
-      }
-    });
-
     return (
       <GridContainer>
         <ClickContainer
@@ -164,9 +136,10 @@ class NotePress extends React.Component {
           onMouseUp={this.handleMouseUp}
           onMouseMove={this.handleMouseMove}
         ></ClickContainer>
-        <Number id="dbg">X: {this.state.xPos}
-        <br/>
-        Y: {this.state.yPos}
+        <Number id="dbg">
+          X: {this.state.xPos}
+          <br />
+          Y: {this.state.yPos}
         </Number>
       </GridContainer>
     );
@@ -178,16 +151,26 @@ var elem = document.getElementById("container");
 
 var dbg = document.getElementById("dbg");
 
+// const mapStateToProps = (state, ownProps) => {
+//   const value = get(state, `${ownProps.parentName}.${ownProps.name}`);
+//   return { dialValue: value === undefined ? 0 : value };
+// };
+
 const mapStateToProps = (state, ownProps) => {
   const _note = get(state, "triggerAttack.note");
+  const frequency = get(state, "setFrequency.frequency");
   // const _note = get(state, "triggerMaster.note");
-  return { note: _note === undefined ? "C3" : _note };
+  return {
+    note: _note === undefined ? "C3" : _note,
+    frequency: frequency === undefined ? 220 : frequency
+  };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     triggerAttack: note => dispatch(triggerAttack(note)),
-    triggerRelease: note => dispatch(triggerRelease(note))
+    triggerRelease: note => dispatch(triggerRelease(note)),
+    setFrequency: frequency => dispatch(setFrequency(frequency))
     // triggerMaster: note => dispatch(triggerMaster(note))
   };
 };
@@ -200,7 +183,8 @@ export default connect(
 const ClickContainer = styled.div`
   height: 50vh;
   width: 50vw;
-  background-color: grey;
+  background-color: #dbd5c9;
+  border-left: 1px solid black;
 `;
 
 const Number = styled.div`
