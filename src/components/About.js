@@ -4,7 +4,7 @@ import { Section, ContentContainer } from "./Shared";
 import React from "react";
 import { Transition } from "react-transition-group";
 import { TweenMax, TweenLite } from "gsap/all";
-import Synth from "./Synth";
+import Synth2 from "./Synth2";
 
 const startState = { autoAlpha: 0, y: -50 };
 
@@ -23,9 +23,7 @@ export const About = props => (
     }}
   >
     <SynthContainer>
-      <p>Synth</p>
-
-      <Synth />
+      <Synth2 />
     </SynthContainer>
   </Transition>
 );

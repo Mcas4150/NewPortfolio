@@ -26,7 +26,7 @@ export const Work = props => (
   >
     <Section id="contact">
       <Timer />
-      <Three />
+      {/* <Three /> */}
     </Section>
   </Transition>
 );

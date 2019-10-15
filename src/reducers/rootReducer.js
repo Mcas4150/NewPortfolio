@@ -10,7 +10,7 @@ import {
 
 import * as dotProp from "dot-prop-immutable";
 import initialState from "./initialState";
-import Tone from "tone";
+
 import SynthEngine from "../synth/SynthEngine";
 
 const synth = new SynthEngine(initialState);

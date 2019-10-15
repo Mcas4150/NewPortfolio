@@ -1,6 +1,5 @@
 import Tone from "tone";
 import noteToFrequency from "note-to-frequency";
-import AudioAnalyzer from "../synth/Analyzer";
 
 class SynthEngine {
   constructor(initialState) {
@@ -115,7 +114,7 @@ class SynthEngine {
   // }
 
   static get TOP_LEVEL_SETTINGS() {
-    return ["chorus", "volume", "filterCutoff", "filterQ", "filterType"];
+    return ["chorus", "volume", "filterCutoff", "pitch", "filterQ", "filterType"];
   }
 
   updateSetting(name, val) {
@@ -137,6 +136,10 @@ class SynthEngine {
 
   volume(val) {
     Tone.Master.volume.value = val;
+  }
+
+  filterCutoff(val) {
+    this.vcf.frequency.value = val;
   }
 
   filterCutoff(val) {

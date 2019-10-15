@@ -3,23 +3,11 @@ import styled from "@emotion/styled";
 import circle from "./Circle.svg";
 // import Routes from "./Routes";
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
-// components
-// import { Home, Services } from "./Components";
 
-// import TrackVisibility from "react-on-screen";
-// import Projects from "./Projects";
-// import Three from "./Three";
-// import Resume from "./Resume";
 import { About } from "./About";
-// import ScrollLink from "./ScrollLink";
-// import { Controller, Scene } from "react-scrollmagic";
-// import { Tween, Timeline } from "react-gsap";
-// import Services from "./Services";
-// import Skillset from "./Skillset";
+
 import { Work } from "./Work";
-// import Blocks from "./Blocks";
-// import Motion from "./Motion";
-// import Timer from "./Timer";
+
 import { Contact } from "./Contact";
 import { CV } from "./CV";
 

@@ -11,7 +11,7 @@ export default class Synth extends Component {
         <Envelope name={"envelope"} displayName={"envelope"} />
         <Filter name={"filter"} displayName={"filter"} />
         <Amplifier name={"amplifier"} displayName={"amplifier"} />
-        <Keyboard />
+        {/* <Keyboard /> */}
       </div>
     );
   }

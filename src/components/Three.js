@@ -9,7 +9,7 @@ class PlaneSubject {
   raycaster = new THREE.Raycaster();
   scene = null;
 
-  constructor(scene) {
+  constructor(scene, picture) {
     const geometry = new THREE.PlaneBufferGeometry(5, 7);
     const material = new THREE.ShaderMaterial({
       vertexShader: `
@@ -69,10 +69,8 @@ class PlaneSubject {
       uniforms: {
         texture: {
           type: "t",
-          value: textureLoader.load(`${prophec}`)
-          // value: textureLoader.load(
-          //   "https://images.unsplash.com/photo-1517462964-21fdcec3f25b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80"
-          // )
+          value: textureLoader.load(`${picture}`)
+
         },
         imageAspectRatio: {
           type: "f",
@@ -96,7 +94,7 @@ class PlaneSubject {
     const mesh = new THREE.Mesh(geometry, material);
 
     scene.add(mesh);
-
+    this.picture = picture;
     this.scene = scene;
     this.mesh = mesh;
   }
@@ -177,13 +175,15 @@ class SceneManager {
   };
 
   createSceneSubjects = scene => {
-    const sceneSubjects = [new PlaneSubject(scene)];
+    const { picture } = this;
+    const sceneSubjects = [new PlaneSubject(scene, picture)];
 
     return sceneSubjects;
   };
 
-  constructor(canvas) {
+  constructor(canvas, picture) {
     this.canvas = canvas;
+    this.picture = picture;
     this.screenDimentions = {
       width: this.canvas.width,
       height: this.canvas.height
@@ -192,7 +192,7 @@ class SceneManager {
     this.scene = this.buildScene();
     this.renderer = this.buildRender(this.screenDimentions);
     this.camera = this.buildCamera(this.screenDimentions);
-    this.sceneSubjects = this.createSceneSubjects(this.scene);
+    this.sceneSubjects = this.createSceneSubjects(this.scene, picture);
   }
 
   update() {
@@ -225,10 +225,19 @@ class SceneManager {
 }
 
 export default class Three extends Component {
+  constructor(props) {
+    super(props);
+
+  }
+
+
+
+
+
   componentDidMount() {
     const canvas = document.getElementById("canvas");
-
-    const sceneManager = new SceneManager(canvas);
+    let picture = this.props.picture;
+    const sceneManager = new SceneManager(canvas, picture);
 
     const resizeCanvas = () => {
       canvas.style.width = "50%";
@@ -271,7 +280,7 @@ export default class Three extends Component {
           position: "fixed",
           zIndex: "-1",
           height: "50vh",
-          width: "50vw"
+          width: "65vw"
         }}
       />
     );

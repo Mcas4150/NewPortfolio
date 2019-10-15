@@ -3,12 +3,17 @@ import { TimelineLite } from "gsap/all";
 import styled from "@emotion/styled";
 import OrphanLogo from "./OrphanLogo";
 import { dataArray } from "./WorkData.js";
+import Three from "./Three";
 import "./Timer.css";
+import prophec from "../imgs/prophetcplusplus.png";
+import nimbus from "../imgs/Nimbus.png";
 
 class Timer extends Component {
   constructor(props) {
     super(props);
-
+    this.state = {
+      currentImage: prophec
+    };
     this.logoTl = new TimelineLite({ paused: true });
     // this.hoverTl = new TimelineLite({ paused: true });
 
@@ -18,8 +23,8 @@ class Timer extends Component {
     this.feature = null;
     this.description = null;
     // this.icons = [];
-    // this.onHover = this.onHover.bind(this);
-
+    this.onHover = this.onHover.bind(this);
+    // this.handleMouseDown = this.handleMouseDown.bind(this);
     this.cards = [];
     // the timeline instance
     this.tl = new TimelineLite({ paused: true });
@@ -48,17 +53,11 @@ class Timer extends Component {
     this.tl.play();
   }
 
-  // onHover() {
-  //   // this.hoverTl
-  //   //   .from(this.feature, 0.5, { scale: 0.5, autoAlpha: 0 }, "feature") // added 0.5 seconds after end of timeline
-  //   //   .from(
-  //   //     this.description,
-  //   //     0.5,
-  //   //     { left: 100, autoAlpha: 0 },
-  //   //     "feature+=0.25"
-  //   //   );
-  //   // this.hoverTl.play();
-  // }
+  onHover(image) {
+    this.setState({
+      currentImage: image
+    });
+  }
 
   render() {
     // this.tl
@@ -83,9 +82,9 @@ class Timer extends Component {
             >
               <Header
                 ref={h1 => (this.head = h1)}
-                // onHover={() => {
-                //   this.onHover();
-                // }}
+                onMouseOver={() => {
+                  this.onHover(element.image);
+                }}
               >
                 {element.name}
               </Header>
@@ -111,6 +110,7 @@ class Timer extends Component {
             </div>
           </DemoWrapper>
         ))}
+        <Three picture={this.state.currentImage} />
       </WorkContainer>
     );
   }

@@ -3,7 +3,7 @@ export const dataArray = [
     id: "1",
     name: "PropheC++",
     description: "Sequential Circuits Pro-One Synthesizer VST/AU Plugin",
-    image: "",
+    image: "https://www.greensock.com/_img/codepen/feature_robust.png",
     github: "https://github.com/Mcas4150/PropheCPlusPlus",
     link: "https://github.com/Mcas4150/PropheCPlusPlus"
   },
@@ -11,7 +11,7 @@ export const dataArray = [
     id: "2",
     name: "Orphan Records",
     description: "An Independent Record Label based in NYC",
-    image: "",
+    image: "https://www.chortle.co.uk/images/photos/small/spongebob2.jpg",
     github: "https://github.com/Mcas4150/OrphanRadio",
     link: "https://www.orphan.world"
   },
@@ -20,7 +20,7 @@ export const dataArray = [
     id: "3",
     name: "Audio Effects",
     description: "",
-    image: "",
+    image: "https://www.greensock.com/_img/codepen/feature_robust.png",
     github: "https://github.com/Mcas4150/audio-effects",
     link: "https://github.com/Mcas4150/audio-effects"
   },
@@ -28,7 +28,7 @@ export const dataArray = [
     id: "4",
     name: "SynthFolio",
     description: "",
-    image: "",
+    image: "https://www.chortle.co.uk/images/photos/small/spongebob2.jpg",
     github: "https://github.com/Mcas4150/SynthFolio",
     link: "http://synthfolio.herokuapp.com/"
   },
@@ -36,7 +36,7 @@ export const dataArray = [
     id: "5",
     name: "SneakaTrax",
     description: "",
-    image: "",
+    image: "https://www.greensock.com/_img/codepen/feature_robust.png",
     github: "",
     link: ""
   },
@@ -44,7 +44,7 @@ export const dataArray = [
     id: "6",
     name: "La Rama",
     description: "",
-    image: "",
+    image: "https://www.chortle.co.uk/images/photos/small/spongebob2.jpg",
     github: "",
     link: ""
   }

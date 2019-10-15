@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Section,  Column } from "./Shared";
-
+import { Section, Column } from "./Shared";
+import Synth2  from "./Synth2";
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
 
@@ -22,14 +22,10 @@ export const CV = props => (
     }}
   >
     <Section id="cv">
-      <Column>
-        {/* <RecordImage src={nimbus} />
-            <RecordImage src={psychic} />
-            <RecordImage src={joyexpo} />
-           <Animate timing="0.3">Education happens everywhere</Animate> */}
-      </Column>
-      <br />
+
+
       <Email>CV</Email>
+      {/* <Synth2 /> */}
     </Section>
   </Transition>
 );
@@ -49,5 +45,3 @@ const Email = styled.div`
     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
   }
 `;
-
-
