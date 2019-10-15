@@ -28,12 +28,12 @@ h2 {
   flex-direction: column;
 }
 .info {
-  margin-top: 20px;
-  visibility: hidden;
+  margin-top: 10px;
 }
 .feature {
   position: relative;
   float: left;
+  visibility: hidden;
 }
 .description {
   position: relative;

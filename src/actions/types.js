@@ -5,3 +5,5 @@ export const SAW_START = "SAW_START";
 export const TRIGGER_MASTER = "TRIGGER_MASTER";
 export const TRIGGER_ATTACK = "TRIGGER_ATTACK";
 export const TRIGGER_RELEASE = "TRIGGER_RELEASE";
+export const NOTE_PRESS = "NOTE_PRESS";
+export const NOTE_RELEASE = "NOTE_RELEASE";

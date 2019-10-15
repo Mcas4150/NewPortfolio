@@ -19,7 +19,7 @@ class Timer extends Component {
 
     this.content = null;
     this.head = null;
-    this.subhead = null;
+    // this.subhead = null;
     this.feature = null;
     this.description = null;
     // this.icons = [];
@@ -35,7 +35,9 @@ class Timer extends Component {
     this.logoTl
       .set(this.content, { autoAlpha: 1 }) // show content div
       .from(this.head, 0.5, { left: 100, autoAlpha: 0 })
-      .from(this.subhead, 0.5, { left: -100, autoAlpha: 0 }, "-=0.25"); // added -0.25 seconds prior to end this.of timeline
+      // .from(this.subhead, 0.5, { left: -100, autoAlpha: 0 }, "-=0.25");
+
+      // added -0.25 seconds prior to end this.of timeline
     // .from(this.feature, 0.5, { scale: 0.5, autoAlpha: 0 }, "feature") // added 0.5 seconds after end of timeline
     // .from(this.description, 0.5, { left: 100, autoAlpha: 0 }, "feature+=0.25")
     // .staggerFrom(this.icons, 0.2, { scale: 0, autoAlpha: 0 }, 0.1); //animate all icons with 0.1 second stagger
@@ -88,7 +90,7 @@ class Timer extends Component {
               >
                 {element.name}
               </Header>
-              <h2 className="year" ref={h2 => (this.subhead = h2)}></h2>
+              {/* <h2 className="year" ref={h2 => (this.subhead = h2)}></h2> */}
               <div className="info">
                 <img
                   src="https://www.greensock.com/_img/codepen/feature_robust.png"
@@ -133,6 +135,9 @@ const Header = styled.div`
 
   justify-content: center;
   display: flex;
+  :hover {
+    color: #f93700;
+  }
 `;
 
 const WorkContainer = styled.div`

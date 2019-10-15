@@ -9,13 +9,16 @@ export default class Synth2 extends Component {
     };
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.handleMouseUp = this.handleMouseUp.bind(this);
+
+    // var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    // let sinea = audioCtx.createOscillator();
   }
 
   handleMouseDown() {
     this.setState({
       playing: true
     });
-    //  sinea.start();
+    // this.sinea.start();
   }
 
   handleMouseUp() {
@@ -25,6 +28,10 @@ export default class Synth2 extends Component {
   }
 
   componentDidMount() {
+    // let { audioCtx, sinea } = this;
+
+    var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    let sinea = audioCtx.createOscillator();
     var analyser = audioCtx.createAnalyser();
     analyser.fftSize = 2048;
     var bufferLength = analyser.frequencyBinCount;
@@ -35,7 +42,7 @@ export default class Synth2 extends Component {
     canvas.setAttribute("width", "800px");
     canvas.setAttribute("height", "200px");
 
-    var sinea = audioCtx.createOscillator();
+    // var sinea = audioCtx.createOscillator();
     sinea.frequency.value = 220;
     sinea.type = "sine";
     // sinea.start();
@@ -117,8 +124,8 @@ export default class Synth2 extends Component {
     );
   }
 }
-var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-const sinea = audioCtx.createOscillator();
+// var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+// const sinea = audioCtx.createOscillator();
 const canvas = document.querySelector(".visualizer");
 
 const ClickContainer = styled.div`

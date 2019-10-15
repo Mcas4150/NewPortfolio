@@ -19,7 +19,7 @@ export const dataArray = [
   {
     id: "3",
     name: "Audio Effects",
-    description: "",
+    description: "Audio VST/AU plugins, built in C++ using JUCE",
     image: "https://www.greensock.com/_img/codepen/feature_robust.png",
     github: "https://github.com/Mcas4150/audio-effects",
     link: "https://github.com/Mcas4150/audio-effects"
@@ -27,7 +27,7 @@ export const dataArray = [
   {
     id: "4",
     name: "SynthFolio",
-    description: "",
+    description: "My former portfolio, a synth using Web Audio API",
     image: "https://www.chortle.co.uk/images/photos/small/spongebob2.jpg",
     github: "https://github.com/Mcas4150/SynthFolio",
     link: "http://synthfolio.herokuapp.com/"
@@ -35,7 +35,7 @@ export const dataArray = [
   {
     id: "5",
     name: "SneakaTrax",
-    description: "",
+    description: "Music-sharing platform built using MERN stack",
     image: "https://www.greensock.com/_img/codepen/feature_robust.png",
     github: "",
     link: ""
@@ -43,7 +43,7 @@ export const dataArray = [
   {
     id: "6",
     name: "La Rama",
-    description: "",
+    description: "A Webstore for Montreal's finest vinyl record purveyor",
     image: "https://www.chortle.co.uk/images/photos/small/spongebob2.jpg",
     github: "",
     link: ""

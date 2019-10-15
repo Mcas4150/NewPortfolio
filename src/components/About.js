@@ -4,7 +4,9 @@ import { Section, ContentContainer } from "./Shared";
 import React from "react";
 import { Transition } from "react-transition-group";
 import { TweenMax, TweenLite } from "gsap/all";
-import Synth2 from "./Synth2";
+// import Synth2 from "./Synth2";
+import Synth from "./Synth";
+import NotePress from "./NotePress";
 
 const startState = { autoAlpha: 0, y: -50 };
 
@@ -23,7 +25,8 @@ export const About = props => (
     }}
   >
     <SynthContainer>
-      <Synth2 />
+      <Synth />
+      <NotePress />
     </SynthContainer>
   </Transition>
 );

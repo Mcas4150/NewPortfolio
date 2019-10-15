@@ -6,7 +6,7 @@ class SynthEngine {
     this.state = {
       audio: null
     };
-    this.noteFrequency = "440";
+    this.noteFrequency = "880";
 
     this.limiter = new Tone.Limiter(-10);
     this.chorus = new Tone.Chorus(4, 2.5, 0.5);
@@ -15,19 +15,23 @@ class SynthEngine {
       // this.chorus,
       Tone.Master
     );
+    // this.analyser = new Tone.Analyser(["fft"], ["2048"]);
     this.hpf = new Tone.Filter(20, "highpass");
     this.vcf = new Tone.Filter(10000, "lowpass", -24);
     this.env = new Tone.AmplitudeEnvelope(0.1, 0.2, 0.4, 0.2);
     this.vca = new Tone.Gain(1);
-    this.sawOsc = new Tone.Oscillator(
-      noteToFrequency("A3"),
-      "sawtooth"
-    ).start();
-    this.pulseOsc = new Tone.PulseOscillator(440, 0.4).start();
+    this.sawOsc = new Tone.Oscillator(220, "sawtooth").start();
+    this.pulseOsc = new Tone.PulseOscillator(880, 0.4).start();
     this.subOsc = new Tone.Oscillator(110, "sawtooth").start();
     this.noiseOsc = new Tone.NoiseSynth();
 
-    this.sawOsc.chain(this.hpf, this.vcf, this.vca, this.env, this.masterBus);
+    this.sawOsc.chain(
+      this.hpf,
+      this.vcf,
+      this.vca,
+      this.env,
+      this.masterBus
+    );
 
     // this.oscArray = [this.sawOsc, this.pulseOsc, this.subOsc, this.noiseOsc];
 
@@ -90,6 +94,39 @@ class SynthEngine {
     this.setState({ audio: true });
   }
 
+  // draw() {
+  //   let drawVisual = requestAnimationFrame(draw);
+
+  //   analyser.getByteTimeDomainData(dataArray);
+
+  //   canvasCtx.fillStyle = "#DBD5C9";
+  //   canvasCtx.fillRect(0, 0, WIDTH, HEIGHT);
+
+  //   canvasCtx.lineWidth = 2;
+  //   canvasCtx.strokeStyle = "rgb(0, 0, 0)";
+
+  //   canvasCtx.beginPath();
+
+  //   var sliceWidth = (WIDTH * 1.0) / bufferLength;
+  //   var x = 0;
+
+  //   for (var i = 0; i < bufferLength; i++) {
+  //     var v = dataArray[i] / 128.0;
+  //     var y = (v * HEIGHT) / 2;
+
+  //     if (i === 0) {
+  //       canvasCtx.moveTo(x, y);
+  //     } else {
+  //       canvasCtx.lineTo(x, y);
+  //     }
+
+  //     x += sliceWidth;
+  //   }
+
+  //   canvasCtx.lineTo(canvas.width, canvas.height / 2);
+  //   canvasCtx.stroke();
+  // }
+
   triggerAttackRelease(value, freq) {
     this.testSynth.triggerAttackRelease(value, freq);
   }
@@ -114,7 +151,14 @@ class SynthEngine {
   // }
 
   static get TOP_LEVEL_SETTINGS() {
-    return ["chorus", "volume", "filterCutoff", "pitch", "filterQ", "filterType"];
+    return [
+      "chorus",
+      "volume",
+      "filterCutoff",
+      "pitch",
+      "filterQ",
+      "filterType"
+    ];
   }
 
   updateSetting(name, val) {

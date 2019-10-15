@@ -5,7 +5,9 @@ import {
   SAW_START,
   TRIGGER_MASTER,
   TRIGGER_ATTACK,
-  TRIGGER_RELEASE
+  TRIGGER_RELEASE,
+  NOTE_PRESS,
+  NOTE_RELEASE
 } from "./types";
 
 export const changeDial = dial => {
@@ -56,3 +58,19 @@ export const triggerRelease = note => {
     payload: note
   };
 };
+
+
+export const notePress = note => {
+  return {
+    type: NOTE_PRESS,
+    payload: note
+  };
+};
+
+export const noteRelease = note => {
+  return {
+    type: NOTE_RELEASE,
+    payload: note
+  };
+};
+
