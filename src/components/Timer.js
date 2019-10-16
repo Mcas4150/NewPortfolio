@@ -128,7 +128,7 @@ class Timer extends Component {
 const DemoWrapper = styled.div`
   // width: 100%;
   // max-width: 100vw;
-  margin-top:3vh;
+  margin-top: 3vh;
   height: 20vh;
   -webkit-font-smoothing: antialiased;
   color: black;
@@ -167,10 +167,10 @@ const WorkContainer = styled.div`
 const Description = styled.div`
   position: relative;
   margin-top: 10px;
-
+  text-align: center;
   float: left;
   margin-left: 20px;
-  width: 290px;
+  // width: 290px;
   font-size: 16px;
   line-height: 24px;
   color: #fff;

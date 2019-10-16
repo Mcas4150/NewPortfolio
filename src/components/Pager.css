@@ -16,15 +16,18 @@ body {
 }
 
 canvas {
-  position: absolute;
+  /* position: absolute;
   height: 89%;
-  /* top: 10%; */
-  z-index: 9;
+
+  z-index: 9; */
   /* flex: 1; */
   left: 0%;
   touch-action: none;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
+
+
+
 .button-group-container {
   z-index: 10;
   position: absolute;

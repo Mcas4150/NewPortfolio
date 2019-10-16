@@ -62,7 +62,7 @@ export const skillsArray = [
   {
     id: "3",
     name: "Applications",
-    skillsList: "Xcode, React Native, Electron, JUCE"
+    skillsList: "Xcode, React Native, Electron, JUCE, Alexa"
   },
 
   {

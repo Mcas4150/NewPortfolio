@@ -9,7 +9,7 @@ export const dataArray = [
   },
   {
     id: "2",
-    name: "Orphan.",
+    name: "Orphan Records",
     description: "An Independent Record Label based in NYC",
     image: "https://www.chortle.co.uk/images/photos/small/spongebob2.jpg",
     github: "https://github.com/Mcas4150/OrphanRadio",
@@ -18,7 +18,7 @@ export const dataArray = [
 
   {
     id: "3",
-    name: "Audio Effects",
+    name: "VST Plugins",
     description: "Audio VST/AU plugins, built in C++ using JUCE",
     image: "https://www.greensock.com/_img/codepen/feature_robust.png",
     github: "https://github.com/Mcas4150/audio-effects",

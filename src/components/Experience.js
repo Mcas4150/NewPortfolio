@@ -102,7 +102,6 @@ export default class Experience extends Component {
           ))}
         </Jobs>
         <Volunteer>
-          Education
           {// map through the elements
 
           educationArray.map((element, index) => (
@@ -149,7 +148,7 @@ export default class Experience extends Component {
 const ExperienceGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20vw;
+  grid-gap: 5vh 20vw;
   grid-template-areas: "skillset jobs" "skillset volunteer";
   @media (max-width: 1000px) {
     // grid-template-areas: 1fr 1fr ;
@@ -207,8 +206,10 @@ const WorkContainer = styled.div`
 `;
 
 const Description = styled.div`
+  text-align: center;
   position: relative;
   float: left;
+  margin-top: 1vh;
   margin-left: 20px;
   width: 25vw;
   font-size: 16px;
@@ -217,5 +218,6 @@ const Description = styled.div`
   font-family: "Noto Sans", sans-serif;
   @media (max-width: 1000px) {
     width: 35vw;
+    margin-top: 0.5vh;
   }
 `;

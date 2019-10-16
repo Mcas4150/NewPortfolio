@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./Pager.css";
 import { Button, Icon, Label, Form, Radio } from "semantic-ui-react";
+import styled from "@emotion/styled";
 
 // import MainMenu from './menu';
 import ControlBar from "./control-bar";
@@ -176,7 +177,7 @@ class Pager extends Component {
         {/* <MainMenu /> */}
         {this.state.started ? (
           <React.Fragment>
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <ScopeContainer>
               <ControlBar
                 width={this.state.width / 4}
                 height={this.state.height * 0.6}
@@ -199,7 +200,7 @@ class Pager extends Component {
                 restart={this.restart}
                 ref={this.signalGenerator}
               />
-            </div>
+            </ScopeContainer>
             {/* {this.state.showCombinedWaveInfo && (
               <Label className="combined-wave-info">
                 <div className="combined-wave-title">Frequency</div>
@@ -325,5 +326,20 @@ class Pager extends Component {
     );
   }
 }
+
+const ScopeContainer = styled.div`
+  display: flex;
+  flexdirection: column;
+
+`;
+
+// position: absolute;
+// height: 89%;
+// /* top: 10%; */
+// z-index: 9;
+// /* flex: 1; */
+// left: 0%;
+// touch-action: none;
+// overflow: hidden;
 
 export default Pager;

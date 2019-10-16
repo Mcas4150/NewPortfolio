@@ -9,7 +9,7 @@ class PlaneSubject {
   raycaster = new THREE.Raycaster();
   scene = null;
   // currentPicture = this.props.picture;
-  // currentPicture = prophec;
+  currentPicture = prophec;
   constructor(scene, picture) {
     this.picture = picture;
 
@@ -293,8 +293,8 @@ export default class Three extends Component {
       <canvas
         id="canvas"
         style={{
-          position: "fixed",
-          zIndex: "-2",
+          // position: "fixed",
+          zIndex: "5",
           height: "25vh",
           width: "20vw"
         }}
