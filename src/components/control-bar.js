@@ -81,13 +81,13 @@ export default class ControlBar extends Component {
       this.prevGain[i] = 0;
     }
     this.masterVolume.connect(Tone.Master);
-    this.reverb = new Tone.Reverb(4); // Reverb unit. Runs in parallel to masterVolume
-    this.reverbVolume = new Tone.Volume(0);
-    this.reverbVolume.connect(Tone.Master);
-    this.masterVolume.connect(this.reverb);
-    this.reverb.generate().then(() => {
-      this.reverb.connect(this.reverbVolume);
-    });
+    // this.reverb = new Tone.Reverb(4); // Reverb unit. Runs in parallel to masterVolume
+    // this.reverbVolume = new Tone.Volume(0);
+    // this.reverbVolume.connect(Tone.Master);
+    // this.masterVolume.connect(this.reverb);
+    // this.reverb.generate().then(() => {
+    //   this.reverb.connect(this.reverbVolume);
+    // });
 
     this.goldIndices = []; // Array to hold indices on the screen of gold note lines (touched/clicked lines)
     //this.masterVolume.connect(Tone.Master); // Master volume receives all of the synthesizer inputs and sends them to the speakers
