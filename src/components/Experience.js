@@ -102,7 +102,9 @@ export default class Experience extends Component {
           ))}
         </Jobs>
         <Volunteer>
+          Education
           {// map through the elements
+
           educationArray.map((element, index) => (
             <DemoWrapper
               key={element.id}
@@ -146,8 +148,14 @@ export default class Experience extends Component {
 
 const ExperienceGrid = styled.div`
   display: grid;
-  grid-template-areas: 1fr 1fr;
-  grid-template-areas: "skillset skillset" "jobs volunteer";
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20vw;
+  grid-template-areas: "skillset jobs" "skillset volunteer";
+  @media (max-width: 1000px) {
+    // grid-template-areas: 1fr 1fr ;
+    grid-gap: 5vw;
+    // grid-template-areas: "skillset jobs" "jobs" "volunteer";
+  }
 `;
 
 const Skillset = styled.div`
@@ -172,6 +180,9 @@ const DemoWrapper = styled.div`
   // overflow: hidden;
   display: flex;
   // justify-content: center;
+  @media (max-width: 1000px) {
+    height: 13vh;
+  }
 `;
 
 const Header = styled.a`
@@ -183,6 +194,9 @@ const Header = styled.a`
   color: black;
   :hover {
     color: #f93700;
+  }
+  @media (max-width: 1000px) {
+    font-size: 2.75vw;
   }
 `;
 
@@ -201,4 +215,7 @@ const Description = styled.div`
   line-height: 24px;
   color: #fff;
   font-family: "Noto Sans", sans-serif;
+  @media (max-width: 1000px) {
+    width: 35vw;
+  }
 `;

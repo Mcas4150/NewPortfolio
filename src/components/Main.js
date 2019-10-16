@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
+import { keyframes } from "@emotion/core";
 import circle from "./Circle.svg";
 // import Routes from "./Routes";
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
@@ -33,6 +34,16 @@ export default class Main extends Component {
     return (
       <MainContainer>
         <BrowserRouter>
+          <NameContainer>
+            <Name>MIKE</Name>
+            <Name>CASSIDY</Name>
+            <Name>MIKE</Name>
+            <Name>CASSIDY</Name>
+            <Name>MIKE</Name>
+            <Name>CASSIDY</Name>
+            <Name>MIKE</Name>
+            <Name>CASSIDY</Name>
+          </NameContainer>
           <HeaderContainer>
             <Title to="/">ME.</Title>
             <Title to="/work">WORK</Title>
@@ -40,6 +51,7 @@ export default class Main extends Component {
             <Title to="/cv">CV</Title>
             <Title to="/contact">CONTACT</Title>
           </HeaderContainer>
+
           <BodyContainer>
             {/* give position to scroll container */}
             <ScrollContainer>
@@ -96,11 +108,43 @@ const MainContainer = styled.div`
 //  cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="75" height="75"><circle cx="30" cy="30" r="25" stroke-width="2" style="stroke: black; fill: navy;"/></svg>'),
 //  pointer;
 `;
+const moveSlideshow = keyframes`
+  100% {
+    transform: translateX(-66.6666%);
+  }
+`;
+
+const NameContainer = styled.div`
+  display: flex;
+
+  font-size: 4vw;
+  width: 100vw;
+  height: 5vh;
+  padding: 5vh 4vw;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+`;
+
+const Name = styled.div`
+  font-size: 3vw;
+  font-family: "MonumentRegular";
+  display: inline-block;
+  justify-content: row;
+  padding: 0 1vh 4vh 1vh;
+  // position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 30vw;
+  transform: translate3d(0, 0, 0);
+  animation: ${moveSlideshow} 30s linear infinite;
+`;
 
 const HeaderContainer = styled.div`
   display: flex;
-  position: fixed;
-  padding: 5vh 4vw;
+
+  padding: 2vh 4vw;
   width: 100vw;
   height: 10vh;
 `;
@@ -141,6 +185,9 @@ const Title = styled(NavLink)`
   text-stroke: 1.1px black;
   text-shadow: none;
   transition: color 0.25s ease-in-out;
+  @media (max-width: 800px) {
+    font-size: 2.75vw;
+  }
   :hover {
     color: rgb(246, 109, 244);
     transition: color 0.25s ease-in-out, transform 0.5s ease;

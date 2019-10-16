@@ -92,16 +92,15 @@ class Timer extends Component {
                 {element.name}
               </Header>
               {/* <h2 className="year" ref={h2 => (this.subhead = h2)}></h2> */}
-              <div className="info">
-                {/* <OrphanLogo ref={img => (this.feature = img)} /> */}
-                <Description
-                  style={{ color: "black" }}
-                  className="description"
-                  ref={p => (this.description = p)}
-                >
-                  {element.description}
-                </Description>{" "}
-                {/* <img
+              {/* <OrphanLogo ref={img => (this.feature = img)} /> */}
+              <Description
+                style={{ color: "black" }}
+                className="description"
+                ref={p => (this.description = p)}
+              >
+                {element.description}
+              </Description>{" "}
+              {/* <img
                   src="https://www.greensock.com/_img/codepen/feature_robust.png"
                   width="240"
                   height="151"
@@ -109,12 +108,11 @@ class Timer extends Component {
                   className="feature"
                   // ref={img => (this.feature = img)}
                 /> */}
-                {/* <Three picture={this.state.currentImage} /> */}
-                {/* <Three
+              {/* <Three picture={this.state.currentImage} /> */}
+              {/* <Three
                   className="feature"
                   picture={`https://cors-anywhere.herokuapp.com/${this.state.image}`}
                 /> */}
-              </div>
             </div>
           </DemoWrapper>
         ))}
@@ -153,6 +151,7 @@ const Header = styled.a`
   display: flex;
   color: yellow;
   @media (max-width: 800px) {
+    font-size: 3vw;
   }
   :hover {
     color: #f93700;
@@ -167,6 +166,8 @@ const WorkContainer = styled.div`
 
 const Description = styled.div`
   position: relative;
+  margin-top: 10px;
+
   float: left;
   margin-left: 20px;
   width: 290px;
@@ -176,6 +177,7 @@ const Description = styled.div`
   font-family: "Noto Sans", sans-serif;
   @media (max-width: 800px) {
     width: 35vw;
+    margin-top: 5px;
   }
 `;
 

@@ -2,19 +2,19 @@ export const jobsArray = [
   {
     id: "1",
     name: "Censinent",
-    description: "Healthcare Startup",
+    description: "Full-stack engineer for Healthcare Startup",
     year: "2019"
   },
   {
     id: "2",
     name: "Beehive Jazz Club",
-    description: "My former portfolio, a synth using Web Audio API",
+    description: "Live Sound Tech for Boston Jazz Venue",
     year: "2018"
   },
 
   {
     id: "3",
-    name: "Behavioral Health Works",
+    name: "Behavioral Health",
     description: "Music therapist for autistic kids",
     year: "2017"
   },
@@ -29,8 +29,8 @@ export const jobsArray = [
 export const educationArray = [
   {
     id: "1",
-    name: "Le Wagon Bootcamp",
-    description: "10 Week Web Development Bootcamp ",
+    name: "Le Wagon Montreal",
+    description: "10 Week WebDev Bootcamp ",
     year: "2017"
   },
   {
@@ -51,29 +51,29 @@ export const educationArray = [
 export const skillsArray = [
   {
     id: "1",
-    name: "Front-end Development",
-    skillsList: "ReactJs, Javascript, C++, Angular, D3.js, Processing.js, HTML, CSS"
+    name: "Front-end",
+    skillsList: "ReactJs, Javascript, C++, Angular, D3.js, CSS"
   },
   {
     id: "2",
-    name: "Back-end Development",
-    skillsList: "Node.js, Ruby on Rails, C++, Express, Python, Java"
+    name: "Back-end",
+    skillsList: "Node.js, Ruby on Rails, C++, Express, Python"
   },
   {
     id: "3",
-    name: "Application Development",
+    name: "Applications",
     skillsList: "Xcode, React Native, Electron, JUCE"
   },
 
   {
     id: "4",
-    name: "Database Management",
+    name: "Database",
     skillsList: "MongoDB, GraphQL, MySql, AWS, Github"
   },
   {
     id: "5",
     name: "Design",
-    skillsList: "Adobe Creative Suite, OpenFrameworks, Sketch"
+    skillsList: "Adobe CS, Sketch, OpenFrameworks"
   },
 
   {
