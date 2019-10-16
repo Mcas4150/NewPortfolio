@@ -119,7 +119,7 @@ class Timer extends Component {
           </DemoWrapper>
         ))}
         <Three
-         className="feature"
+          className="feature"
           picture={`https://cors-anywhere.herokuapp.com/${this.state.image}`}
         />
       </WorkContainer>
@@ -141,6 +141,7 @@ const DemoWrapper = styled.div`
 
 const Header = styled.a`
   font-size: 2.5vw;
+  padding-top: 2rem;
   text-decoration: none;
   justify-content: center;
   display: flex;

@@ -679,8 +679,8 @@ export default class ControlBar extends Component {
     let rect = this.props;
     // We clear the canvas to make sure we don't leave anything painted
     this.ctx.clearRect(0, 0, rect.width, rect.height);
-    this.ctx.fillStyle = "#DBD5C9";
-    this.ctx.fillRect(0, 0, rect.width, rect.height);
+    this.ctx.fillStyle = "#ADCAD6";
+    this.ctx.fillRect(25, 25, rect.width - 50, rect.height - 75);
     const MINFREQ = 20;
     const MAXFREQ = 20000;
     let ticks = 4;

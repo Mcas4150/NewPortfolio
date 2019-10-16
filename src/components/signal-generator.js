@@ -224,16 +224,14 @@ export default class SignalGenerator extends Component {
 
     // We clear whatever is in scope and we create the grid again
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-    ctx.fillStyle = "#DBD5C9";
-    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+    ctx.fillStyle = "#ADCAD6";
+    ctx.fillRect(25, 25, canvasWidth - 250, canvasHeight - 75);
 
     // Mid point of the scope canvas (used to create the grid)
     let midPoint = {
       x: canvasWidth / 2,
       y: canvasHeight / 2
     };
-
-
 
     // Draw the white lines
     ctx.beginPath();

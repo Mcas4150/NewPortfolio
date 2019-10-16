@@ -152,7 +152,7 @@ class SceneManager {
 
   buildScene = () => {
     const scene = new THREE.Scene();
-    scene.background = new THREE.Color("#DBD5C9");
+    scene.background = new THREE.Color("#ADCAD6");
 
     return scene;
   };

@@ -86,7 +86,7 @@ export default class Main extends Component {
 }
 
 const MainContainer = styled.div`
-  background-color: #DBD5C9;
+  background-color: #ADCAD6;
   overflow: hidden;
   outline: none;
   visibility: inherit;
