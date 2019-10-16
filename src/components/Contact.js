@@ -36,7 +36,7 @@ export const Contact = props => (
       <br />
       <Text>I'm all Ears!!</Text>
       <QuickStartCanvas
-        style={{ height: "50vhpx", width: "50vw" }}
+        style={{ height: "50vh", width: "50vw" }}
         onAnimate={(space, form, time) => {
           let subs = space.innerBound.map(p =>
             Line.subpoints([p, space.pointer], 30)
@@ -55,9 +55,11 @@ export const Contact = props => (
 const Text = styled.div`
   font-size: 4vw;
   font-family: "MonumentRegular";
+  margin: 2vw;
 `;
 
 const Email = styled.a`
+  margin: 2vw;
   // font-size: 7rem;
   text-decoration: none;
   cursor: pointer;
