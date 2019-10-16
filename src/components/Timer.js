@@ -38,7 +38,7 @@ class Timer extends Component {
     // .from(this.subhead, 0.5, { left: -100, autoAlpha: 0 }, "-=0.25");
 
     // added -0.25 seconds prior to end this.of timeline
-    // .from(this.feature, 0.5, { scale: 0.5, autoAlpha: 0 }, "feature") // added 0.5 seconds after end of timeline
+    // .from(this.feature, 0.5, { scale: 0.5, autoAlpha: 0 }, "feature"); // added 0.5 seconds after end of timeline
     // .from(this.description, 0.5, { left: 100, autoAlpha: 0 }, "feature+=0.25")
     // .staggerFrom(this.icons, 0.2, { scale: 0, autoAlpha: 0 }, 0.1); //animate all icons with 0.1 second stagger
     this.logoTl.play();
@@ -101,19 +101,27 @@ class Timer extends Component {
                 >
                   {element.description}
                 </Description>{" "}
-                <img
+                {/* <img
                   src="https://www.greensock.com/_img/codepen/feature_robust.png"
                   width="240"
                   height="151"
                   alt="pic"
                   className="feature"
                   // ref={img => (this.feature = img)}
-                />
+                /> */}
+                {/* <Three picture={this.state.currentImage} /> */}
+                {/* <Three
+                  className="feature"
+                  picture={`https://cors-anywhere.herokuapp.com/${this.state.image}`}
+                /> */}
               </div>
             </div>
           </DemoWrapper>
         ))}
-        <Three picture={this.state.currentImage} />
+        <Three
+         className="feature"
+          picture={`https://cors-anywhere.herokuapp.com/${this.state.image}`}
+        />
       </WorkContainer>
     );
   }
@@ -123,10 +131,10 @@ const DemoWrapper = styled.div`
   // width: 100%;
   // max-width: 100vw;
 
-  height: 20vh;
+  height: 30vh;
   -webkit-font-smoothing: antialiased;
   color: black;
-  overflow: hidden;
+  // overflow: hidden;
   display: flex;
   justify-content: center;
 `;

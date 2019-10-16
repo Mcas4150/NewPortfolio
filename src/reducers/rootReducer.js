@@ -14,11 +14,11 @@ import {
 import * as dotProp from "dot-prop-immutable";
 import initialState from "./initialState";
 
-import SynthVoice from "../synth/SynthVoice";
+// import SynthVoice from "../synth/SynthVoice";
 import SynthEngine from "../synth/SynthEngine";
 
 const synth = new SynthEngine(initialState);
-const voice = new SynthVoice(initialState);
+// const voice = new SynthVoice(initialState);
 
 // const rootReducer = (state = initialState, action) => {
 //   switch(action.type) {
@@ -70,11 +70,11 @@ const rootReducer = (state = initialState, action) => {
       return dotProp.set(state, `filter.filterType`, action.payload);
 
     case NOTE_PRESS:
-      voice.triggerSawStart(action.payload);
+      // voice.triggerSawStart(action.payload);
       return dotProp.set(state, "sawStart.frequency", action.payload);
 
     case NOTE_RELEASE:
-      voice.triggerSawStart(action.payload);
+      // voice.triggerSawStart(action.payload);
       return dotProp.set(state, "sawStart.frequency", action.payload);
 
     case SAW_START:

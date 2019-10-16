@@ -181,8 +181,8 @@ export default connect(
 )(NotePress);
 
 const ClickContainer = styled.div`
-  height: 50vh;
-  width: 50vw;
+  height: 60vh;
+  width: 80vw;
   background-color: #dbd5c9;
   border-left: 1px solid black;
 `;

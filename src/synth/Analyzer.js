@@ -1,5 +1,9 @@
-import React, { Component } from 'react';
-import AudioVisualiser from './Visualizer';
+import React, { Component } from "react";
+import AudioVisualiser from "./Visualizer";
+import Tone from "tone";
+import { connect } from "react-redux";
+import { getMaster } from "../actions/actions";
+import { get } from "dot-prop-immutable";
 
 class AudioAnalyser extends Component {
   constructor(props) {
@@ -9,10 +13,13 @@ class AudioAnalyser extends Component {
   }
 
   componentDidMount() {
-    this.audioContext = new (window.AudioContext ||
-      window.webkitAudioContext)();
-    this.analyser = this.audioContext.createAnalyser();
-    this.dataArray = new Uint8Array(this.analyser.frequencyBinCount);
+    // this.audioContext = new (window.AudioContext ||
+    //   window.webkitAudioContext)();
+    // this.analyser = this.audioContext.createAnalyser();
+
+    this.analyser = new Tone.Analyser("fft", "2048");
+    this.fft = new Tone.FFT("2048");
+    this.dataArray = new Uint8Array(this.fft.getValue());
     this.source = this.audioContext.createMediaStreamSource(this.props.audio);
     this.source.connect(this.analyser);
     this.rafId = requestAnimationFrame(this.tick);
@@ -36,3 +43,19 @@ class AudioAnalyser extends Component {
 }
 
 export default AudioAnalyser;
+
+// const mapStateToProps = (state, ownProps) => {
+//   const value = get(state, `amplifier.vcaLevel`);
+//   return { dialValue: value === undefined ? 0 : value };
+// };
+
+// const mapDispatchToProps = dispatch => {
+//   return {
+//     changeDial: dial => dispatch(changeDial(dial))
+//   };
+// };
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(AudioAnalyser);

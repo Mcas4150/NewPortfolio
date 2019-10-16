@@ -141,7 +141,7 @@ class SceneManager {
     this.picture = picture;
     this.screenDimentions = {
       width: 500,
-      height:100
+      height: 100
     };
 
     this.scene = this.buildScene();
@@ -276,6 +276,7 @@ export default class Three extends Component {
     // Typical usage (don't forget to compare props):
     if (this.props.picture !== this.picture) {
       const sceneManager = new SceneManager(this.canvas, this.props.picture);
+      // sceneManager.update();
       // const canvas = document.getElementById("canvas");
       // let picture = this.props.picture;
       // const sceneManager = new SceneManager(canvas, picture);
@@ -293,9 +294,9 @@ export default class Three extends Component {
         id="canvas"
         style={{
           position: "fixed",
-          zIndex: "-1",
-          height: "50vh",
-          width: "65vw"
+          zIndex: "-2",
+          height: "25vh",
+          width: "20vw"
         }}
       />
     );

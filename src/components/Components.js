@@ -2,7 +2,7 @@ import React from "react";
 import { Transition } from "react-transition-group";
 import { TweenMax, TweenLite } from "gsap/all";
 
-const startState = { autoAlpha: 0, y: -50 };
+const startState = { autoAlpha: 0, y: -50, x: 0 };
 
 export const Home = props => (
   <Transition
