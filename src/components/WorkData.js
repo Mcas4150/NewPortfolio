@@ -2,14 +2,14 @@ export const dataArray = [
   {
     id: "1",
     name: "PropheC++",
-    description: "Sequential Circuits Pro-One Synthesizer VST/AU Plugin",
+    description: "Sequential Circuits Pro-One Synthesizer VST",
     image: "https://www.greensock.com/_img/codepen/feature_robust.png",
     github: "https://github.com/Mcas4150/PropheCPlusPlus",
     link: "https://github.com/Mcas4150/PropheCPlusPlus"
   },
   {
     id: "2",
-    name: "Orphan Records",
+    name: "Orphan.",
     description: "An Independent Record Label based in NYC",
     image: "https://www.chortle.co.uk/images/photos/small/spongebob2.jpg",
     github: "https://github.com/Mcas4150/OrphanRadio",
@@ -27,7 +27,7 @@ export const dataArray = [
   {
     id: "4",
     name: "SynthFolio",
-    description: "My former portfolio, a synth using Web Audio API",
+    description: "My former portfolio, also a web audio synth",
     image: "https://www.chortle.co.uk/images/photos/small/spongebob2.jpg",
     github: "https://github.com/Mcas4150/SynthFolio",
     link: "http://synthfolio.herokuapp.com/"
@@ -43,7 +43,7 @@ export const dataArray = [
   {
     id: "6",
     name: "La Rama",
-    description: "A Webstore for Montreal's finest vinyl record purveyor",
+    description: "Page for Montreal's finest vinyl record store",
     image: "https://www.chortle.co.uk/images/photos/small/spongebob2.jpg",
     github: "",
     link: ""

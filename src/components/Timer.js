@@ -128,8 +128,8 @@ class Timer extends Component {
 const DemoWrapper = styled.div`
   // width: 100%;
   // max-width: 100vw;
-
-  height: 30vh;
+  margin-top:3vh;
+  height: 20vh;
   -webkit-font-smoothing: antialiased;
   color: black;
   // overflow: hidden;
@@ -138,8 +138,8 @@ const DemoWrapper = styled.div`
   @media (min-width: 800px) {
     justify-content: center;
   }
-  @media (max-width: 800px) {
-    height: 25vh;
+  @media (max-width: 1000px) {
+    height: 20vh;
   }
 `;
 

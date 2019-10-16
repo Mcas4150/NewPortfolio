@@ -151,7 +151,7 @@ const HeaderContainer = styled.div`
 
 const BodyContainer = styled.div`
   // margin: 100px 5vh;
-  padding: 15vh 4vw 5vh;
+  padding: 0vh 4vw;
   width: 100vw;
 `;
 
