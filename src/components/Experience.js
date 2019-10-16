@@ -147,13 +147,13 @@ export default class Experience extends Component {
 
 const ExperienceGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5vh 20vw;
-  grid-template-areas: "skillset jobs" "skillset volunteer";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 5vh 5vw;
+  grid-template-areas: "skillset jobs volunteer";
   @media (max-width: 1000px) {
-    // grid-template-areas: 1fr 1fr ;
+    grid-template-columnss: 1fr 1fr;
     grid-gap: 5vw;
-    // grid-template-areas: "skillset jobs" "jobs" "volunteer";
+    grid-template-areas: "skillset jobs" "skillset volunteer";
   }
 `;
 
