@@ -35,12 +35,10 @@ class Pager extends Component {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
   };
 
-  start = () => {
-    if (!this.state.started) {
-      audioContext = new (window.AudioContext || window.webkitAudioContext)();
-      this.setState({ started: true });
-    }
-  };
+  componentDidMount() {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    this.setState({ started: true });
+  }
 
   onAudioEvent = signals => {
     this.signalGenerator.current.renderCanvas(signals);
@@ -179,7 +177,7 @@ class Pager extends Component {
         {this.state.started ? (
           <React.Fragment>
             <div style={{ display: "flex", flexDirection: "column" }}>
-               <ControlBar
+              <ControlBar
                 width={this.state.width / 4}
                 height={this.state.height * 0.6}
                 handleResize={this.handleResize}
@@ -191,7 +189,8 @@ class Pager extends Component {
                 lockFreq={this.state.lockFreq}
                 lockAmp={this.state.lockAmp}
                 ref={this.controlbar}
-              /><SignalGenerator
+              />
+              <SignalGenerator
                 width={this.state.width * 0.6}
                 height={this.state.height * 0.6}
                 handleResize={this.handleResize}
@@ -200,7 +199,6 @@ class Pager extends Component {
                 restart={this.restart}
                 ref={this.signalGenerator}
               />
-
             </div>
             {/* {this.state.showCombinedWaveInfo && (
               <Label className="combined-wave-info">
