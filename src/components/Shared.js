@@ -15,7 +15,7 @@ export const Section = styled.div`
   -ms-flex-pack: center;
   justify-content: center;
   overflow: hidden;
-  padding: 8rem 0;
+  padding: 4rem 0;
   position: relative;
   width: 100%;
   z-index: 2;

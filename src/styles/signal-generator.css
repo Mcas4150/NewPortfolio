@@ -1,6 +1,6 @@
 .instructions {
   margin: 0 auto;
-  font-family: 'Lato';
+  font-family: "Lato";
   font-size: 24px;
   z-index: 1;
   position: absolute;
@@ -10,8 +10,9 @@
   user-select: none;
 }
 
-
 .signal-generator-canvas {
   left: 25%;
-  width: 75%;
+  /* z-index: 5;
+  width: 100%;
+  position: absolute; */
 }

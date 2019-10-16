@@ -140,7 +140,7 @@ const DemoWrapper = styled.div`
 `;
 
 const Header = styled.a`
-  font-size: 3vw;
+  font-size: 2.5vw;
   text-decoration: none;
   justify-content: center;
   display: flex;
