@@ -247,7 +247,7 @@ class Pager extends Component {
             </Button>
             {/*</Button.Group>*/}
             <div className="waveform-button-container">
-              <Button className="waveform-button-title">Waveform</Button>
+              {/* <Button className="waveform-button-title">Waveform</Button> */}
               <Button
                 className="timbre-button timbre-pure"
                 color={pureColor}

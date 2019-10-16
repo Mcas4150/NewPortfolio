@@ -101,14 +101,14 @@ const HeaderContainer = styled.div`
   display: flex;
   position: fixed;
   padding: 5vh 4vw;
-  width: 92vw;
+  width: 100vw;
   height: 10vh;
 `;
 
 const BodyContainer = styled.div`
   // margin: 100px 5vh;
   padding: 15vh 4vw 5vh;
-  width: 92vw;
+  width: 100vw;
 `;
 
 const ScrollContainer = styled.div`
@@ -136,9 +136,15 @@ const Title = styled(NavLink)`
   padding: 0 4vh;
   z-index: 8;
   text-decoration: none;
-  color: black;
+  color: transparent;
+  -webkit-text-stroke: 1.1px black;
+  text-stroke: 1.1px black;
+  text-shadow: none;
+  transition: color 0.25s ease-in-out;
   :hover {
-    color: #f93700;
+    color: rgb(246, 109, 244);
+    transition: color 0.25s ease-in-out, transform 0.5s ease;
+    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
   }
   transform: "perspective(600px) translate3d(10px, 0px , 50px)";
 `;

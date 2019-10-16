@@ -9,6 +9,7 @@ import { Slider } from "react-nexusui";
 import "./CV.css";
 import Pager from "./Pager";
 import CVPaper from "../imgs/CVImage.png";
+import Experience from "./Experience";
 
 const startState = { autoAlpha: 0, y: 0, x: 0 };
 
@@ -27,13 +28,14 @@ export const CV = props => (
     addEndListener={(node, done) => {
       TweenMax.to(node, 0.5, {
         autoAlpha: props.show ? 1 : 0,
-        x: props.show ? 50 : 0,
+        // y: props.show ? -50 : 0,
         onComplete: done
       });
     }}
   >
     <Section id="cv">
-      <div id="page">
+      <Experience />
+      {/* <div id="page">
         <img
           id="magnify"
           style={{
@@ -43,7 +45,7 @@ export const CV = props => (
           }}
           src={CVPaper}
         ></img>
-      </div>
+      </div> */}
       {/* <Points
         name="pts_sound"
         background="#ADCAD6"
@@ -73,3 +75,4 @@ const Email = styled.div`
     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
   }
 `;
+

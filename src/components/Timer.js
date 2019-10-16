@@ -145,6 +145,7 @@ const Header = styled.a`
   text-decoration: none;
   justify-content: center;
   display: flex;
+  color: black;
   :hover {
     color: #f93700;
   }

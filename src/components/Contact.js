@@ -36,7 +36,7 @@ export const Contact = props => (
       <br />
       <Text>I'm all Ears!!</Text>
       <QuickStartCanvas
-        height="500px"
+        style={{ height: "50vhpx", width: "50vw" }}
         onAnimate={(space, form, time) => {
           let subs = space.innerBound.map(p =>
             Line.subpoints([p, space.pointer], 30)
