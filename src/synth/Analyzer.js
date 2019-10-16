@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import AudioVisualiser from "./Visualizer";
 import Tone from "tone";
-import { connect } from "react-redux";
-import { getMaster } from "../actions/actions";
-import { get } from "dot-prop-immutable";
+
 
 class AudioAnalyser extends Component {
   constructor(props) {

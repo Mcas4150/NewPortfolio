@@ -3,12 +3,7 @@ import "../styles/signal-generator.css";
 import { dbToLinear } from "../util/conversions";
 
 import {
-  WAVECOLOR1,
-  WAVECOLOR2,
-  WAVECOLOR3,
-  WAVECOLOR4,
-  WAVECOLOR5,
-  WAVECOLOR6,
+
   WAVECOLORTOTAL
 } from "../util/colors";
 

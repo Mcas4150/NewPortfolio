@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Section, Column } from "./Shared";
+import { Section } from "./Shared";
 
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
 import Timer from "./Timer";
-import OrphanLogo from "./OrphanLogo";
-import Three from "./Three";
+// import OrphanLogo from "./OrphanLogo";
+// import Three from "./Three";
 
 const startState = { autoAlpha: 0, y: 0 };
 

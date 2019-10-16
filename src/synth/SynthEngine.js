@@ -1,7 +1,6 @@
 import Tone from "tone";
-import noteToFrequency from "note-to-frequency";
-import { Sound, Line, Util, Rectangle, Pts } from "pts/dist/es5";
-import { QuickStartCanvas } from "react-pts-canvas";
+
+
 
 class SynthEngine {
   constructor(initialState) {

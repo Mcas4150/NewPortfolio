@@ -136,7 +136,13 @@ const DemoWrapper = styled.div`
   color: black;
   // overflow: hidden;
   display: flex;
-  justify-content: center;
+
+  @media (min-width: 800px) {
+    justify-content: center;
+  }
+  @media (max-width: 800px) {
+    height: 25vh;
+  }
 `;
 
 const Header = styled.a`
@@ -145,7 +151,9 @@ const Header = styled.a`
   text-decoration: none;
   justify-content: center;
   display: flex;
-  color: black;
+  color: yellow;
+  @media (max-width: 800px) {
+  }
   :hover {
     color: #f93700;
   }
@@ -166,6 +174,9 @@ const Description = styled.div`
   line-height: 24px;
   color: #fff;
   font-family: "Noto Sans", sans-serif;
+  @media (max-width: 800px) {
+    width: 35vw;
+  }
 `;
 
 export default Timer;
