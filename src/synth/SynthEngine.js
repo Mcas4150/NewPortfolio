@@ -29,11 +29,15 @@ class SynthEngine {
     this.env = new Tone.AmplitudeEnvelope(0.1, 0.2, 0.4, 0.2);
     this.vca = new Tone.Gain(1);
     this.sawOsc = new Tone.Oscillator(this.state.frequency, "sawtooth").start();
-    // this.pulseOsc = new Tone.PulseOscillator(880, 0.4).start();
-    // this.subOsc = new Tone.Oscillator(110, "sawtooth").start();
-    // this.noiseOsc = new Tone.NoiseSynth();
 
-    this.sawOsc.chain(this.hpf, this.vcf, this.vca, this.env, this.masterBus);
+    this.sawOsc.chain(
+      this.hpf,
+      this.vcf,
+      this.vca,
+      this.env,
+      this.masterBus,
+      this.analyser
+    );
   }
 
   // get masterSignal() {

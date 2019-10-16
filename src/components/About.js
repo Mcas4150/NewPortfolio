@@ -7,6 +7,7 @@ import { TweenMax, TweenLite } from "gsap/all";
 
 import Synth from "./Synth";
 import NotePress from "./NotePress";
+import Pager from "./Pager";
 
 const startState = { autoAlpha: 0, y: -50 };
 
@@ -25,7 +26,8 @@ export const About = props => (
     }}
   >
     <SynthContainer>
-      <Synth />
+      <Pager/>
+      {/* <Synth /> */}
       {/* <NotePress /> */}
     </SynthContainer>
   </Transition>

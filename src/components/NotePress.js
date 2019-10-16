@@ -4,6 +4,9 @@ import "./Keyboard.css";
 import styled from "@emotion/styled";
 import { connect } from "react-redux";
 import { get } from "dot-prop-immutable";
+import Envelope from "./Envelope";
+import Filter from "./Filter";
+import Amplifier from "./Amplifier";
 import {
   triggerAttack,
   triggerRelease,
@@ -136,11 +139,16 @@ class NotePress extends React.Component {
           onMouseUp={this.handleMouseUp}
           onMouseMove={this.handleMouseMove}
         ></ClickContainer>
-        <Number id="dbg">
-          X: {this.state.xPos}
-          <br />
-          Y: {this.state.yPos}
-        </Number>
+        <Envelope name={"envelope"} displayName={"envelope"} />
+        {/* <Filter name={"filter"} displayName={"filter"} /> */}
+        <Toggles>
+          <Number id="dbg">
+            Frequency: {this.state.xPos} Hz
+            <br />
+            Y: {this.state.yPos}
+          </Number>
+          <Amplifier name={"amplifier"} displayName={"amplifier"} />
+        </Toggles>
       </GridContainer>
     );
   }
@@ -195,5 +203,11 @@ const Number = styled.div`
 
 const GridContainer = styled.div`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+`;
+
+const Toggles = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 `;

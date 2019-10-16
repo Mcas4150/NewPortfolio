@@ -11,9 +11,9 @@ export default class Synth extends Component {
     return (
       <div>
         <NotePress name={"frequency"} displayName={"frequency"} />{" "}
-        <Envelope name={"envelope"} displayName={"envelope"} />
+        {/* <Envelope name={"envelope"} displayName={"envelope"} /> */}
         {/* <Filter name={"filter"} displayName={"filter"} /> */}
-        <Amplifier name={"amplifier"} displayName={"amplifier"} />
+        {/* <Amplifier name={"amplifier"} displayName={"amplifier"} /> */}
         {/* <AudioAnalyser /> */}
         {/* <Keyboard /> */}
       </div>

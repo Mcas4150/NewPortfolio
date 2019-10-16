@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { Section, Column } from "./Shared";
-import Synth2  from "./Synth2";
+import Synth2 from "./Synth2";
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
+import { Points } from "./Points";
+import { Slider } from "react-nexusui";
+import Pager from "./Pager";
 
 const startState = { autoAlpha: 0, y: 0, x: 0 };
 
@@ -23,9 +26,16 @@ export const CV = props => (
     }}
   >
     <Section id="cv">
-
-
       <Email>CV</Email>
+      <Points
+        name="pts_sound"
+        background="#DBD5C9"
+        style={{ height: "40vh", width: "50vw" }}
+        file="CallOfTheWild.mp3"
+        credit="Music: Space Travel Cliché by MrGreenH"
+        play={true}
+        height="30"
+      />
       {/* <Synth2 /> */}
     </Section>
   </Transition>
