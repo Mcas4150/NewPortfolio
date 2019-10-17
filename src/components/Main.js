@@ -8,7 +8,7 @@ import { About } from "./About";
 
 import { Work } from "./Work";
 
-import Contact from "./Contact";
+import { Contact } from "./Contact";
 import { CV } from "./CV";
 
 export default class Main extends Component {
@@ -221,6 +221,10 @@ const HeaderContainer = styled.div`
   padding: 2vh 4vw;
   width: 100vw;
   height: 10vh;
+  @media (max-width: 1000px) {
+    padding: 1vh 4vw;
+    height: 5vh;
+  }
 `;
 
 const BodyContainer = styled.div`
@@ -247,10 +251,8 @@ const ScrollContainer = styled.div`
 // `;
 
 const Title = styled(NavLink)`
-  // position: fixed;
-  // display: block;
   font-family: "PolyRegular";
-  // font-family: "Oswald", sans-serif;
+
   font-size: 2vw;
   padding: 0 4vh;
   z-index: 8;
@@ -259,14 +261,7 @@ const Title = styled(NavLink)`
   -webkit-text-stroke: 1.1px black;
   text-stroke: 1.1px black;
   text-shadow: none;
-  // letter-spacing: 5px;
-  // transition: letter-spacing 0.25s;
-  // &:hover {
-  //   color: rgb(246, 109, 244);
-  //   letter-spacing: 15px
-  //   transition: letter-spacing 0.25s ease-in-out, transform 0.5s ease;
-  //   transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
-  // }
+
   @media (max-width: 800px) {
     font-size: 2.75vw;
   }

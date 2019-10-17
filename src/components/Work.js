@@ -4,7 +4,7 @@ import { Section } from "./Shared";
 
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
-import Timer from "./Projects";
+import Projects from "./Projects";
 // import OrphanLogo from "./OrphanLogo";
 // import Three from "./Three";
 
@@ -25,7 +25,7 @@ export const Work = props => (
     }}
   >
     <Section id="contact">
-      <Timer />
+      <Projects />
       {/* <Three /> */}
     </Section>
   </Transition>

@@ -97,7 +97,6 @@ class Projects extends Component {
               >
                 {element.description}
               </Description>{" "}
-
             </div>
           </DemoWrapper>
         ))}
@@ -130,7 +129,10 @@ const Header = styled.a`
   text-decoration: none;
   justify-content: center;
   display: flex;
-  color: yellow;
+  color: #e3f21a;
+  -webkit-text-stroke: 1.1px black;
+  text-stroke: 1.1px black;
+  text-shadow: none;
   @media (max-width: 800px) {
     font-size: 3vw;
   }

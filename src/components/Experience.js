@@ -27,7 +27,9 @@ export default class Experience extends Component {
     return (
       <ExperienceGrid>
         <Skillset>
+          <Title>Skillset</Title>
           {// map through the elements
+
           skillsArray.map((element, index) => (
             <DemoWrapper
               key={element.id}
@@ -65,7 +67,7 @@ export default class Experience extends Component {
           ))}
         </Skillset>
         <Jobs>
-          {" "}
+          <Title>Experience</Title>
           {// map through the elements
           jobsArray.map((element, index) => (
             <DemoWrapper
@@ -104,6 +106,7 @@ export default class Experience extends Component {
           ))}
         </Jobs>
         <Volunteer>
+          <Title>Education</Title>
           {// map through the elements
 
           educationArray.map((element, index) => (
@@ -154,7 +157,7 @@ const ExperienceGrid = styled.div`
   grid-template-areas: "skillset jobs volunteer";
   @media (max-width: 1000px) {
     grid-template-columnss: 1fr 1fr;
-    grid-gap: 5vw;
+    grid-gap: 1vh 5vw;
     grid-template-areas: "skillset jobs" "skillset volunteer";
   }
 `;
@@ -182,7 +185,7 @@ const DemoWrapper = styled.div`
   display: flex;
   // justify-content: center;
   @media (max-width: 1000px) {
-    height: 13vh;
+    height: 10vh;
   }
 `;
 
@@ -201,7 +204,20 @@ const Header = styled.a`
   }
 `;
 
+const Title = styled.div`
+  font-size: 2.5vw;
+  text-align: center;
+  margin-bottom: 5vh;
+  color: #fdc;
+  -webkit-text-stroke: 1.1px black;
+  text-stroke: 1.1px black;
+  text-shadow: none;
 
+  @media (max-width: 1000px) {
+    font-size: 3vw;
+    margin-bottom: 2vh;
+  }
+`;
 
 const Description = styled.div`
   text-align: center;
@@ -217,5 +233,6 @@ const Description = styled.div`
   @media (max-width: 1000px) {
     width: 35vw;
     margin-top: 0.5vh;
+    font-size: 2.5vw;
   }
 `;
