@@ -3,10 +3,9 @@ import { TimelineLite } from "gsap/all";
 import styled from "@emotion/styled";
 import OrphanLogo from "./OrphanLogo";
 import { dataArray } from "./WorkData.js";
-import Three from "./Three";
+
 import "./Timer.css";
 import prophec from "../imgs/prophetcplusplus.png";
-
 
 class Timer extends Component {
   constructor(props) {
@@ -91,8 +90,6 @@ class Timer extends Component {
               >
                 {element.name}
               </Header>
-              {/* <h2 className="year" ref={h2 => (this.subhead = h2)}></h2> */}
-              {/* <OrphanLogo ref={img => (this.feature = img)} /> */}
               <Description
                 style={{ color: "black" }}
                 className="description"
@@ -107,11 +104,6 @@ class Timer extends Component {
                   alt="pic"
                   className="feature"
                   // ref={img => (this.feature = img)}
-                /> */}
-              {/* <Three picture={this.state.currentImage} /> */}
-              {/* <Three
-                  className="feature"
-                  picture={`https://cors-anywhere.herokuapp.com/${this.state.image}`}
                 /> */}
             </div>
           </DemoWrapper>

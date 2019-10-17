@@ -133,7 +133,7 @@ export default class Main extends Component {
             <Projects />
             <Blocks /> */}
               {/* <Services /> */}
-              {/* <Motion /> */}
+            
               {/* <Timer /> */}
               {/* <Resume /> */}
 

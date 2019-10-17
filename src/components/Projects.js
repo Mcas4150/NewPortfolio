@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { useDelayNextChildren } from './Hooks';
+
 import styled from "@emotion/styled";
 import { Section } from "./Shared";
 // import prophec from "../imgs/prophetcplusplus.png";
