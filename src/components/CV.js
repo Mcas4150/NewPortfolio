@@ -8,7 +8,7 @@ import { Points } from "./Points";
 import { Slider } from "react-nexusui";
 import "./CV.css";
 import Pager from "./Pager";
-import CVPaper from "../imgs/CVImage.png";
+
 import Experience from "./Experience";
 
 const startState = { autoAlpha: 0, y: 0, x: 0 };
@@ -75,4 +75,3 @@ const Email = styled.div`
     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
   }
 `;
-
