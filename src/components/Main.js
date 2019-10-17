@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/core";
-import circle from "./Circle.svg";
-// import Routes from "./Routes";
+
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
 
 import { About } from "./About";
@@ -125,29 +124,7 @@ export default class Main extends Component {
               <Route path="/contact">
                 {({ match }) => <Contact show={match !== null} />}
               </Route>
-
-              {/* <About /> */}
-
-              {/* <Skillset />
-            <Three />
-            <Projects />
-            <Blocks /> */}
-              {/* <Services /> */}
-            
-              {/* <Timer /> */}
-              {/* <Resume /> */}
-
-              {/* <Routes /> */}
-              {/* <Contact /> */}
             </ScrollContainer>
-
-            {/* <NavLinkContainer>
-            <ScrollLink to="about" />
-            <ScrollLink to="skillset" />
-            <ScrollLink to="projects" />
-            <ScrollLink to="resume" />
-            <ScrollLink to="contact" />
-          </NavLinkContainer> */}
           </BodyContainer>
         </BrowserRouter>
       </MainContainer>
@@ -156,15 +133,12 @@ export default class Main extends Component {
 }
 
 const MainContainer = styled.div`
-  background-color: #ADCAD6;
+  background-color: #adcad6;
   overflow: hidden;
   outline: none;
   visibility: inherit;
   opacity: 1;
   height: 100%;
-  // cursor: url(${circle});
-//  cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="75" height="75"><circle cx="30" cy="30" r="25" stroke-width="2" style="stroke: black; fill: navy;"/></svg>'),
-//  pointer;
 `;
 
 const moveSlideshow = keyframes`

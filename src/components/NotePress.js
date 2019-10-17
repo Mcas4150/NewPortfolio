@@ -1,6 +1,6 @@
 import React from "react";
 import Tone from "tone";
-import "./Keyboard.css";
+
 import styled from "@emotion/styled";
 import { connect } from "react-redux";
 import { get } from "dot-prop-immutable";

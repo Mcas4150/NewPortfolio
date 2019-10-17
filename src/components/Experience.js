@@ -201,11 +201,7 @@ const Header = styled.a`
   }
 `;
 
-const WorkContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 100%;
-`;
+
 
 const Description = styled.div`
   text-align: center;
