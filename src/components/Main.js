@@ -173,7 +173,7 @@ const moveSlideshow = keyframes`
     :hover{
       transform: translateX(${"666.6666%"});
     }
-  } 
+  }
 `;
 
 const NameContainer = styled.div`
@@ -195,6 +195,21 @@ const Name = styled.div`
   justify-content: row;
   padding: 0 0 4vh 0;
   // position: absolute;
+  color: #FDC;
+  -webkit-text-stroke: 1.1px black;
+  text-stroke: 1.1px black;
+  text-shadow: none;
+  transition: color 0.25s ease-in-out;
+  @media (max-width: 800px) {
+    font-size: 2.75vw;
+  }
+  :hover {
+    color: rgb(246, 109, 244);
+    transition: color 0.25s ease-in-out, transform 0.5s ease;
+    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
+    cursor: pointer;
+  }
+  transform: "perspective(600px) translate3d(10px, 0px , 50px)";
   top: 0;
   left: 0;
   height: 100%;
@@ -207,6 +222,11 @@ const Name = styled.div`
 const Name2 = styled(Name)`
   color: rgb(246, 109, 244);
   z-index: 5;
+  :hover {
+    color: white;
+    transition: color 0.25s ease-in-out, transform 0.5s ease;
+    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
+  }
 `;
 
 const Name3 = styled(Name)`
