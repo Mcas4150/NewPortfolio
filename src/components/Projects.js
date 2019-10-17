@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { TimelineLite } from "gsap/all";
 import styled from "@emotion/styled";
-import OrphanLogo from "./OrphanLogo";
+
 import { dataArray } from "./WorkData.js";
 
 import "./Projects.css";
@@ -155,7 +155,7 @@ const Description = styled.div`
   margin-top: 10px;
   text-align: center;
   float: left;
-  margin-left: 20px;
+
   // width: 290px;
   font-size: 16px;
   line-height: 24px;

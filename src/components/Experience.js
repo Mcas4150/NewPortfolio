@@ -25,133 +25,142 @@ export default class Experience extends Component {
 
   render() {
     return (
-      <ExperienceGrid>
-        <Skillset>
-          <Title>Skillset</Title>
-          {// map through the elements
+      <ExperienceContainer>
+        <ExperienceGrid>
+          <Skillset>
+            <Title>Expertise</Title>
+            {// map through the elements
 
-          skillsArray.map((element, index) => (
-            <DemoWrapper
-              key={element.id}
-              className="demoWrapper"
-              ref={div => (this.skills[index] = div)}
-            >
-              <div
-                className="content"
-                ref={div => (this.content = div)}
-                // onHover={() => {
-                //   this.onHover();
-                // }}
+            skillsArray.map((element, index) => (
+              <DemoWrapper
+                key={element.id}
+                className="demoWrapper"
+                ref={div => (this.skills[index] = div)}
               >
-                <Header
-                  ref={h1 => (this.head = h1)}
-                  // onMouseOver={() => {
-                  //   this.onHover(element.image);
+                <div
+                  className="content"
+                  ref={div => (this.content = div)}
+                  // onHover={() => {
+                  //   this.onHover();
                   // }}
-                  href={element.link}
                 >
-                  {element.name}
-                </Header>
-
-                <div className="info">
-                  <Description
-                    style={{ color: "black" }}
-                    className="description"
-                    ref={p => (this.description = p)}
+                  <Header
+                    ref={h1 => (this.head = h1)}
+                    // onMouseOver={() => {
+                    //   this.onHover(element.image);
+                    // }}
+                    href={element.link}
                   >
-                    {element.skillsList}
-                  </Description>{" "}
+                    {element.name}
+                  </Header>
+
+                  <div className="info">
+                    <Description
+                      style={{ color: "black" }}
+                      className="description"
+                      ref={p => (this.description = p)}
+                    >
+                      {element.skillsList}
+                    </Description>{" "}
+                  </div>
                 </div>
-              </div>
-            </DemoWrapper>
-          ))}
-        </Skillset>
-        <Jobs>
-          <Title>Experience</Title>
-          {// map through the elements
-          jobsArray.map((element, index) => (
-            <DemoWrapper
-              key={element.id}
-              className="demoWrapper"
-              ref={div => (this.jobs[index] = div)}
-            >
-              <div
-                className="content"
-                ref={div => (this.content = div)}
-                // onHover={() => {
-                //   this.onHover();
-                // }}
+              </DemoWrapper>
+            ))}
+          </Skillset>
+          <Jobs>
+            <Title>Experience</Title>
+            {// map through the elements
+            jobsArray.map((element, index) => (
+              <DemoWrapper
+                key={element.id}
+                className="demoWrapper"
+                ref={div => (this.jobs[index] = div)}
               >
-                <Header
-                  ref={h1 => (this.head = h1)}
-                  // onMouseOver={() => {
-                  //   this.onHover(element.image);
+                <div
+                  className="content"
+                  ref={div => (this.content = div)}
+                  // onHover={() => {
+                  //   this.onHover();
                   // }}
-                  href={element.link}
                 >
-                  {element.name}
-                </Header>
-
-                <div className="info">
-                  <Description
-                    style={{ color: "black" }}
-                    className="description"
-                    ref={p => (this.description = p)}
+                  <Header
+                    ref={h1 => (this.head = h1)}
+                    // onMouseOver={() => {
+                    //   this.onHover(element.image);
+                    // }}
+                    href={element.link}
                   >
-                    {element.description}
-                  </Description>{" "}
-                </div>
-              </div>
-            </DemoWrapper>
-          ))}
-        </Jobs>
-        <Volunteer>
-          <Title>Education</Title>
-          {// map through the elements
+                    {element.name}
+                  </Header>
 
-          educationArray.map((element, index) => (
-            <DemoWrapper
-              key={element.id}
-              className="demoWrapper"
-              ref={div => (this.educations[index] = div)}
-            >
-              <div
-                className="content"
-                ref={div => (this.content = div)}
-                // onHover={() => {
-                //   this.onHover();
-                // }}
+                  <div className="info">
+                    <Description
+                      style={{ color: "black" }}
+                      className="description"
+                      ref={p => (this.description = p)}
+                    >
+                      {element.description}
+                    </Description>{" "}
+                  </div>
+                </div>
+              </DemoWrapper>
+            ))}
+          </Jobs>
+          <Volunteer>
+            <Title>Education</Title>
+            {// map through the elements
+
+            educationArray.map((element, index) => (
+              <DemoWrapper
+                key={element.id}
+                className="demoWrapper"
+                ref={div => (this.educations[index] = div)}
               >
-                <Header
-                  ref={h1 => (this.head = h1)}
-                  // onMouseOver={() => {
-                  //   this.onHover(element.image);
+                <div
+                  className="content"
+                  ref={div => (this.content = div)}
+                  // onHover={() => {
+                  //   this.onHover();
                   // }}
-                  href={element.link}
                 >
-                  {element.name}
-                </Header>
-
-                <div className="info">
-                  <Description
-                    style={{ color: "black" }}
-                    className="description"
-                    ref={p => (this.description = p)}
+                  <Header
+                    ref={h1 => (this.head = h1)}
+                    // onMouseOver={() => {
+                    //   this.onHover(element.image);
+                    // }}
+                    href={element.link}
                   >
-                    {element.description}
-                  </Description>{" "}
+                    {element.name}
+                  </Header>
+
+                  <div className="info">
+                    <Description
+                      style={{ color: "black" }}
+                      className="description"
+                      ref={p => (this.description = p)}
+                    >
+                      {element.description}
+                    </Description>{" "}
+                  </div>
                 </div>
-              </div>
-            </DemoWrapper>
-          ))}
-        </Volunteer>
-      </ExperienceGrid>
+              </DemoWrapper>
+            ))}
+          </Volunteer>
+        </ExperienceGrid>
+      </ExperienceContainer>
     );
   }
 }
 
+const ExperienceContainer = styled.div`
+  height: 81vh;
+  display: flex;
+  align-items: center;
+`;
+
 const ExperienceGrid = styled.div`
   display: grid;
+
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 5vh 1vw;
   grid-template-areas: "skillset jobs volunteer";
@@ -164,14 +173,23 @@ const ExperienceGrid = styled.div`
 
 const Skillset = styled.div`
   grid-area: skillset;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
 `;
 
 const Jobs = styled.div`
   grid-area: jobs;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
 `;
 
 const Volunteer = styled.div`
   grid-area: volunteer;
+  //   display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
 `;
 
 const DemoWrapper = styled.div`
@@ -191,7 +209,8 @@ const DemoWrapper = styled.div`
 `;
 
 const Header = styled.a`
-  font-size: 2vw;
+  text-align: center;
+  font-size: 1.5vw;
   padding-top: 2rem;
   text-decoration: none;
   justify-content: center;
@@ -206,9 +225,9 @@ const Header = styled.a`
 `;
 
 const Title = styled.div`
-  font-size: 2.5vw;
+  font-size: 3.5vw;
   text-align: center;
-  margin-bottom: 5vh;
+  margin-bottom: 8vh;
   color: #fdc;
   -webkit-text-stroke: 1.1px black;
   text-stroke: 1.1px black;
@@ -228,11 +247,11 @@ const Description = styled.div`
   position: relative;
   float: left;
   margin-top: 1vh;
-  margin-left: 20px;
+
   margin-bottom: 1vh;
 
   width: 25vw;
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   line-height: 24px;
   color: #fff;
   font-family: "PolyRegular";

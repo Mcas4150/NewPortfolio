@@ -2,7 +2,7 @@ export const jobsArray = [
   {
     id: "1",
     name: "Censinent",
-    description: "Full-stack engineer for Healthcare Startup",
+    description: "Full-stack Dev for Healthcare Startup",
     year: "2019"
   },
   {
@@ -52,29 +52,29 @@ export const skillsArray = [
   {
     id: "1",
     name: "Front-end",
-    skillsList: "ReactJs, Javascript, C++, Angular, D3.js, CSS"
+    skillsList: "Javascript, ReactJs, Angular, D3.js"
   },
   {
     id: "2",
     name: "Back-end",
-    skillsList: "Node.js, Ruby on Rails, C++, Express, Python"
+    skillsList: "Node.js, Ruby on Rails, C++, Python"
   },
   {
     id: "3",
     name: "Applications",
-    skillsList: "Xcode, React Native, Electron, JUCE, Alexa"
+    skillsList: "Xcode, React Native, Electron, JUCE"
   },
 
   {
     id: "4",
     name: "Database",
-    skillsList: "MongoDB, GraphQL, MySql, AWS, Github"
+    skillsList: "MongoDB, GraphQL, MySql, AWS"
   },
 
   {
     id: "6",
     name: "Audio",
-    skillsList: "Max/MSP, Ableton, Pro Tools, Logic Pro"
+    skillsList: "Max/MSP, Ableton, Pro Tools, Logic"
   }
   // { name: "Max/MSP", link: "https://cycling74.com/products/max/", image:"https://i.imgur.com/yS6rt82.png"},
   // { name: "PureData", link: "https://puredata.info/", image:"https://i.imgur.com/uB3Yiys.png"},

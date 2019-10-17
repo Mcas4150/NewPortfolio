@@ -1,15 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import styled from "@emotion/styled";
-import { Section, Column } from "./Shared";
+import { Section } from "./Shared";
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
-import { Line, Util, Rectangle } from "pts/dist/es5";
-import { fabric } from "fabric";
-import Ears from "./Ears";
+// import { Line, Util, Rectangle } from "pts/dist/es5";
+// import { fabric } from "fabric";
+// import Ears from "./Ears";
 
-// import Viz from "./viz";
-
-import { QuickStartCanvas } from "react-pts-canvas";
+// import { QuickStartCanvas } from "react-pts-canvas";
 
 const startState = { autoAlpha: 0, y: 0, x: 0 };
 

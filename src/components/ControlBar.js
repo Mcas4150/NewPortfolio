@@ -256,7 +256,7 @@ export default class ControlBar extends Component {
       return;
     }
     let audioEvent = [];
-    let { height, width } = this.props;
+
     if (this.props.sustain && e.touches.length !== 1) {
       return;
     }
@@ -314,7 +314,7 @@ export default class ControlBar extends Component {
       }
     } else {
       // COMPLEX
-      if (e.touches.length == 1) {
+      if (e.touches.length === 1) {
         this.ctx.clearRect(0, 0, this.props.width, this.props.height);
         this.renderCanvas();
         let pos = getMousePos(this.canvas, e.changedTouches[0]);
@@ -648,7 +648,6 @@ export default class ControlBar extends Component {
       let harmonic = 0;
       //Sweeps through scale object and plays correct frequency
 
-      let finalJ, finalK;
       for (let j = 1; j < 1500; j = j * 2) {
         for (let k = 0; k < s.scale.length; k++) {
           var check = j * s.scale[k];
@@ -656,8 +655,6 @@ export default class ControlBar extends Component {
           if (checkDist < dist) {
             dist = checkDist;
             note = check;
-            finalJ = j;
-            finalK = k;
 
             name = s.scaleNames[k];
             harmonic = Math.round(Math.log2(j) - 1);
@@ -684,13 +681,6 @@ export default class ControlBar extends Component {
     this.ctx.clearRect(0, 0, rect.width, rect.height);
     this.ctx.fillStyle = "#ADCAD6";
     this.ctx.fillRect(25, 25, rect.width - 50, rect.height - 75);
-    const MINFREQ = 20;
-    const MAXFREQ = 20000;
-    let ticks = 4;
-    let freqX = rect.width;
-    let volY = rect.height;
-
-    let dashSize = { x: 24, y: 7 };
   };
 
   // Helper method that generates a label for the frequency or the scale note
@@ -819,7 +809,7 @@ export default class ControlBar extends Component {
   }
 
   sustainChangeTimbre(timbreSelection) {
-    let { height, width } = this.props;
+    let { height } = this.props;
     let audioEvent = [];
     let freq = this.synths[0].frequency.value;
     let gain = this.synths[0].volume.value;

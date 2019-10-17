@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Pager.css";
-import { Button, Icon, Label, Form, Radio } from "semantic-ui-react";
+import { Button, Icon, Form, Radio } from "semantic-ui-react";
 import styled from "@emotion/styled";
 
 // import MainMenu from './menu';

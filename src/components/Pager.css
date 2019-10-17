@@ -1,6 +1,4 @@
 .App {
-  /* height: 100vh; */
-  /*height: 100%;*/
   width: 100%;
   overflow: hidden;
   touch-action: none;
@@ -10,20 +8,9 @@ body {
   touch-action: none;
 }
 
-.flex-container {
-  /* display: flex; */
-  /* flex-direction: row; */
-}
-
 canvas {
-  /* position: absolute;
-  height: 89%;
-
-  z-index: 9; */
-  /* flex: 1; */
   left: 0%;
   touch-action: none;
-  /* overflow: hidden; */
 }
 
 .button-group-container {
@@ -149,12 +136,10 @@ canvas {
   cursor: default !important;
   border-top-right-radius: 0.28571429rem !important;
   border-bottom-right-radius: 0.28571429rem !important;
-  /* height: 1em; */
-  /* width: 5em; */
+
   top: -20%;
   left: 50%;
-  /* background-color: white; */
-  /* color: white; */
+
   transform: translateX(-50%);
   padding: 2px !important;
   color: black !important;

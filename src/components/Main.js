@@ -220,9 +220,9 @@ const Name3 = styled(Name)`
 const HeaderContainer = styled.div`
   display: flex;
 
-  padding: 2vh 4vw;
+  padding: 3vh 4vw;
   width: 100vw;
-  height: 10vh;
+  height: 2vh;
   @media (max-width: 1000px) {
     padding: 1vh 4vw;
     height: 5vh;
@@ -233,6 +233,7 @@ const BodyContainer = styled.div`
   // margin: 100px 5vh;
   padding: 0vh 4vw;
   width: 100vw;
+  height: 80vh;
 `;
 
 const ScrollContainer = styled.div`
