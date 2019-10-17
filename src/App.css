@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-
 }
 
 .App-logo {
@@ -60,6 +59,11 @@ transform: scaleX(1.15);
 @font-face {
   font-family: "MonumentRegular";
   src: url("./utils/fonts/MonumentExtended-Regular.ttf");
+}
+
+@font-face {
+  font-family: "PolyRegular";
+  src: url("./utils/fonts/Poly-Regular.ttf");
 }
 
 .App-link {

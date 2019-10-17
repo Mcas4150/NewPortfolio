@@ -201,16 +201,7 @@ class Pager extends Component {
                 ref={this.signalGenerator}
               />
             </ScopeContainer>
-            {/* {this.state.showCombinedWaveInfo && (
-              <Label className="combined-wave-info">
-                <div className="combined-wave-title">Frequency</div>
-                <div>{this.state.combinedFrequency} Hz (cycles/second) </div>
-                <div className="waveform-container">
-                  <div className="waveform-title">Waveform:</div>
-                  <hr className="waveform-legend" />
-                </div>
-              </Label>
-            )} */}
+        
             {/*<Button.Group className="button-group-container">*/}
             <div className="lock-freq-container">
               Frequency
@@ -316,11 +307,7 @@ class Pager extends Component {
                 )}
               </div>
             </div>
-            {/* Full Screen Button */}
-            {/* <Button icon onClick={this.toggleFullScreen} className="fullscreenbutton">
-              {!this.state.fullScreen ?  <Icon fitted name="expand" color="orange" size="large"/> :
-              <Icon fitted name="compress" color="orange" size="large"/> }
-              </Button> */}
+
           </React.Fragment>
         ) : (
           <p className="flashing">Click</p>
@@ -335,13 +322,5 @@ const ScopeContainer = styled.div`
   flexdirection: column;
 `;
 
-// position: absolute;
-// height: 89%;
-// /* top: 10%; */
-// z-index: 9;
-// /* flex: 1; */
-// left: 0%;
-// touch-action: none;
-// overflow: hidden;
 
 export default Pager;

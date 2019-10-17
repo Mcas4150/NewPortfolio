@@ -7,8 +7,8 @@ export const jobsArray = [
   },
   {
     id: "2",
-    name: "Beehive Jazz Club",
-    description: "Live Sound Tech for Boston Jazz Venue",
+    name: "The Beehive",
+    description: "Live Sound Tech for Boston Jazz Club",
     year: "2018"
   },
 

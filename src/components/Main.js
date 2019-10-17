@@ -9,7 +9,7 @@ import { About } from "./About";
 
 import { Work } from "./Work";
 
-import { Contact } from "./Contact";
+import Contact from "./Contact";
 import { CV } from "./CV";
 
 export default class Main extends Component {
@@ -69,15 +69,9 @@ export default class Main extends Component {
             <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
             <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
             <Name3>MIKE</Name3>
             <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
             <Name2>CASSIDY</Name2>
             <Name3>MIKE</Name3>
             <Name2>CASSIDY</Name2>
@@ -91,15 +85,21 @@ export default class Main extends Component {
             <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
             <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
             <Name2>CASSIDY</Name2>
             <Name3>MIKE</Name3>
             <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
             <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
             <Name2>CASSIDY</Name2>
             <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
+            <Name>MIKE</Name>
             <Name2>CASSIDY</Name2>
           </NameContainer>
           <HeaderContainer>
@@ -178,9 +178,9 @@ const moveSlideshow = keyframes`
 
 const NameContainer = styled.div`
   display: flex;
-
+  left: -10%;
   font-size: 4vw;
-  width: 100vw;
+  width: 110vw;
   height: 5vh;
   padding: 5vh 4vw;
   position: relative;
@@ -195,7 +195,7 @@ const Name = styled.div`
   justify-content: row;
   padding: 0 0 4vh 0;
   // position: absolute;
-  color: #FDC;
+  color: #fdc;
   -webkit-text-stroke: 1.1px black;
   text-stroke: 1.1px black;
   text-shadow: none;
@@ -267,12 +267,13 @@ const ScrollContainer = styled.div`
 const Title = styled(NavLink)`
   // position: fixed;
   // display: block;
-  font-family: "MonumentRegular";
+  font-family: "PolyRegular";
+  // font-family: "Oswald", sans-serif;
   font-size: 2vw;
   padding: 0 4vh;
   z-index: 8;
   text-decoration: none;
-  color: transparent;
+  color: black;
   -webkit-text-stroke: 1.1px black;
   text-stroke: 1.1px black;
   text-shadow: none;

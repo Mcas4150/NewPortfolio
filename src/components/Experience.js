@@ -12,12 +12,14 @@ export default class Experience extends Component {
     this.skills = [];
     // the timeline instance
     this.tl = new TimelineLite({ paused: true });
+    this.tl2 = new TimelineLite({ paused: true });
+    this.tl3 = new TimelineLite({ paused: true });
   }
 
   componentDidMount() {
-    this.tl.staggerTo(this.skills, 0.5, { autoAlpha: 1, y: -20 }, 0.1);
-    this.tl.staggerTo(this.jobs, 0.5, { autoAlpha: 1, y: -20 }, 0.1);
-    this.tl.staggerTo(this.educations, 0.5, { autoAlpha: 1, y: -20 }, 0.1);
+    this.tl.staggerTo(this.skills, 0.25, { autoAlpha: 1, y: -20 }, 0.1);
+    this.tl.staggerTo(this.jobs, 0.25, { autoAlpha: 1, y: -20 }, 0.1);
+    this.tl.staggerTo(this.educations, 0.25, { autoAlpha: 1, y: -20 }, 0.1);
     this.tl.play();
   }
 
@@ -215,7 +217,7 @@ const Description = styled.div`
   font-size: 16px;
   line-height: 24px;
   color: #fff;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "PolyRegular";
   @media (max-width: 1000px) {
     width: 35vw;
     margin-top: 0.5vh;

@@ -36,7 +36,7 @@ export default class SignalGenerator extends Component {
   renderCanvas = signals => {
     this.drawPureWavesCanvas();
     // let t = 0;
-    const numberPoints = 2048 * 16;
+    const numberPoints = 2048 * 32;
     const sliceWidth = this.props.width / numberPoints;
     // Complex has only 1 signal in object
     let max = 0;

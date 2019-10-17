@@ -174,7 +174,7 @@ const Description = styled.div`
   font-size: 16px;
   line-height: 24px;
   color: #fff;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "PolyRegular";
   @media (max-width: 800px) {
     width: 35vw;
     margin-top: 5px;
