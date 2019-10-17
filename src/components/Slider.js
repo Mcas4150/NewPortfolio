@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { changeDial } from "../actions/actions";
 import { get } from "dot-prop-immutable";
 import styled from "@emotion/styled";
-// import Slider from "rc-slider";
+
 import { Slider } from "react-nexusui";
-import "rc-slider/assets/index.css";
+
 import "./Slider.css";
 
 class SettingSlider extends Component {
