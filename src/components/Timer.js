@@ -108,10 +108,6 @@ class Timer extends Component {
             </div>
           </DemoWrapper>
         ))}
-        <Three
-          className="feature"
-          picture={`https://cors-anywhere.herokuapp.com/${this.state.image}`}
-        />
       </WorkContainer>
     );
   }

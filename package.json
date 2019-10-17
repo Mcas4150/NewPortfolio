@@ -13,8 +13,6 @@
     "nexus-js": "^2.3.0",
     "nexusui": "^2.0.10",
     "pts": "^0.8.8",
-
-    "rc-tween-one": "^2.6.5",
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-gsap": "^1.2.0",
