@@ -133,8 +133,11 @@ const Header = styled.a`
   -webkit-text-stroke: 1.1px black;
   text-stroke: 1.1px black;
   text-shadow: none;
-  @media (max-width: 800px) {
+  @media (max-width: 1000px) {
     font-size: 3vw;
+    -webkit-text-stroke: 0px black;
+    text-stroke: 0px black;
+    text-shadow: none;
   }
   :hover {
     color: #f93700;

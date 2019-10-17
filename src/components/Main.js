@@ -184,6 +184,8 @@ const Name = styled.div`
   transition: color 0.25s ease-in-out;
   @media (max-width: 800px) {
     font-size: 2.75vw;
+    -webkit-text-stroke: 0px black;
+    text-stroke: 0px black;
   }
   :hover {
     color: rgb(246, 109, 244);
@@ -237,18 +239,6 @@ const ScrollContainer = styled.div`
   font-size: 1.5rem;
   font-family: MonumentRegular;
 `;
-
-// const NavLinkContainer = styled.div`
-//   display: flex;
-//   align-items: flex-end;
-//   flex-direction: column;
-//   position: fixed;
-//   right: 0;
-//   justify-conter: center;
-//   text-align: right;
-//   padding: 15px;
-//   z-index: 5;
-// `;
 
 const Title = styled(NavLink)`
   font-family: "PolyRegular";

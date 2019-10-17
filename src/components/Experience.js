@@ -216,6 +216,9 @@ const Title = styled.div`
   @media (max-width: 1000px) {
     font-size: 3vw;
     margin-bottom: 2vh;
+    -webkit-text-stroke: 0px black;
+    text-stroke: 0px black;
+    text-shadow: none;
   }
 `;
 
@@ -232,7 +235,8 @@ const Description = styled.div`
   font-family: "PolyRegular";
   @media (max-width: 1000px) {
     width: 35vw;
-    margin-top: 0.5vh;
+    margin-top: 1vh;
     font-size: 2.5vw;
+    line-spacing: 1vh;
   }
 `;

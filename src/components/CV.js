@@ -1,22 +1,12 @@
 import React from "react";
-import styled from "@emotion/styled";
-import { Section, Column } from "./Shared";
-import Synth2 from "./Synth2";
+import { Section } from "./Shared";
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
-import { Points } from "./Points";
-import { Slider } from "react-nexusui";
-import "./CV.css";
-import Pager from "./Pager";
+
 
 import Experience from "./Experience";
 
 const startState = { autoAlpha: 0, y: 0, x: 0 };
-
-function magnify(e) {
-  document.getElementById("magnify").style.top = e.pageY * 1 + "px";
-  document.getElementById("magnify").style.left = e.pageX * 1 + "px";
-}
 
 export const CV = props => (
   <Transition
@@ -35,17 +25,7 @@ export const CV = props => (
   >
     <Section id="cv">
       <Experience />
-      {/* <div id="page">
-        <img
-          id="magnify"
-          style={{
-            height: "80vh",
-            width: "35vw",
-            background: `${CVPaper} center center no-repeat`
-          }}
-          src={CVPaper}
-        ></img>
-      </div> */}
+
       {/* <Points
         name="pts_sound"
         background="#ADCAD6"
@@ -59,19 +39,3 @@ export const CV = props => (
     </Section>
   </Transition>
 );
-
-const Email = styled.div`
-  // font-size: 7rem;
-  font-size: 4vw;
-  font-family: "MonumentRegular";
-  color: transparent;
-  -webkit-text-stroke: 1.1px black;
-  text-stroke: 1.1px black;
-  text-shadow: none;
-  transition: color 0.25s ease-in-out;
-  :hover {
-    color: black;
-    transition: color 0.25s ease-in-out, transform 0.5s ease;
-    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
-  }
-`;
