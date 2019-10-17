@@ -8,7 +8,6 @@ import {
   getGain,
   freqToIndex,
   getMousePos,
-  logspace,
   getLinearGain
 } from "../util/conversions";
 import {

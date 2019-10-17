@@ -159,9 +159,10 @@ export default class Contact extends Component {
             form.strokeOnly("#FDC", 2).polygons(rects);
           }}
         /> */}
-
         {/* <canvas id="c" /> */}
-        <Email>me@mikecassidy.info</Email>
+        <Email>Email</Email>
+        <Email>Github</Email>
+        <Email>LinkedIn</Email>
       </Section>
       // ) : ( ) }
       // </Transition>

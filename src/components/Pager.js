@@ -4,8 +4,8 @@ import { Button, Icon, Label, Form, Radio } from "semantic-ui-react";
 import styled from "@emotion/styled";
 
 // import MainMenu from './menu';
-import ControlBar from "./control-bar";
-import SignalGenerator from "./signal-generator";
+import ControlBar from "./ControlBar";
+import SignalGenerator from "./SignalGenerator";
 
 let audioContext = null;
 
@@ -201,7 +201,7 @@ class Pager extends Component {
                 ref={this.signalGenerator}
               />
             </ScopeContainer>
-        
+
             {/*<Button.Group className="button-group-container">*/}
             <div className="lock-freq-container">
               Frequency

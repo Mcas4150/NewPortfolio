@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { keyframes } from "@emotion/core";
 
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
-
+import "./Main.css";
 import { About } from "./About";
 
 import { Work } from "./Work";
@@ -102,11 +102,19 @@ export default class Main extends Component {
             <Name2>CASSIDY</Name2>
           </NameContainer>
           <HeaderContainer>
-            <Title to="/">ME.</Title>
-            <Title to="/work">WORK</Title>
+            <Title className="widen" to="/">
+              ME.
+            </Title>
+            <Title className="widen" to="/work">
+              WORK
+            </Title>
             <Spacer />
-            <Title to="/cv">CV</Title>
-            <Title to="/contact">CONTACT</Title>
+            <Title className="widen" to="/cv">
+              CV
+            </Title>
+            <Title className="widen" to="/contact">
+              CONTACT
+            </Title>
           </HeaderContainer>
 
           <BodyContainer>
@@ -118,10 +126,10 @@ export default class Main extends Component {
               <Route path="/work" exact>
                 {({ match }) => <Work show={match !== null} />}
               </Route>
-              <Route path="/cv">
+              <Route exact path="/cv">
                 {({ match }) => <CV show={match !== null} />}
               </Route>
-              <Route path="/contact">
+              <Route exact path="/contact">
                 {({ match }) => <Contact show={match !== null} />}
               </Route>
             </ScrollContainer>
@@ -251,15 +259,18 @@ const Title = styled(NavLink)`
   -webkit-text-stroke: 1.1px black;
   text-stroke: 1.1px black;
   text-shadow: none;
-  transition: color 0.25s ease-in-out;
+  // letter-spacing: 5px;
+  // transition: letter-spacing 0.25s;
+  // &:hover {
+  //   color: rgb(246, 109, 244);
+  //   letter-spacing: 15px
+  //   transition: letter-spacing 0.25s ease-in-out, transform 0.5s ease;
+  //   transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
+  // }
   @media (max-width: 800px) {
     font-size: 2.75vw;
   }
-  :hover {
-    color: rgb(246, 109, 244);
-    transition: color 0.25s ease-in-out, transform 0.5s ease;
-    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
-  }
+
   transform: "perspective(600px) translate3d(10px, 0px , 50px)";
 `;
 

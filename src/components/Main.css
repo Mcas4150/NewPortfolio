@@ -1,0 +1,17 @@
+.widen {
+  font-size: 50px;
+  text-align: center;
+  letter-spacing: 1px;
+  transition: letter-spacing 0.5s;
+}
+
+.widen:hover {
+  letter-spacing: 15px;
+  color: black;
+}
+
+@media screen and (max-width: 800px) {
+  .widen:hover {
+    letter-spacing: 10px;
+  }
+}

@@ -4,7 +4,7 @@ import { Section } from "./Shared";
 
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
-import Timer from "./Timer";
+import Timer from "./Projects";
 // import OrphanLogo from "./OrphanLogo";
 // import Three from "./Three";
 

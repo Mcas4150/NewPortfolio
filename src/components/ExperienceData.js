@@ -29,7 +29,7 @@ export const jobsArray = [
 export const educationArray = [
   {
     id: "1",
-    name: "Le Wagon Montreal",
+    name: "Le Wagon",
     description: "10 Week WebDev Bootcamp ",
     year: "2017"
   },
@@ -69,11 +69,6 @@ export const skillsArray = [
     id: "4",
     name: "Database",
     skillsList: "MongoDB, GraphQL, MySql, AWS, Github"
-  },
-  {
-    id: "5",
-    name: "Design",
-    skillsList: "Adobe CS, Sketch, OpenFrameworks"
   },
 
   {
