@@ -17,11 +17,14 @@ export default class Main extends Component {
     super(props);
     this.state = {
       startAnimation: false,
+      hoverTitle: false,
       scrollX: 0,
       scrollY: 0,
       scrollPos: 0
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleHover = this.handleHover.bind(this);
+    this.handleUnhover = this.handleUnhover.bind(this);
   }
 
   handleClick() {
@@ -30,19 +33,74 @@ export default class Main extends Component {
     }));
   }
 
+  handleHover() {
+    this.setState({
+      hoverTitle: true
+    });
+  }
+
+  handleUnhover() {
+    this.setState({
+      hoverTitle: false
+    });
+  }
+
   render() {
     return (
       <MainContainer>
         <BrowserRouter>
-          <NameContainer>
+          <NameContainer
+            onMouseEnter={() => {
+              this.handleHover();
+            }}
+            onMouseExit={() => {
+              this.handleUnhover();
+            }}
+          >
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
-            <Name>CASSIDY</Name>
+            <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
-            <Name>CASSIDY</Name>
+            <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
-            <Name>CASSIDY</Name>
+            <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
-            <Name>CASSIDY</Name>
+            <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
+            <Name>MIKE</Name>
+            <Name2>CASSIDY</Name2>
+            <Name>MIKE</Name>
+            <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
+            <Name>MIKE</Name>
+            <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
+            <Name>MIKE</Name>
+            <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
+            <Name>MIKE</Name>
+            <Name2>CASSIDY</Name2>
+            <Name>MIKE</Name>
+            <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
+            <Name>MIKE</Name>
+            <Name2>CASSIDY</Name2>
+            <Name>MIKE</Name>
+            <Name2>CASSIDY</Name2>
+            <Name3>MIKE</Name3>
+            <Name2>CASSIDY</Name2>
           </NameContainer>
           <HeaderContainer>
             <Title to="/">ME.</Title>
@@ -108,10 +166,14 @@ const MainContainer = styled.div`
 //  cursor: url('data:image/svg+xml;utf8,<svg id="svg" xmlns="http://www.w3.org/2000/svg" version="1.1" width="75" height="75"><circle cx="30" cy="30" r="25" stroke-width="2" style="stroke: black; fill: navy;"/></svg>'),
 //  pointer;
 `;
+
 const moveSlideshow = keyframes`
   100% {
-    transform: translateX(-66.6666%);
-  }
+    transform: translateX(${"-666.6666%"});
+    :hover{
+      transform: translateX(${"666.6666%"});
+    }
+  } 
 `;
 
 const NameContainer = styled.div`
@@ -131,14 +193,24 @@ const Name = styled.div`
   font-family: "MonumentRegular";
   display: inline-block;
   justify-content: row;
-  padding: 0 1vh 4vh 1vh;
+  padding: 0 0 4vh 0;
   // position: absolute;
   top: 0;
   left: 0;
   height: 100%;
-  width: 30vw;
+  width: 10vw;
   transform: translate3d(0, 0, 0);
-  animation: ${moveSlideshow} 30s linear infinite;
+  transition-timing-function: cubic-bezier(0, 0, 1, 1);
+  animation: ${moveSlideshow} 60s linear infinite;
+`;
+
+const Name2 = styled(Name)`
+  color: rgb(246, 109, 244);
+  z-index: 5;
+`;
+
+const Name3 = styled(Name)`
+  z-index: 6;
 `;
 
 const HeaderContainer = styled.div`

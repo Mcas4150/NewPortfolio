@@ -241,6 +241,7 @@ class Pager extends Component {
               toggle
               active={this.state.sustain}
               onClick={this.handleSustainToggle}
+              style={{ fontSize: "1.5rem" }}
             >
               Sustain
             </Button>
@@ -251,6 +252,7 @@ class Pager extends Component {
                 className="timbre-button timbre-pure"
                 color={pureColor}
                 onClick={e => this.handleTimbreChange("sine")}
+                style={{ fontSize: "1.5rem" }}
               >
                 Pure
               </Button>
@@ -259,6 +261,7 @@ class Pager extends Component {
                   className="timbre-button timbre-complex"
                   color={complexColor}
                   onClick={e => this.handleTimbreChange("complex")}
+                  style={{ fontSize: "1.5rem" }}
                 >
                   Complex
                 </Button>
@@ -330,7 +333,6 @@ class Pager extends Component {
 const ScopeContainer = styled.div`
   display: flex;
   flexdirection: column;
-
 `;
 
 // position: absolute;

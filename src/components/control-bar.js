@@ -131,7 +131,11 @@ export default class ControlBar extends Component {
     if (this.props.lockAmp) {
       this.prevGain[0] = gain;
     }
+
     this.ctx.clearRect(0, 0, this.props.width, this.props.height); // Clears canvas for redraw of label
+    this.ctx.beginPath();
+    this.ctx.rect(20, 20, 150, 100);
+    this.ctx.stroke();
     this.renderCanvas();
     this.label(freq, pos.x, pos.y, 0); // Labels the point
     this.setState({ mouseDown: true });

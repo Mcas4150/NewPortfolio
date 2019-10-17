@@ -148,7 +148,7 @@ export default class Experience extends Component {
 const ExperienceGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 5vh 5vw;
+  grid-gap: 5vh 1vw;
   grid-template-areas: "skillset jobs volunteer";
   @media (max-width: 1000px) {
     grid-template-columnss: 1fr 1fr;
