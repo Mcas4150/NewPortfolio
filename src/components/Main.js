@@ -120,10 +120,10 @@ export default class Main extends Component {
           <BodyContainer>
             {/* give position to scroll container */}
             <ScrollContainer>
-              <Route path="/" exact>
+              <Route exact path="/">
                 {({ match }) => <About show={match !== null} />}
               </Route>
-              <Route path="/work" exact>
+              <Route exact path="/work">
                 {({ match }) => <Work show={match !== null} />}
               </Route>
               <Route exact path="/cv">

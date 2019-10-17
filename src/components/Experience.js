@@ -155,7 +155,7 @@ const ExperienceGrid = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 5vh 1vw;
   grid-template-areas: "skillset jobs volunteer";
-  @media (max-width: 1000px) {
+  @media (max-width: 800px) {
     grid-template-columnss: 1fr 1fr;
     grid-gap: 1vh 5vw;
     grid-template-areas: "skillset jobs" "skillset volunteer";
@@ -177,7 +177,7 @@ const Volunteer = styled.div`
 const DemoWrapper = styled.div`
   // width: 100%;
   // max-width: 100vw;
-
+  margin: 1vh;
   height: 10vh;
   -webkit-font-smoothing: antialiased;
   color: black;
@@ -186,6 +186,7 @@ const DemoWrapper = styled.div`
   // justify-content: center;
   @media (max-width: 1000px) {
     height: 10vh;
+    margin: 0;
   }
 `;
 
@@ -200,7 +201,7 @@ const Header = styled.a`
     color: #f93700;
   }
   @media (max-width: 1000px) {
-    font-size: 2.75vw;
+    font-size: 2.25vw;
   }
 `;
 
@@ -228,15 +229,18 @@ const Description = styled.div`
   float: left;
   margin-top: 1vh;
   margin-left: 20px;
+  margin-bottom: 1vh;
+
   width: 25vw;
-  font-size: 16px;
+  font-size: 1.5vw;
   line-height: 24px;
   color: #fff;
   font-family: "PolyRegular";
-  @media (max-width: 1000px) {
+  @media (max-width: 800px) {
     width: 35vw;
     margin-top: 1vh;
-    font-size: 2.5vw;
-    line-spacing: 1vh;
+    font-size: 2vw;
+    // line-spacing: 1vh;
+    line-height: 15px;
   }
 `;

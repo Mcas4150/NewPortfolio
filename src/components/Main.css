@@ -12,6 +12,6 @@
 
 @media screen and (max-width: 800px) {
   .widen:hover {
-    letter-spacing: 10px;
+    letter-spacing: 5px;
   }
 }
