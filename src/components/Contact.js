@@ -147,7 +147,7 @@ export default class Contact extends Component {
         </Column>
         <br />
         <Text>I'm all Ears</Text>
-        <QuickStartCanvas
+        {/* <QuickStartCanvas
           style={{ height: "50vh", width: "50vw" }}
           onAnimate={(space, form, time) => {
             let subs = space.innerBound.map(p =>
@@ -158,7 +158,7 @@ export default class Contact extends Component {
             );
             form.strokeOnly("#FDC", 2).polygons(rects);
           }}
-        />
+        /> */}
 
         {/* <canvas id="c" /> */}
         <Email>me@mikecassidy.info</Email>
