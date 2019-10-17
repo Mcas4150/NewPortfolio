@@ -6,7 +6,7 @@ import { dataArray } from "./WorkData.js";
 import Three from "./Three";
 import "./Timer.css";
 import prophec from "../imgs/prophetcplusplus.png";
-import nimbus from "../imgs/Nimbus.png";
+
 
 class Timer extends Component {
   constructor(props) {
