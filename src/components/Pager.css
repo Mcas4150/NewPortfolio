@@ -80,7 +80,7 @@ canvas {
 .lock-amp-container {
   z-index: 10;
   position: absolute;
-  left: 12.5%;
+  left: 14%;
   bottom: 5%;
   transform: translateX(-50%);
   user-select: none;

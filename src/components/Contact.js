@@ -20,7 +20,7 @@ export const Contact = props => (
     addEndListener={(node, done) => {
       TweenMax.to(node, 0.5, {
         autoAlpha: props.show ? 1 : 0,
-        y: props.show ? 50 : 0,
+        y: props.show ? 0 : 0,
         onComplete: done
       });
     }}
@@ -50,7 +50,7 @@ export const Contact = props => (
 );
 
 const Text = styled.div`
-  font-size: 4vw;
+  font-size: 2.5vw;
   font-family: "MonumentRegular";
   margin: 2vw;
 `;

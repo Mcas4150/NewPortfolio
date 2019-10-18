@@ -147,7 +147,6 @@ class Pager extends Component {
     // let backgroundColor = "yellow";
     let freqIcon, ampIcon, generateClass;
 
-   
     if (this.state.lockFreq) {
       freqIcon = "lock";
     } else {
@@ -221,9 +220,8 @@ class Pager extends Component {
                 <Icon name={ampIcon} />
               </Button>
             </div>
-
-
-
+            <LeftBorder></LeftBorder>
+            <BottomBorder></BottomBorder>
           </React.Fragment>
         ) : (
           <p className="flashing">Click</p>
@@ -238,5 +236,24 @@ const ScopeContainer = styled.div`
   flexdirection: column;
 `;
 
+const LeftBorder = styled.div`
+  z-index: 10;
+  position: absolute;
+  left: 4%;
+  bottom: 10%;
+  opacity: 0.5;
+  height: 70vh;
+  border-left: 3px solid grey;
+`;
+
+const BottomBorder = styled.div`
+  z-index: 10;
+  position: absolute;
+  left: 4%;
+  bottom: 10%;
+  opacity: 0.5;
+  width: 21vw;
+  border-bottom: 3px solid grey;
+`;
 
 export default Pager;
