@@ -40,9 +40,11 @@ export const Contact = props => (
           }}
         /> */}
       {/* <canvas id="c" /> */}
-      <Email>Email</Email>
-      <Email>Github</Email>
-      <Email>LinkedIn</Email>
+      <Email href="mailto:me@mikecassidy.info">Email</Email>
+      <Email href="https://github.com/Mcas4150">Github</Email>
+      <Email href="https://www.linkedin.com/in/mike-cassidy-developer/">
+        LinkedIn
+      </Email>
     </Section>
   </Transition>
 );
