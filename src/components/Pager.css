@@ -89,6 +89,16 @@ canvas {
   align-items: center;
 }
 
+@media screen and (max-width: 900px) {
+  .lock-amp-container,
+  .lock-freq-container {
+    font-size: 1.75rem;
+  }
+  .sustain-button {
+    width: 6em;
+  }
+}
+
 .lock-amp-button {
   margin-left: 1em !important;
   height: 25px;
@@ -109,7 +119,7 @@ canvas {
   left: 25%;
   bottom: 5%;
   height: 4vh;
-  width: 9em;
+  width: 6em;
   font-size: 2.5rem;
 }
 

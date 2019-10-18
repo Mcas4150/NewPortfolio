@@ -145,15 +145,9 @@ class Pager extends Component {
 
   render() {
     // let backgroundColor = "yellow";
-    let pureColor, complexColor, freqIcon, ampIcon, generateClass;
+    let freqIcon, ampIcon, generateClass;
 
-    if (this.state.timbre) {
-      pureColor = "";
-      complexColor = "red";
-    } else {
-      pureColor = "teal";
-      complexColor = "";
-    }
+   
     if (this.state.lockFreq) {
       freqIcon = "lock";
     } else {
@@ -227,86 +221,8 @@ class Pager extends Component {
                 <Icon name={ampIcon} />
               </Button>
             </div>
-            <Button
-              className="sustain-button"
-              toggle
-              active={this.state.sustain}
-              onClick={this.handleSustainToggle}
-              style={{ fontSize: "1.5rem" }}
-            >
-              Sustain
-            </Button>
-            {/*</Button.Group>*/}
-            <div className="waveform-button-container">
-              {/* <Button className="waveform-button-title">Waveform</Button> */}
-              <Button
-                className="timbre-button timbre-pure"
-                color={pureColor}
-                onClick={e => this.handleTimbreChange("sine")}
-                style={{ fontSize: "1.5rem" }}
-              >
-                Pure
-              </Button>
-              <div className="complex-button-container">
-                <Button
-                  className="timbre-button timbre-complex"
-                  color={complexColor}
-                  onClick={e => this.handleTimbreChange("complex")}
-                  style={{ fontSize: "1.5rem" }}
-                >
-                  Complex
-                </Button>
-                {this.state.timbre && (
-                  <React.Fragment>
-                    <Form.Field className="timbre-choice-dropdown square-button">
-                      <Radio
-                        label="Square"
-                        name="radioGroup"
-                        value="square"
-                        checked={this.state.timbreSelection === "square"}
-                        onChange={e => this.handleTimbreChange("square")}
-                      />
-                    </Form.Field>
-                    <Form.Field className="timbre-choice-dropdown saw-button">
-                      <Radio
-                        label="Saw"
-                        name="radioGroup"
-                        value="sawtooth"
-                        checked={this.state.timbreSelection === "sawtooth"}
-                        onChange={e => this.handleTimbreChange("sawtooth")}
-                      />
-                    </Form.Field>
-                    <Form.Field className="timbre-choice-dropdown triangle-button">
-                      <Radio
-                        label="Triangle"
-                        name="radioGroup"
-                        value="triangle"
-                        checked={this.state.timbreSelection === "triangle"}
-                        onChange={e => this.handleTimbreChange("triangle")}
-                      />
-                    </Form.Field>
-                    <Form.Field className="timbre-choice-dropdown random-button">
-                      <div
-                        onClick={e => this.handleTimbreChange("complex")}
-                        className="random-button-container"
-                      >
-                        <Radio
-                          label="Random"
-                          name="radioGroup"
-                          value="complex"
-                          checked={this.state.timbreSelection === "complex"}
-                        />
-                        <Icon
-                          name="sync alternate"
-                          size="small"
-                          className={generateClass}
-                        />
-                      </div>
-                    </Form.Field>
-                  </React.Fragment>
-                )}
-              </div>
-            </div>
+
+
 
           </React.Fragment>
         ) : (
