@@ -91,9 +91,9 @@ class Projects extends Component {
                 {element.name}
               </Header>
               <Description
-                style={{ color: "black" }}
                 className="description"
                 ref={p => (this.description = p)}
+                href={element.github}
               >
                 {element.description}
               </Description>{" "}
@@ -126,6 +126,7 @@ const DemoWrapper = styled.div`
 const Header = styled.a`
   font-size: 2.5vw;
   padding-top: 2rem;
+  margin-bottom: 1vh;
   text-decoration: none;
   justify-content: center;
   display: flex;
@@ -150,20 +151,27 @@ const WorkContainer = styled.div`
   width: 100%;
 `;
 
-const Description = styled.div`
+const Description = styled.a`
   position: relative;
-  margin-top: 10px;
+
   text-align: center;
   float: left;
-
+  text-decoration: none;
   // width: 290px;
-  font-size: 16px;
+
+  font-size: 1.25vw;
+  margin-top: 1vh;
+
+  margin-bottom: 1vh;
   line-height: 24px;
-  color: #fff;
+  color: black;
   font-family: "PolyRegular";
   @media (max-width: 800px) {
     width: 35vw;
     margin-top: 5px;
+  }
+  :hover {
+    color: #fff;
   }
 `;
 

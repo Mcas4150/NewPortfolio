@@ -107,44 +107,47 @@ export default class Experience extends Component {
             ))}
           </Jobs>
           <Volunteer>
-            <Title>Education</Title>
-            {// map through the elements
+            <EducationContainer>
+              <Title>Education</Title>
+              {// map through the elements
 
-            educationArray.map((element, index) => (
-              <DemoWrapper
-                key={element.id}
-                className="demoWrapper"
-                ref={div => (this.educations[index] = div)}
-              >
-                <div
-                  className="content"
-                  ref={div => (this.content = div)}
-                  // onHover={() => {
-                  //   this.onHover();
-                  // }}
+              educationArray.map((element, index) => (
+                <DemoWrapper
+                  key={element.id}
+                  className="demoWrapper"
+                  ref={div => (this.educations[index] = div)}
                 >
-                  <Header
-                    ref={h1 => (this.head = h1)}
-                    // onMouseOver={() => {
-                    //   this.onHover(element.image);
+                  <div
+                    className="content"
+                    ref={div => (this.content = div)}
+                    // onHover={() => {
+                    //   this.onHover();
                     // }}
-                    href={element.link}
                   >
-                    {element.name}
-                  </Header>
-
-                  <div className="info">
-                    <Description
-                      style={{ color: "black" }}
-                      className="description"
-                      ref={p => (this.description = p)}
+                    <Header
+                      ref={h1 => (this.head = h1)}
+                      // onMouseOver={() => {
+                      //   this.onHover(element.image);
+                      // }}
+                      href={element.link}
                     >
-                      {element.description}
-                    </Description>{" "}
+                      {element.name}
+                    </Header>
+
+                    <div className="info">
+                      <Description
+                        style={{ color: "black" }}
+                        className="description"
+                        ref={p => (this.description = p)}
+                      >
+                        {element.description}
+                      </Description>{" "}
+                    </div>
                   </div>
-                </div>
-              </DemoWrapper>
-            ))}
+                </DemoWrapper>
+              ))}
+              <ResumeLink>PDF</ResumeLink>
+            </EducationContainer>
           </Volunteer>
         </ExperienceGrid>
       </ExperienceContainer>
@@ -169,6 +172,20 @@ const ExperienceGrid = styled.div`
     grid-gap: 1vh 5vw;
     grid-template-areas: "skillset jobs" "skillset volunteer";
   }
+`;
+
+const EducationContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+`;
+
+const ResumeLink = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 10vh;
+  width: 25vw;
+  align-items: flex-end;
 `;
 
 const Skillset = styled.div`
@@ -208,7 +225,7 @@ const DemoWrapper = styled.div`
   }
 `;
 
-const Header = styled.a`
+const Header = styled.div`
   text-align: center;
   font-size: 1.5vw;
   padding-top: 2rem;
@@ -216,16 +233,14 @@ const Header = styled.a`
   justify-content: center;
   display: flex;
   color: black;
-  :hover {
-    color: #f93700;
-  }
+
   @media (max-width: 1000px) {
     font-size: 2.25vw;
   }
 `;
 
 const Title = styled.div`
-  font-size: 3.5vw;
+  font-size: 3.25vw;
   text-align: center;
   margin-bottom: 8vh;
   color: #fdc;
