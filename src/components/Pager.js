@@ -222,6 +222,7 @@ class Pager extends Component {
             </div>
             <LeftBorder></LeftBorder>
             <BottomBorder></BottomBorder>
+            <Headline href="https://github.com/Mcas4150">DEVELOPER.</Headline>
           </React.Fragment>
         ) : (
           <p className="flashing">Click</p>
@@ -254,6 +255,21 @@ const BottomBorder = styled.div`
   opacity: 0.5;
   width: 21vw;
   border-bottom: 3px solid grey;
+`;
+
+const Headline = styled.a`
+  text-decoration: none;
+  z-index: 10;
+  position: absolute;
+  right: 15%;
+  bottom: 3%;
+  font-size: 1.75vw;
+  color: white;
+  height: 5vh;
+  width: 6vw;
+  :hover {
+    color: black;
+  }
 `;
 
 export default Pager;
