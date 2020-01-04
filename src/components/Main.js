@@ -52,7 +52,7 @@ export default class Main extends Component {
             onMouseEnter={() => {
               this.handleHover();
             }}
-            onMouseExit={() => {
+            onMouseLeave={() => {
               this.handleUnhover();
             }}
           >
@@ -141,7 +141,7 @@ export default class Main extends Component {
 }
 
 const MainContainer = styled.div`
-  background-color: #adcad6;
+  background-color: #a2dce6;
   overflow: hidden;
   outline: none;
   visibility: inherit;
@@ -188,7 +188,7 @@ const Name = styled.div`
     text-stroke: 0px black;
   }
   :hover {
-    color: rgb(246, 109, 244);
+    color: #1c3e93;
     transition: color 0.25s ease-in-out, transform 0.5s ease;
     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
     cursor: pointer;
@@ -204,7 +204,7 @@ const Name = styled.div`
 `;
 
 const Name2 = styled(Name)`
-  color: rgb(246, 109, 244);
+  color: #1c3e93;
   z-index: 5;
   :hover {
     color: white;
@@ -215,6 +215,7 @@ const Name2 = styled(Name)`
 
 const Name3 = styled(Name)`
   z-index: 6;
+  // font-family: "N.O.- Movement";
 `;
 
 const HeaderContainer = styled.div`

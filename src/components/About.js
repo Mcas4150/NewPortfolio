@@ -1,12 +1,12 @@
 import styled from "@emotion/styled";
-import { Section, ContentContainer } from "./Shared";
+// import { Section, ContentContainer } from "./Shared";
 
 import React from "react";
 import { Transition } from "react-transition-group";
-import { TweenMax, TweenLite } from "gsap/all";
-
-import Synth from "./Synth";
-import NotePress from "./NotePress";
+import { TweenMax } from "gsap/all";
+// import Loader from "./Loader";
+// import Synth from "./Synth";
+// import NotePress from "./NotePress";
 import Pager from "./Pager";
 
 const startState = { autoAlpha: 0};
@@ -27,6 +27,7 @@ export const About = props => (
   >
     <SynthContainer>
       <Pager />
+      {/* <Loader/> */}
       {/* <Synth /> */}
       {/* <NotePress /> */}
     </SynthContainer>

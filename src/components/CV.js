@@ -28,7 +28,7 @@ export const CV = props => (
 
       {/* <Points
         name="pts_sound"
-        background="#ADCAD6"
+        background="#a2dce6"
         style={{ height: "40vh", width: "50vw" }}
         file="CallOfTheWild.mp3"
         credit="Music: Space Travel Cliché by MrGreenH"

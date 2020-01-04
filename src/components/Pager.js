@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Pager.css";
-import { Button, Icon, Form, Radio } from "semantic-ui-react";
+import { Button, Icon } from "semantic-ui-react";
 import styled from "@emotion/styled";
 
 // import MainMenu from './menu';
@@ -145,7 +145,7 @@ class Pager extends Component {
 
   render() {
     // let backgroundColor = "yellow";
-    let freqIcon, ampIcon, generateClass;
+    let freqIcon, ampIcon;
 
     if (this.state.lockFreq) {
       freqIcon = "lock";
@@ -157,13 +157,7 @@ class Pager extends Component {
     } else {
       ampIcon = "unlock";
     }
-    if (this.state.rotateIcon) {
-      generateClass = "generate-icon rotate-icon";
-    } else if (this.state.rotateIcon2) {
-      generateClass = "generate-icon rotate-icon2";
-    } else {
-      generateClass = "generate-icon";
-    }
+    
 
     return (
       <div className="App" onClick={this.start}>

@@ -178,10 +178,6 @@ class SynthEngine {
     this.vcf.frequency.value = val;
   }
 
-  filterCutoff(val) {
-    this.vcf.frequency.value = val;
-  }
-
   filterQ(val) {
     this.vcf.Q.value = val;
   }

@@ -191,7 +191,7 @@ export default connect(
 const ClickContainer = styled.div`
   height: 60vh;
   width: 80vw;
-  background-color: #adcad6;
+  background-color: #a2dce6;
   border-left: 1px solid black;
 `;
 

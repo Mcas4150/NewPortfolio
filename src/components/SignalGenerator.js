@@ -41,17 +41,17 @@ export default class SignalGenerator extends Component {
     // Complex has only 1 signal in object
     let max = 0;
     let min = Number.MAX_SAFE_INTEGER;
-    let fundamentalMax = 1;
-    let fundamentalMin = -1;
-    let difference = 0;
-    let fundamentalDifference = 0;
-    let scale = 0;
+    // let fundamentalMax = 1;
+    // let fundamentalMin = -1;
+    // let difference = 0;
+    // let fundamentalDifference = 0;
+    // let scale = 0;
     if (signals[0].wavetype === "complex") {
       let t = 0;
-      let volume = dbToLinear(signals[0].volume);
-      let wavelength = (100 * this.props.height) / signals[0].freq;
-      let v = wavelength / signals[0].freq;
-      let k = (2 * Math.PI) / wavelength;
+      // let volume = dbToLinear(signals[0].volume);
+      // let wavelength = (100 * this.props.height) / signals[0].freq;
+      // let v = wavelength / signals[0].freq;
+      // let k = (2 * Math.PI) / wavelength;
       for (let i = 0; i < numberPoints; i++) {
         let answer = 0;
         for (let j = 0; j < signals[0].partials.length; j++) {
@@ -69,9 +69,9 @@ export default class SignalGenerator extends Component {
           min = answer;
         }
       }
-      fundamentalDifference = fundamentalMax - fundamentalMin;
-      difference = max - min;
-      scale = fundamentalDifference / difference;
+      // let fundamentalDifference = fundamentalMax - fundamentalMin;
+      // let difference = max - min;
+      // let scale = fundamentalDifference / difference;
     }
 
     // console.table(signals)
@@ -219,20 +219,20 @@ export default class SignalGenerator extends Component {
 
     // We clear whatever is in scope and we create the grid again
     ctx.clearRect(0, 0, canvasWidth, canvasHeight);
-    ctx.fillStyle = "#ADCAD6";
+    ctx.fillStyle = "#a2dce6";
     ctx.fillRect(25, 25, canvasWidth - 250, canvasHeight - 75);
 
     // Mid point of the scope canvas (used to create the grid)
-    let midPoint = {
-      x: canvasWidth / 2,
-      y: canvasHeight / 2
-    };
+    // let midPoint = {
+    //   x: canvasWidth / 2,
+    //   y: canvasHeight / 2
+    // };
 
     // Draw the white lines
     ctx.beginPath();
     this.setStyleWidthOpacity(ctx, "rgb(255, 255, 255)", "5", 1);
     // Dash Space determines the distance between white lines
-    let dashSpace = 57.85;
+    // let dashSpace = 57.85;
 
     // Draw the scale for the canvas
   }

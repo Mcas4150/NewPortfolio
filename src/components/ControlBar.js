@@ -10,15 +10,7 @@ import {
   getMousePos,
   getLinearGain
 } from "../util/conversions";
-import {
-  WAVECOLOR1,
-  WAVECOLOR2,
-  WAVECOLOR3,
-  WAVECOLOR4,
-  WAVECOLOR5,
-  WAVECOLOR6,
-  WAVECOLORTOTAL
-} from "../util/colors";
+import { WAVECOLORTOTAL } from "../util/colors";
 const NUM_VOICES = 6;
 const RAMPVALUE = 0.2;
 const NUM_PARTIALS = 5;
@@ -679,7 +671,7 @@ export default class ControlBar extends Component {
     let rect = this.props;
     // We clear the canvas to make sure we don't leave anything painted
     this.ctx.clearRect(0, 0, rect.width, rect.height);
-    this.ctx.fillStyle = "#ADCAD6";
+    this.ctx.fillStyle = "#a2dce6";
     this.ctx.fillRect(25, 25, rect.width - 50, rect.height - 75);
   };
 
@@ -708,26 +700,26 @@ export default class ControlBar extends Component {
       const radius = 10;
       // const color = 'rgb(255, 255, 0)';
       let color = WAVECOLORTOTAL;
-      switch (index) {
-        case 0:
-          color = WAVECOLOR1;
-          break;
-        case 1:
-          color = WAVECOLOR2;
-          break;
-        case 2:
-          color = WAVECOLOR3;
-          break;
-        case 3:
-          color = WAVECOLOR4;
-          break;
-        case 4:
-          color = WAVECOLOR5;
-          break;
-        case 5:
-          color = WAVECOLOR6;
-          break;
-      }
+      // switch (index) {
+      //   case 0:
+      //     color = WAVECOLOR1;
+      //     break;
+      //   case 1:
+      //     color = WAVECOLOR2;
+      //     break;
+      //   case 2:
+      //     color = WAVECOLOR3;
+      //     break;
+      //   case 3:
+      //     color = WAVECOLOR4;
+      //     break;
+      //   case 4:
+      //     color = WAVECOLOR5;
+      //     break;
+      //   case 5:
+      //     color = WAVECOLOR6;
+      //     break;
+      // }
 
       this.ctx.beginPath();
       this.ctx.arc(x, y, radius, startingAngle, endingAngle);
@@ -775,32 +767,32 @@ export default class ControlBar extends Component {
     } else {
       this.synths[0].oscillator.type = timbre;
     }
-    switch (timbre) {
-      case "square":
-        this.masterVolume.volume.exponentialRampToValueAtTime(
-          -10,
-          this.props.context.currentTime + RAMPVALUE
-        );
-        break;
-      case "sawtooth":
-        this.masterVolume.volume.exponentialRampToValueAtTime(
-          -10,
-          this.props.context.currentTime + RAMPVALUE
-        );
-        break;
-      case "complex":
-        this.masterVolume.volume.exponentialRampToValueAtTime(
-          -10,
-          this.props.context.currentTime + RAMPVALUE
-        );
-        break;
-      case "sine":
-        this.masterVolume.volume.exponentialRampToValueAtTime(
-          0,
-          this.props.context.currentTime + RAMPVALUE
-        );
-        break;
-    }
+    // switch (timbre) {
+    //   case "square":
+    //     this.masterVolume.volume.exponentialRampToValueAtTime(
+    //       -10,
+    //       this.props.context.currentTime + RAMPVALUE
+    //     );
+    //     break;
+    //   case "sawtooth":
+    //     this.masterVolume.volume.exponentialRampToValueAtTime(
+    //       -10,
+    //       this.props.context.currentTime + RAMPVALUE
+    //     );
+    //     break;
+    //   case "complex":
+    //     this.masterVolume.volume.exponentialRampToValueAtTime(
+    //       -10,
+    //       this.props.context.currentTime + RAMPVALUE
+    //     );
+    //     break;
+    //   case "sine":
+    //     this.masterVolume.volume.exponentialRampToValueAtTime(
+    //       0,
+    //       this.props.context.currentTime + RAMPVALUE
+    //     );
+    //     break;
+    // }
     if (timbre === "sine") {
       this.reverbVolume.mute = false;
     } else {
@@ -829,32 +821,32 @@ export default class ControlBar extends Component {
     this.synths[0] = new Tone.Synth();
     this.synths[0].connect(this.masterVolume);
 
-    switch (timbreSelection) {
-      case "square":
-        this.masterVolume.volume.exponentialRampToValueAtTime(
-          -10,
-          this.props.context.currentTime + RAMPVALUE
-        );
-        break;
-      case "sawtooth":
-        this.masterVolume.volume.exponentialRampToValueAtTime(
-          -10,
-          this.props.context.currentTime + RAMPVALUE
-        );
-        break;
-      case "complex":
-        this.masterVolume.volume.exponentialRampToValueAtTime(
-          -10,
-          this.props.context.currentTime + RAMPVALUE
-        );
-        break;
-      case "sine":
-        this.masterVolume.volume.exponentialRampToValueAtTime(
-          0,
-          this.props.context.currentTime + RAMPVALUE
-        );
-        break;
-    }
+    // switch (timbreSelection) {
+    //   case "square":
+    //     this.masterVolume.volume.exponentialRampToValueAtTime(
+    //       -10,
+    //       this.props.context.currentTime + RAMPVALUE
+    //     );
+    //     break;
+    //   case "sawtooth":
+    //     this.masterVolume.volume.exponentialRampToValueAtTime(
+    //       -10,
+    //       this.props.context.currentTime + RAMPVALUE
+    //     );
+    //     break;
+    //   case "complex":
+    //     this.masterVolume.volume.exponentialRampToValueAtTime(
+    //       -10,
+    //       this.props.context.currentTime + RAMPVALUE
+    //     );
+    //     break;
+    //   case "sine":
+    //     this.masterVolume.volume.exponentialRampToValueAtTime(
+    //       0,
+    //       this.props.context.currentTime + RAMPVALUE
+    //     );
+    //     break;
+    // }
     if (timbreSelection === "complex") {
       let partials = [1];
       for (let i = 0; i < NUM_PARTIALS; i++) {

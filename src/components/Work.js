@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+// import styled from "@emotion/styled";
 import { Section } from "./Shared";
 
 import { Transition } from "react-transition-group";
@@ -31,7 +31,7 @@ export const Work = props => (
   </Transition>
 );
 
-const WorkContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-`;
+// const WorkContainer = styled.div`
+//   display: grid;
+//   grid-template-columns: 1fr 1fr;
+// `;
