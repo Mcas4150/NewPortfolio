@@ -2,15 +2,13 @@ import { fabric } from "fabric";
 import React, { Component } from "react";
 
 export default class Ears extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   drawEars() {
     var total = 1000,
       blobs = new Array(total),
       myfps = 60,
-      updateTime = 1000 / myfps,
+      // updateTime = 1000 / myfps,
       mouse_pos = { x: 0, y: 0 },
       canvas = (this.__canvas = new fabric.Canvas("c", {
         renderOnAddRemove: false,
@@ -21,7 +19,6 @@ export default class Ears extends Component {
       msg,
       startTime,
       prevTime,
-      ms,
       frames;
 
     canvas.setBackgroundImage("src/imgs/orphan.png");

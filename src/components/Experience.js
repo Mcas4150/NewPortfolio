@@ -29,108 +29,43 @@ export default class Experience extends Component {
         <ExperienceGrid>
           <Skillset>
             <Title>Expertise</Title>
-            {// map through the elements
-
-            skillsArray.map((element, index) => (
-              <DemoWrapper
-                key={element.id}
-                className="demoWrapper"
-                ref={div => (this.skills[index] = div)}
-              >
-                <div
-                  className="content"
-                  ref={div => (this.content = div)}
-                  // onHover={() => {
-                  //   this.onHover();
-                  // }}
-                >
-                  <Header
-                    ref={h1 => (this.head = h1)}
-                    // onMouseOver={() => {
-                    //   this.onHover(element.image);
-                    // }}
-                    href={element.link}
-                  >
-                    {element.name}
-                  </Header>
-
-                  <div className="info">
-                    <Description
-                      style={{ color: "black" }}
-                      className="description"
-                      ref={p => (this.description = p)}
-                    >
-                      {element.skillsList}
-                    </Description>{" "}
-                  </div>
-                </div>
-              </DemoWrapper>
-            ))}
-          </Skillset>
-          <Jobs>
-            <Title>Experience</Title>
-            {// map through the elements
-            jobsArray.map((element, index) => (
-              <DemoWrapper
-                key={element.id}
-                className="demoWrapper"
-                ref={div => (this.jobs[index] = div)}
-              >
-                <div
-                  className="content"
-                  ref={div => (this.content = div)}
-                  // onHover={() => {
-                  //   this.onHover();
-                  // }}
-                >
-                  <Header
-                    ref={h1 => (this.head = h1)}
-                    // onMouseOver={() => {
-                    //   this.onHover(element.image);
-                    // }}
-                    href={element.link}
-                  >
-                    {element.name}
-                  </Header>
-
-                  <div className="info">
-                    <Description
-                      style={{ color: "black" }}
-                      className="description"
-                      ref={p => (this.description = p)}
-                    >
-                      {element.description}
-                    </Description>{" "}
-                  </div>
-                </div>
-              </DemoWrapper>
-            ))}
-          </Jobs>
-          <Volunteer>
-            <EducationContainer>
-              <Title>Education</Title>
-              {// map through the elements
-
-              educationArray.map((element, index) => (
+            <InfoWrapper>
+              {skillsArray.map((element, index) => (
                 <DemoWrapper
                   key={element.id}
                   className="demoWrapper"
-                  ref={div => (this.educations[index] = div)}
+                  ref={div => (this.skills[index] = div)}
                 >
-                  <div
-                    className="content"
-                    ref={div => (this.content = div)}
-                    // onHover={() => {
-                    //   this.onHover();
-                    // }}
-                  >
-                    <Header
-                      ref={h1 => (this.head = h1)}
-                      // onMouseOver={() => {
-                      //   this.onHover(element.image);
-                      // }}
-                      href={element.link}
-                    >
+                  <div className="content" ref={div => (this.content = div)}>
+                    <Header ref={h1 => (this.head = h1)} href={element.link}>
+                      {element.name}
+                    </Header>
+
+                    <div className="info">
+                      <Description
+                        style={{ color: "black" }}
+                        className="description"
+                        ref={p => (this.description = p)}
+                      >
+                        {element.skillsList}
+                      </Description>{" "}
+                    </div>
+                  </div>
+                </DemoWrapper>
+              ))}
+            </InfoWrapper>
+          </Skillset>
+          <Jobs>
+            <Title>Experience</Title>
+            <InfoWrapper>
+              {jobsArray.map((element, index) => (
+                <DemoWrapper
+                  key={element.id}
+                  className="demoWrapper"
+                  ref={div => (this.jobs[index] = div)}
+                >
+                  <div className="content" ref={div => (this.content = div)}>
+                    <Header ref={h1 => (this.head = h1)} href={element.link}>
                       {element.name}
                     </Header>
 
@@ -145,8 +80,38 @@ export default class Experience extends Component {
                     </div>
                   </div>
                 </DemoWrapper>
-              ))}
-              <ResumeLink>PDF</ResumeLink>
+              ))}{" "}
+            </InfoWrapper>
+          </Jobs>
+          <Volunteer>
+            <EducationContainer>
+              <Title>Education</Title>
+              <InfoWrapper>
+                {educationArray.map((element, index) => (
+                  <DemoWrapper
+                    key={element.id}
+                    className="demoWrapper"
+                    ref={div => (this.educations[index] = div)}
+                  >
+                    <div className="content" ref={div => (this.content = div)}>
+                      <Header ref={h1 => (this.head = h1)} href={element.link}>
+                        {element.name}
+                      </Header>
+
+                      <div className="info">
+                        <Description
+                          style={{ color: "black" }}
+                          className="description"
+                          ref={p => (this.description = p)}
+                        >
+                          {element.description}
+                        </Description>
+                      </div>
+                    </div>
+                  </DemoWrapper>
+                ))}
+                <ResumeLink>PDF</ResumeLink>
+              </InfoWrapper>
             </EducationContainer>
           </Volunteer>
         </ExperienceGrid>
@@ -167,10 +132,10 @@ const ExperienceGrid = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 5vh 1vw;
   grid-template-areas: "skillset jobs volunteer";
-  @media (max-width: 800px) {
-    grid-template-columnss: 1fr 1fr;
-    grid-gap: 1vh 5vw;
-    grid-template-areas: "skillset jobs" "skillset volunteer";
+  @media (max-width: 1000px) {
+    grid-template-columns: 1fr;
+    // grid-gap: 1vh 5vw;
+    grid-template-areas: "skillset" "jobs" "volunteer";
   }
 `;
 
@@ -225,6 +190,40 @@ const DemoWrapper = styled.div`
   }
 `;
 
+const InfoWrapper = styled.div`
+  @media (max-width: 1000px) {
+    display: none;
+  }
+`;
+
+// const CVEntry = array =>
+//   this.array = ["chicken"];
+//   this.array.map((element, index) => (
+//     <DemoWrapper
+//       key={element.id}
+//       className="demoWrapper"
+//       ref={div => (this.jobs[index] = div)}
+//     >
+//       <div className="content" ref={div => (this.content = div)}>
+//         <Header ref={h1 => (this.head = h1)} href={element.link}>
+//           {element.name}
+//         </Header>
+
+//         <div className="info">
+//           <Description
+//             style={{ color: "black" }}
+//             className="description"
+//             ref={p => (this.description = p)}
+//           >
+//             {element.description}
+//           </Description>{" "}
+//         </div>
+//       </div>
+//     </DemoWrapper>
+//   ));
+
+// const CVEntry = ;
+
 const Header = styled.div`
   text-align: center;
   font-size: 1.5vw;
@@ -249,7 +248,7 @@ const Title = styled.div`
   text-shadow: none;
 
   @media (max-width: 1000px) {
-    font-size: 3vw;
+    font-size: 8vw;
     margin-bottom: 2vh;
     -webkit-text-stroke: 0px black;
     text-stroke: 0px black;

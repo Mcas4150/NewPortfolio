@@ -26,16 +26,7 @@ export const CV = props => (
     <Section id="cv">
       <Experience />
 
-      {/* <Points
-        name="pts_sound"
-        background="#a2dce6"
-        style={{ height: "40vh", width: "50vw" }}
-        file="CallOfTheWild.mp3"
-        credit="Music: Space Travel Cliché by MrGreenH"
-        play={true}
-        height="30"
-      /> */}
-      {/* <Synth2 /> */}
+
     </Section>
   </Transition>
 );

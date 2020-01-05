@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/core";
-
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import "./Main.css";
 import { About } from "./About";
-
 import { Work } from "./Work";
-
 import { Contact } from "./Contact";
 import { CV } from "./CV";
 
@@ -56,48 +53,6 @@ export default class Main extends Component {
               this.handleUnhover();
             }}
           >
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-            <Name3>MIKE</Name3>
-            <Name2>CASSIDY</Name2>
             <Name>MIKE</Name>
             <Name2>CASSIDY</Name2>
           </NameContainer>
@@ -118,7 +73,6 @@ export default class Main extends Component {
           </HeaderContainer>
 
           <BodyContainer>
-            {/* give position to scroll container */}
             <ScrollContainer>
               <Route exact path="/">
                 {({ match }) => <About show={match !== null} />}
@@ -160,14 +114,15 @@ const moveSlideshow = keyframes`
 
 const NameContainer = styled.div`
   display: flex;
-  left: -10%;
+  // left: -10%;
   font-size: 4vw;
-  width: 110vw;
+  width: 100vw;
+  justify-content: center;
   height: 5vh;
   padding: 5vh 4vw;
   position: relative;
   overflow: hidden;
-  transform: translate3d(0, 0, 0);
+  // transform: translate3d(0, 0, 0);
 `;
 
 const Name = styled.div`
@@ -193,14 +148,15 @@ const Name = styled.div`
     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
     cursor: pointer;
   }
-  transform: "perspective(600px) translate3d(10px, 0px , 50px)";
+  // transform: "perspective(600px) translate3d(10px, 0px , 50px)";
   top: 0;
   left: 0;
   height: 100%;
-  width: 10vw;
-  transform: translate3d(0, 0, 0);
-  transition-timing-function: cubic-bezier(0, 0, 1, 1);
-  animation: ${moveSlideshow} 60s linear infinite;
+  margin: .75vw;
+  // width: 10vw;
+  // transform: translate3d(0, 0, 0);
+  // transition-timing-function: cubic-bezier(0, 0, 1, 1);
+  // animation: ${moveSlideshow} 60s linear infinite;
 `;
 
 const Name2 = styled(Name)`
@@ -211,11 +167,6 @@ const Name2 = styled(Name)`
     transition: color 0.25s ease-in-out, transform 0.5s ease;
     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
   }
-`;
-
-const Name3 = styled(Name)`
-  z-index: 6;
-  // font-family: "N.O.- Movement";
 `;
 
 const HeaderContainer = styled.div`
