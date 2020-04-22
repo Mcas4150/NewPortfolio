@@ -32,7 +32,7 @@ const Intro = styled(TileInner)`
 
 const H1 = styled.h1`
   font-weight: 700;
-  font-size: 3.75rem;
+  font-size: 3.25rem;
   color: #f5f4f0;
   font-family: "Syne-Bold", sans-serif;
   line-height: 1;
@@ -41,6 +41,7 @@ const H1 = styled.h1`
 const IntroText = styled.span`
   position: relative;
   display: inline-block;
+  // padding-right: 5px;
   :hover {
     color: #b4b17c;
   }

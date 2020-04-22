@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 // import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import "./Main.css";
 // import Three from "./Three";
-import Simplex from "./Simplex";
+import { Simplex } from "./Simplex";
 // import { About } from "./About";
 // import { Work } from "./Work";
 // import { Contact } from "./Contact";
@@ -13,7 +13,8 @@ import Pager from "./Pager";
 // import { Points } from "./Points";
 import OrphanLogo from "./OrphanLogo";
 import Ears from "./Ears";
-import  AboutTile  from "./AboutTile";
+import AboutTile from "./AboutTile";
+import { Circle } from "./Simplex2";
 
 export default class Main extends Component {
   constructor(props) {
@@ -109,7 +110,10 @@ export default class Main extends Component {
         <Featured></Featured>
         <ContactContainer>contact</ContactContainer>
         {/* Middle */}
-        <SixContainer>{/* <Simplex /> */}</SixContainer>
+        <SixContainer>
+          {/* <Simplex /> */}
+          <Circle />
+        </SixContainer>
         <SevenContainer>
           {/* <Ears /> */}
           {/* seven
@@ -120,7 +124,7 @@ export default class Main extends Component {
           <OrphanLogo />
         </EightContainer>
         {/* <Canvas/> */}
-        <Ears />
+        <Ears />]
       </TileContainer>
     );
   }
@@ -133,7 +137,7 @@ const TileContainer = styled.div`
   grid-auto-rows: 8vw;
   margin: auto;
   width: 100%;
-  height: 216vw;
+  // height: 216vw;
   grid-gap: 0 0;
   -webkit-filter: saturate(1.2);
   filter: saturate(1.2);

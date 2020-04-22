@@ -1,118 +1,111 @@
-import React, { Component } from "react";
-import * as SimplexNoise from "simplex-noise";
+import React from "react";
+import { useRef } from "react";
+import { useEffect } from "react";
+import SimplexNoise from "simplex-noise";
 
-export default class Simplex extends Component {
-  constructor(props) {
-    super(props);
-    this.draw = this.draw.bind(this);
-  }
+export const Simplex = () => {
+  let ref = useRef();
+  useEffect(() => {
+    let requestId,
+      i = 0,
+      simplex,
+      n,
+      mx,
+      my;
 
-  componentDidUpdate() {
-    this.draw();
-  }
+    let canvas = ref.current;
 
-  draw() {
-    const { width, height, rotation } = this.props;
-    const context = this.refs.canvas.getContext("2d");
-    context.clearRect(0, 0, width, height);
-    context.save();
-    context.translate(100, 100);
-    context.rotate(rotation, 100, 100);
-    context.fillStyle = "#F00";
-    context.fillRect(-50, -50, 100, 100);
-    context.restore();
-  }
+    let context = canvas.getContext("2d");
+    let ratio = getPixelRatio(context);
+    let width = getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
+    let height = getComputedStyle(canvas)
+      .getPropertyValue("height")
+      .slice(0, -2);
 
-  render() {
-    const { width, height } = this.props;
-    return <canvas ref="canvas" width={width} height={height} />;
-  }
+    canvas.width = width * ratio;
+    canvas.height = height * ratio;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
 
-  // constructor(props) {
-  //   super(props);
-  //   // this.state = { width: 0, height: 0, OrbitId: "", counter2: 0 };
-  //   // this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  //   this.draw = this.draw.bind(this);
-  // }
+    let m = Math.min(canvas.width, canvas.height);
 
-  // componentDidMount() {
-  //   this.ctx = this.canvas.getContext("2d");
-  //   window.addEventListener("resize", this.reset);
-  //   window.addEventListener("mousemove", this.mousemove);
-  //   this.draw();
-  // }
+    // const mousemove = (event) => {
+    //   mx = event.clientX + 1;
+    //   my = event.clientY + 1;
+    // };
+    // canvas.addEventListener("mousemove", mousemove());
 
-  // reset() {
-  //   simplex = new SimplexNoise();
-  //   w = canvas.width = window.innerWidth;
-  //   h = canvas.height = window.innerHeight;
-  //   m = Math.min(w, h);
-  //   mx = w / 2;
-  //   my = h / 2;
-  // }
+    const render = () => {
+      simplex = new SimplexNoise();
+      context.fillStyle = "black";
+      context.fillRect(0, 0, canvas.width, canvas.height);
+      context.strokeStyle = "white";
+      for (let i = 10; i < m / 2 - 40; i += 10) {
+        drawCircle(i);
+      }
 
-  // mousemove = (event) => {
-  //   mx = event.clientX + 1;
-  //   my = event.clientY + 1;
-  // };
+      requestId = requestAnimationFrame(render);
+    };
 
-  // draw(timestamp) {
-  //   now = timestamp;
-  //   window.requestAnimationFrame(this.draw);
-  //   this.ctx = this.canvas.getContext("2d");
-  //   this.canvas.getContext("2d").fillStyle = "black";
-  //   ctx.fillRect(0, 0, w, h);
-  //   ctx.strokeStyle = "white";
-  //   for (let i = 10; i < m / 2 - 40; i += 10) {
-  //     this.drawCircle(i);
-  //   }
-  // }
+    const drawCircle = (r) => {
+      context.beginPath();
+      let point, x, y;
+      let deltaAngle = (Math.PI * 2) / 400;
+      for (let angle = 0; angle < Math.PI * 2; angle += deltaAngle) {
+        point = calcPoint(angle, r);
+        x = point[0];
+        y = point[1];
+        context.lineTo(x, y);
+      }
+      context.closePath();
+      context.stroke();
+    };
 
-  // drawCircle(r) {
-  //   ctx.beginPath();
-  //   let point, x, y;
-  //   let deltaAngle = (Math.PI * 2) / 400;
-  //   for (let angle = 0; angle < Math.PI * 2; angle += deltaAngle) {
-  //     point = this.calcPoint(angle, r);
-  //     x = point[0];
-  //     y = point[1];
-  //     ctx.lineTo(x, y);
-  //   }
-  //   ctx.closePath();
-  //   ctx.stroke();
-  // }
+    const calcPoint = (angle, r) => {
+      let noiseFactor = (250/ canvas.width) * 50;
+      let zoom = (150 / canvas.height) * 200;
+      let x = Math.cos(angle) * r + canvas.width / 2;
+      let y = Math.sin(angle) * r + canvas.height / 2;
+      n = simplex.noise3D(x / zoom, y / zoom, requestId / 2000) * noiseFactor;
+      x = Math.cos(angle) * (r + n) + canvas.width / 2;
+      y = Math.sin(angle) * (r + n) + canvas.height / 2;
+      return [x, y];
+    };
 
-  // calcPoint(angle, r) {
-  //   let noiseFactor = (mx / w) * 50;
-  //   let zoom = (my / h) * 200;
-  //   let x = Math.cos(angle) * r + w / 2;
-  //   let y = Math.sin(angle) * r + h / 2;
-  //   let n = simplex.noise3D(x / zoom, y / zoom, now / 2000) * noiseFactor;
-  //   x = Math.cos(angle) * (r + n) + w / 2;
-  //   y = Math.sin(angle) * (r + n) + h / 2;
-  //   return [x, y];
-  // }
+    render();
 
-  // render() {
-  //   return (
-  //     <div>
-  //       <canvas
-  //         className="simplex-canvas"
-  //         width={this.props.width}
-  //         height={this.props.height}
-  //         ref={(c) => {
-  //           this.canvas = c;
-  //         }}
-  //       />
-  //     </div>
-  //   );
-  // }
-}
+    return () => {
+      cancelAnimationFrame(requestId);
+    };
+  });
 
-let canvas;
-let ctx;
-let w, h;
-let m;
-let simplex;
-let mx, my;
-let now;
+  return <canvas ref={ref} style={{ width: "200px", height: "200px" }} />;
+};
+
+const getPixelRatio = (context) => {
+  var backingStore =
+    context.backingStorePixelRatio ||
+    context.webkitBackingStorePixelRatio ||
+    context.mozBackingStorePixelRatio ||
+    context.msBackingStorePixelRatio ||
+    context.oBackingStorePixelRatio ||
+    context.backingStorePixelRatio ||
+    1;
+  return (window.devicePixelRatio || 1) / backingStore;
+};
+
+// function mousemove(event) {
+//   mx = event.clientX + 1;
+//   my = event.clientY + 1;
+// }
+
+// function draw(timestamp) {
+//   now = timestamp;
+//   requestAnimationFrame(draw);
+//   ctx.fillStyle = "black";
+//   ctx.fillRect(0, 0, w, h);
+//   ctx.strokeStyle = "white";
+//   for (let i = 10; i < m / 2 - 40; i += 10) {
+//     drawCircle(i);
+//   }
+// }
