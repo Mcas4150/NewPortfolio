@@ -24,11 +24,12 @@ class Pager extends Component {
       lockFreq: false,
       lockAmp: false,
       showCombinedWaveInfo: false,
+      frequency: 0,
       combinedFrequency: 0,
       timbreSelection: "sine",
       fullscreen: false,
       rotateIcon: false,
-      rotateIcon2: false
+      rotateIcon2: false,
     };
   }
 
@@ -41,7 +42,7 @@ class Pager extends Component {
     this.setState({ started: true });
   }
 
-  onAudioEvent = signals => {
+  onAudioEvent = (signals) => {
     this.signalGenerator.current.renderCanvas(signals);
   };
 
@@ -79,23 +80,23 @@ class Pager extends Component {
     this.setState({ lockAmp: !this.state.lockAmp });
   };
 
-  drawCombinedInfo = frequency => {
+  drawCombinedInfo = (frequency) => {
     if (!isNaN(frequency) && isFinite(frequency) && frequency > 0) {
       this.setState({
         showCombinedWaveInfo: true,
-        combinedFrequency: frequency
+        combinedFrequency: frequency,
       });
     } else {
       this.setState({ showCombinedWaveInfo: false });
     }
   };
 
-  handleTimbreChange = timbre => {
+  handleTimbreChange = (timbre) => {
     this.setState({
       timbre: timbre !== "sine",
       timbreSelection: timbre,
       rotateIcon: false,
-      rotateIcon2: false
+      rotateIcon2: false,
     });
     if (this.state.sustain) {
       this.controlbar.current.sustainChangeTimbre(timbre);
@@ -157,10 +158,9 @@ class Pager extends Component {
     } else {
       ampIcon = "unlock";
     }
-    
 
     return (
-      <div className="App" onClick={this.start}>
+      <div className="App" onMouseOver={this.start}>
         {/* <MainMenu /> */}
         {this.state.started ? (
           <React.Fragment>
@@ -191,7 +191,6 @@ class Pager extends Component {
 
             {/*<Button.Group className="button-group-container">*/}
             <div className="lock-freq-container">
-              Frequency
               <Button
                 icon
                 className="lock-freq-button"
@@ -201,9 +200,10 @@ class Pager extends Component {
               >
                 <Icon name={freqIcon} />
               </Button>
+              <ControlTitle>Frequency</ControlTitle>
             </div>
             <div className="lock-amp-container">
-              Amplitude
+              <ControlTitle>Amplitude</ControlTitle>
               <Button
                 icon
                 className="lock-amp-button"
@@ -216,7 +216,7 @@ class Pager extends Component {
             </div>
             <LeftBorder></LeftBorder>
             <BottomBorder></BottomBorder>
-            <Headline href="https://github.com/Mcas4150">DEVELOPER.</Headline>
+            {/* <Headline href="https://github.com/Mcas4150">DEVELOPER.</Headline> */}
           </React.Fragment>
         ) : (
           <p className="flashing">Click</p>
@@ -237,8 +237,13 @@ const LeftBorder = styled.div`
   left: 4%;
   bottom: 10%;
   opacity: 0.5;
-  height: 70vh;
+  // height: 15vh;
+  height: 75%;
   border-left: 3px solid grey;
+`;
+
+const ControlTitle = styled.div`
+  font-size: 1.25vw;
 `;
 
 const BottomBorder = styled.div`
@@ -247,23 +252,24 @@ const BottomBorder = styled.div`
   left: 4%;
   bottom: 10%;
   opacity: 0.5;
-  width: 21vw;
+  // width: 21vw;
+  width: 25%;
   border-bottom: 3px solid grey;
 `;
 
-const Headline = styled.a`
-  text-decoration: none;
-  z-index: 10;
-  position: absolute;
-  right: 15%;
-  bottom: 3%;
-  font-size: 1.75vw;
-  color: white;
-  height: 5vh;
-  width: 6vw;
-  :hover {
-    color: black;
-  }
-`;
+// const Headline = styled.a`
+//   text-decoration: none;
+//   z-index: 10;
+//   position: absolute;
+//   right: 15%;
+//   bottom: 3%;
+//   font-size: 1.75vw;
+//   color: white;
+//   height: 5vh;
+//   width: 6vw;
+//   :hover {
+//     color: black;
+//   }
+// `;
 
 export default Pager;

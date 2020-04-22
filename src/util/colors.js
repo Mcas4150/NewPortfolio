@@ -5,7 +5,8 @@ const WAVECOLOR4 = "rgb(255, 140, 0)"; // Orange
 const WAVECOLOR5 = "rgb(2, 10, 185)"; // Dark blue
 const WAVECOLOR6 = "rgb(205, 33, 58)"; // Red
 
-const WAVECOLORTOTAL = "#B3DD44"; // Yellow
+// const WAVECOLORTOTAL = "#B3DD44"; // Yellow
+const WAVECOLORTOTAL = "#1c3e93"; // Yellow
 
 export {
   WAVECOLOR1,

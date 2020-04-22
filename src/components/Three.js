@@ -264,7 +264,7 @@ export default class Three extends Component {
     };
 
     const render = () => {
-      window.requestAnimationFrame(render);
+       window.requestAnimationFrame(render);
       sceneManager.update();
     };
 

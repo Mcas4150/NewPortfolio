@@ -21,6 +21,7 @@ const resolutionMin = 20;
 export default class ControlBar extends Component {
   constructor(props) {
     super();
+    this.onMouseOver = this.onMouseOver.bind(this);
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onMouseMove = this.onMouseMove.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
@@ -35,7 +36,8 @@ export default class ControlBar extends Component {
       touch: false,
       feedback: false,
       amOn: false,
-      fmOn: false
+      fmOn: false,
+      frequency: 0
     };
   }
 
@@ -105,6 +107,30 @@ export default class ControlBar extends Component {
   /**
   This Section controls how the Oscillator(s) react to user input
   */
+  onMouseOver(e){
+    e.preventDefault();
+    let pos = getMousePos(this.canvas, e);
+    let yPercent = 1 - pos.y / this.props.height;
+    let xPercent = 1 - pos.x / this.props.width;
+    let freq = this.getFreq(xPercent);
+    let gain = getGain(yPercent);
+    if (this.props.lockFreq) {
+      this.prevFreq[0] = freq;
+    }
+    if (this.props.lockAmp) {
+      this.prevGain[0] = gain;
+    }
+
+    this.ctx.clearRect(0, 0, this.props.width, this.props.height); // Clears canvas for redraw of label
+    this.ctx.beginPath();
+    this.ctx.rect(20, 20, 150, 100);
+    this.ctx.stroke();
+    this.renderCanvas();
+    this.label(freq, pos.x, pos.y, 0);
+  }
+
+
+
   onMouseDown(e) {
     e.preventDefault(); // Always need to prevent default browser choices
     let pos = getMousePos(this.canvas, e);
@@ -112,8 +138,8 @@ export default class ControlBar extends Component {
     // The value goes from 0 to 1. (0, 0) = Bottom Left corner
     let yPercent = 1 - pos.y / this.props.height;
     let xPercent = 1 - pos.x / this.props.width;
-    let freq = this.getFreq(yPercent);
-    let gain = getGain(xPercent);
+    let freq = this.getFreq(xPercent);
+    let gain = getGain(yPercent);
     this.synths[0].volume.value = gain; // Starts the synth at volume = gain
     this.synths[0].triggerAttack(freq); // Starts the synth at frequency = freq
     if (this.props.lockFreq) {
@@ -143,16 +169,16 @@ export default class ControlBar extends Component {
 
   onMouseMove(e) {
     e.preventDefault(); // Always need to prevent default browser choices
-    if (this.state.mouseDown) {
+
       // Only want to change when mouse is pressed
       // The next few lines are similar to onMouseDown
       let { height, width } = this.props;
       let pos = getMousePos(this.canvas, e);
       let yPercent = 1 - pos.y / height;
       let xPercent = 1 - pos.x / width;
-      let gain = getGain(xPercent);
+      let gain = getGain(yPercent);
       // let freq = this.getFreq(yPercent)[0];
-      let freq = this.getFreq(yPercent);
+      let freq = this.getFreq(xPercent);
       if (this.props.lockFreq) {
         freq = this.prevFreq[0];
         pos.y = freqToIndex(freq, resolutionMax, resolutionMin, height);
@@ -203,7 +229,7 @@ export default class ControlBar extends Component {
           partials: this.partials
         }
       ]);
-    }
+
   }
 
   onMouseUp(e) {
@@ -213,8 +239,9 @@ export default class ControlBar extends Component {
       this.synths[0].triggerRelease(); // Relase frequency, volume goes to -Infinity
 
       // Clears the label
-      this.ctx.clearRect(0, 0, this.props.width, this.props.height);
-      this.renderCanvas();
+
+      // this.ctx.clearRect(0, 0, this.props.width, this.props.height);
+      // this.renderCanvas();
       this.props.onAudioEvent([{}]);
       this.setState({ mouseSustain: false });
     }
@@ -231,8 +258,10 @@ export default class ControlBar extends Component {
         this.releaseAll(true);
       }
       // Clears the label
-      this.ctx.clearRect(0, 0, this.props.width, this.props.height);
-      this.renderCanvas();
+      // this.ctx.clearRect(0, 0, this.props.width, this.props.height);
+
+      // this.renderCanvas();
+
       if (this.props.noteLinesOn) {
         // this.renderNoteLines();
       }
@@ -892,6 +921,7 @@ export default class ControlBar extends Component {
         width={this.props.width}
         height={this.props.height}
         onContextMenu={e => e.preventDefault()}
+        onMouseOver={this.onMouseOver}
         onMouseDown={this.onMouseDown}
         onMouseMove={this.onMouseMove}
         onMouseUp={this.onMouseUp}

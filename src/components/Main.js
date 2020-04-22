@@ -3,10 +3,16 @@ import styled from "@emotion/styled";
 import { keyframes } from "@emotion/core";
 import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import "./Main.css";
+import Three from "./Three";
+import Simplex from "./Simplex";
 import { About } from "./About";
 import { Work } from "./Work";
 import { Contact } from "./Contact";
 import { CV } from "./CV";
+import Pager from "./Pager";
+import { Points } from "./Points";
+import OrphanLogo from "./OrphanLogo";
+import Ears from "./Ears";
 
 export default class Main extends Component {
   constructor(props) {
@@ -16,7 +22,7 @@ export default class Main extends Component {
       hoverTitle: false,
       scrollX: 0,
       scrollY: 0,
-      scrollPos: 0
+      scrollPos: 0,
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleHover = this.handleHover.bind(this);
@@ -24,27 +30,27 @@ export default class Main extends Component {
   }
 
   handleClick() {
-    this.setState(prevState => ({
-      startAnimation: !prevState.startAnimation
+    this.setState((prevState) => ({
+      startAnimation: !prevState.startAnimation,
     }));
   }
 
   handleHover() {
     this.setState({
-      hoverTitle: true
+      hoverTitle: true,
     });
   }
 
   handleUnhover() {
     this.setState({
-      hoverTitle: false
+      hoverTitle: false,
     });
   }
 
   render() {
     return (
-      <MainContainer>
-        <BrowserRouter>
+      <TileContainer>
+        {/* <BrowserRouter>
           <NameContainer
             onMouseEnter={() => {
               this.handleHover();
@@ -88,11 +94,109 @@ export default class Main extends Component {
               </Route>
             </ScrollContainer>
           </BodyContainer>
-        </BrowserRouter>
-      </MainContainer>
+        </BrowserRouter> */}
+        <TitleContainer>
+          <TileInner>mike</TileInner>
+        </TitleContainer>
+        <LeftGradient>Left</LeftGradient>
+        <Spheres>
+          <Pager />
+        </Spheres>
+        <AboutContainer>me</AboutContainer>
+        <Featured></Featured>
+        <ContactContainer>contact</ContactContainer>
+        {/* Middle */}
+        <SixContainer>{/* <Simplex /> */}</SixContainer>
+        <SevenContainer>
+          <Ears />
+          {/* seven
+          <Three /> */}
+        </SevenContainer>
+        <EightContainer>
+          <OrphanLogo />
+        </EightContainer>
+        {/* <Canvas/> */}
+        <Ears />
+      </TileContainer>
     );
   }
 }
+
+const TileContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 1fr;
+  grid-auto-rows: 8vw;
+  margin: auto;
+  width: 100%;
+  height: 216vw;
+  grid-gap: 0 0;
+  -webkit-filter: saturate(1.2);
+  filter: saturate(1.2);
+`;
+
+const Tile = styled.div`
+  overflow: hidden;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+`;
+
+const TileInner = styled.div`
+  .tile__inner {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const TitleContainer = styled(Tile)`
+  grid-area: 1 / 1 / span 1 / span 1;
+  background-color: #7f519d;
+`;
+
+const LeftGradient = styled(Tile)`
+  grid-area: 2 / 1 / span 6 / span 1;
+  background-color: #c8accd;
+`;
+
+const Spheres = styled(Tile)`
+  grid-area: 1 / 2 / span 3 / span 4;
+  background-color: #a2dce6;
+`;
+
+const AboutContainer = styled(Tile)`
+  grid-area: 4 / 2 / span 4 / span 4;
+  background-color: #b4b17c;
+`;
+
+const Featured = styled(Tile)`
+  grid-area: 1 / 6 / span 6 / span 7;
+  background-color: #b65b7f;
+`;
+
+const ContactContainer = styled(Tile)`
+  grid-area: 7 / 6 / span 1 / span 7;
+  background-color: #5b8b6c;
+`;
+
+const SixContainer = styled(Tile)`
+  grid-area: 8 / 8 / span 2 / span 5;
+  background-color: #f5f4f0;
+`;
+
+const SevenContainer = styled(Tile)`
+  grid-area: 8 / 1 / span 4 / span 5;
+  // background-color: #f4eca4;
+  background-color: #e0ded1;
+`;
+
+const EightContainer = styled(Tile)`
+  grid-area: 8 / 6 / span 2 / span 2;
+  background-color: #1053ab;
+`;
 
 const MainContainer = styled.div`
   background-color: #a2dce6;
