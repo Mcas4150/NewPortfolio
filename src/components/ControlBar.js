@@ -258,9 +258,9 @@ export default class ControlBar extends Component {
         this.releaseAll(true);
       }
       // Clears the label
-      // this.ctx.clearRect(0, 0, this.props.width, this.props.height);
+      this.ctx.clearRect(0, 0, this.props.width, this.props.height);
 
-      // this.renderCanvas();
+      this.renderCanvas();
 
       if (this.props.noteLinesOn) {
         // this.renderNoteLines();

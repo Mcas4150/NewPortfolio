@@ -309,7 +309,7 @@ export default class SignalGenerator extends Component {
 
   render() {
     return (
-      <div onMouseEnter={this.startSignalGenerator}>
+      <div onMouseDown={this.startSignalGenerator}>
         <canvas
           className="signal-generator-canvas"
           width={this.props.width}

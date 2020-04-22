@@ -1,18 +1,19 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
-import { keyframes } from "@emotion/core";
-import { BrowserRouter, Route, NavLink } from "react-router-dom";
+// import { keyframes } from "@emotion/core";
+// import { BrowserRouter, Route, NavLink } from "react-router-dom";
 import "./Main.css";
-import Three from "./Three";
+// import Three from "./Three";
 import Simplex from "./Simplex";
-import { About } from "./About";
-import { Work } from "./Work";
-import { Contact } from "./Contact";
-import { CV } from "./CV";
+// import { About } from "./About";
+// import { Work } from "./Work";
+// import { Contact } from "./Contact";
+// import { CV } from "./CV";
 import Pager from "./Pager";
-import { Points } from "./Points";
+// import { Points } from "./Points";
 import OrphanLogo from "./OrphanLogo";
 import Ears from "./Ears";
+import  AboutTile  from "./AboutTile";
 
 export default class Main extends Component {
   constructor(props) {
@@ -102,15 +103,18 @@ export default class Main extends Component {
         <Spheres>
           <Pager />
         </Spheres>
-        <AboutContainer>me</AboutContainer>
+        <AboutContainer>
+          <AboutTile />
+        </AboutContainer>
         <Featured></Featured>
         <ContactContainer>contact</ContactContainer>
         {/* Middle */}
         <SixContainer>{/* <Simplex /> */}</SixContainer>
         <SevenContainer>
-          <Ears />
+          {/* <Ears /> */}
           {/* seven
           <Three /> */}
+          <Simplex />
         </SevenContainer>
         <EightContainer>
           <OrphanLogo />
@@ -198,124 +202,124 @@ const EightContainer = styled(Tile)`
   background-color: #1053ab;
 `;
 
-const MainContainer = styled.div`
-  background-color: #a2dce6;
-  overflow: hidden;
-  outline: none;
-  visibility: inherit;
-  opacity: 1;
-  height: 100%;
-`;
+// const MainContainer = styled.div`
+//   background-color: #a2dce6;
+//   overflow: hidden;
+//   outline: none;
+//   visibility: inherit;
+//   opacity: 1;
+//   height: 100%;
+// `;
 
-const moveSlideshow = keyframes`
-  100% {
-    transform: translateX(${"-666.6666%"});
-    :hover{
-      transform: translateX(${"666.6666%"});
-    }
-  }
-`;
+// const moveSlideshow = keyframes`
+//   100% {
+//     transform: translateX(${"-666.6666%"});
+//     :hover{
+//       transform: translateX(${"666.6666%"});
+//     }
+//   }
+// `;
 
-const NameContainer = styled.div`
-  display: flex;
-  // left: -10%;
-  font-size: 4vw;
-  width: 100vw;
-  justify-content: center;
-  height: 5vh;
-  padding: 5vh 4vw;
-  position: relative;
-  overflow: hidden;
-  // transform: translate3d(0, 0, 0);
-`;
+// const NameContainer = styled.div`
+//   display: flex;
+//   // left: -10%;
+//   font-size: 4vw;
+//   width: 100vw;
+//   justify-content: center;
+//   height: 5vh;
+//   padding: 5vh 4vw;
+//   position: relative;
+//   overflow: hidden;
+//   // transform: translate3d(0, 0, 0);
+// `;
 
-const Name = styled.div`
-  font-size: 3vw;
-  font-family: "MonumentRegular";
-  display: inline-block;
-  justify-content: row;
-  padding: 0 0 4vh 0;
-  // position: absolute;
-  color: #fdc;
-  -webkit-text-stroke: 1.1px black;
-  text-stroke: 1.1px black;
-  text-shadow: none;
-  transition: color 0.25s ease-in-out;
-  @media (max-width: 800px) {
-    font-size: 2.75vw;
-    -webkit-text-stroke: 0px black;
-    text-stroke: 0px black;
-  }
-  :hover {
-    color: #1c3e93;
-    transition: color 0.25s ease-in-out, transform 0.5s ease;
-    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
-    cursor: pointer;
-  }
-  // transform: "perspective(600px) translate3d(10px, 0px , 50px)";
-  top: 0;
-  left: 0;
-  height: 100%;
-  margin: .75vw;
-  // width: 10vw;
-  // transform: translate3d(0, 0, 0);
-  // transition-timing-function: cubic-bezier(0, 0, 1, 1);
-  // animation: ${moveSlideshow} 60s linear infinite;
-`;
+// const Name = styled.div`
+//   font-size: 3vw;
+//   font-family: "MonumentRegular";
+//   display: inline-block;
+//   justify-content: row;
+//   padding: 0 0 4vh 0;
+//   // position: absolute;
+//   color: #fdc;
+//   -webkit-text-stroke: 1.1px black;
+//   text-stroke: 1.1px black;
+//   text-shadow: none;
+//   transition: color 0.25s ease-in-out;
+//   @media (max-width: 800px) {
+//     font-size: 2.75vw;
+//     -webkit-text-stroke: 0px black;
+//     text-stroke: 0px black;
+//   }
+//   :hover {
+//     color: #1c3e93;
+//     transition: color 0.25s ease-in-out, transform 0.5s ease;
+//     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
+//     cursor: pointer;
+//   }
+//   // transform: "perspective(600px) translate3d(10px, 0px , 50px)";
+//   top: 0;
+//   left: 0;
+//   height: 100%;
+//   margin: .75vw;
+//   // width: 10vw;
+//   // transform: translate3d(0, 0, 0);
+//   // transition-timing-function: cubic-bezier(0, 0, 1, 1);
+//   // animation: ${moveSlideshow} 60s linear infinite;
+// `;
 
-const Name2 = styled(Name)`
-  color: #1c3e93;
-  z-index: 5;
-  :hover {
-    color: white;
-    transition: color 0.25s ease-in-out, transform 0.5s ease;
-    transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
-  }
-`;
+// const Name2 = styled(Name)`
+//   color: #1c3e93;
+//   z-index: 5;
+//   :hover {
+//     color: white;
+//     transition: color 0.25s ease-in-out, transform 0.5s ease;
+//     transform: "perspective(600px) translate3d(-50px, 50px, 150px)";
+//   }
+// `;
 
-const HeaderContainer = styled.div`
-  display: flex;
+// const HeaderContainer = styled.div`
+//   display: flex;
 
-  padding: 3vh 4vw;
-  width: 100vw;
-  height: 2vh;
-  @media (max-width: 1000px) {
-    padding: 1vh 4vw;
-    height: 5vh;
-  }
-`;
+//   padding: 3vh 4vw;
+//   width: 100vw;
+//   height: 2vh;
+//   @media (max-width: 1000px) {
+//     padding: 1vh 4vw;
+//     height: 5vh;
+//   }
+// `;
 
-const BodyContainer = styled.div`
-  // margin: 100px 5vh;
-  padding: 0vh 4vw;
-  width: 100vw;
-  height: 80vh;
-`;
+// const BodyContainer = styled.div`
+//   // margin: 100px 5vh;
+//   padding: 0vh 4vw;
+//   width: 100vw;
+//   height: 80vh;
+// `;
 
-const ScrollContainer = styled.div`
-  font-size: 1.5rem;
-  font-family: MonumentRegular;
-`;
+// const ScrollContainer = styled.div`
+//   font-size: 1.5rem;
+//   font-family: MonumentRegular;
+// `;
 
-const Title = styled(NavLink)`
-  font-family: "PolyRegular";
+// const Title = styled(NavLink)`
+//   font-family: "PolyRegular";
 
-  font-size: 2vw;
-  padding: 0 4vh;
-  z-index: 8;
-  text-decoration: none;
-  color: black;
-  -webkit-text-stroke: 1.1px black;
-  text-stroke: 1.1px black;
-  text-shadow: none;
+//   font-size: 2vw;
+//   padding: 0 4vh;
+//   z-index: 8;
+//   text-decoration: none;
+//   color: black;
+//   -webkit-text-stroke: 1.1px black;
+//   text-stroke: 1.1px black;
+//   text-shadow: none;
 
-  @media (max-width: 800px) {
-    font-size: 2.75vw;
-  }
+//   @media (max-width: 800px) {
+//     font-size: 2.75vw;
+//   }
 
-  transform: "perspective(600px) translate3d(10px, 0px , 50px)";
-`;
+//   transform: "perspective(600px) translate3d(10px, 0px , 50px)";
+// `;
 
-const Spacer = styled.div`
-  width: 100%;
-`;
+// const Spacer = styled.div`
+//   width: 100%;
+// `;

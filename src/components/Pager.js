@@ -166,7 +166,7 @@ class Pager extends Component {
           <React.Fragment>
             <ScopeContainer>
               <ControlBar
-                width={this.state.width / 4}
+                width={this.state.width / 8}
                 height={this.state.height * 0.6}
                 handleResize={this.handleResize}
                 context={audioContext}
@@ -179,7 +179,7 @@ class Pager extends Component {
                 ref={this.controlbar}
               />
               <SignalGenerator
-                width={this.state.width * 0.6}
+                width={this.state.width }
                 height={this.state.height * 0.6}
                 handleResize={this.handleResize}
                 renderSignals={this.state.renderSignals}

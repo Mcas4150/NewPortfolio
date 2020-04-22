@@ -62,6 +62,11 @@ transform: scaleX(1.15);
 }
 
 @font-face {
+  font-family: "Syne-Bold";
+  src: url("./utils/fonts/Syne-Bold.otf");
+}
+
+@font-face {
   font-family: "PolyRegular";
   src: url("./utils/fonts/Poly-Regular.ttf");
 }

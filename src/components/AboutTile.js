@@ -1,0 +1,49 @@
+import React, { Component } from "react";
+import styled from "@emotion/styled";
+import { TileInner } from "./Shared";
+import "./AboutTile.css";
+
+export default class AboutTile extends Component {
+  render() {
+    return (
+      <Intro>
+        <H1>
+          <IntroText className="t-green">Mike</IntroText>
+          <br />
+          <IntroText className="t-yellow">Cassidy</IntroText>
+          <IntroText>is</IntroText>
+          <IntroText className="t-green">an</IntroText>
+          <br />
+          <IntroText className="t-yellow">interactive</IntroText>
+          <br />
+          <IntroText className="t-purple">designer</IntroText>
+          <IntroText className="t-green">and</IntroText>
+          <br />
+          <IntroText>developer.</IntroText>
+        </H1>
+      </Intro>
+    );
+  }
+}
+
+const Intro = styled(TileInner)`
+  padding: 3.125rem 1.875rem;
+`;
+
+const H1 = styled.h1`
+  font-weight: 700;
+  font-size: 3.75rem;
+  color: #f5f4f0;
+  font-family: "Syne-Bold", sans-serif;
+  line-height: 1;
+`;
+
+const IntroText = styled.span`
+  position: relative;
+  display: inline-block;
+  :hover {
+    color: #b4b17c;
+  }
+`;
+
+// text-shadow: 1px -1px 0 #5b8b6c, 1px 0 0 #5b8b6c, 1px 1px 0 #5b8b6c, 0 1px 0 #5b8b6c, 0 -1px 0 #5b8b6c, -1px 1px 0 #5b8b6c, -1px 0 0 #5b8b6c, -1px -1px 0 #5b8b6c;

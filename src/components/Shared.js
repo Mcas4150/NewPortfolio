@@ -53,3 +53,14 @@ export const ContentContainer = styled.div`
   max-width: 166rem;
   width: 100%;
 `;
+
+
+export const TileInner = styled.div`
+  .tile__inner {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`;
