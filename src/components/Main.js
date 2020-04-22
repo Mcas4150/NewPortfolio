@@ -98,7 +98,7 @@ export default class Main extends Component {
           </BodyContainer>
         </BrowserRouter> */}
         <TitleContainer>
-          <TileInner>mike</TileInner>
+          <Simplex/>
         </TitleContainer>
         <LeftGradient>Left</LeftGradient>
         <Spheres>
@@ -118,7 +118,7 @@ export default class Main extends Component {
           {/* <Ears /> */}
           {/* seven
           <Three /> */}
-          <Simplex />
+          {/* <Simplex /> */}
         </SevenContainer>
         <EightContainer>
           <OrphanLogo />

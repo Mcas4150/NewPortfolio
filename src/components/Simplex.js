@@ -2,6 +2,7 @@ import React from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 import SimplexNoise from "simplex-noise";
+import { getMousePos } from "../util/conversions";
 
 export const Simplex = () => {
   let ref = useRef();
@@ -37,14 +38,13 @@ export const Simplex = () => {
 
     const render = () => {
       simplex = new SimplexNoise();
+      requestId = requestAnimationFrame(render);
       context.fillStyle = "black";
       context.fillRect(0, 0, canvas.width, canvas.height);
       context.strokeStyle = "white";
       for (let i = 10; i < m / 2 - 40; i += 10) {
         drawCircle(i);
       }
-
-      requestId = requestAnimationFrame(render);
     };
 
     const drawCircle = (r) => {
@@ -62,11 +62,15 @@ export const Simplex = () => {
     };
 
     const calcPoint = (angle, r) => {
-      let noiseFactor = (250/ canvas.width) * 50;
-      let zoom = (150 / canvas.height) * 200;
+
+      // let pos = getMousePos(canvas, r);
+      // let mx = pos.x / canvas.width + 1;
+      // let my = pos.y / canvas.height + 1;
+      let noiseFactor = (15 / canvas.width) * 50;
+      let zoom = (50 / canvas.height) * 200;
       let x = Math.cos(angle) * r + canvas.width / 2;
       let y = Math.sin(angle) * r + canvas.height / 2;
-      n = simplex.noise3D(x / zoom, y / zoom, requestId / 2000) * noiseFactor;
+      n = simplex.noise3D(x / zoom, y / zoom, requestId / 20000) * noiseFactor;
       x = Math.cos(angle) * (r + n) + canvas.width / 2;
       y = Math.sin(angle) * (r + n) + canvas.height / 2;
       return [x, y];
@@ -79,7 +83,7 @@ export const Simplex = () => {
     };
   });
 
-  return <canvas ref={ref} style={{ width: "200px", height: "200px" }} />;
+  return <canvas ref={ref} style={{ width: "100%", height: "100%" }} />;
 };
 
 const getPixelRatio = (context) => {
