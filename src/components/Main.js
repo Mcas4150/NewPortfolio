@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import "./Main.css";
 // import Three from "./Three";
 import { Simplex } from "./Simplex";
+import { Squiggle } from "./Squiggle";
 // import { About } from "./About";
 // import { Work } from "./Work";
 // import { Contact } from "./Contact";
@@ -98,7 +99,7 @@ export default class Main extends Component {
           </BodyContainer>
         </BrowserRouter> */}
         <TitleContainer>
-          <Simplex/>
+          <Simplex />
         </TitleContainer>
         <LeftGradient>Left</LeftGradient>
         <Spheres>
@@ -108,7 +109,9 @@ export default class Main extends Component {
           <AboutTile />
         </AboutContainer>
         <Featured></Featured>
-        <ContactContainer>contact</ContactContainer>
+        <ContactContainer>
+          <Squiggle />
+        </ContactContainer>
         {/* Middle */}
         <SixContainer>
           {/* <Simplex /> */}
