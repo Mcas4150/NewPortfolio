@@ -6,6 +6,7 @@ import "./Main.css";
 // import Three from "./Three";
 import { Simplex } from "./Simplex";
 import { Squiggle } from "./Squiggle";
+import { Angle } from "./Angle";
 // import { About } from "./About";
 // import { Work } from "./Work";
 // import { Contact } from "./Contact";
@@ -53,55 +54,12 @@ export default class Main extends Component {
   render() {
     return (
       <TileContainer>
-        {/* <BrowserRouter>
-          <NameContainer
-            onMouseEnter={() => {
-              this.handleHover();
-            }}
-            onMouseLeave={() => {
-              this.handleUnhover();
-            }}
-          >
-            <Name>MIKE</Name>
-            <Name2>CASSIDY</Name2>
-          </NameContainer>
-          <HeaderContainer>
-            <Title className="widen" to="/">
-              ME.
-            </Title>
-            <Title className="widen" to="/work">
-              WORK
-            </Title>
-            <Spacer />
-            <Title className="widen" to="/cv">
-              CV
-            </Title>
-            <Title className="widen" to="/contact">
-              CONTACT
-            </Title>
-          </HeaderContainer>
-
-          <BodyContainer>
-            <ScrollContainer>
-              <Route exact path="/">
-                {({ match }) => <About show={match !== null} />}
-              </Route>
-              <Route exact path="/work">
-                {({ match }) => <Work show={match !== null} />}
-              </Route>
-              <Route exact path="/cv">
-                {({ match }) => <CV show={match !== null} />}
-              </Route>
-              <Route exact path="/contact">
-                {({ match }) => <Contact show={match !== null} />}
-              </Route>
-            </ScrollContainer>
-          </BodyContainer>
-        </BrowserRouter> */}
         <TitleContainer>
           <Simplex />
         </TitleContainer>
-        <LeftGradient>Left</LeftGradient>
+        <LeftGradient>
+          <Angle />
+        </LeftGradient>
         <Spheres>
           <Pager />
         </Spheres>
@@ -126,8 +84,8 @@ export default class Main extends Component {
         <EightContainer>
           <OrphanLogo />
         </EightContainer>
-        {/* <Canvas/> */}
-        <Ears />]
+
+        <Ears />
       </TileContainer>
     );
   }
