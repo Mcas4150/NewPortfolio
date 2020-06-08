@@ -1,18 +1,32 @@
 import React from "react";
 import { useRef } from "react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SimplexNoise from "simplex-noise";
 import { getMousePos } from "../util/conversions";
 
 export const Simplex = () => {
   let ref = useRef();
+  let now;
+  let mx, my;
+  const initialMousePos = { x: 0, y: 0 };
+
+  const [mousePos, setMousePos] = useState(initialMousePos);
+
+  const handleMouseMove = (event) => {
+    const newX = 10;
+    const newY = 20;
+    const newMousePos = {
+      x: newX,
+      y: newY,
+    };
+
+    setMousePos(newMousePos);
+  };
+
+  const handleMouseOut = () => setMousePos(initialMousePos);
+
   useEffect(() => {
-    let requestId,
-      i = 0,
-      simplex,
-      n,
-      mx,
-      my;
+    let requestId, simplex, n;
 
     let canvas = ref.current;
 
@@ -29,14 +43,19 @@ export const Simplex = () => {
     canvas.style.height = `${height}px`;
 
     let m = Math.min(canvas.width, canvas.height);
-
+    const mousemove = (event) => {
+      mx = event.clientX + 1;
+      my = event.clientY + 1;
+    };
+    canvas.addEventListener("mousemove", mousemove);
     // const mousemove = (event) => {
     //   mx = event.clientX + 1;
     //   my = event.clientY + 1;
     // };
     // canvas.addEventListener("mousemove", mousemove());
 
-    const render = () => {
+    const render = (timestamp) => {
+      now = timestamp;
       simplex = new SimplexNoise();
       requestId = requestAnimationFrame(render);
       context.fillStyle = "black";
@@ -62,15 +81,14 @@ export const Simplex = () => {
     };
 
     const calcPoint = (angle, r) => {
-
-      // let pos = getMousePos(canvas, r);
-      // let mx = pos.x / canvas.width + 1;
-      // let my = pos.y / canvas.height + 1;
+      let pos = getMousePos(canvas, r);
+      mx = pos.x / canvas.width + 1;
+      my = pos.y / canvas.height + 1;
       let noiseFactor = (15 / canvas.width) * 50;
       let zoom = (50 / canvas.height) * 200;
       let x = Math.cos(angle) * r + canvas.width / 2;
       let y = Math.sin(angle) * r + canvas.height / 2;
-      n = simplex.noise3D(x / zoom, y / zoom, requestId / 20000) * noiseFactor;
+      n = simplex.noise3D(x / zoom, y / zoom, requestId / 2000) * noiseFactor;
       x = Math.cos(angle) * (r + n) + canvas.width / 2;
       y = Math.sin(angle) * (r + n) + canvas.height / 2;
       return [x, y];
@@ -78,12 +96,19 @@ export const Simplex = () => {
 
     render();
 
-    return () => {
-      cancelAnimationFrame(requestId);
-    };
+    // return () => {
+    //   cancelAnimationFrame(requestId);
+    // };
   });
 
-  return <canvas ref={ref} style={{ width: "100%", height: "100%" }} />;
+  return (
+    <canvas
+      ref={ref}
+      style={{ width: "100%", height: "100%" }}
+      onMouseMove={handleMouseMove}
+      onMouseOut={handleMouseOut}
+    />
+  );
 };
 
 const getPixelRatio = (context) => {
@@ -97,11 +122,6 @@ const getPixelRatio = (context) => {
     1;
   return (window.devicePixelRatio || 1) / backingStore;
 };
-
-// function mousemove(event) {
-//   mx = event.clientX + 1;
-//   my = event.clientY + 1;
-// }
 
 // function draw(timestamp) {
 //   now = timestamp;

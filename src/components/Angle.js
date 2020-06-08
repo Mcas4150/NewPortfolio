@@ -38,7 +38,7 @@ export const Angle = () => {
 
     const render = () => {
       // simplex = new SimplexNoise();
-      requestId = requestAnimationFrame(render);
+      // requestId = requestAnimationFrame(render);
 
       context.fillRect(0, 0, canvas.width, canvas.height);
 
