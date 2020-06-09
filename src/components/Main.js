@@ -9,7 +9,7 @@ import OrphanLogo from "./OrphanLogo";
 import Ears from "./Ears";
 import AboutTile from "./AboutTile";
 import { Circle } from "./Simplex2";
-
+import Discogs from "./Discogs";
 export default class Main extends Component {
   constructor(props) {
     super(props);
@@ -52,7 +52,9 @@ export default class Main extends Component {
         <LeftGradient>
           <Angle />
         </LeftGradient>
-        <Spheres></Spheres>
+        <Spheres>
+          <Discogs />
+        </Spheres>
         <AboutContainer>
           <AboutTile />
         </AboutContainer>

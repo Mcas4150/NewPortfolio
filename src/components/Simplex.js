@@ -43,11 +43,11 @@ export const Simplex = () => {
     canvas.style.height = `${height}px`;
 
     let m = Math.min(canvas.width, canvas.height);
-    const mousemove = (event) => {
-      mx = event.clientX + 1;
-      my = event.clientY + 1;
-    };
-    canvas.addEventListener("mousemove", mousemove);
+    // const mousemove = (event) => {
+    //   mx = event.clientX + 1;
+    //   my = event.clientY + 1;
+    // };
+    // canvas.addEventListener("mousemove", mousemove);
     // const mousemove = (event) => {
     //   mx = event.clientX + 1;
     //   my = event.clientY + 1;
@@ -56,6 +56,7 @@ export const Simplex = () => {
 
     const render = (timestamp) => {
       now = timestamp;
+      let count = 0;
       simplex = new SimplexNoise();
       requestId = requestAnimationFrame(render);
       context.fillStyle = "black";
