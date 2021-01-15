@@ -11,7 +11,7 @@ import {
   triggerAttack,
   triggerRelease,
   setFrequency
-} from "../actions/actions";
+} from "../../actions/actions";
 import { EPERM } from "constants";
 
 class NotePress extends React.Component {

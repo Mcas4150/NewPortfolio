@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { changeDial } from "../actions/actions";
+import { changeDial } from "../../actions/actions";
 import { get } from "dot-prop-immutable";
 import styled from "@emotion/styled";
 

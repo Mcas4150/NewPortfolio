@@ -4,7 +4,7 @@ import Filter from "./Filter";
 import Amplifier from "./Amplifier";
 // import Keyboard from "./Keyboard";
 import NotePress from "./NotePress";
-import AudioAnalyser from "../synth/Analyzer";
+import AudioAnalyser from "../../synth/Analyzer";
 
 export default class Synth extends Component {
   render() {

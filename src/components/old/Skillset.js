@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
-import { Section } from "./Shared";
+import { Section } from "../../styles/Shared";
 
 
 export default class Skillset extends Component {

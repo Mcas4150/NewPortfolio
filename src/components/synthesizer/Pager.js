@@ -4,7 +4,7 @@ import { Button, Icon } from "semantic-ui-react";
 import styled from "@emotion/styled";
 
 // import MainMenu from './menu';
-import ControlBar from "./ControlBar";
+import ControlBar from "../ControlBar";
 import SignalGenerator from "./SignalGenerator";
 
 let audioContext = null;

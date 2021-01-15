@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "@emotion/styled";
-import { Section } from "./Shared";
+import { Section } from "../../styles/Shared";
 import { Transition } from "react-transition-group";
 import { TweenMax } from "gsap/all";
 // import { Line, Util, Rectangle } from "pts/dist/es5";

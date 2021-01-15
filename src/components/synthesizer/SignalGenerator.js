@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "../styles/signal-generator.css";
-import { dbToLinear } from "../util/conversions";
+import { dbToLinear } from "../../util/conversions";
 
 import {
 
   WAVECOLORTOTAL
-} from "../util/colors";
+} from "../../util/colors";
 
 export default class SignalGenerator extends Component {
   constructor(props) {

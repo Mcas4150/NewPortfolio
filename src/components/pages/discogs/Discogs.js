@@ -6,8 +6,8 @@ import { bindActionCreators } from "redux";
 import {
   fetchCollectionNextPage,
   fetchUserCollection,
-} from "../actions/collectionActions";
-import ReleaseListItem from "../components/ReleaseListItem";
+} from "../../../actions/collectionActions";
+import ReleaseListItem from "./ReleaseListItem";
 
 class Discogs extends Component {
   constructor(props) {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "../styles/control-bar.css";
 import Tone from "tone";
-import generateScale from "../util/generateScale";
+import generateScale from "../../util/generateScale";
 
 import {
   getFreq,
@@ -9,8 +9,8 @@ import {
   freqToIndex,
   getMousePos,
   getLinearGain
-} from "../util/conversions";
-import { WAVECOLORTOTAL } from "../util/colors";
+} from "../../util/conversions";
+import { WAVECOLORTOTAL } from "../../util/colors";
 const NUM_VOICES = 6;
 const RAMPVALUE = 0.2;
 const NUM_PARTIALS = 5;

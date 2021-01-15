@@ -1,15 +1,9 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
-import "./Main.css";
-import { Simplex } from "./Simplex";
-import { Squiggle } from "./Squiggle";
-import { Angle } from "./Angle";
-import HexApp from "./HexApp";
-import OrphanLogo from "./OrphanLogo";
-import Ears from "./Ears";
+import { Squiggle } from "./animations/Squiggle";
+import { Angle } from "./animations/Angle";
 import AboutTile from "./AboutTile";
-import { Circle } from "./Simplex2";
-import Discogs from "./Discogs";
+import Discogs from "./pages/discogs/Discogs";
 export default class Main extends Component {
   constructor(props) {
     super(props);
@@ -46,11 +40,11 @@ export default class Main extends Component {
   render() {
     return (
       <TileContainer>
-        <TitleContainer>{/* <Simplex /> */}</TitleContainer>
+        <TitleContainer></TitleContainer>
         <LeftGradient>
           <Angle />
         </LeftGradient>
-        <Spheres>{/* <HexApp /> */}</Spheres>
+        <Spheres></Spheres>
         <AboutContainer>
           <AboutTile />
         </AboutContainer>
@@ -60,12 +54,6 @@ export default class Main extends Component {
         <ContactContainer>
           <Squiggle />
         </ContactContainer>
-
-        <SixContainer>{/* <Circle /> */}</SixContainer>
-        <SevenContainer></SevenContainer>
-        <EightContainer>{/* <OrphanLogo /> */}</EightContainer>
-
-        <Ears />
       </TileContainer>
     );
   }
@@ -122,21 +110,4 @@ const Featured = styled(Tile)`
 
 const ContactContainer = styled(Tile)`
   grid-area: 7 / 6 / span 1 / span 7;
-  background-color: #5b8b6c;
-`;
-
-const SixContainer = styled(Tile)`
-  grid-area: 8 / 8 / span 2 / span 5;
-  background-color: #f5f4f0;
-`;
-
-const SevenContainer = styled(Tile)`
-  grid-area: 8 / 1 / span 4 / span 5;
-  // background-color: #f4eca4;
-  background-color: #e0ded1;
-`;
-
-const EightContainer = styled(Tile)`
-  grid-area: 8 / 6 / span 2 / span 2;
-  background-color: #1053ab;
 `;
