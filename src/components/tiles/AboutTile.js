@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
-import { TileInner } from "../styles/Shared";
+import { TileInner } from "../../styles/Shared";
 import "./AboutTile.css";
 
 export default class AboutTile extends Component {

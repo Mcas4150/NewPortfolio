@@ -28,7 +28,7 @@ class Graphic extends React.Component {
   }
 }
 
-class App extends React.Component {
+export default class CanvasApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = { rotation: 0 };
@@ -49,8 +49,6 @@ class App extends React.Component {
     return <Graphic rotation={this.state.rotation} width={200} height={200} />;
   }
 }
-
-
 
 //MDN requestAnimationFrame
 // var start = null;

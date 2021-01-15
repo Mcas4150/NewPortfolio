@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import styled from "@emotion/styled";
 import { Squiggle } from "./animations/Squiggle";
 import { Angle } from "./animations/Angle";
-import AboutTile from "./AboutTile";
+import AboutTile from "./tiles/AboutTile";
 import Discogs from "./pages/discogs/Discogs";
+import Graphic from "./animations/SquareSpin";
+
 export default class Main extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +42,9 @@ export default class Main extends Component {
   render() {
     return (
       <TileContainer>
-        <TitleContainer></TitleContainer>
+        <TitleContainer>
+          <Graphic />
+        </TitleContainer>
         <LeftGradient>
           <Angle />
         </LeftGradient>
