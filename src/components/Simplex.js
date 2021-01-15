@@ -2,28 +2,28 @@ import React from "react";
 import { useRef } from "react";
 import { useEffect, useState } from "react";
 import SimplexNoise from "simplex-noise";
-import { getMousePos } from "../util/conversions";
+// import { getMousePos } from "../util/conversions";
 
 export const Simplex = () => {
   let ref = useRef();
-  let now;
-  let mx, my;
+  // let now;
+  // let mx, my;
   const initialMousePos = { x: 0, y: 0 };
 
-  const [mousePos, setMousePos] = useState(initialMousePos);
+  const [setMousePos] = useState(initialMousePos);
 
-  const handleMouseMove = (event) => {
-    const newX = 10;
-    const newY = 20;
-    const newMousePos = {
-      x: newX,
-      y: newY,
-    };
+  // const handleMouseMove = (event) => {
+  //   const newX = 10;
+  //   const newY = 20;
+  //   const newMousePos = {
+  //     x: newX,
+  //     y: newY,
+  //   };
 
-    setMousePos(newMousePos);
-  };
+  //   setMousePos(newMousePos);
+  // };
 
-  const handleMouseOut = () => setMousePos(initialMousePos);
+  // const handleMouseOut = () => setMousePos(initialMousePos);
 
   useEffect(() => {
     let requestId, simplex, n;
@@ -55,8 +55,8 @@ export const Simplex = () => {
     // canvas.addEventListener("mousemove", mousemove());
 
     const render = (timestamp) => {
-      now = timestamp;
-      let count = 0;
+      // now = timestamp;
+      // let count = 0;
       simplex = new SimplexNoise();
       requestId = requestAnimationFrame(render);
       context.fillStyle = "black";
@@ -82,9 +82,9 @@ export const Simplex = () => {
     };
 
     const calcPoint = (angle, r) => {
-      let pos = getMousePos(canvas, r);
-      mx = pos.x / canvas.width + 1;
-      my = pos.y / canvas.height + 1;
+      // let pos = getMousePos(canvas, r);
+      // mx = pos.x / canvas.width + 1;
+      // my = pos.y / canvas.height + 1;
       let noiseFactor = (15 / canvas.width) * 50;
       let zoom = (50 / canvas.height) * 200;
       let x = Math.cos(angle) * r + canvas.width / 2;
@@ -106,8 +106,8 @@ export const Simplex = () => {
     <canvas
       ref={ref}
       style={{ width: "100%", height: "100%" }}
-      onMouseMove={handleMouseMove}
-      onMouseOut={handleMouseOut}
+      // onMouseMove={handleMouseMove}
+      // onMouseOut={handleMouseOut}
     />
   );
 };

@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 
 export const Squiggle = () => {
   let ref = useRef();
   useEffect(() => {
-    let requestId,
-      i = 0,
-      simplex;
+    let requestId;
+      // i = 0;
+      // simplex;
 
     let canvas = ref.current;
 
@@ -24,7 +24,7 @@ export const Squiggle = () => {
     canvas.style.height = `${height}px`;
     let w = canvas.width;
     let h = canvas.height;
-    let ctx = canvas;
+    // let ctx = canvas;
 
     // let m = Math.min(canvas.width, canvas.height);
 

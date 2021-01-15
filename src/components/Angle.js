@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { useRef } from "react";
 import { useEffect } from "react";
 
@@ -6,9 +6,9 @@ export const Angle = () => {
   let ref = useRef();
   useEffect(() => {
     let requestId,
-      i = 0,
-      size,
-      simplex;
+      // i = 0,
+      size;
+    // simplex;
 
     let canvas = ref.current;
 

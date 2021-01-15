@@ -8,7 +8,10 @@ import {
   TRIGGER_RELEASE,
   NOTE_PRESS,
   NOTE_RELEASE,
-  SET_FREQUENCY
+  SET_FREQUENCY,
+  FETCH_COLLECTION_NEXT_PAGE,
+  FETCH_USER_COLLECTION,
+  FETCH_RELEASE
 } from "../actions/types";
 
 import * as dotProp from "dot-prop-immutable";
@@ -99,7 +102,25 @@ const rootReducer = (state = initialState, action) => {
       // return dotProp.set(state, `frequency.frequency`, action.payload);
 
       synth.setFrequency(action.payload);
-       return dotProp.set(state, "setFrequency.frequency", action.payload);
+      return dotProp.set(state, "setFrequency.frequency", action.payload);
+
+    case FETCH_USER_COLLECTION:
+      return action.payload.data;
+
+    case FETCH_COLLECTION_NEXT_PAGE:
+      if (
+        state.hasOwnProperty("pagination") &&
+        action.payload.data.pagination.page > state.pagination.page
+      ) {
+        action.payload.data.releases = state.releases.concat(
+          action.payload.data.releases
+        );
+      }
+
+      return action.payload.data;
+
+    case FETCH_RELEASE:
+        return action.payload.data;
 
     default:
       return state;

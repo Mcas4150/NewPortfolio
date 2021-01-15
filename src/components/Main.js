@@ -47,26 +47,26 @@ export default class Main extends Component {
     return (
       <TileContainer>
         <TitleContainer>
-          <Simplex />
+          {/* <Simplex /> */}
         </TitleContainer>
         <LeftGradient>
           <Angle />
         </LeftGradient>
         <Spheres>
-          <Discogs />
+          {/* <HexApp /> */}
         </Spheres>
         <AboutContainer>
           <AboutTile />
         </AboutContainer>
         <Featured>
-          <HexApp />
+          <Discogs />
         </Featured>
         <ContactContainer>
           <Squiggle />
         </ContactContainer>
 
         <SixContainer>
-          <Circle />
+          {/* <Circle /> */}
         </SixContainer>
         <SevenContainer></SevenContainer>
         <EightContainer>
