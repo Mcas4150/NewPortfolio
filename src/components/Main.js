@@ -46,15 +46,11 @@ export default class Main extends Component {
   render() {
     return (
       <TileContainer>
-        <TitleContainer>
-          {/* <Simplex /> */}
-        </TitleContainer>
+        <TitleContainer>{/* <Simplex /> */}</TitleContainer>
         <LeftGradient>
           <Angle />
         </LeftGradient>
-        <Spheres>
-          {/* <HexApp /> */}
-        </Spheres>
+        <Spheres>{/* <HexApp /> */}</Spheres>
         <AboutContainer>
           <AboutTile />
         </AboutContainer>
@@ -65,13 +61,9 @@ export default class Main extends Component {
           <Squiggle />
         </ContactContainer>
 
-        <SixContainer>
-          {/* <Circle /> */}
-        </SixContainer>
+        <SixContainer>{/* <Circle /> */}</SixContainer>
         <SevenContainer></SevenContainer>
-        <EightContainer>
-          <OrphanLogo />
-        </EightContainer>
+        <EightContainer>{/* <OrphanLogo /> */}</EightContainer>
 
         <Ears />
       </TileContainer>
@@ -80,6 +72,7 @@ export default class Main extends Component {
 }
 
 const TileContainer = styled.div`
+  background-color: #f5f4f0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: 1fr;
@@ -101,7 +94,8 @@ const Tile = styled.div`
 
 const TitleContainer = styled(Tile)`
   grid-area: 1 / 1 / span 1 / span 1;
-  background-color: #7f519d;
+
+  background-color: #c8accd;
 `;
 
 const LeftGradient = styled(Tile)`
@@ -111,7 +105,7 @@ const LeftGradient = styled(Tile)`
 
 const Spheres = styled(Tile)`
   grid-area: 1 / 2 / span 3 / span 4;
-  background-color: #a2dce6;
+  background-color: #e0ded1;
 `;
 
 const AboutContainer = styled(Tile)`
@@ -121,7 +115,9 @@ const AboutContainer = styled(Tile)`
 
 const Featured = styled(Tile)`
   grid-area: 1 / 6 / span 6 / span 7;
-  background-color: #b65b7f;
+  // background-color: #e0ded1;
+  background-color: #f5f4f0;
+  // background-color: #b65b7f;
 `;
 
 const ContactContainer = styled(Tile)`

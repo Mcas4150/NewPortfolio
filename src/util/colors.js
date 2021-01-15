@@ -15,5 +15,15 @@ export {
   WAVECOLOR4,
   WAVECOLOR5,
   WAVECOLOR6,
-  WAVECOLORTOTAL
+  WAVECOLORTOTAL,
 };
+
+// #f93700;
+// #c8accd;
+// #a2dce6;
+// #b4b17c;
+// #b65b7f;
+// #5b8b6c;
+// #f5f4f0;
+// #f4eca4;
+// #e0ded1;
