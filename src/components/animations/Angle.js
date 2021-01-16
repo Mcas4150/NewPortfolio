@@ -2,8 +2,9 @@ import React, { useEffect, useRef, useState } from "react";
 
 export const Angle = () => {
   const [dimensions, setDimensions] = useState({
-    heigh: window.innerHeight,
-    width: window.innerWidth,
+    height: window.innerHeight,
+    // height: document.getElementById("angle").parentNode.parentElement.clientHeight,
+    width: document.documentElement.clientWidth,
   });
 
   let ref = useRef();
@@ -12,9 +13,9 @@ export const Angle = () => {
     const debouncedHandleResize = debounce(function handleResize() {
       setDimensions({
         height: window.innerHeight,
-        width: window.innerWidth,
+        width: document.documentElement.clientWidth,
       });
-    }, 100);
+    }, 10);
 
     window.addEventListener("resize", debouncedHandleResize);
 
@@ -147,6 +148,7 @@ export const Angle = () => {
 
   return (
     <canvas
+      id="angle"
       ref={ref}
       style={{ width: dimensions.width, height: dimensions.height }}
     />

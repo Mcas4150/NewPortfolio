@@ -3,7 +3,9 @@ import styled from "@emotion/styled";
 import { Squiggle } from "./animations/Squiggle";
 import { Angle } from "./animations/Angle";
 import AboutTile from "./tiles/AboutTile";
-import Discogs from "./pages/discogs/Discogs";
+import Menu from "./tiles/Menu";
+import Featured from "./tiles/Featured";
+
 import Graphic from "./animations/SquareSpin";
 
 export default class Main extends Component {
@@ -41,30 +43,33 @@ export default class Main extends Component {
 
   render() {
     return (
-      <TileContainer>
-        <TitleContainer>
-          <Graphic />
-        </TitleContainer>
-        <LeftGradient>
-          <Angle />
-        </LeftGradient>
-        <Spheres></Spheres>
-        <AboutContainer>
-          <AboutTile />
-        </AboutContainer>
-        <Featured>
-          <Discogs />
-        </Featured>
-        <ContactContainer>
-          <Squiggle />
-        </ContactContainer>
-      </TileContainer>
+      <div>
+        <Squiggle />
+        <TileContainer>
+          <TitleContainer>
+            <Graphic />
+          </TitleContainer>
+          <LeftGradient>
+            <Menu />
+          </LeftGradient>
+          <MenuTile></MenuTile>
+          <AboutContainer>
+            <AboutTile />
+          </AboutContainer>
+          <FeaturedTile>
+            <Featured />
+          </FeaturedTile>
+        </TileContainer>
+      </div>
     );
   }
 }
 
 const TileContainer = styled.div`
-  background-color: #f5f4f0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  // background-color: #f5f4f0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: 1fr;
@@ -87,29 +92,27 @@ const Tile = styled.div`
 const TitleContainer = styled(Tile)`
   grid-area: 1 / 1 / span 1 / span 1;
 
-  background-color: #c8accd;
+
 `;
 
 const LeftGradient = styled(Tile)`
   grid-area: 2 / 1 / span 6 / span 1;
-  background-color: #c8accd;
+
 `;
 
-const Spheres = styled(Tile)`
+const MenuTile = styled(Tile)`
   grid-area: 1 / 2 / span 3 / span 4;
-  background-color: #e0ded1;
+
 `;
 
 const AboutContainer = styled(Tile)`
   grid-area: 4 / 2 / span 4 / span 4;
-  background-color: #b4b17c;
+
 `;
 
-const Featured = styled(Tile)`
+const FeaturedTile = styled(Tile)`
   grid-area: 1 / 6 / span 6 / span 7;
-  // background-color: #e0ded1;
-  background-color: #f5f4f0;
-  // background-color: #b65b7f;
+
 `;
 
 const ContactContainer = styled(Tile)`

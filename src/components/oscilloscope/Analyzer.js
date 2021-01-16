@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import AudioVisualiser from "./Visualizer";
 import Tone from "tone";
 
-
 class AudioAnalyser extends Component {
   constructor(props) {
     super(props);
@@ -11,10 +10,9 @@ class AudioAnalyser extends Component {
   }
 
   componentDidMount() {
-    // this.audioContext = new (window.AudioContext ||
-    //   window.webkitAudioContext)();
-    // this.analyser = this.audioContext.createAnalyser();
-
+    this.audioContext = new (window.AudioContext ||
+      window.webkitAudioContext)();
+    this.analyser = this.audioContext.createAnalyser();
     this.analyser = new Tone.Analyser("fft", "2048");
     this.fft = new Tone.FFT("2048");
     this.dataArray = new Uint8Array(this.fft.getValue());

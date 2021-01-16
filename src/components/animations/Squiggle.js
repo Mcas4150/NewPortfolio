@@ -2,17 +2,17 @@ import React, { useRef, useEffect, useState } from "react";
 
 export const Squiggle = () => {
   const [dimensions, setDimensions] = useState({
-    heigh: window.innerHeight,
-    width: window.innerWidth,
+    heigh: document.documentElement.clientHeight,
+    width: document.documentElement.clientWidth,
   });
 
   useEffect(() => {
     const debouncedHandleResize = debounce(function handleResize() {
       setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth,
+        height: document.documentElement.clientHeight,
+        width: document.documentElement.clientWidth,
       });
-    }, 100);
+    }, 10);
 
     window.addEventListener("resize", debouncedHandleResize);
 
