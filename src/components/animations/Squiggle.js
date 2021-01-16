@@ -1,13 +1,31 @@
-import React from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 export const Squiggle = () => {
+  const [dimensions, setDimensions] = useState({
+    heigh: window.innerHeight,
+    width: window.innerWidth,
+  });
+
+  useEffect(() => {
+    const debouncedHandleResize = debounce(function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }, 100);
+
+    window.addEventListener("resize", debouncedHandleResize);
+
+    return (_) => {
+      window.removeEventListener("resize", debouncedHandleResize);
+    };
+  });
+
   let ref = useRef();
   useEffect(() => {
     let requestId;
-      // i = 0;
-      // simplex;
+    // i = 0;
+    // simplex;
 
     let canvas = ref.current;
 
@@ -70,8 +88,24 @@ export const Squiggle = () => {
     };
   });
 
-  return <canvas ref={ref} style={{ width: "100%", height: "100%" }} />;
+  return (
+    <canvas
+      ref={ref}
+      style={{ width: dimensions.width, height: dimensions.height }}
+    />
+  );
 };
+
+function debounce(fn, ms) {
+  let timer;
+  return (_) => {
+    clearTimeout(timer);
+    timer = setTimeout((_) => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
 
 const getPixelRatio = (context) => {
   var backingStore =

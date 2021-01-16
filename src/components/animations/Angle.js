@@ -9,17 +9,17 @@ export const Angle = () => {
   let ref = useRef();
 
   useEffect(() => {
-    function handleResize() {
+    const debouncedHandleResize = debounce(function handleResize() {
       setDimensions({
         height: window.innerHeight,
         width: window.innerWidth,
       });
-    }
+    }, 100);
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", debouncedHandleResize);
 
     return (_) => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", debouncedHandleResize);
     };
   });
 
@@ -152,6 +152,17 @@ export const Angle = () => {
     />
   );
 };
+
+function debounce(fn, ms) {
+  let timer;
+  return (_) => {
+    clearTimeout(timer);
+    timer = setTimeout((_) => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
 
 const getPixelRatio = (context) => {
   var backingStore =
