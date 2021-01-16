@@ -97,6 +97,11 @@ function mapStateToProps(state) {
 const ReleasesContainer = styled.div`
   justify-content: center;
   padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  width: 100%;
+}
 `;
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReleasesList);
