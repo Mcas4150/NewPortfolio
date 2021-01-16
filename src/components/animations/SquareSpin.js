@@ -40,7 +40,8 @@ export default class CanvasApp extends React.Component {
   }
 
   tick() {
-    const rotation = this.state.rotation + 0.04;
+    const rotation = this.state.rotation;
+    // const rotation = this.state.rotation + 0.04;
     this.setState({ rotation });
     requestAnimationFrame(this.tick);
   }

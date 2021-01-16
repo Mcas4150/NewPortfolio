@@ -2,24 +2,26 @@ import React, { useRef, useEffect, useState } from "react";
 
 export const Squiggle = () => {
   const [dimensions, setDimensions] = useState({
-    heigh: document.documentElement.clientHeight,
+    height: document.documentElement.clientHeight,
     width: document.documentElement.clientWidth,
   });
 
   useEffect(() => {
-    const debouncedHandleResize = debounce(function handleResize() {
+    function handleResize() {
       setDimensions({
-        height: document.documentElement.clientHeight,
-        width: document.documentElement.clientWidth,
-      });
-    }, 10);
+        height: window.innerHeight,
+        width: window.innerWidth
+      })
 
-    window.addEventListener("resize", debouncedHandleResize);
+}
 
-    return (_) => {
-      window.removeEventListener("resize", debouncedHandleResize);
-    };
-  });
+    window.addEventListener('resize', handleResize)
+
+    return _ => {
+      window.removeEventListener('resize', handleResize)
+
+}
+  })
 
   let ref = useRef();
   useEffect(() => {
@@ -96,16 +98,7 @@ export const Squiggle = () => {
   );
 };
 
-function debounce(fn, ms) {
-  let timer;
-  return (_) => {
-    clearTimeout(timer);
-    timer = setTimeout((_) => {
-      timer = null;
-      fn.apply(this, arguments);
-    }, ms);
-  };
-}
+
 
 const getPixelRatio = (context) => {
   var backingStore =

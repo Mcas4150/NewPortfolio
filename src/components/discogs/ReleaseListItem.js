@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchRelease } from "../../../actions/releaseActions";
+import { fetchRelease } from "../../actions/releaseActions";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 
@@ -17,9 +17,9 @@ class ReleaseListItem extends Component {
     }
 
     return (
-      <Link to={{ pathname: `/release/${id}` }}>
+      // <Link to={{ pathname: `/release/${id}` }}>
         <img height={size} width={size} src={image} title={title} alt={title} />
-      </Link>
+      // </Link>
     );
   }
 }

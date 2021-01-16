@@ -33,7 +33,7 @@ const Intro = styled(TileInner)`
 const H1 = styled.h1`
   font-weight: 700;
   font-size: 3.25rem;
-  color: #f5f4f0;
+  color: black;
   font-family: "Syne-Bold", sans-serif;
   line-height: 1;
 `;
@@ -46,4 +46,3 @@ const IntroText = styled.span`
     color: #b4b17c;
   }
 `;
-

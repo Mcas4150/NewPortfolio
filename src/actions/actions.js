@@ -8,77 +8,75 @@ import {
   TRIGGER_RELEASE,
   NOTE_PRESS,
   NOTE_RELEASE,
-  SET_FREQUENCY
+  SET_FREQUENCY,
 } from "./types";
 
-export const changeDial = dial => {
+export const changeDial = (dial) => {
   return {
     type: CHANGE_DIAL,
-    payload: dial
+    payload: dial,
   };
 };
 
-export const changeWaveform = select => {
+export const changeWaveform = (select) => {
   return {
     type: CHANGE_WAVEFORM,
-    payload: select
+    payload: select,
   };
 };
 
-export const changeFilterType = val => {
+export const changeFilterType = (val) => {
   return {
     type: CHANGE_FILTER_TYPE,
-    payload: val
+    payload: val,
   };
 };
 
-export const sawStart = note => {
+export const sawStart = (note) => {
   return {
     type: SAW_START,
-    payload: note
+    payload: note,
   };
 };
 
-export const triggerMaster = note => {
+export const triggerMaster = (note) => {
   return {
     type: TRIGGER_MASTER,
-    payload: note
+    payload: note,
   };
 };
 
-export const triggerAttack = note => {
+export const triggerAttack = (note) => {
   return {
     type: TRIGGER_ATTACK,
-    payload: note
+    payload: note,
   };
 };
 
-export const triggerRelease = note => {
+export const triggerRelease = (note) => {
   return {
     type: TRIGGER_RELEASE,
-    payload: note
+    payload: note,
   };
 };
 
-
-export const notePress = note => {
+export const notePress = (note) => {
   return {
     type: NOTE_PRESS,
-    payload: note
+    payload: note,
   };
 };
 
-export const setFrequency = frequency => {
+export const setFrequency = (frequency) => {
   return {
     type: SET_FREQUENCY,
-    payload: frequency
+    payload: frequency,
   };
 };
 
-export const noteRelease = note => {
+export const noteRelease = (note) => {
   return {
     type: NOTE_RELEASE,
-    payload: note
+    payload: note,
   };
 };
-
