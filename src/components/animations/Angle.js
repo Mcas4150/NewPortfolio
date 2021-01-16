@@ -1,9 +1,28 @@
-import React from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 export const Angle = () => {
+  const [dimensions, setDimensions] = useState({
+    heigh: window.innerHeight,
+    width: window.innerWidth,
+  });
+
   let ref = useRef();
+
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return (_) => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
   useEffect(() => {
     let requestId,
       // i = 0,
@@ -126,7 +145,12 @@ export const Angle = () => {
     };
   });
 
-  return <canvas ref={ref} style={{ width: "100%", height: "100%" }} />;
+  return (
+    <canvas
+      ref={ref}
+      style={{ width: dimensions.width, height: dimensions.height }}
+    />
+  );
 };
 
 const getPixelRatio = (context) => {
