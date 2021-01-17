@@ -1,4 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+// const useMousePosition = () => {
+//   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
+
+//   const updateMousePosition = (ev) => {
+//     setMousePosition({ x: ev.clientX, y: ev.clientY });
+//   };
+
+//   useEffect(() => {
+//     window.addEventListener("mousemove", updateMousePosition);
+
+//     return () => window.removeEventListener("mousemove", updateMousePosition);
+//   }, []);
+
+//   return mousePosition;
+// };
 
 class Graphic extends React.Component {
   constructor(props) {
@@ -40,14 +56,17 @@ export default class CanvasApp extends React.Component {
   }
 
   tick() {
-    const rotation = this.state.rotation;
-    // const rotation = this.state.rotation + 0.04;
+    // const rotation = this.state.rotation;
+    const rotation = this.state.rotation + 0.04;
     this.setState({ rotation });
     requestAnimationFrame(this.tick);
   }
 
   render() {
-    return <Graphic rotation={this.state.rotation} width={200} height={200} />;
+    // const { x, y } = useMousePosition();
+    return (
+      <Graphic rotation={this.state.rotation} width={200} height={200} />
+    );
   }
 }
 

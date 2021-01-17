@@ -16,6 +16,7 @@ import AboutProjects from "./about/about_projects";
 import AboutSynth from "./about/about_synth";
 import ReleasesList from "./discogs/releases_list";
 import ReleasePage from "./discogs/release_page";
+import ReleasePageInfo from "./discogs/release_page_info";
 import ProjectsList from "./projects/ProjectsList";
 import SynthMain from "./synth/synthMain";
 import Window from "./tiles/Window";
@@ -39,6 +40,11 @@ export default class App extends Component {
                 <Route exact path="/discogs" component={AboutDiscogs} />
                 <Route exact path="/synth" component={AboutSynth} />
                 <Route exact path="/projects" component={AboutProjects} />
+                <Route
+                  exact
+                  path="/discogs/release/:id"
+                  component={ReleasePageInfo}
+                />
               </Switch>
             </AboutWindow>
           </AboutContainer>

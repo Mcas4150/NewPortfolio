@@ -1,13 +1,22 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Youtube from "react-youtube";
+import { bindActionCreators } from "redux";
+import { fetchRelease } from "../../actions/releaseActions";
 import _ from "lodash";
 
-class ReleasePageItem extends Component {
-  constructor() {
-    super();
+class ReleasePageInfo extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { isLoading: false, currentRelease: "" };
   }
 
+  componentWillMount() {
+    this.props.fetchRelease(this.props.match.params.id);
+    this.setState({ currentRelease: this.props.release });
+  }
+
+  
   render() {
     const releaseData = this.props.release;
     let id = releaseData.id;
@@ -48,20 +57,33 @@ class ReleasePageItem extends Component {
     return (
       <div>
         <a href={url} target="_blank">
-          <img src={images[0]} title={title} alt={title} />
-    
+          <h1>{title}</h1>
         </a>
 
-        <Youtube videoId={uri[0]} />
+        <h4>{year}</h4>
+        <h4>{styles[0]}</h4>
+        <h4>{country}</h4>
       </div>
     );
   }
 }
 
-ReleasePageItem.defaultProps = {};
+ReleasePageInfo.defaultProps = {};
+
+// function mapStateToProps(state) {
+//   return { release: state.release };
+// }
+
+// export default connect(mapStateToProps)(ReleasePageItem);
+
+
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchRelease }, dispatch);
+}
 
 function mapStateToProps(state) {
   return { release: state.release };
 }
 
-export default connect(mapStateToProps)(ReleasePageItem);
+export default connect(mapStateToProps, mapDispatchToProps)(ReleasePageInfo);
