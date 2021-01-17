@@ -7,6 +7,8 @@ import Graphic from "./animations/SquareSpin";
 // import SearchBar from "../containers/search_bar";
 import ReleasesList from "./discogs/releases_list";
 import ReleasePage from "./discogs/release_page";
+import ProjectsList from "./projects/ProjectsList";
+import SynthMain from "./synth/synthMain";
 import Window from "./tiles/Window";
 
 export default class App extends Component {
@@ -27,6 +29,8 @@ export default class App extends Component {
             <FeaturedWindow>
               <Switch>
                 <Route exact path="/discogs" component={ReleasesList} />
+                <Route exact path="/synth" component={SynthMain} />
+                <Route exact path="/projects" component={ProjectsList} />
                 <Switch>
                   <Route
                     exact

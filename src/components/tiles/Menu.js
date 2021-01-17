@@ -5,14 +5,12 @@ import styled from "@emotion/styled";
 export default class Menu extends Component {
   render() {
     return (
-      <div>
-        <ul>
-          <MenuLink to={{ pathname: `/discogs` }}>Discogs</MenuLink>
-          <MenuLink to={{ pathname: `/oscilloscope` }}>Scope</MenuLink>
-          <MenuLink to={{ pathname: `/projects` }}>Projects</MenuLink>
-          <MenuLink to={{ pathname: `/cv` }}>CV</MenuLink>
-        </ul>
-      </div>
+      <MenuContainer>
+        <MenuLink to={{ pathname: `/discogs` }}>Discogs</MenuLink>
+        <MenuLink to={{ pathname: `/synth` }}>Scope</MenuLink>
+        <MenuLink to={{ pathname: `/projects` }}>Projects</MenuLink>
+        <MenuLink to={{ pathname: `/cv` }}>CV</MenuLink>
+      </MenuContainer>
     );
   }
 }
@@ -20,6 +18,15 @@ export default class Menu extends Component {
 const MenuLink = styled(Link)`
   text-decoration: none;
   font-family: MonumentRegular;
-  font-size: 0.75rem;
+  // font-size: 1rem;
+  font-size: 20px;
+
   color: ;
+`;
+
+const MenuContainer = styled.div`
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
 `;
