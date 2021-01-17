@@ -4,8 +4,6 @@ import ReleasesList from "../discogs/releases_list";
 import Draggable from "react-draggable";
 
 export default class Window extends Component {
-
-
   state = {
     activeDrags: 0,
     deltaPosition: {
@@ -41,12 +39,11 @@ export default class Window extends Component {
     return (
       // <Draggable handle="strong" {...dragHandlers}>
       <Draggable handle="strong">
-        <Frame className="box">
+        <Frame>
           <strong className="cursor">
-            <Title>Discogs</Title>
+            <Title>{this.props.title}</Title>
           </strong>
           <Content>
-
             {this.props.children}
             {/* <ReleasesList /> */}
           </Content>

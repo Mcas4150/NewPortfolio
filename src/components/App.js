@@ -1,10 +1,19 @@
 import React, { Component } from "react";
-import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  BrowserRouter as Router,
+  Route,
+  Switch,
+} from "react-router-dom";
 import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
 import { Squiggle } from "./animations/Squiggle";
 import Graphic from "./animations/SquareSpin";
 // import SearchBar from "../containers/search_bar";
+import AboutDiscogs from "./about/about_discogs";
+import AboutProjects from "./about/about_projects";
+import AboutSynth from "./about/about_synth";
 import ReleasesList from "./discogs/releases_list";
 import ReleasePage from "./discogs/release_page";
 import ProjectsList from "./projects/ProjectsList";
@@ -24,20 +33,26 @@ export default class App extends Component {
             <Menu />
           </LeftGradient>
           <MenuTile></MenuTile>
-          <AboutContainer></AboutContainer>
+          <AboutContainer>
+            <AboutWindow title={"about"}>
+              <Switch>
+                <Route exact path="/discogs" component={AboutDiscogs} />
+                <Route exact path="/synth" component={AboutSynth} />
+                <Route exact path="/projects" component={AboutProjects} />
+              </Switch>
+            </AboutWindow>
+          </AboutContainer>
           <FeaturedTile>
             <FeaturedWindow>
               <Switch>
                 <Route exact path="/discogs" component={ReleasesList} />
                 <Route exact path="/synth" component={SynthMain} />
                 <Route exact path="/projects" component={ProjectsList} />
-                <Switch>
-                  <Route
-                    exact
-                    path="/discogs/release/:id"
-                    component={ReleasePage}
-                  />
-                </Switch>
+                <Route
+                  exact
+                  path="/discogs/release/:id"
+                  component={ReleasePage}
+                />
               </Switch>
             </FeaturedWindow>
           </FeaturedTile>
@@ -90,4 +105,10 @@ const FeaturedTile = styled(Tile)`
   grid-area: 1 / 6 / span 6 / span 7;
 `;
 
-const FeaturedWindow = styled(Window)``;
+const FeaturedWindow = styled(Window)`
+  background-color: #d8d8d8;
+`;
+
+const AboutWindow = styled(Window)`
+  background-color: green;
+`;
