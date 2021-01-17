@@ -3,23 +3,24 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
   fetchUserCollection,
-  updateCoverSize
+  updateCoverSize,
 } from "../../actions/collectionActions";
+import styled from "@emotion/styled";
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = { coverSize: "large", items: 50 };
 
-    // this.onInputChange = this.onInputChange.bind(this);
+    this.onInputChange = this.onInputChange.bind(this);
     this.onCoverSizeChange = this.onCoverSizeChange.bind(this);
     this.onItemsChange = this.onItemsChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
-  // onInputChange(event) {
-  //   this.setState({ username: event.target.value });
-  // }
+  onInputChange(event) {
+    this.setState({ username: event.target.value });
+  }
 
   onCoverSizeChange(event) {
     this.setState({ coverSize: event.target.value });
@@ -40,19 +41,17 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onFormSubmit} className="input-group">
-        {/* <input
+      <SearchBarForm onSubmit={this.onFormSubmit}>
+        <input
           placeholder="Type in your discogs username"
           className="form-control rounded"
           onChange={this.onInputChange}
           value={this.state.username}
         />
-        <span className="input-group-btn">
-          <button type="submit" className="btn btn-primary ml-2">
-            Submit
-          </button>
-        </span> */}
-        <div className="input-group input-group-sm mt-2">
+        <button type="submit" className="btn btn-primary ml-2">
+          Submit
+        </button>
+        <SelectionContainer>
           <div className="input-group-prepend">
             <label className="input-group-text" htmlFor="inputGroupSelect01">
               Cover size
@@ -80,18 +79,25 @@ class SearchBar extends Component {
             <option value="100">100</option>
             <option value="250">250</option>
           </select>
-        </div>
-      </form>
+        </SelectionContainer>
+      </SearchBarForm>
     );
   }
 }
+
+const SearchBarForm = styled.form`
+  display: flex;
+  flex-direction: row;
+`;
+
+const SelectionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 
 function mapDispatchToProps(dispatch) {
   let actions = bindActionCreators({ fetchUserCollection }, dispatch);
   return { ...actions, dispatch };
 }
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(SearchBar);
+export default connect(null, mapDispatchToProps)(SearchBar);
