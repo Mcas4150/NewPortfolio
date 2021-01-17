@@ -1,8 +1,0 @@
-@font-face {
-    font-family: 'N.O.- Movement';
-    src: url('MovementBold.woff2') format('woff2'),
-        url('MovementBold.woff') format('woff');
-    font-weight: bold;
-    font-style: normal;
-}
-

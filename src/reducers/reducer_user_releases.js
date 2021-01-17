@@ -1,9 +1,9 @@
 import {
   FETCH_COLLECTION_NEXT_PAGE,
-  FETCH_USER_COLLECTION,
+  FETCH_USER_COLLECTION
 } from "../actions/types";
 
-export default function (state = {}, action) {
+export default function(state = {}, action) {
   switch (action.type) {
     case FETCH_USER_COLLECTION:
       return action.payload.data;

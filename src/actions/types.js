@@ -1,13 +1,3 @@
-export const CHANGE_DIAL = "CHANGE_DIAL";
-export const CHANGE_WAVEFORM = "CHANGE_WAVEFORM";
-export const CHANGE_FILTER_TYPE = "CHANGE_FILTER_TYPE";
-export const SAW_START = "SAW_START";
-export const TRIGGER_MASTER = "TRIGGER_MASTER";
-export const TRIGGER_ATTACK = "TRIGGER_ATTACK";
-export const TRIGGER_RELEASE = "TRIGGER_RELEASE";
-export const NOTE_PRESS = "NOTE_PRESS";
-export const NOTE_RELEASE = "NOTE_RELEASE";
-export const SET_FREQUENCY = "SET_FREQUENCY";
 export const FETCH_USER_COLLECTION = "fetch_user_collection";
 export const FETCH_COLLECTION_NEXT_PAGE = "fetch_collection_next_page";
 export const UPDATE_COVER_SIZE = "update_cover_size";

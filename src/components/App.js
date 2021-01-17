@@ -1,46 +1,18 @@
 import React, { Component } from "react";
+import { Link, BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
-import { Squiggle } from "./animations/Squiggle";
 import Menu from "./tiles/Menu";
-import Featured from "./tiles/Featured";
+import { Squiggle } from "./animations/Squiggle";
 import Graphic from "./animations/SquareSpin";
+// import SearchBar from "../containers/search_bar";
+import ReleasesList from "./discogs/releases_list";
+import ReleasePage from "./discogs/release_page";
+import Window from "./tiles/Window";
 
-export default class Main extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startAnimation: false,
-      hoverTitle: false,
-      scrollX: 0,
-      scrollY: 0,
-      scrollPos: 0,
-    };
-    this.handleClick = this.handleClick.bind(this);
-    this.handleHover = this.handleHover.bind(this);
-    this.handleUnhover = this.handleUnhover.bind(this);
-  }
-
-  handleClick() {
-    this.setState((prevState) => ({
-      startAnimation: !prevState.startAnimation,
-    }));
-  }
-
-  handleHover() {
-    this.setState({
-      hoverTitle: true,
-    });
-  }
-
-  handleUnhover() {
-    this.setState({
-      hoverTitle: false,
-    });
-  }
-
+export default class App extends Component {
   render() {
     return (
-      <div>
+      <Router>
         <Squiggle />
         <TileContainer>
           <TitleContainer>
@@ -52,10 +24,21 @@ export default class Main extends Component {
           <MenuTile></MenuTile>
           <AboutContainer></AboutContainer>
           <FeaturedTile>
-            <Featured />
+            <FeaturedWindow>
+              <Switch>
+                <Route exact path="/discogs" component={ReleasesList} />
+                <Switch>
+                  <Route
+                    exact
+                    path="/discogs/release/:id"
+                    component={ReleasePage}
+                  />
+                </Switch>
+              </Switch>
+            </FeaturedWindow>
           </FeaturedTile>
         </TileContainer>
-      </div>
+      </Router>
     );
   }
 }
@@ -102,3 +85,5 @@ const AboutContainer = styled(Tile)`
 const FeaturedTile = styled(Tile)`
   grid-area: 1 / 6 / span 6 / span 7;
 `;
+
+const FeaturedWindow = styled(Window)``;

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import {
   fetchUserCollection,
-  updateCoverSize,
+  updateCoverSize
 } from "../../actions/collectionActions";
 
 class SearchBar extends Component {
@@ -91,4 +91,7 @@ function mapDispatchToProps(dispatch) {
   return { ...actions, dispatch };
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default connect(
+  null,
+  mapDispatchToProps
+)(SearchBar);

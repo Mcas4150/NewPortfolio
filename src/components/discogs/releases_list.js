@@ -2,12 +2,12 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import _ from "lodash";
 import { bindActionCreators } from "redux";
-import ReleaseListItem from "./ReleaseListItem";
-import { releasesArray } from "./releaseData";
+import ReleaseListItem from "./release_list_item";
 import {
   fetchCollectionNextPage,
   fetchUserCollection,
 } from "../../actions/collectionActions";
+import SearchBar from "./search_bar";
 import styled from "@emotion/styled";
 
 class ReleasesList extends Component {
@@ -18,10 +18,10 @@ class ReleasesList extends Component {
     this.onScroll = this.onScroll.bind(this);
   }
 
-  // componentWillMount() {
-  //   this.props.fetchUserCollection(50);
-  //   window.addEventListener("scroll", this.onScroll, false);
-  // }
+  componentDidMount() {
+    this.props.fetchUserCollection(50);
+    window.addEventListener("scroll", this.onScroll, false);
+  }
 
   componentWillUnmount() {
     window.removeEventListener("scroll", this.onScroll, false);
@@ -44,54 +44,29 @@ class ReleasesList extends Component {
   }
 
   render() {
-    // const { releases } = releasesArray;
-    // const { releases } = this.props.collection;
+    const { releases } = this.props.collection;
 
-    if (releasesArray) {
+    if (_.isArray(releases) && !_.isEmpty(releases)) {
       return (
-        <ReleasesContainer>
-          {releasesArray.map((release) => {
-            const data = release.basic_information;
+        <div>
+          <SearchBar />
+          <ReleasesContainer>
+            {releases.map((release) => {
+              const data = release.basic_information;
 
-            return (
-              <div key={data.id}>
-                <ReleaseListItem data={data} />
-              </div>
-            );
-          })}
-        </ReleasesContainer>
+              return (
+                <div key={data.id} className="col-auto p-0">
+                  <ReleaseListItem data={data} />
+                </div>
+              );
+            })}
+          </ReleasesContainer>
+        </div>
       );
     }
-    // if (_.isArray(releases) && !_.isEmpty(releases)) {
-    //   return (
-    //     <div className="mt-2 justify-content-center row">
-    //       mike
-    //       {releases.map((release) => {
-    //         const data = release.basic_information;
-
-    //         return (
-    //           <div key={data.id} className="col-auto p-0">
-    //             <ReleaseListItem data={data} />
-    //           </div>
-    //         );
-    //       })}
-    //     </div>
-    //   );
-    // }
 
     return null;
   }
-}
-
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { fetchCollectionNextPage, fetchUserCollection },
-    dispatch
-  );
-}
-
-function mapStateToProps(state) {
-  return { collection: state.collection };
 }
 
 const ReleasesContainer = styled.div`
@@ -103,5 +78,16 @@ const ReleasesContainer = styled.div`
   width: 100%;
 }
 `;
+
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(
+    { fetchCollectionNextPage, fetchUserCollection },
+    dispatch
+  );
+}
+
+function mapStateToProps(state) {
+  return { collection: state.collection };
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(ReleasesList);

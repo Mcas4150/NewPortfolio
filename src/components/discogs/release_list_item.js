@@ -4,7 +4,12 @@ import { fetchRelease } from "../../actions/releaseActions";
 import { bindActionCreators } from "redux";
 import { Link } from "react-router-dom";
 
+
 class ReleaseListItem extends Component {
+  constructor() {
+    super();
+  }
+
   render() {
     let { title } = this.props.data;
     let { id } = this.props.data;
@@ -17,9 +22,9 @@ class ReleaseListItem extends Component {
     }
 
     return (
-      // <Link to={{ pathname: `/release/${id}` }}>
+      <Link to={{ pathname: `discogs/release/${id}` }}>
         <img height={size} width={size} src={image} title={title} alt={title} />
-      // </Link>
+      </Link>
     );
   }
 }

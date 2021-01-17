@@ -4,6 +4,8 @@ import ReleasesList from "../discogs/releases_list";
 import Draggable from "react-draggable";
 
 export default class Window extends Component {
+
+
   state = {
     activeDrags: 0,
     deltaPosition: {
@@ -16,35 +18,37 @@ export default class Window extends Component {
     },
   };
 
-  handleDrag = (e, ui) => {
-    const { x, y } = this.state.deltaPosition;
-    this.setState({
-      deltaPosition: {
-        x: x + ui.deltaX,
-        y: y + ui.deltaY,
-      },
-    });
-  };
+  // handleDrag = (e, ui) => {
+  //   const { x, y } = this.state.deltaPosition;
+  //   this.setState({
+  //     deltaPosition: {
+  //       x: x + ui.deltaX,
+  //       y: y + ui.deltaY,
+  //     },
+  //   });
+  // };
 
-  onStart = () => {
-    this.setState({ activeDrags: ++this.state.activeDrags });
-  };
+  // onStart = () => {
+  //   this.setState({ activeDrags: ++this.state.activeDrags });
+  // };
 
-  onStop = () => {
-    this.setState({ activeDrags: --this.state.activeDrags });
-  };
+  // onStop = () => {
+  //   this.setState({ activeDrags: --this.state.activeDrags });
+  // };
 
   render() {
-    const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
+    // const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
     return (
-      <Draggable handle="strong" {...dragHandlers}>
+      // <Draggable handle="strong" {...dragHandlers}>
+      <Draggable handle="strong">
         <Frame className="box">
           <strong className="cursor">
             <Title>Discogs</Title>
           </strong>
           <Content>
-            {" "}
-            <ReleasesList />
+
+            {this.props.children}
+            {/* <ReleasesList /> */}
           </Content>
         </Frame>
       </Draggable>
@@ -59,6 +63,7 @@ const Frame = styled.div`
   border: 1.85px solid black;
   box-shadow: 5px 5px #888888;
   height: 100%;
+  opacity: 98%;
 `;
 
 const Title = styled.div`
@@ -76,4 +81,5 @@ const Content = styled.div`
   // margin: 15px;
   margin-top: 15px;
   border: 1.85px solid black;
+  opacity: 90%;
 `;

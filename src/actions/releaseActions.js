@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ROOT_URL, API_KEY } from "../util/setAuthToken";
+import { ROOT_URL, API_KEY } from "../utils/setAuthToken";
 import { FETCH_RELEASE } from "./types";
 
 export function fetchRelease(release_id) {
