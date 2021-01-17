@@ -50,7 +50,7 @@ export default class Main extends Component {
             <Menu />
           </LeftGradient>
           <MenuTile></MenuTile>
-          <AboutContainer>Mike</AboutContainer>
+          <AboutContainer></AboutContainer>
           <FeaturedTile>
             <Featured />
           </FeaturedTile>
