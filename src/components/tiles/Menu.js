@@ -19,7 +19,7 @@ const MenuLink = styled(Link)`
   text-decoration: none;
   font-family: MonumentRegular;
   // font-size: 1rem;
-  font-size: 20px;
+  font-size: 25px;
 
   color: ;
 `;
