@@ -13,12 +13,10 @@ class ReleasePageItem extends Component {
     let id = releaseData.id;
     let url = `https://www.discogs.com/release/${id}`;
 
-    let year = releaseData.year;
+ 
     // let image = releaseData.thumb;
     let title = releaseData.title;
 
-    let style = releaseData.styles;
-    let country = releaseData.country;
     let styles = [];
     let uri = [];
     let images = [];
@@ -49,7 +47,7 @@ class ReleasePageItem extends Component {
       <div>
         <a href={url} target="_blank">
           <img src={images[0]} title={title} alt={title} />
-    
+
         </a>
 
         <Youtube videoId={uri[0]} />
