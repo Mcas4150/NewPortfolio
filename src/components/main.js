@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
-import { Squiggle } from "./animations/squiggle";
-import Menu from "./tiles/menu";
+import { Squiggle } from "./animations/Squiggle";
+import Menu from "./tiles/Menu";
 import Featured from "./tiles/Featured";
-import Graphic from "./animations/squareSpin";
+import Graphic from "./animations/SquareSpin";
 
 export default class Main extends Component {
   constructor(props) {

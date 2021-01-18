@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
-import Menu from "./tiles/menu";
-import { Squiggle } from "./animations/squiggle";
+import Menu from "./tiles/Menu";
+import { Squiggle } from "./animations/Squiggle";
 import "./app.css";
 
 // import SearchBar from "../containers/search_bar";
@@ -12,11 +12,11 @@ import AboutSynth from "./info/about_synth";
 import ReleasesList from "./discogs/releases_list";
 import ReleasePage from "./discogs/release_page";
 import ReleasePageInfo from "./discogs/release_page_info";
-import ProjectsList from "./projects/projectsList";
+import ProjectsList from "./projects/ProjectsList";
 import SynthMain from "./synth/synthMain";
-import Tech from "./tiles/tech";
-import Title from "./tiles/title";
-import Window from "./tiles/window";
+import Tech from "./tiles/Tech";
+import Title from "./tiles/Title";
+import Window from "./tiles/Window";
 
 const App = () => {
   const [dimensions, setDimensions] = useState({
