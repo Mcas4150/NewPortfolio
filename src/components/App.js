@@ -78,14 +78,14 @@ const TileContainer = styled.div`
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
   grid-template-areas:
-    "title title title title . . featured featured featured featured featured featured"
+    "title title title about about about  featured featured featured featured featured featured"
+    "menu . . about about about featured featured featured featured featured featured"
+    "menu . . about about about featured featured featured featured featured featured"
+    "menu . . about about about  featured featured featured featured featured featured"
+    "menu . . about about about  featured featured featured featured featured featured"
     "menu . . . . . featured featured featured featured featured featured"
     "menu . . . . . featured featured featured featured featured featured"
-    "menu . about about about . featured featured featured featured featured featured"
-    "menu . about about about . featured featured featured featured featured featured"
-    "menu . about about about . featured featured featured featured featured featured"
-    "menu . about about about . featured featured featured featured featured featured"
-    "menu . about about about . featured featured featured featured featured featured"
+    "menu . . . . . featured featured featured featured featured featured"
     "menu . . . . . featured featured featured featured featured featured"
     "menu . . . . . featured featured featured featured featured featured";
   // grid-template-columns: repeat(6, 1fr);

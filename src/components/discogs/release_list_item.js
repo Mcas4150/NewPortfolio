@@ -17,7 +17,7 @@ class ReleaseListItem extends Component {
     let image = this.props.data.cover_image;
 
     if (this.props.coversize === "small") {
-      size = 150;
+      size = 100;
       image = this.props.data.thumb;
     }
 
@@ -30,7 +30,7 @@ class ReleaseListItem extends Component {
 }
 
 ReleaseListItem.defaultProps = {
-  size: 250,
+  size: 200,
 };
 
 function mapDispatchToProps(dispatch) {

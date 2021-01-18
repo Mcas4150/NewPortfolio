@@ -60,6 +60,8 @@ const Frame = styled.div`
   border: 1.85px solid black;
   box-shadow: 5px 5px #888888;
   height: 100%;
+  overflow-y: hidden;
+  // overflow-x: hidden;
   opacity: 98%;
 `;
 
@@ -79,5 +81,8 @@ const Content = styled.div`
   margin-top: 15px;
   border: 1.85px solid black;
   opacity: 90%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
   // overflow: auto;
 `;
