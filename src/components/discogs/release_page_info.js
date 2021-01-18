@@ -16,7 +16,6 @@ class ReleasePageInfo extends Component {
     this.setState({ currentRelease: this.props.release });
   }
 
-  
   render() {
     const releaseData = this.props.release;
     let id = releaseData.id;
@@ -26,7 +25,7 @@ class ReleasePageInfo extends Component {
     // let image = releaseData.thumb;
     let title = releaseData.title;
 
-    let style = releaseData.styles;
+    // let style = releaseData.styles;
     let country = releaseData.country;
     let styles = [];
     let uri = [];
@@ -34,19 +33,19 @@ class ReleasePageInfo extends Component {
 
     // let uri = this.props.release.videos.duration[0];
     if (_.isArray(releaseData.images) && !_.isEmpty(releaseData.images)) {
-      releaseData.images.map(image => {
+      releaseData.images.forEach((image) => {
         images.push(image.uri);
       });
     }
 
     if (_.isArray(releaseData.styles) && !_.isEmpty(releaseData.styles)) {
-      releaseData.styles.map(style => {
+      releaseData.styles.forEach((style) => {
         styles.push(style);
       });
     }
 
     if (_.isArray(releaseData.videos) && !_.isEmpty(releaseData.videos)) {
-      releaseData.videos.map(video => {
+      releaseData.videos.forEach((video) => {
         // uri.push(video.uri);
         let uriLink = video.uri;
         let uriCode = uriLink.substr(uriLink.indexOf("=") + 1);
@@ -56,7 +55,7 @@ class ReleasePageInfo extends Component {
 
     return (
       <div>
-        <a href={url} target="_blank">
+        <a href={url} rel="noopener noreferrer" target="_blank">
           <h1>{title}</h1>
         </a>
 
@@ -75,8 +74,6 @@ ReleasePageInfo.defaultProps = {};
 // }
 
 // export default connect(mapStateToProps)(ReleasePageItem);
-
-
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchRelease }, dispatch);

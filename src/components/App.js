@@ -1,15 +1,9 @@
 import React, { Component } from "react";
-import {
-  Link,
-  useLocation,
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
 import { Squiggle } from "./animations/Squiggle";
-import Graphic from "./animations/SquareSpin";
+
 // import SearchBar from "../containers/search_bar";
 import AboutDiscogs from "./about/about_discogs";
 import AboutProjects from "./about/about_projects";
@@ -110,11 +104,6 @@ const Tile = styled.div`
 const TitleTile = styled(Tile)`
   // grid-area: 1 / 1 / span 8 / span 8;
   grid-area: title;
-`;
-
-const LeftGradient = styled(Tile)`
-  // grid-area: 2 / 1 / span 6 / span 1;
-  grid-area: left;
 `;
 
 const MenuTile = styled(Tile)`

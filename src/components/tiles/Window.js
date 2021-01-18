@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import styled from "@emotion/styled";
-import ReleasesList from "../discogs/releases_list";
 import Draggable from "react-draggable";
 
 export default class Window extends Component {
@@ -45,7 +44,7 @@ export default class Window extends Component {
           </strong>
           <Content>
             {this.props.children}
-            {/* <ReleasesList /> */}
+
           </Content>
         </Frame>
       </Draggable>

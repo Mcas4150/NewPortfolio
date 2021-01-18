@@ -4,16 +4,11 @@ import Youtube from "react-youtube";
 import _ from "lodash";
 
 class ReleasePageItem extends Component {
-  constructor() {
-    super();
-  }
-
   render() {
     const releaseData = this.props.release;
     let id = releaseData.id;
     let url = `https://www.discogs.com/release/${id}`;
 
- 
     // let image = releaseData.thumb;
     let title = releaseData.title;
 
@@ -23,19 +18,19 @@ class ReleasePageItem extends Component {
 
     // let uri = this.props.release.videos.duration[0];
     if (_.isArray(releaseData.images) && !_.isEmpty(releaseData.images)) {
-      releaseData.images.map(image => {
+      releaseData.images.forEach((image) => {
         images.push(image.uri);
       });
     }
 
     if (_.isArray(releaseData.styles) && !_.isEmpty(releaseData.styles)) {
-      releaseData.styles.map(style => {
+      releaseData.styles.forEach((style) => {
         styles.push(style);
       });
     }
 
     if (_.isArray(releaseData.videos) && !_.isEmpty(releaseData.videos)) {
-      releaseData.videos.map(video => {
+      releaseData.videos.forEach((video) => {
         // uri.push(video.uri);
         let uriLink = video.uri;
         let uriCode = uriLink.substr(uriLink.indexOf("=") + 1);
@@ -45,9 +40,8 @@ class ReleasePageItem extends Component {
 
     return (
       <div>
-        <a href={url} target="_blank">
+        <a href={url} rel="noopener noreferrer" target="_blank">
           <img src={images[0]} title={title} alt={title} />
-
         </a>
 
         <Youtube videoId={uri[0]} />

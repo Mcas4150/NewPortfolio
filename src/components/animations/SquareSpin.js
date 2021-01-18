@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 // const useMousePosition = () => {
 //   const [mousePosition, setMousePosition] = useState({ x: null, y: null });
