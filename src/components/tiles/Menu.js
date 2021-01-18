@@ -28,5 +28,4 @@ const MenuContainer = styled.div`
   margin: 25px;
   display: flex;
   flex-direction: column;
-  padding: 15px;
 `;

@@ -76,6 +76,8 @@ const ReleasesContainer = styled.div`
   flex-wrap: wrap;
   align-items: stretch;
   width: 100%;
+  // overflow: scroll;
+  height: 100%;
 }
 `;
 

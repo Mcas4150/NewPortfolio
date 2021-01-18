@@ -19,6 +19,7 @@ import ReleasePage from "./discogs/release_page";
 import ReleasePageInfo from "./discogs/release_page_info";
 import ProjectsList from "./projects/ProjectsList";
 import SynthMain from "./synth/synthMain";
+import Title from "./tiles/Title";
 import Window from "./tiles/Window";
 
 export default class App extends Component {
@@ -27,13 +28,13 @@ export default class App extends Component {
       <Router>
         <Squiggle />
         <TileContainer>
-          <TitleContainer>
-            <Graphic />
-          </TitleContainer>
-          <LeftGradient>
+          <TitleTile>
+            <Title />
+          </TitleTile>
+
+          <MenuTile>
             <Menu />
-          </LeftGradient>
-          <MenuTile></MenuTile>
+          </MenuTile>
           <AboutContainer>
             <AboutWindow title={"about"}>
               <Switch>
@@ -75,40 +76,60 @@ const TileContainer = styled.div`
   // background-color: #f5f4f0;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: 1fr;
-  grid-auto-rows: 8vw;
+  grid-template-rows: repeat(12, 1fr);
+  grid-template-areas:
+    "title title title title . . featured featured featured featured featured featured"
+    "menu . . . . . featured featured featured featured featured featured"
+    "menu . . . . . featured featured featured featured featured featured"
+    "menu . about about about . featured featured featured featured featured featured"
+    "menu . about about about . featured featured featured featured featured featured"
+    "menu . about about about . featured featured featured featured featured featured"
+    "menu . about about about . featured featured featured featured featured featured"
+    "menu . about about about . featured featured featured featured featured featured"
+    "menu . . . . . featured featured featured featured featured featured"
+    "menu . . . . . featured featured featured featured featured featured";
+  // grid-template-columns: repeat(6, 1fr);
+  // grid-auto-rows: 1fr;
+  // grid-auto-rows: 8vw;
   margin: auto;
   width: 100%;
+  height: 100%;
   grid-gap: 0 0;
   -webkit-filter: saturate(1.2);
   filter: saturate(1.2);
 `;
 
 const Tile = styled.div`
-  overflow: hidden;
+  // overflow: auto
+  // ;
   position: relative;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 `;
 
-const TitleContainer = styled(Tile)`
-  grid-area: 1 / 1 / span 1 / span 1;
+const TitleTile = styled(Tile)`
+  // grid-area: 1 / 1 / span 8 / span 8;
+  grid-area: title;
 `;
 
 const LeftGradient = styled(Tile)`
-  grid-area: 2 / 1 / span 6 / span 1;
+  // grid-area: 2 / 1 / span 6 / span 1;
+  grid-area: left;
 `;
 
 const MenuTile = styled(Tile)`
-  grid-area: 1 / 2 / span 3 / span 4;
+  // grid-area: 1 / 2 / span 3 / span 4;
+  grid-area: menu;
 `;
 
 const AboutContainer = styled(Tile)`
-  grid-area: 4 / 2 / span 4 / span 4;
+  // grid-area: 4 / 2 / span 4 / span 4;
+  grid-area: about;
 `;
 
 const FeaturedTile = styled(Tile)`
-  grid-area: 1 / 6 / span 6 / span 7;
+  // grid-area: 1 / 6 / span 7 / span 7;
+  grid-area: featured;
 `;
 
 const FeaturedWindow = styled(Window)`

@@ -79,4 +79,5 @@ const Content = styled.div`
   margin-top: 15px;
   border: 1.85px solid black;
   opacity: 90%;
+  // overflow: auto;
 `;
