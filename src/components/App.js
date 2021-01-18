@@ -13,6 +13,7 @@ import ReleasePage from "./discogs/release_page";
 import ReleasePageInfo from "./discogs/release_page_info";
 import ProjectsList from "./projects/ProjectsList";
 import SynthMain from "./synth/synthMain";
+import Tech from "./tiles/Tech";
 import Title from "./tiles/Title";
 import Window from "./tiles/Window";
 
@@ -29,8 +30,8 @@ export default class App extends Component {
           <MenuTile>
             <Menu />
           </MenuTile>
-          <AboutContainer>
-            <AboutWindow title={"about"}>
+          <AboutTile>
+            <AboutWindow title={"About"}>
               <Switch>
                 <Route exact path="/discogs" component={AboutDiscogs} />
                 <Route exact path="/synth" component={AboutSynth} />
@@ -42,7 +43,16 @@ export default class App extends Component {
                 />
               </Switch>
             </AboutWindow>
-          </AboutContainer>
+          </AboutTile>
+          <TechTile>
+            <TechWindow title={"Technologies"}>
+              <Switch>
+                <Route path="/discogs" component={Tech} />
+                <Route exact path="/synth" component={Tech} />
+                <Route exact path="/projects" component={Tech} />
+              </Switch>
+            </TechWindow>
+          </TechTile>
           <FeaturedTile>
             <FeaturedWindow>
               <Switch>
@@ -76,10 +86,10 @@ const TileContainer = styled.div`
     "menu . . about about about featured featured featured featured featured featured"
     "menu . . about about about featured featured featured featured featured featured"
     "menu . . about about about  featured featured featured featured featured featured"
-    "menu . . about about about  featured featured featured featured featured featured"
-    "menu . . . . . featured featured featured featured featured featured"
-    "menu . . . . . featured featured featured featured featured featured"
-    "menu . . . . . featured featured featured featured featured featured"
+    "menu . . . . .  featured featured featured featured featured featured"
+    "menu . . tech tech tech featured featured featured featured featured featured"
+    "menu . . tech tech tech featured featured featured featured featured featured"
+    "menu . . tech tech tech featured featured featured featured featured featured"
     "menu . . . . . featured featured featured featured featured featured"
     "menu . . . . . featured featured featured featured featured featured";
   // grid-template-columns: repeat(6, 1fr);
@@ -111,7 +121,13 @@ const MenuTile = styled(Tile)`
   grid-area: menu;
 `;
 
-const AboutContainer = styled(Tile)`
+const TechTile = styled(Tile)`
+  grid-area: tech;
+`;
+
+const TechWindow = styled(Window)``;
+
+const AboutTile = styled(Tile)`
   // grid-area: 4 / 2 / span 4 / span 4;
   grid-area: about;
 `;
