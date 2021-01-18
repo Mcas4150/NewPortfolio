@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Rotator from "../animations/Rotator";
+import Rotator from "../animations/rotator";
 import styled from "@emotion/styled";
 
 export default class Title extends Component {

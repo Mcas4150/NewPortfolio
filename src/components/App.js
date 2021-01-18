@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
-import Menu from "./tiles/Menu";
-import { Squiggle } from "./animations/Squiggle";
-import "./App.css";
+import Menu from "./tiles/menu";
+import { Squiggle } from "./animations/squiggle";
+import "./app.css";
 
 // import SearchBar from "../containers/search_bar";
 import InfoDiscogs from "./info/info_discogs";
@@ -12,11 +12,11 @@ import AboutSynth from "./info/about_synth";
 import ReleasesList from "./discogs/releases_list";
 import ReleasePage from "./discogs/release_page";
 import ReleasePageInfo from "./discogs/release_page_info";
-import ProjectsList from "./projects/ProjectsList";
+import ProjectsList from "./projects/projectsList";
 import SynthMain from "./synth/synthMain";
-import Tech from "./tiles/Tech";
-import Title from "./tiles/Title";
-import Window from "./tiles/Window";
+import Tech from "./tiles/tech";
+import Title from "./tiles/title";
+import Window from "./tiles/window";
 
 const App = () => {
   const [dimensions, setDimensions] = useState({
@@ -113,7 +113,7 @@ const TileContainer = styled.div`
 
 const TileStyleMax = {
   // margin: "25px",
-  gridTemplateColumns: "repeat(12, 1fr)",
+  gridTemplateColumns: "repeat(12, 1fr) 25px",
   gridTemplateRows: "repeat(12, 1fr)",
   gridTemplateAreas: `'title title title about about about  featured featured featured featured featured featured'
     'menu . . about about about featured featured featured featured featured featured'

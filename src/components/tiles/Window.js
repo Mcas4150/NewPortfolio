@@ -66,7 +66,7 @@ const Title = styled.div`
   background-color: #e7e7e7;
   padding: 5px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
   justify-content: center;
   // margin: 15px;
   border: 1.85px solid black;
@@ -75,8 +75,11 @@ const Title = styled.div`
 const Content = styled.div`
   background-color: #e7e7e7;
   // margin: 15px;
+  text-align: justify;
+  font-family: calibri;
   margin-top: 15px;
-  font-size: 15px;
+  font-size: 16px;
+  padding: 5px;
   border: 1.85px solid black;
   opacity: 90%;
   height: 100%;
