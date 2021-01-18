@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-export default class AboutDiscogs extends Component {
+export default class InfoDiscogs extends Component {
   render() {
     return (
       <div>

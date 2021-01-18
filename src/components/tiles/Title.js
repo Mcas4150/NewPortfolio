@@ -25,6 +25,7 @@ export default class Title extends Component {
 
 const TitleBox = styled.div`
   margin: 25px;
+  margin-bottom: 0px;
   display: flex;
   flex-direction: row;
 `;

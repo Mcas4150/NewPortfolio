@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
 import { Squiggle } from "./animations/Squiggle";
 
 // import SearchBar from "../containers/search_bar";
-import AboutDiscogs from "./about/about_discogs";
-import AboutProjects from "./about/about_projects";
-import AboutSynth from "./about/about_synth";
+import InfoDiscogs from "./info/info_discogs";
+import AboutProjects from "./info/about_projects";
+import AboutSynth from "./info/about_synth";
 import ReleasesList from "./discogs/releases_list";
 import ReleasePage from "./discogs/release_page";
 import ReleasePageInfo from "./discogs/release_page_info";
@@ -17,61 +17,85 @@ import Tech from "./tiles/Tech";
 import Title from "./tiles/Title";
 import Window from "./tiles/Window";
 
-export default class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Squiggle />
-        <TileContainer>
-          <TitleTile>
-            <Title />
-          </TitleTile>
+const App = () => {
+  const [dimensions, setDimensions] = useState({
+    height: document.documentElement.clientHeight,
+    width: document.documentElement.clientWidth,
+  });
 
-          <MenuTile>
-            <Menu />
-          </MenuTile>
-          <AboutTile>
-            <AboutWindow title={"About"}>
-              <Switch>
-                <Route exact path="/discogs" component={AboutDiscogs} />
-                <Route exact path="/synth" component={AboutSynth} />
-                <Route exact path="/projects" component={AboutProjects} />
-                <Route
-                  exact
-                  path="/discogs/release/:id"
-                  component={ReleasePageInfo}
-                />
-              </Switch>
-            </AboutWindow>
-          </AboutTile>
-          <TechTile>
-            <TechWindow title={"Technologies"}>
-              <Switch>
-                <Route path="/discogs" component={Tech} />
-                <Route exact path="/synth" component={Tech} />
-                <Route exact path="/projects" component={Tech} />
-              </Switch>
-            </TechWindow>
-          </TechTile>
-          <FeaturedTile>
-            <FeaturedWindow>
-              <Switch>
-                <Route exact path="/discogs" component={ReleasesList} />
-                <Route exact path="/synth" component={SynthMain} />
-                <Route exact path="/projects" component={ProjectsList} />
-                <Route
-                  exact
-                  path="/discogs/release/:id"
-                  component={ReleasePage}
-                />
-              </Switch>
-            </FeaturedWindow>
-          </FeaturedTile>
-        </TileContainer>
-      </Router>
-    );
-  }
-}
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth,
+      });
+    }
+
+    window.addEventListener("resize", handleResize);
+
+    return (_) => {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
+  return (
+    <Router>
+      <Squiggle />
+      <TileContainer
+        style={
+          dimensions.width <= 800 || dimensions.height <= 600
+            ? TileStyleMin
+            : TileStyleMax
+        }
+      >
+        <TitleTile>
+          <Title />
+        </TitleTile>
+
+        <MenuTile>
+          <Menu />
+        </MenuTile>
+        <AboutTile>
+          <AboutWindow title={"Info"}>
+            <Switch>
+              <Route exact path="/discogs" component={InfoDiscogs} />
+              <Route exact path="/synth" component={AboutSynth} />
+              <Route exact path="/projects" component={AboutProjects} />
+              <Route
+                exact
+                path="/discogs/release/:id"
+                component={ReleasePageInfo}
+              />
+            </Switch>
+          </AboutWindow>
+        </AboutTile>
+        <TechTile>
+          <TechWindow title={"Tech"}>
+            <Switch>
+              <Route path="/discogs" component={Tech} />
+              <Route exact path="/synth" component={Tech} />
+              <Route exact path="/projects" component={Tech} />
+            </Switch>
+          </TechWindow>
+        </TechTile>
+        <FeaturedTile>
+          <FeaturedWindow>
+            <Switch>
+              <Route exact path="/discogs" component={ReleasesList} />
+              <Route exact path="/synth" component={SynthMain} />
+              <Route exact path="/projects" component={ProjectsList} />
+              <Route
+                exact
+                path="/discogs/release/:id"
+                component={ReleasePage}
+              />
+            </Switch>
+          </FeaturedWindow>
+        </FeaturedTile>
+      </TileContainer>
+    </Router>
+  );
+};
 
 const TileContainer = styled.div`
   position: absolute;
@@ -79,22 +103,6 @@ const TileContainer = styled.div`
   left: 0;
   // background-color: #f5f4f0;
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  grid-template-areas:
-    "title title title about about about  featured featured featured featured featured featured"
-    "menu . . about about about featured featured featured featured featured featured"
-    "menu . . about about about featured featured featured featured featured featured"
-    "menu . . about about about  featured featured featured featured featured featured"
-    "menu . . . . .  featured featured featured featured featured featured"
-    "menu . . tech tech tech featured featured featured featured featured featured"
-    "menu . . tech tech tech featured featured featured featured featured featured"
-    "menu . . tech tech tech featured featured featured featured featured featured"
-    "menu . . . . . featured featured featured featured featured featured"
-    "menu . . . . . featured featured featured featured featured featured";
-  // grid-template-columns: repeat(6, 1fr);
-  // grid-auto-rows: 1fr;
-  // grid-auto-rows: 8vw;
   margin: auto;
   width: 100%;
   height: 100%;
@@ -102,6 +110,36 @@ const TileContainer = styled.div`
   -webkit-filter: saturate(1.2);
   filter: saturate(1.2);
 `;
+
+const TileStyleMax = {
+  gridTemplateColumns: "repeat(12, 1fr)",
+  gridTemplateRows: "repeat(12, 1fr)",
+  gridTemplateAreas: `'title title title about about about  featured featured featured featured featured featured'
+    'menu . . about about about featured featured featured featured featured featured'
+    'menu . . about about about featured featured featured featured featured featured'
+    'menu . . about about about  featured featured featured featured featured featured'
+    'menu . . . . .  featured featured featured featured featured featured'
+    'menu . . tech tech tech featured featured featured featured featured featured'
+    'menu . . tech tech tech featured featured featured featured featured featured'
+    'menu . . tech tech tech featured featured featured featured featured featured'
+    'menu . . . . . featured featured featured featured featured featured'
+    'menu . . . . . featured featured featured featured featured featured'`,
+};
+
+const TileStyleMin = {
+  gridTemplateColumns: "1fr 1fr",
+  gridTemplateRows: "repeat(10, 1fr)",
+  gridTemplateAreas: `'title title '
+    'menu menu'
+    'menu menu'
+    'about about'
+    'about about'
+    'tech tech'
+    'featured featured'
+    'featured featured'
+    'featured featured'
+    'featured featured'`,
+};
 
 const Tile = styled.div`
   // overflow: auto
@@ -144,3 +182,5 @@ const FeaturedWindow = styled(Window)`
 const AboutWindow = styled(Window)`
   background-color: green;
 `;
+
+export default App;

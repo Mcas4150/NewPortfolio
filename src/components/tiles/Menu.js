@@ -6,6 +6,7 @@ export default class Menu extends Component {
   render() {
     return (
       <MenuContainer>
+        <MenuLink to={{ pathname: `/about` }}>About</MenuLink>
         <MenuLink to={{ pathname: `/discogs` }}>Discogs</MenuLink>
         <MenuLink to={{ pathname: `/synth` }}>Scope</MenuLink>
         <MenuLink to={{ pathname: `/projects` }}>Projects</MenuLink>
