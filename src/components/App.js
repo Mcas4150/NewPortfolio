@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
 import { Squiggle } from "./animations/Squiggle";
+import "./App.css";
 
 // import SearchBar from "../containers/search_bar";
 import InfoDiscogs from "./info/info_discogs";
@@ -40,7 +41,7 @@ const App = () => {
 
   return (
     <Router>
-      <Squiggle dimensions={dimensions}/>
+      <Squiggle dimensions={dimensions} />
       <TileContainer
         style={
           dimensions.width <= 800 || dimensions.height <= 600
@@ -123,11 +124,12 @@ const TileStyleMax = {
     'menu . . tech tech tech featured featured featured featured featured featured'
     'menu . . . . . featured featured featured featured featured featured'
     'menu . . . . . featured featured featured featured featured featured'`,
+  overflowY: "hidden",
 };
 
 const TileStyleMin = {
   gridTemplateColumns: "1fr 1fr",
-  gridTemplateRows: "repeat(10, 1fr)",
+  gridTemplateRows: "repeat(12, 1fr)",
   gridTemplateAreas: `'title title '
     'menu menu'
     'about about'
@@ -137,7 +139,10 @@ const TileStyleMin = {
     'featured featured'
     'featured featured'
     'featured featured'
+    'featured featured'
+    'featured featured'
     'featured featured'`,
+  overflowY: "auto",
 };
 
 const Tile = styled.div`
