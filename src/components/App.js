@@ -79,7 +79,7 @@ const App = () => {
           </TechWindow>
         </TechTile>
         <FeaturedTile>
-          <FeaturedWindow>
+          <FeaturedWindow title={"Title"}>
             <Switch>
               <Route exact path="/discogs" component={ReleasesList} />
               <Route exact path="/synth" component={SynthMain} />
@@ -112,6 +112,7 @@ const TileContainer = styled.div`
 `;
 
 const TileStyleMax = {
+  // margin: "25px",
   gridTemplateColumns: "repeat(12, 1fr)",
   gridTemplateRows: "repeat(12, 1fr)",
   gridTemplateAreas: `'title title title about about about  featured featured featured featured featured featured'
@@ -128,6 +129,7 @@ const TileStyleMax = {
 };
 
 const TileStyleMin = {
+  // margin: "10px",
   gridTemplateColumns: "1fr 1fr",
   gridTemplateRows: "repeat(12, 1fr)",
   gridTemplateAreas: `'title title '

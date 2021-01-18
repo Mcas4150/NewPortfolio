@@ -50,6 +50,7 @@ export default class Window extends Component {
 }
 
 const Frame = styled.div`
+  position: relative;
   background-color: #d8d8d8;
   margin: 25px;
   padding: 15px;
@@ -64,7 +65,6 @@ const Frame = styled.div`
 const Title = styled.div`
   background-color: #e7e7e7;
   padding: 5px;
-  height: 25px;
   font-weight: bold;
   font-size: 15px;
   justify-content: center;
