@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
 import { Squiggle } from "./animations/Squiggle";
-import "./app.css";
+import "./App.css";
 
 // import SearchBar from "../containers/search_bar";
 import InfoDiscogs from "./info/info_discogs";
