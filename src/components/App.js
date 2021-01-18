@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
@@ -40,7 +40,7 @@ const App = () => {
 
   return (
     <Router>
-      <Squiggle />
+      <Squiggle dimensions={dimensions}/>
       <TileContainer
         style={
           dimensions.width <= 800 || dimensions.height <= 600
@@ -51,9 +51,8 @@ const App = () => {
         <TitleTile>
           <Title />
         </TitleTile>
-
         <MenuTile>
-          <Menu />
+          <Menu dimensions={dimensions} />
         </MenuTile>
         <AboutTile>
           <AboutWindow title={"Info"}>
@@ -131,9 +130,9 @@ const TileStyleMin = {
   gridTemplateRows: "repeat(10, 1fr)",
   gridTemplateAreas: `'title title '
     'menu menu'
-    'menu menu'
     'about about'
     'about about'
+    'tech tech'
     'tech tech'
     'featured featured'
     'featured featured'
@@ -142,20 +141,16 @@ const TileStyleMin = {
 };
 
 const Tile = styled.div`
-  // overflow: auto
-  // ;
   position: relative;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 `;
 
 const TitleTile = styled(Tile)`
-  // grid-area: 1 / 1 / span 8 / span 8;
   grid-area: title;
 `;
 
 const MenuTile = styled(Tile)`
-  // grid-area: 1 / 2 / span 3 / span 4;
   grid-area: menu;
 `;
 
@@ -166,12 +161,10 @@ const TechTile = styled(Tile)`
 const TechWindow = styled(Window)``;
 
 const AboutTile = styled(Tile)`
-  // grid-area: 4 / 2 / span 4 / span 4;
   grid-area: about;
 `;
 
 const FeaturedTile = styled(Tile)`
-  // grid-area: 1 / 6 / span 7 / span 7;
   grid-area: featured;
 `;
 

@@ -42,10 +42,7 @@ export default class Window extends Component {
           <strong className="cursor">
             <Title>{this.props.title}</Title>
           </strong>
-          <Content>
-            {this.props.children}
-
-          </Content>
+          <Content>{this.props.children}</Content>
         </Frame>
       </Draggable>
     );
@@ -69,6 +66,7 @@ const Title = styled.div`
   padding: 5px;
   height: 25px;
   font-weight: bold;
+  font-size: 15px;
   justify-content: center;
   // margin: 15px;
   border: 1.85px solid black;
@@ -78,6 +76,7 @@ const Content = styled.div`
   background-color: #e7e7e7;
   // margin: 15px;
   margin-top: 15px;
+  font-size: 15px;
   border: 1.85px solid black;
   opacity: 90%;
   height: 100%;

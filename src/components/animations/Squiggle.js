@@ -1,27 +1,7 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect} from "react";
 
-export const Squiggle = () => {
-  const [dimensions, setDimensions] = useState({
-    height: document.documentElement.clientHeight,
-    width: document.documentElement.clientWidth,
-  });
+export const Squiggle = props => {
 
-  useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth
-      })
-
-}
-
-    window.addEventListener('resize', handleResize)
-
-    return _ => {
-      window.removeEventListener('resize', handleResize)
-
-}
-  })
 
   let ref = useRef();
   useEffect(() => {
@@ -93,7 +73,7 @@ export const Squiggle = () => {
   return (
     <canvas
       ref={ref}
-      style={{ width: dimensions.width, height: dimensions.height }}
+      style={{ width: props.dimensions.width, height: props.dimensions.height }}
     />
   );
 };
