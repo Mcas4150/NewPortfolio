@@ -11,9 +11,8 @@
 # production
 /build
 
-
 # api keys
-/src/utils/setAuthToken.js
+# /src/utils/setAuthToken.js
 
 # misc
 .DS_Store
