@@ -17,6 +17,7 @@ export default class Menu extends Component {
         <MenuLink to={{ pathname: `/discogs` }}>Discogs</MenuLink>
         <MenuLink to={{ pathname: `/synth` }}>Scope</MenuLink>
         <MenuLink to={{ pathname: `/projects` }}>Projects</MenuLink>
+        <MenuLink to={{ pathname: `/contact` }}>Contact</MenuLink>
         <MenuLink to={{ pathname: `/cv` }}>CV</MenuLink>
       </MenuContainer>
     );

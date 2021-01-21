@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import Oscilloscope from "./oscilloscope";
 
 const SynthMain = () => {
   let context = new AudioContext();
@@ -10,7 +11,13 @@ const SynthMain = () => {
 
   return (
     <SynthContainer>
-      <button onMouseDown={() => oscillator.start()}>test</button>
+      <button
+        onMouseDown={() => oscillator.start()}
+        // onMouseUp={() => oscillator.stop()}
+      >
+        test
+      </button>
+      <Oscilloscope ctx={context} node={gain} />
     </SynthContainer>
   );
 };

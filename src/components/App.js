@@ -16,6 +16,7 @@ import ProjectsList from "./projects/ProjectsList";
 import SynthMain from "./synth/synthMain";
 import Tech from "./tiles/Tech";
 import Title from "./tiles/Title";
+import Social from "./tiles/social";
 import Window from "./tiles/Window";
 
 const App = () => {
@@ -56,7 +57,7 @@ const App = () => {
           <Menu dimensions={dimensions} />
         </MenuTile>
         <AboutTile>
-          <AboutWindow title={"Info"}>
+          <AboutWindow title={"Info"} dimensions={dimensions}>
             <Switch>
               <Route exact path="/discogs" component={InfoDiscogs} />
               <Route exact path="/synth" component={AboutSynth} />
@@ -70,7 +71,7 @@ const App = () => {
           </AboutWindow>
         </AboutTile>
         <TechTile>
-          <TechWindow title={"Tech"}>
+          <TechWindow title={"Tech"} dimensions={dimensions}>
             <Switch>
               <Route path="/discogs" component={Tech} />
               <Route exact path="/synth" component={Tech} />
@@ -79,7 +80,7 @@ const App = () => {
           </TechWindow>
         </TechTile>
         <FeaturedTile>
-          <FeaturedWindow title={"Title"}>
+          <FeaturedWindow title={"Title"} dimensions={dimensions}>
             <Switch>
               <Route exact path="/discogs" component={ReleasesList} />
               <Route exact path="/synth" component={SynthMain} />
@@ -92,6 +93,10 @@ const App = () => {
             </Switch>
           </FeaturedWindow>
         </FeaturedTile>
+        <SocialTile>
+          {" "}
+          <Social />
+        </SocialTile>
       </TileContainer>
     </Router>
   );
@@ -124,7 +129,9 @@ const TileStyleMax = {
     'menu . . tech tech tech featured featured featured featured featured featured'
     'menu . . tech tech tech featured featured featured featured featured featured'
     'menu . . . . . featured featured featured featured featured featured'
-    'menu . . . . . featured featured featured featured featured featured'`,
+    'menu . . . . . featured featured featured featured featured featured'
+    '. . . . . . . . . . . .'
+    '. . . . . . . . . . . social'`,
   overflowY: "hidden",
 };
 
@@ -173,6 +180,10 @@ const AboutTile = styled(Tile)`
 
 const FeaturedTile = styled(Tile)`
   grid-area: featured;
+`;
+
+const SocialTile = styled(Tile)`
+  grid-area: social;
 `;
 
 const FeaturedWindow = styled(Window)`

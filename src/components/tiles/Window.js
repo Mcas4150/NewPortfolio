@@ -25,19 +25,23 @@ export default class Window extends Component {
   //   });
   // };
 
-  // onStart = () => {
-  //   this.setState({ activeDrags: ++this.state.activeDrags });
-  // };
+  onStart = () => {
+    this.setState({ activeDrags: this.state.activeDrags + 1 });
+  };
 
   // onStop = () => {
   //   this.setState({ activeDrags: --this.state.activeDrags });
   // };
 
   render() {
-    // const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
+    const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
+    let dimensions = this.props.dimensions;
     return (
       // <Draggable handle="strong" {...dragHandlers}>
-      <Draggable handle="strong">
+      <Draggable
+        handle="strong"
+        onStart={() => (dimensions.width < 800 ? false : true)}
+      >
         <Frame>
           <strong className="cursor">
             <Title>{this.props.title}</Title>
