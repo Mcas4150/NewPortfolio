@@ -18,7 +18,7 @@ import Tech from "./tiles/Tech";
 import Title from "./tiles/Title";
 import Social from "./tiles/social";
 import Window from "./tiles/Window";
-import  AppContext  from "./context-file";
+import AppContext from "./context-file";
 
 const App = () => {
   const [dimensions, setDimensions] = useState({
@@ -29,8 +29,8 @@ const App = () => {
   const [showWindow, setShowWindow] = useState(false);
 
   const toggleWindow = () => {
-    setShowWindow(!showWindow)
-  }
+    setShowWindow(!showWindow);
+  };
 
   useEffect(() => {
     function handleResize() {
@@ -49,8 +49,8 @@ const App = () => {
 
   return (
     <Router>
-      <AppContext.Provider value={{ showWindow, toggleWindow }}>
-        <Squiggle dimensions={dimensions} />
+      <AppContext.Provider value={{ showWindow, toggleWindow, dimensions }}>
+        <Squiggle />
         <TileContainer
           style={
             dimensions.width <= 800 || dimensions.height <= 600
@@ -62,10 +62,10 @@ const App = () => {
             <Title />
           </TitleTile>
           <MenuTile>
-            <Menu dimensions={dimensions} />
+            <Menu />
           </MenuTile>
           <AboutTile>
-            <AboutWindow title={"Info"} dimensions={dimensions}>
+            <AboutWindow title={"Info"}>
               <Switch>
                 <Route exact path="/discogs" component={InfoDiscogs} />
                 <Route exact path="/synth" component={AboutSynth} />
@@ -79,7 +79,7 @@ const App = () => {
             </AboutWindow>
           </AboutTile>
           <TechTile>
-            <TechWindow title={"Tech"} dimensions={dimensions}>
+            <TechWindow title={"Tech"}>
               <Switch>
                 <Route path="/discogs" component={Tech} />
                 <Route exact path="/synth" component={Tech} />
@@ -88,7 +88,7 @@ const App = () => {
             </TechWindow>
           </TechTile>
           <FeaturedTile>
-            <FeaturedWindow title={"Title"} dimensions={dimensions}>
+            <FeaturedWindow title={"Title"}>
               <Switch>
                 <Route exact path="/discogs" component={ReleasesList} />
                 <Route exact path="/synth" component={SynthMain} />

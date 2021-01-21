@@ -1,8 +1,8 @@
-import React, { useRef, useEffect} from "react";
+import React, { useRef, useEffect, useContext } from "react";
+import AppContext from "../context-file";
 
-export const Squiggle = props => {
-
-
+export const Squiggle = () => {
+  let context = useContext(AppContext);
   let ref = useRef();
   useEffect(() => {
     let requestId;
@@ -73,12 +73,13 @@ export const Squiggle = props => {
   return (
     <canvas
       ref={ref}
-      style={{ width: props.dimensions.width, height: props.dimensions.height }}
+      style={{
+        width: context.dimensions.width,
+        height: context.dimensions.height,
+      }}
     />
   );
 };
-
-
 
 const getPixelRatio = (context) => {
   var backingStore =
