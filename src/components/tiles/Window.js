@@ -1,19 +1,23 @@
-import React, { Component } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import AppContext from "../context-file";
 import Draggable from "react-draggable";
 
-export default class Window extends Component {
-  state = {
-    activeDrags: 0,
-    deltaPosition: {
-      x: 0,
-      y: 0,
-    },
-    controlledPosition: {
-      x: -400,
-      y: 200,
-    },
-  };
+const Window = (props) => {
+  const [activeDrags, setActiveDrags] = useState(0);
+  const context = useContext(AppContext);
+
+  // state = {
+  //   activeDrags: 0,
+  //   deltaPosition: {
+  //     x: 0,
+  //     y: 0,
+  //   },
+  //   controlledPosition: {
+  //     x: -400,
+  //     y: 200,
+  //   },
+  // // };
 
   // handleDrag = (e, ui) => {
   //   const { x, y } = this.state.deltaPosition;
@@ -25,33 +29,33 @@ export default class Window extends Component {
   //   });
   // };
 
-  onStart = () => {
-    this.setState({ activeDrags: this.state.activeDrags + 1 });
+  const onStart = () => {
+    setActiveDrags(activeDrags + 1);
   };
 
   // onStop = () => {
   //   this.setState({ activeDrags: --this.state.activeDrags });
   // };
 
-  render() {
-    const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
-    let dimensions = this.props.dimensions;
-    return (
-      // <Draggable handle="strong" {...dragHandlers}>
-      <Draggable
-        handle="strong"
-        onStart={() => (dimensions.width < 800 ? false : true)}
-      >
-        <Frame>
-          <strong className="cursor">
-            <Title>{this.props.title}</Title>
-          </strong>
-          <Content>{this.props.children}</Content>
-        </Frame>
-      </Draggable>
-    );
-  }
-}
+  // const dragHandlers = { onStart: this.onStart, onStop: this.onStop };
+  // let dimensions = this.props.dimensions;
+
+  return (
+    // <Draggable handle="strong" {...dragHandlers}>
+    <div>
+      {context.showWindow && (
+        <Draggable handle="strong" onStart={() => true}>
+          <Frame>
+            <strong className="cursor">
+              <Title>{props.title}</Title>
+            </strong>
+            <Content>{props.children}</Content>
+          </Frame>
+        </Draggable>
+      )}
+    </div>
+  );
+};
 
 const Frame = styled.div`
   position: relative;
@@ -92,3 +96,5 @@ const Content = styled.div`
   overflow-x: hidden;
   // overflow: auto;
 `;
+
+export default Window;
