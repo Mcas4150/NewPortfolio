@@ -64,6 +64,7 @@ const Frame = styled.div`
   overflow-y: hidden;
   // overflow-x: hidden;
   opacity: 98%;
+  border-radius: 5px;
 `;
 
 const Title = styled.div`
