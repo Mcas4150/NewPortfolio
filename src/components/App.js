@@ -4,8 +4,6 @@ import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
 import { Squiggle } from "./animations/Squiggle";
 import "./App.css";
-
-// import SearchBar from "../containers/search_bar";
 import InfoDiscogs from "./info/info_discogs";
 import AboutProjects from "./info/about_projects";
 import AboutSynth from "./info/about_synth";
@@ -25,6 +23,11 @@ const App = () => {
     height: document.documentElement.clientHeight,
     width: document.documentElement.clientWidth,
   });
+
+  let TileStyle =
+    dimensions.width <= 800 || dimensions.height <= 600
+      ? TileStyleMin
+      : TileStyleMax;
 
   const [showWindow, setShowWindow] = useState(false);
 
@@ -51,13 +54,7 @@ const App = () => {
     <Router>
       <AppContext.Provider value={{ showWindow, toggleWindow, dimensions }}>
         <Squiggle />
-        <TileContainer
-          style={
-            dimensions.width <= 800 || dimensions.height <= 600
-              ? TileStyleMin
-              : TileStyleMax
-          }
-        >
+        <TileContainer style={TileStyle}>
           <TitleTile>
             <Title />
           </TitleTile>
