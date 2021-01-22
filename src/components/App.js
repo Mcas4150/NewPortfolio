@@ -7,12 +7,14 @@ import "./App.css";
 import InfoDiscogs from "./info/info_discogs";
 import AboutProjects from "./info/about_projects";
 import AboutSynth from "./info/about_synth";
+import InfoAbout from "./info/info_about";
 import ReleasesList from "./discogs/releases_list";
 import ReleasePage from "./discogs/release_page";
 import ReleasePageInfo from "./discogs/release_page_info";
 import ProjectsList from "./projects/ProjectsList";
 import SynthMain from "./synth/synthMain";
 import Tech from "./tiles/Tech";
+import TechData from "./tiles/TechData";
 import Title from "./tiles/Title";
 import Social from "./tiles/social";
 import Window from "./tiles/Window";
@@ -64,6 +66,7 @@ const App = () => {
           <AboutTile>
             <AboutWindow title={"Info"}>
               <Switch>
+                <Route exact path="/about" component={InfoAbout} />
                 <Route exact path="/discogs" component={InfoDiscogs} />
                 <Route exact path="/synth" component={AboutSynth} />
                 <Route exact path="/projects" component={AboutProjects} />
@@ -78,9 +81,18 @@ const App = () => {
           <TechTile>
             <TechWindow title={"Tech"}>
               <Switch>
-                <Route path="/discogs" component={Tech} />
-                <Route exact path="/synth" component={Tech} />
-                <Route exact path="/projects" component={Tech} />
+                <Route exact path="/about" component={Tech}>
+                  {TechData.about}
+                </Route>
+                <Route path="/discogs" component={Tech}>
+                  {TechData.discogs}
+                </Route>
+                <Route exact path="/synth" component={Tech}>
+                  {TechData.synth}
+                </Route>
+                <Route exact path="/projects" component={Tech}>
+                  {TechData.projects}
+                </Route>
               </Switch>
             </TechWindow>
           </TechTile>

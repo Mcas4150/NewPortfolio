@@ -12,7 +12,6 @@ export default class Social extends Component {
       <SocialContainer>
         <SocialIcon icon={["fab", "linkedin"]} />
         <SocialIcon icon={["fab", "github-square"]} />
-        2021
       </SocialContainer>
     );
   }

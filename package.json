@@ -36,6 +36,7 @@
     "redux-thunk": "^2.3.0",
     "scss": "^0.2.4",
     "simplex-noise": "^2.4.0",
+    "tone": "^14.7.77",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
