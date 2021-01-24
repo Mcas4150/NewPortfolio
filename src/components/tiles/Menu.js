@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, {  useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../context-file";
 import styled from "@emotion/styled";
@@ -26,7 +26,7 @@ function Menu(props) {
       <MenuLink to={{ pathname: `/projects` }} onClick={context.toggleWindow}>
         Projects
       </MenuLink>
-      
+
     </MenuContainer>
   );
 }

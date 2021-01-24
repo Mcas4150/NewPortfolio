@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 
 export const WebAudioContext = React.createContext(null);
 export const OutputContext = React.createContext(null);

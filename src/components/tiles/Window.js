@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState } from "react";
 import styled from "@emotion/styled";
 import AppContext from "../context-file";
 import Draggable from "react-draggable";
