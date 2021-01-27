@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import _ from "lodash";
-import { bindActionCreators } from "redux";
+
 import ReleaseListItem from "./release_list_item";
 import {
   fetchCollectionNextPage,
@@ -10,64 +10,59 @@ import {
 import SearchBar from "./search_bar";
 import styled from "@emotion/styled";
 
-class ReleasesList extends Component {
-  constructor(props) {
-    super(props);
+const ReleasesList = () => {
+  const [loading, setLoading] = useState(true);
+  const collection = useSelector((state) => state.collection);
+  const dispatch = useDispatch();
 
-    this.state = { isLoading: false };
-    this.onScroll = this.onScroll.bind(this);
+  useEffect(() => {
+    dispatch(fetchUserCollection(50));
+    // window.addEventListener("scroll", this.onScroll, false);
+  });
+
+  // componentWillUnmount() {
+  //   window.removeEventListener("scroll", this.onScroll, false);
+  // }
+
+  // onScroll() {
+  //   if (
+  //     window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
+  //     _.has(collection, "pagination")
+  //   ) {
+  //     const { pagination } = collection;
+
+  //     if (_.has(pagination.urls, "next") && !loading) {
+  //       dispatch(fetchCollectionNextPage(pagination.urls.next)).then(() => {
+  //        setLoading(false);
+  //       });
+  //       setLoading(true);
+  //     }
+  //   }
+  // }
+
+  const { releases } = collection;
+
+  if (_.isArray(releases) && !_.isEmpty(releases)) {
+    return (
+      <div>
+        <SearchBar />
+        <ReleasesContainer>
+          {releases.map((release) => {
+            const data = release.basic_information;
+
+            return (
+              <div key={data.id} className="col-auto p-0">
+                <ReleaseListItem data={data} />
+              </div>
+            );
+          })}
+        </ReleasesContainer>
+      </div>
+    );
   }
 
-  componentDidMount() {
-    this.props.fetchUserCollection(50);
-    window.addEventListener("scroll", this.onScroll, false);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.onScroll, false);
-  }
-
-  onScroll() {
-    if (
-      window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 &&
-      _.has(this.props.collection, "pagination")
-    ) {
-      const { pagination } = this.props.collection;
-
-      if (_.has(pagination.urls, "next") && !this.state.isLoading) {
-        this.props.fetchCollectionNextPage(pagination.urls.next).then(() => {
-          this.setState({ isLoading: false });
-        });
-        this.setState({ isLoading: true });
-      }
-    }
-  }
-
-  render() {
-    const { releases } = this.props.collection;
-
-    if (_.isArray(releases) && !_.isEmpty(releases)) {
-      return (
-        <div>
-          <SearchBar />
-          <ReleasesContainer>
-            {releases.map((release) => {
-              const data = release.basic_information;
-
-              return (
-                <div key={data.id} className="col-auto p-0">
-                  <ReleaseListItem data={data} />
-                </div>
-              );
-            })}
-          </ReleasesContainer>
-        </div>
-      );
-    }
-
-    return null;
-  }
-}
+  return null;
+};
 
 const ReleasesContainer = styled.div`
   justify-content: center;
@@ -81,15 +76,4 @@ const ReleasesContainer = styled.div`
 }
 `;
 
-function mapDispatchToProps(dispatch) {
-  return bindActionCreators(
-    { fetchCollectionNextPage, fetchUserCollection },
-    dispatch
-  );
-}
-
-function mapStateToProps(state) {
-  return { collection: state.collection };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ReleasesList);
+export default ReleasesList;
