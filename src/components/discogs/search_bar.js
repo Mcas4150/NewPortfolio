@@ -42,15 +42,15 @@ class SearchBar extends Component {
   render() {
     return (
       <SearchBarForm onSubmit={this.onFormSubmit}>
-        {/* <input
+        <input
           placeholder="Type in your discogs username"
           className="form-control rounded"
           onChange={this.onInputChange}
           value={this.state.username}
         />
-        <button type="submit" className="btn btn-primary ml-2">
-          Submit
-        </button> */}
+         <button type="submit" className="btn btn-primary ml-2">
+           Submit
+        </button>
         <SelectionContainer>
           <div className="input-group-prepend">
             <label className="input-group-text" htmlFor="inputGroupSelect01">
