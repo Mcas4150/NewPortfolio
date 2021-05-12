@@ -1,4 +1,4 @@
-import React, {  useContext } from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../context-file";
 import styled from "@emotion/styled";
@@ -15,7 +15,7 @@ function Menu(props) {
       }
     >
       <MenuLink to={{ pathname: `/about` }} onClick={context.toggleWindow}>
-        About
+        Details
       </MenuLink>
       <MenuLink to={{ pathname: `/discogs` }} onClick={context.toggleWindow}>
         Discogs
@@ -26,16 +26,15 @@ function Menu(props) {
       <MenuLink to={{ pathname: `/projects` }} onClick={context.toggleWindow}>
         Projects
       </MenuLink>
-
     </MenuContainer>
   );
 }
 
 const MenuLink = styled(Link)`
   text-decoration: none;
-  font-family: MonumentRegular;
+  font-family: Verdana;
   // font-size: 1rem;
-  font-size: 25px;
+  // font-size: 25px;
   // color:  ;
 `;
 

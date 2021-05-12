@@ -55,7 +55,7 @@ const App = () => {
   return (
     <Router>
       <AppContext.Provider value={{ showWindow, toggleWindow, dimensions }}>
-        <Squiggle />
+        {/* <Squiggle styled={{zIndex: "-1"}}/> */}
         <TileContainer style={TileStyle}>
           <TitleTile>
             <Title />

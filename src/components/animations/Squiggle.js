@@ -76,6 +76,7 @@ export const Squiggle = () => {
       style={{
         width: context.dimensions.width,
         height: context.dimensions.height,
+        position: 'absolute',
       }}
     />
   );

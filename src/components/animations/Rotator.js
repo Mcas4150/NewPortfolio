@@ -8,5 +8,5 @@ export default class Rotator extends Component {
 }
 
 const Letter = styled.div`
-  font-size: 50px;
+  font-size: 1rem;
 `;

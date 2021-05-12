@@ -85,7 +85,7 @@ const Content = styled.div`
   background-color: #e7e7e7;
   // margin: 15px;
   text-align: justify;
-  font-family: calibri;
+  font-family: Verdana;
   margin-top: 15px;
   font-size: 16px;
   padding: 5px;

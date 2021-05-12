@@ -37,7 +37,7 @@ const ReleasesList = () => {
     dispatch(fetchUserCollection(50));
     // window.addEventListener("scroll", this.onScroll, false);
     // getUnique(collection);
-  }, [dispatch] );
+  }, [dispatch]);
 
   // componentWillUnmount() {
   //   window.removeEventListener("scroll", this.onScroll, false);
@@ -64,7 +64,6 @@ const ReleasesList = () => {
       <div>
         <SearchBar />
         <div>
-          ssssssssss
           {uniqueGenres.map((genre) => {
             return <div>{genre}</div>;
           })}
