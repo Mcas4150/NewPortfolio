@@ -4,19 +4,11 @@ import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
 import { Squiggle } from "./animations/Squiggle";
 import "./App.css";
-import InfoDiscogs from "./info/info_discogs";
-import AboutProjects from "./info/about_projects";
-import AboutSynth from "./info/about_synth";
-import InfoAbout from "./info/info_about";
-import ReleasesList from "./discogs/releases_list";
+
 import ReleasePage from "./discogs/release_page";
-import ReleasePageInfo from "./discogs/release_page_info";
+
 import ProjectsList from "./projects/ProjectsList";
-import SynthMain from "./synth/synthMain";
-import Tech from "./tiles/Tech";
-import TechData from "./tiles/TechData";
 import Title from "./tiles/Title";
-import Social from "./tiles/social";
 import Window from "./tiles/Window";
 import AppContext from "./context-file";
 
@@ -55,7 +47,7 @@ const App = () => {
   return (
     <Router>
       <AppContext.Provider value={{ showWindow, toggleWindow, dimensions }}>
-        {/* <Squiggle styled={{zIndex: "-1"}}/> */}
+        <Squiggle styled={{ zIndex: "-1" }} />
         <TileContainer style={TileStyle}>
           <TitleTile>
             <Title />
@@ -63,44 +55,12 @@ const App = () => {
           <MenuTile>
             <Menu />
           </MenuTile>
-          <AboutTile>
-            <AboutWindow title={"Info"}>
-              <Switch>
-                <Route exact path="/about" component={InfoAbout} />
-                <Route exact path="/discogs" component={InfoDiscogs} />
-                <Route exact path="/synth" component={AboutSynth} />
-                <Route exact path="/projects" component={AboutProjects} />
-                <Route
-                  exact
-                  path="/discogs/release/:id"
-                  component={ReleasePageInfo}
-                />
-              </Switch>
-            </AboutWindow>
-          </AboutTile>
-          <TechTile>
-            <TechWindow title={"Tech"}>
-              <Switch>
-                <Route exact path="/about" component={Tech}>
-                  {TechData.about}
-                </Route>
-                <Route path="/discogs" component={Tech}>
-                  {TechData.discogs}
-                </Route>
-                <Route exact path="/synth" component={Tech}>
-                  {TechData.synth}
-                </Route>
-                <Route exact path="/projects" component={Tech}>
-                  {TechData.projects}
-                </Route>
-              </Switch>
-            </TechWindow>
-          </TechTile>
+
           <FeaturedTile>
             <FeaturedWindow title={"Title"}>
               <Switch>
-                <Route exact path="/discogs" component={ReleasesList} />
-                <Route exact path="/synth" component={SynthMain} />
+                {/* <Route exact path="/discogs" component={ReleasesList} />
+                <Route exact path="/synth" component={SynthMain} /> */}
                 <Route exact path="/projects" component={ProjectsList} />
                 <Route
                   exact
@@ -110,10 +70,6 @@ const App = () => {
               </Switch>
             </FeaturedWindow>
           </FeaturedTile>
-          <SocialTile>
-            {" "}
-            <Social />
-          </SocialTile>
         </TileContainer>
       </AppContext.Provider>
     </Router>
@@ -121,10 +77,12 @@ const App = () => {
 };
 
 const TileContainer = styled.div`
+  z-index: 2;
+  opacity: 80%;
   position: absolute;
   top: 0;
   left: 0;
-  // background-color: #f5f4f0;
+  background-color: #407954;
   display: grid;
   margin: auto;
   width: 100%;
@@ -149,7 +107,7 @@ const TileStyleMax = {
     'menu . . . . . featured featured featured featured featured featured'
     'menu . . . . . featured featured featured featured featured featured'
     '. . . . . . . . . . . .'
-    '. . . . . . . . . . . social'`,
+    '. . . . . . . . . . . .'`,
   overflowY: "hidden",
 };
 
@@ -180,6 +138,8 @@ const Tile = styled.div`
 
 const TitleTile = styled(Tile)`
   grid-area: title;
+  z-index: 3;
+  opacity: 100%;
 `;
 
 const MenuTile = styled(Tile)`

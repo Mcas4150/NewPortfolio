@@ -15,14 +15,9 @@ function Menu(props) {
       }
     >
       <MenuLink to={{ pathname: `/about` }} onClick={context.toggleWindow}>
-        Details
+        About
       </MenuLink>
-      <MenuLink to={{ pathname: `/discogs` }} onClick={context.toggleWindow}>
-        Discogs
-      </MenuLink>
-      <MenuLink to={{ pathname: `/synth` }} onClick={context.toggleWindow}>
-        Scope
-      </MenuLink>
+
       <MenuLink to={{ pathname: `/projects` }} onClick={context.toggleWindow}>
         Projects
       </MenuLink>

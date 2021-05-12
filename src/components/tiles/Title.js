@@ -7,17 +7,17 @@ export default class Title extends Component {
     return (
       <TitleBox>
         <Rotator letter="M" />
-        <Rotator letter="I" />
-        <Rotator letter="K" />
-        <Rotator letter="E" />
+        <Rotator letter="i" />
+        <Rotator letter="k" />
+        <Rotator letter="e" />
         <Space />
         <Rotator letter="C" />
-        <Rotator letter="A" />
-        <Rotator letter="S" />
-        <Rotator letter="S" />
-        <Rotator letter="I" />
-        <Rotator letter="D" />
-        <Rotator letter="Y" />
+        <Rotator letter="a" />
+        <Rotator letter="s" />
+        <Rotator letter="s" />
+        <Rotator letter="i" />
+        <Rotator letter="d" />
+        <Rotator letter="y" />
       </TitleBox>
     );
   }
@@ -31,5 +31,5 @@ const TitleBox = styled.div`
 `;
 
 const Space = styled.div`
-  width: 25px;
+  width: 10px;
 `;

@@ -44,9 +44,9 @@ export const Squiggle = () => {
     };
 
     function draw() {
-      context.fillStyle = "white";
+      context.fillStyle = "orange";
       context.fillRect(0, 0, w, h);
-      context.fillStyle = "black";
+      context.strokeStyle = "red";
       let xDiff = 0.5;
       let yDiff = 0.4;
       let step = 20;
@@ -76,7 +76,7 @@ export const Squiggle = () => {
       style={{
         width: context.dimensions.width,
         height: context.dimensions.height,
-        position: 'absolute',
+        position: "absolute",
       }}
     />
   );
