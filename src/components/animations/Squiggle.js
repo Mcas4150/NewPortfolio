@@ -44,7 +44,7 @@ export const Squiggle = () => {
     };
 
     function draw() {
-      context.fillStyle = "orange";
+      context.fillStyle = "grey";
       context.fillRect(0, 0, w, h);
       context.strokeStyle = "red";
       let xDiff = 0.5;

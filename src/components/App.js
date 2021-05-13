@@ -82,7 +82,8 @@ const TileContainer = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #407954;
+  background-color: white;
+  // background-color: #407954;
   display: grid;
   margin: auto;
   width: 100%;
