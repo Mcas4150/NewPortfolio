@@ -50,24 +50,19 @@ const App = () => {
       <AppContext.Provider value={{ showWindow, toggleWindow, dimensions }}>
         <Squiggle styled={{ zIndex: "-1" }} />
         <TileContainer style={TileStyle}>
-          <TitleTile>
-            <Title />
-          </TitleTile>
           <MenuTile>
+            <Title />
             <Menu />
           </MenuTile>
-          <Clear>whata asdg asdg asdg</Clear>
-          <FeaturedTile>
-            <FeaturedWindow title={"Title"}>
-              <Switch>
-                {/* <Route exact path="/discogs" component={ReleasesList} />
+          <Clear></Clear>
+          <Info>
+            <Switch>
+              {/* <Route exact path="/discogs" component={ReleasesList} />
                 <Route exact path="/synth" component={SynthMain} /> */}
-                <Route exact path="/projects" component={ProjectsList} />
-                <Route exact path="/works" component={WorksList} />
-
-              </Switch>
-            </FeaturedWindow>
-          </FeaturedTile>
+              <Route exact path="/projects" component={ProjectsList} />
+              <Route exact path="/works" component={WorksList} />
+            </Switch>
+          </Info>
         </TileContainer>
       </AppContext.Provider>
     </Router>
@@ -93,39 +88,15 @@ const TileContainer = styled.div`
 
 const TileStyleMax = {
   // margin: "25px",
-  gridTemplateColumns: "repeat(12, 1fr) 25px",
-  gridTemplateRows: "repeat(12, 1fr)",
-  gridTemplateAreas: `'title title title about about about  featured featured featured featured featured featured'
-    'menu . . about about about featured featured featured featured featured featured'
-    'menu . . about about about featured featured featured featured featured featured'
-    'menu . . about about about  featured featured featured featured featured featured'
-    'menu . . . . .  featured featured featured featured featured featured'
-    'menu . . clear clear clear featured featured featured featured featured featured'
-    'menu . . tech tech tech featured featured featured featured featured featured'
-    'menu . . tech tech tech featured featured featured featured featured featured'
-    'menu . . . . . featured featured featured featured featured featured'
-    'menu . . . . . featured featured featured featured featured featured'
-    '. . . . . . . . . . . .'
-    '. . . . . . . . . . . .'`,
+  gridTemplateColumns: "250px 3fr",
+  gridTemplateAreas: `'menu info'`,
   overflowY: "hidden",
 };
 
 const TileStyleMin = {
   // margin: "10px",
   gridTemplateColumns: "1fr 1fr",
-  gridTemplateRows: "repeat(12, 1fr)",
-  gridTemplateAreas: `'title title '
-    'menu menu'
-    'about about'
-    'about about'
-    'tech tech'
-    'tech tech'
-    'featured featured'
-    'featured featured'
-    'featured featured'
-    'featured featured'
-    'featured featured'
-    'featured featured'`,
+  gridTemplateAreas: `'menu info'`,
   overflowY: "auto",
 };
 
@@ -136,16 +107,14 @@ const Tile = styled.div`
   opacity: 80%;
 `;
 
+const Info = styled.div`
+  grid-area: info;
+`;
+
 const Clear = styled.div`
   grid-area: clear;
   opacity: 80%;
   z-index: 0;
-`
-
-const TitleTile = styled(Tile)`
-  grid-area: title;
-  z-index: 3;
-  opacity: 100%;
 `;
 
 const MenuTile = styled(Tile)`
@@ -155,8 +124,6 @@ const MenuTile = styled(Tile)`
 const TechTile = styled(Tile)`
   grid-area: tech;
 `;
-
-const TechWindow = styled(Window)``;
 
 const AboutTile = styled(Tile)`
   grid-area: about;
