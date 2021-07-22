@@ -21,6 +21,10 @@ function Menu(props) {
       <MenuLink to={{ pathname: `/projects` }} onClick={context.toggleWindow}>
         Projects
       </MenuLink>
+
+      <MenuLink to={{ pathname: `/works` }} onClick={context.toggleWindow}>
+        Works
+      </MenuLink>
     </MenuContainer>
   );
 }

@@ -5,9 +5,10 @@ import Menu from "./tiles/Menu";
 import { Squiggle } from "./animations/Squiggle";
 import "./App.css";
 
-import ReleasePage from "./discogs/release_page";
+//import ReleasePage from "./discogs/release_page";
 
 import ProjectsList from "./projects/ProjectsList";
+import WorksList from "./works/WorksList";
 import Title from "./tiles/Title";
 import Window from "./tiles/Window";
 import AppContext from "./context-file";
@@ -55,18 +56,15 @@ const App = () => {
           <MenuTile>
             <Menu />
           </MenuTile>
-
+          <Clear>whata asdg asdg asdg</Clear>
           <FeaturedTile>
             <FeaturedWindow title={"Title"}>
               <Switch>
                 {/* <Route exact path="/discogs" component={ReleasesList} />
                 <Route exact path="/synth" component={SynthMain} /> */}
                 <Route exact path="/projects" component={ProjectsList} />
-                <Route
-                  exact
-                  path="/discogs/release/:id"
-                  component={ReleasePage}
-                />
+                <Route exact path="/works" component={WorksList} />
+
               </Switch>
             </FeaturedWindow>
           </FeaturedTile>
@@ -77,8 +75,8 @@ const App = () => {
 };
 
 const TileContainer = styled.div`
-  z-index: 2;
-  opacity: 80%;
+  z-index: 1;
+  opacity: 1;
   position: absolute;
   top: 0;
   left: 0;
@@ -102,7 +100,7 @@ const TileStyleMax = {
     'menu . . about about about featured featured featured featured featured featured'
     'menu . . about about about  featured featured featured featured featured featured'
     'menu . . . . .  featured featured featured featured featured featured'
-    'menu . . tech tech tech featured featured featured featured featured featured'
+    'menu . . clear clear clear featured featured featured featured featured featured'
     'menu . . tech tech tech featured featured featured featured featured featured'
     'menu . . tech tech tech featured featured featured featured featured featured'
     'menu . . . . . featured featured featured featured featured featured'
@@ -135,7 +133,14 @@ const Tile = styled.div`
   position: relative;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
+  opacity: 80%;
 `;
+
+const Clear = styled.div`
+  grid-area: clear;
+  opacity: 80%;
+  z-index: 0;
+`
 
 const TitleTile = styled(Tile)`
   grid-area: title;
@@ -159,6 +164,7 @@ const AboutTile = styled(Tile)`
 
 const FeaturedTile = styled(Tile)`
   grid-area: featured;
+  opacity: 80%;
 `;
 
 const SocialTile = styled(Tile)`
