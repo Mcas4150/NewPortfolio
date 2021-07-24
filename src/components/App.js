@@ -7,6 +7,9 @@ import "./App.css";
 
 //import ReleasePage from "./discogs/release_page";
 
+import WorksList from "./works/WorksList";
+import ProjectsList from "./projects/ProjectsList";
+
 import Title from "./tiles/Title";
 import Info from "./tiles/Info";
 import Window from "./tiles/Window";
@@ -55,7 +58,11 @@ const App = () => {
           </MenuTile>
           <Clear></Clear>
           <InfoTile>
-            <Info />
+            {/* <Info /> */}
+            <Switch>
+              <Route path="/projects/ocean-memory" component={ProjectsList} />
+              <Route path="/works/animation" component={WorksList} />
+            </Switch>
           </InfoTile>
         </TileContainer>
       </AppContext.Provider>
@@ -114,6 +121,5 @@ const Clear = styled.div`
 const MenuTile = styled(Tile)`
   grid-area: menu;
 `;
-
 
 export default App;

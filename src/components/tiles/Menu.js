@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import AppContext from "../context-file";
 import styled from "@emotion/styled";
@@ -6,24 +6,41 @@ import styled from "@emotion/styled";
 function Menu(props) {
   const context = useContext(AppContext);
 
+  const [showProjects, setShowProjects] = useState(false);
+  const [showWorks, setShowWorks] = useState(false);
+
+  const toggleLink = (props) => {
+    if (props === "projects") {
+      setShowProjects(!showProjects);
+    } else if (props === "works") {
+      setShowWorks(!showWorks);
+    }
+  };
+
   return (
     <MenuContainer>
       <MenuCategory>
-        <CategoryLink>Projects</CategoryLink>
-        <LinkContainer>
+        <CategoryLink onClick={() => toggleLink("projects")}>
+          Projects
+        </CategoryLink>
+        <LinkContainer
+          style={showProjects ? { display: "flex" } : { display: "none" }}
+        >
           <MenuLink to={{ pathname: `/projects/ocean-memory` }}>
             Ocean Memory
           </MenuLink>
           <MenuLink to={{ pathname: `/projects/instruments` }}>
-            Instrument Building
+            Instruments
           </MenuLink>
           <MenuLink to={{ pathname: `/projects/software` }}>Software</MenuLink>
           <MenuLink to={{ pathname: `/projects/websites` }}>Websites</MenuLink>
         </LinkContainer>
       </MenuCategory>
       <MenuCategory>
-        <CategoryLink>Works</CategoryLink>
-        <LinkContainer>
+        <CategoryLink onClick={() => toggleLink("works")}>Works</CategoryLink>
+        <LinkContainer
+          style={showWorks ? { display: "flex" } : { display: "none" }}
+        >
           <MenuLink to={{ pathname: `/works/electroacoustics` }}>
             Electroacoustics
           </MenuLink>
@@ -51,7 +68,6 @@ const AboutLink = styled(CategoryLink)`
   margin-top: 20px;
 `;
 const LinkContainer = styled.div`
-  display: flex;
   flex-direction: column;
 `;
 
