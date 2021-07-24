@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
-import { Squiggle } from "./animations/Squiggle";
+import { Squiggle } from "./works/animations/Squiggle";
 import "./App.css";
 
 //import ReleasePage from "./discogs/release_page";
 
-import ProjectsList from "./projects/ProjectsList";
-import WorksList from "./works/WorksList";
 import Title from "./tiles/Title";
+import Info from "./tiles/Info";
 import Window from "./tiles/Window";
 import AppContext from "./context-file";
 
@@ -55,14 +54,9 @@ const App = () => {
             <Menu />
           </MenuTile>
           <Clear></Clear>
-          <Info>
-            <Switch>
-              {/* <Route exact path="/discogs" component={ReleasesList} />
-                <Route exact path="/synth" component={SynthMain} /> */}
-              <Route exact path="/projects" component={ProjectsList} />
-              <Route exact path="/works" component={WorksList} />
-            </Switch>
-          </Info>
+          <InfoTile>
+            <Info />
+          </InfoTile>
         </TileContainer>
       </AppContext.Provider>
     </Router>
@@ -107,7 +101,7 @@ const Tile = styled.div`
   opacity: 80%;
 `;
 
-const Info = styled.div`
+const InfoTile = styled.div`
   grid-area: info;
 `;
 
@@ -121,29 +115,5 @@ const MenuTile = styled(Tile)`
   grid-area: menu;
 `;
 
-const TechTile = styled(Tile)`
-  grid-area: tech;
-`;
-
-const AboutTile = styled(Tile)`
-  grid-area: about;
-`;
-
-const FeaturedTile = styled(Tile)`
-  grid-area: featured;
-  opacity: 80%;
-`;
-
-const SocialTile = styled(Tile)`
-  grid-area: social;
-`;
-
-const FeaturedWindow = styled(Window)`
-  background-color: #d8d8d8;
-`;
-
-const AboutWindow = styled(Window)`
-  background-color: green;
-`;
 
 export default App;

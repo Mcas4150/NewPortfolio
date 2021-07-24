@@ -18,6 +18,7 @@ function Menu(props) {
             Instrument Building
           </MenuLink>
           <MenuLink to={{ pathname: `/projects/software` }}>Software</MenuLink>
+          <MenuLink to={{ pathname: `/projects/websites` }}>Websites</MenuLink>
         </LinkContainer>
       </MenuCategory>
       <MenuCategory>

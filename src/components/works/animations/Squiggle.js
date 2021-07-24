@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useContext } from "react";
-import AppContext from "../context-file";
+import AppContext from "../../context-file";
 
 export const Squiggle = () => {
   let context = useContext(AppContext);
