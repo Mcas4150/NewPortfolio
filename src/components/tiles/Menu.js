@@ -34,7 +34,7 @@ function Menu(props) {
         </LinkContainer>
       </MenuCategory>
 
-      <CategoryLink to={{ pathname: `/about` }}>About</CategoryLink>
+      <AboutLink to={{ pathname: `/about` }}>About</AboutLink>
     </MenuContainer>
   );
 }
@@ -47,15 +47,24 @@ const CategoryLink = styled(Link)`
   color: black;
 `;
 
+const AboutLink = styled(CategoryLink)`
+  margin-top: 20px;
+`;
 const LinkContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
 const MenuLink = styled(Link)`
+  width: fit-content;
   text-decoration: none;
   font-family: Verdana;
   color: black;
+  display: inline-block;
+  &:hover {
+    color: white;
+    background-color: #00b7ff;
+  }
   // font-size: 1rem;
   // font-size: 25px;
   // color:  ;
