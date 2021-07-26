@@ -6,12 +6,14 @@ export default class Software extends Component {
   render() {
     return (
       <div>
-        software<ProphetImg src={Prophet}/>
+        <h1>software</h1>
+        <ProphetImg src={Prophet} />A vst plugin of the Sequential Circuits'
+        Pro-One Monosynth, built using the C++ Juce Framework.
+        <a href="https://github.com/Mcas4150/PropheCPlusPlus">Github</a>
       </div>
     );
   }
 }
-
 
 const ProphetImg = styled.img`
   width: 100%;
