@@ -6,8 +6,8 @@ import styled from "@emotion/styled";
 function Menu(props) {
   const context = useContext(AppContext);
 
-  const [showProjects, setShowProjects] = useState(false);
-  const [showWorks, setShowWorks] = useState(false);
+  const [showProjects, setShowProjects] = useState(true);
+  const [showWorks, setShowWorks] = useState(true);
 
   const toggleLink = (props) => {
     if (props === "projects") {
@@ -69,9 +69,12 @@ const AboutLink = styled(CategoryLink)`
 `;
 const LinkContainer = styled.div`
   flex-direction: column;
+  margin-bottom: 2em;
 `;
 
 const MenuLink = styled(Link)`
+  margin: 3px 3px 2px 0px;
+
   width: fit-content;
   text-decoration: none;
   font-family: Verdana;
@@ -87,7 +90,7 @@ const MenuLink = styled(Link)`
 `;
 
 const MenuContainer = styled.div`
-  margin: 25px;
+  margin: 35px;
   display: flex;
   flex-direction: column;
 `;

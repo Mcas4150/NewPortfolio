@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import Rotator from "../works/animations/Rotator";
+import { Link } from "react-router-dom";
+import Rotator from "../info/works/animations/Rotator";
 import styled from "@emotion/styled";
 
 export default class Title extends Component {
   render() {
     return (
-      <TitleBox>
+      <TitleBox to={{ pathname: `/` }}>
         <Rotator letter="K" />
         <Rotator letter="s" />
         <Rotator letter="c" />
@@ -15,9 +16,11 @@ export default class Title extends Component {
   }
 }
 
-const TitleBox = styled.div`
-  margin: 25px;
-  margin-bottom: 0px;
+const TitleBox = styled(Link)`
+  text-decoration: none;
+  color: black;
+  margin: 35px;
+  margin-bottom: 75px;
   font-weight: bold;
   display: flex;
   flex-direction: row;

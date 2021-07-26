@@ -2,17 +2,12 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
-import { Squiggle } from "./works/animations/Squiggle";
 import "./App.css";
-
-//import ReleasePage from "./discogs/release_page";
-
-import WorksList from "./works/WorksList";
-import ProjectsList from "./projects/ProjectsList";
-
+import WorksList from "./info/works/WorksList";
+import ProjectsList from "./info/projects/ProjectsList";
+import OverviewList from "./info/OverviewList";
+import About from "./info/About";
 import Title from "./tiles/Title";
-import Info from "./tiles/Info";
-import Window from "./tiles/Window";
 import AppContext from "./context-file";
 
 const App = () => {
@@ -50,18 +45,17 @@ const App = () => {
   return (
     <Router>
       <AppContext.Provider value={{ showWindow, toggleWindow, dimensions }}>
-        <Squiggle styled={{ zIndex: "-1" }} />
         <TileContainer style={TileStyle}>
           <MenuTile>
             <Title />
             <Menu />
           </MenuTile>
-          <Clear></Clear>
           <InfoTile>
-            {/* <Info /> */}
             <Switch>
+              <Route path="/" exact component={OverviewList} />
               <Route path="/projects/ocean-memory" component={ProjectsList} />
               <Route path="/works/animation" component={WorksList} />
+              <Route path="/about" component={About} />
             </Switch>
           </InfoTile>
         </TileContainer>
@@ -88,37 +82,23 @@ const TileContainer = styled.div`
 `;
 
 const TileStyleMax = {
-  // margin: "25px",
-  gridTemplateColumns: "250px 3fr",
+  gridTemplateColumns: "250px 750px auto",
   gridTemplateAreas: `'menu info'`,
   overflowY: "hidden",
 };
 
 const TileStyleMin = {
-  // margin: "10px",
   gridTemplateColumns: "1fr 1fr",
   gridTemplateAreas: `'menu info'`,
   overflowY: "auto",
 };
 
-const Tile = styled.div`
-  position: relative;
-  -webkit-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-  opacity: 80%;
-`;
-
 const InfoTile = styled.div`
   grid-area: info;
+  margin: 35px;
 `;
 
-const Clear = styled.div`
-  grid-area: clear;
-  opacity: 80%;
-  z-index: 0;
-`;
-
-const MenuTile = styled(Tile)`
+const MenuTile = styled.div`
   grid-area: menu;
 `;
 
