@@ -4,8 +4,13 @@ import styled from "@emotion/styled";
 import Menu from "./tiles/Menu";
 import "./App.css";
 import WorksList from "./info/works/WorksList";
-import ProjectsList from "./info/projects/ProjectsList";
+import OceanMemory from "./info/projects/OceanMemory";
+import Software from "./info/projects/Software";
 import OverviewList from "./info/OverviewList";
+import Instruments from "./info/projects/Instruments";
+import Websites from "./info/projects/Websites";
+import Electroacoustics  from "./info/works/Electroacoustics";
+import SoundDesign from "./info/works/SoundDesign";
 import About from "./info/About";
 import Title from "./tiles/Title";
 import AppContext from "./context-file";
@@ -53,8 +58,13 @@ const App = () => {
           <InfoTile>
             <Switch>
               <Route path="/" exact component={OverviewList} />
-              <Route path="/projects/ocean-memory" component={ProjectsList} />
+              <Route path="/projects/instruments" component={Instruments} />
+              <Route path="/projects/websites" component={Websites} />
+              <Route path="/projects/software" component={Software} />
+              <Route path="/projects/ocean-memory" component={OceanMemory} />
               <Route path="/works/animation" component={WorksList} />
+              <Route path="/works/electroacoustics" component={Electroacoustics} />
+              <Route path="/works/sound-design" component={SoundDesign} />
               <Route path="/about" component={About} />
             </Switch>
           </InfoTile>
