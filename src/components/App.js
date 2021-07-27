@@ -9,7 +9,7 @@ import Software from "./info/projects/Software";
 import OverviewList from "./info/OverviewList";
 import Instruments from "./info/projects/Instruments";
 import Websites from "./info/projects/Websites";
-import Electroacoustics  from "./info/works/Electroacoustics";
+import Electroacoustics from "./info/works/Electroacoustics";
 import SoundDesign from "./info/works/SoundDesign";
 import About from "./info/About";
 import Title from "./tiles/Title";
@@ -63,7 +63,10 @@ const App = () => {
               <Route path="/projects/software" component={Software} />
               <Route path="/projects/ocean-memory" component={OceanMemory} />
               <Route path="/works/animation" component={WorksList} />
-              <Route path="/works/electroacoustics" component={Electroacoustics} />
+              <Route
+                path="/works/electroacoustics"
+                component={Electroacoustics}
+              />
               <Route path="/works/sound-design" component={SoundDesign} />
               <Route path="/about" component={About} />
             </Switch>
@@ -106,6 +109,7 @@ const TileStyleMin = {
 const InfoTile = styled.div`
   grid-area: info;
   margin: 35px;
+  margin-top: 125px;
 `;
 
 const MenuTile = styled.div`

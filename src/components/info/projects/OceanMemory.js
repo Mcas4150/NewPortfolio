@@ -13,9 +13,11 @@ export default class OceanMemory extends Component {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
-        <a href="https://ccrma.stanford.edu/~brg/soniOM/">
-          Ocean Memory Project
-        </a>
+        <p>
+          <a href="https://ccrma.stanford.edu/~brg/soniOM/">
+            Ocean Memory Project
+          </a>
+        </p>
         <p>
           Coral Reef data measuring gene expression in response to temperature
           fluctuations over a 17-day period was sonified by applying techniques
