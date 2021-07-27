@@ -4,7 +4,7 @@ import AppContext from "../context-file";
 import Draggable from "react-draggable";
 
 const Window = (props) => {
-  const [activeDrags, setActiveDrags] = useState(0);
+  // const [activeDrags, setActiveDrags] = useState(0);
   const context = useContext(AppContext);
 
   // state = {
@@ -29,9 +29,9 @@ const Window = (props) => {
   //   });
   // };
 
-  const onStart = () => {
-    setActiveDrags(activeDrags + 1);
-  };
+  // const onStart = () => {
+  //   setActiveDrags(activeDrags + 1);
+  // };
 
   // onStop = () => {
   //   this.setState({ activeDrags: --this.state.activeDrags });

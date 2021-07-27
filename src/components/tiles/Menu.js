@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-import AppContext from "../context-file";
+// import AppContext from "../context-file";
 import styled from "@emotion/styled";
 
 function Menu(props) {
-  const context = useContext(AppContext);
+  // const context = useContext(AppContext);
 
   const [showProjects, setShowProjects] = useState(true);
   const [showWorks, setShowWorks] = useState(true);
