@@ -4,6 +4,7 @@ export default class OceanMemory extends Component {
   render() {
     return (
       <div>
+        <h1>Ocean Memory Project</h1>
         <iframe
           width="560"
           height="315"
@@ -14,9 +15,11 @@ export default class OceanMemory extends Component {
           allowfullscreen
         ></iframe>
         <p>
+          In spring 2021, I participated in a workshop for the{" "}
           <a href="https://ccrma.stanford.edu/~brg/soniOM/">
             Ocean Memory Project
-          </a>
+          </a>{" "}
+          . ecology through sonification practices.
         </p>
         <p>
           Coral Reef data measuring gene expression in response to temperature

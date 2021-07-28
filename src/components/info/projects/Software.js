@@ -6,7 +6,7 @@ export default class Software extends Component {
   render() {
     return (
       <div>
-        <h1>software</h1>
+        <h1>Software</h1>
         <ProphetImg src={Prophet} />A vst plugin of the Sequential Circuits'
         Pro-One Monosynth, built using the C++ Juce Framework.
         <a href="https://github.com/Mcas4150/PropheCPlusPlus">Github</a>

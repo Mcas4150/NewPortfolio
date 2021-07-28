@@ -4,8 +4,10 @@ export default class Instruments extends Component {
   render() {
     return (
       <div>
-        Current building Sound Sculptures for Stanford's Instrument Building
-        2021 Summer Workshop
+        Currently building Sound Sculptures for Stanford's 2021 Summer Workshop {" "}
+        <a href="https://ccrma.stanford.edu/workshops/designing-physical-interactions">
+          Designing Physical Interactions for Music
+        </a>
       </div>
     );
   }

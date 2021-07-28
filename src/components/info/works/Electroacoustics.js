@@ -4,6 +4,7 @@ export default class Electroacoustics extends Component {
   render() {
     return (
       <div>
+        <h1>Electroacoustics</h1>
         <iframe
           width="100%"
           height="166"

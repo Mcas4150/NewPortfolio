@@ -5,7 +5,7 @@ export default class WorksList extends Component {
   render() {
     return (
       <div>
-        {" "}
+        <h1>Animations</h1>
         <Processing></Processing>
         <iframe
           width="560"
