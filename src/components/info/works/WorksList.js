@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import Processing from "./animations/Processing";
+import styled from "@emotion/styled";
+import Anim from "../../../imgs/TDMovieOut.gif";
 
 export default class WorksList extends Component {
   render() {
     return (
       <div>
         <h1>Animations</h1>
-        <Processing></Processing>
+        {/* <Processing></Processing> */}
+        <AnimImg src={Anim} />
         <iframe
           width="560"
           height="315"
@@ -20,3 +22,8 @@ export default class WorksList extends Component {
     );
   }
 }
+
+const AnimImg = styled.img`
+  width: 100%;
+  height: auto;
+`;
